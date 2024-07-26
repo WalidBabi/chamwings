@@ -57,14 +57,12 @@ def perform_segmentation() -> Dict[str, Any]:
         for cluster in range(3):
             cluster_data = data[data['cluster'] == cluster]
             analysis['clusters'].append({
-                'cluster': {
-                    'size': int(len(cluster_data)),
-                    'avg_age': float(cluster_data['age'].mean()),
-                    'avg_reservations': float(cluster_data['total_reservations'].mean()),
-                    'avg_ticket_price': float(cluster_data['avg_ticket_price'].mean()) if not np.isnan(cluster_data['avg_ticket_price'].mean()) else None,
-                    'avg_total_flights': float(cluster_data['total_flights'].mean()),
-                    'top_countries': cluster_data['country_of_residence'].value_counts().nlargest(5).to_dict()
-                }
+                'size': int(len(cluster_data)),
+                'avg_age': float(cluster_data['age'].mean()),
+                'avg_reservations': float(cluster_data['total_reservations'].mean()),
+                'avg_ticket_price': float(cluster_data['avg_ticket_price'].mean()) if not np.isnan(cluster_data['avg_ticket_price'].mean()) else None,
+                'avg_total_flights': float(cluster_data['total_flights'].mean()),
+                'top_countries': cluster_data['country_of_residence'].value_counts().nlargest(5).to_dict()
             })
 
         return {'success': 'Segmentation completed', 'results': analysis}
