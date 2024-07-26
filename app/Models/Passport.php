@@ -5,25 +5,25 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class Passenger extends Model
+class Passport extends Model
 {
     use HasFactory;
 
-    protected $primaryKey = 'passenger_id';
-    protected $table = 'passengers';
-
+    protected $primaryKey = 'passport_id';
+    protected $table = 'passports';
     protected $fillable = [
-        'user_id',
         'travel_requirement_id',
+        'number',
+        'status',
+        'passport_expiry_date',
+        'passport_issued_country',
+        'passport_image',
     ];
+
+    protected $decryptable = ['number'];
 
     public function travelRequirement()
     {
         return $this->belongsTo(TravelRequirement::class, 'travel_requirement_id', 'travel_requirement_id');
-    }
-
-    public function user()
-    {
-        return $this->belongsTo(User::class, 'user_id', 'user_id');
     }
 }

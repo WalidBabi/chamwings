@@ -14,10 +14,11 @@ class Reservation extends Model
     protected $fillable = [
         'passenger_id',
         'flight_id',
-        'number_of_passengers',
-        'reservation_date',
         'round_trip',
         'status',
+        'is_traveling',
+        'have_companions',
+        'reservation_date',
     ];
 
     public function passenger()

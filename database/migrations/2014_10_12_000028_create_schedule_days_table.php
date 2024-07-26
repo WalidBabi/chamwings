@@ -13,14 +13,13 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('employees', function (Blueprint $table) {
-            $table->id('employee_id');
-            $table->unsignedBigInteger('user_id');
-            $table->string('name');
-            $table->string('job_title');
-            $table->string('department');
+        Schema::create('schedule_days', function (Blueprint $table) {
+            $table->id('schedule_day_id');
+            $table->unsignedBigInteger('flight_id');
+            $table->time('departure_date');
+            $table->time('arrival_date');
 
-            $table->foreign('user_id')->references('user_id')->on('users')->onDelete('cascade');
+            $table->foreign('flight_id')->references('flight_id')->on('flights')->onDelete('cascade');
             $table->timestamps();
         });
     }
@@ -32,6 +31,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('employees');
+        Schema::dropIfExists('schedule_day');
     }
 };

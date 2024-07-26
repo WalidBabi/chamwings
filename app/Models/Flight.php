@@ -12,18 +12,14 @@ class Flight extends Model
     protected $primaryKey = 'flight_id';
     protected $table = 'flights';
     protected $fillable = [
+        'airplane_id',
         'departure_airport',
         'arrival_airport',
-        'airplane_id',
         'flight_number',
-        'departure_date',
-        'arrival_date',
-        'departure_time',
-        'arrival_time',
-        'duration',
         'number_of_reserved_seats',
         'price',
-        'terminal',
+        'departure_terminal',
+        'arrival_terminal',
     ];
 
     public function departureAirport()

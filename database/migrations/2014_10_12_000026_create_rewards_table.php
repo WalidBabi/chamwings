@@ -13,13 +13,11 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('reviews', function (Blueprint $table) {
-            $table->id('review_id');
-            $table->unsignedBigInteger('passenger_id');
-            $table->string('comment');
-            $table->integer('rating');
-
-            $table->foreign('passenger_id')->references('passenger_id')->on('passengers')->onDelete('cascade');
+        Schema::create('rewards', function (Blueprint $table) {
+            $table->id('reward_id');
+            $table->enum('reward_type', ['e.g', 'Free Flight', 'Upgrade']);
+            $table->string('description');
+            $table->integer('cost_in_miles');
             $table->timestamps();
         });
     }
@@ -31,6 +29,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('reviews');
+        Schema::dropIfExists('rewards');
     }
 };
