@@ -15,11 +15,20 @@ return new class extends Migration
     {
         Schema::create('employees', function (Blueprint $table) {
             $table->id('employee_id');
+<<<<<<< HEAD
             $table->unsignedBigInteger('user_profile_id');
             $table->string('job_title');
             $table->string('department');
 
             $table->foreign('user_profile_id')->references('user_profile_id')->on('users_profiles')->onDelete('cascade');
+=======
+            $table->unsignedBigInteger('user_id');
+            $table->string('name');
+            $table->string('job_title');
+            $table->string('department');
+
+            $table->foreign('user_id')->references('user_id')->on('users')->onDelete('cascade');
+>>>>>>> Database-and-Models
             $table->timestamps();
         });
     }
@@ -33,4 +42,8 @@ return new class extends Migration
     {
         Schema::dropIfExists('employees');
     }
+<<<<<<< HEAD
 };
+=======
+};
+>>>>>>> Database-and-Models

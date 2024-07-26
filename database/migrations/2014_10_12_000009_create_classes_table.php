@@ -36,4 +36,8 @@ return new class extends Migration
     {
         Schema::dropIfExists('classes');
     }
+<<<<<<< HEAD
 };
+=======
+};
+>>>>>>> Database-and-Models

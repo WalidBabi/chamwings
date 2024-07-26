@@ -13,11 +13,13 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('airplanes', function (Blueprint $table) {
-            $table->id('airplane_id');
-            $table->string('model');
-            $table->string('manufacturer');
-            $table->string('range');
+        Schema::create('schedule_days', function (Blueprint $table) {
+            $table->id('schedule_day_id');
+            $table->unsignedBigInteger('flight_id');
+            $table->time('departure_date');
+            $table->time('arrival_date');
+
+            $table->foreign('flight_id')->references('flight_id')->on('flights')->onDelete('cascade');
             $table->timestamps();
         });
     }
@@ -29,10 +31,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('airplanes');
+        Schema::dropIfExists('schedule_day');
     }
-<<<<<<< HEAD
 };
-=======
-};
->>>>>>> Database-and-Models
