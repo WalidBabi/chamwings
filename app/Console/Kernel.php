@@ -13,7 +13,7 @@ class Kernel extends ConsoleKernel
      * @var array
      */
     protected $commands = [
-        //
+        \App\Console\Commands\RunSegmentation::class,
     ];
 
     /**
@@ -24,8 +24,14 @@ class Kernel extends ConsoleKernel
      */
     protected function schedule(Schedule $schedule)
     {
-        // $schedule->command('inspire')
-        //          ->hourly();
+        $schedule->command('segmentation:run')
+        ->daily()
+        ->at('02:00')  // Run at 2 AM
+        ->appendOutputTo(storage_path('logs/segmentation.log'));
+        //php artisan segmentation:run
+        //php artisan schedule:list
+        //php artisan schedule:work
+
     }
 
     /**
