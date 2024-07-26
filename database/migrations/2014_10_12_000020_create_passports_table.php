@@ -13,13 +13,15 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('companions', function (Blueprint $table) {
-            $table->id('companion_id');
-            $table->unsignedBigInteger('passenger_id');
+        Schema::create('passports', function (Blueprint $table) {
+            $table->id('passport_id');
             $table->unsignedBigInteger('travel_requirement_id');
-            $table->boolean('infant');
+            $table->text('number');
+            $table->enum('status', ['Active', 'Cancelled']);
+            $table->date('passport_expiry_date');
+            $table->string('passport_issued_country');
+            $table->string('passport_image');
 
-            $table->foreign('passenger_id')->references('passenger_id')->on('passengers')->onDelete('cascade');
             $table->foreign('travel_requirement_id')->references('travel_requirement_id')->on('travel_requirements')->onDelete('cascade');
             $table->timestamps();
         });
@@ -32,6 +34,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('companions');
+        Schema::dropIfExists('passports');
     }
 };

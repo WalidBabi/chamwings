@@ -13,17 +13,13 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('reservations', function (Blueprint $table) {
-            $table->id('reservation_id');
-            $table->unsignedBigInteger('passenger_id');
+        Schema::create('flight_seats', function (Blueprint $table) {
+            $table->id('flight_seat_id');
+            $table->unsignedBigInteger('seat_id');
             $table->unsignedBigInteger('flight_id');
-            $table->boolean('round_trip');
-            $table->enum('status', ['Confirmed', 'Pending', 'Cancelled']);
-            $table->boolean('is_traveling');
-            $table->boolean('have_companions');
-            $table->date('reservation_date');
+            $table->enum('status', ['Occupied', 'Available', 'Selected']);
 
-            $table->foreign('passenger_id')->references('passenger_id')->on('passengers')->onDelete('cascade');
+            $table->foreign('seat_id')->references('seat_id')->on('seats')->onDelete('cascade');
             $table->foreign('flight_id')->references('flight_id')->on('flights')->onDelete('cascade');
             $table->timestamps();
         });
@@ -36,6 +32,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('reservations');
+        Schema::dropIfExists('flight_seats');
     }
 };

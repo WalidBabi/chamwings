@@ -13,14 +13,11 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('employees', function (Blueprint $table) {
-            $table->id('employee_id');
-            $table->unsignedBigInteger('user_id');
-            $table->string('name');
-            $table->string('job_title');
-            $table->string('department');
-
-            $table->foreign('user_id')->references('user_id')->on('users')->onDelete('cascade');
+        Schema::create('earning_rules', function (Blueprint $table) {
+            $table->id('earning_rule_id');
+            $table->unsignedBigInteger('progrma_id');
+            $table->enum('earning_type', ['e.g', 'Per Mile Flown', 'Based On Fare Class']);
+            $table->enum('earning_rate', ['e.g', '1 Mile kilometer', '2x Miles for Business Class']);
             $table->timestamps();
         });
     }
@@ -32,6 +29,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('employees');
+        Schema::dropIfExists('earning_rules');
     }
 };

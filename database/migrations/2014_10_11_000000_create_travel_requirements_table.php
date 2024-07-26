@@ -13,17 +13,16 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('users_profiles', function (Blueprint $table) {
-            $table->id('user_profile_id');
+        Schema::create('travel_requirements', function (Blueprint $table) {
+            $table->id('travel_requirement_id');
             $table->enum('title', ['Mr', 'Ms', 'Mrs']);
             $table->string('first_name');
             $table->string('last_name');
-            $table->string('email')->unique();
-            $table->string('password');
             $table->date('date_of_birth');
             $table->string('address')->nullable();
             $table->string('city')->nullable();
-            $table->string('mobile');
+            $table->integer('id_number')->nullable();
+            $table->string('mobile_during_travel')->nullable();
             $table->integer('age');
             $table->string('gender')->nullable();
             $table->string('nationality')->nullable();
@@ -39,6 +38,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('users_profiles');
+        Schema::dropIfExists('travel_requirements');
     }
 };
