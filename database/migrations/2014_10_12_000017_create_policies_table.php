@@ -20,7 +20,15 @@ return new class extends Migration
             $table->boolean('exchangable');
             $table->date('cancellation_period');
             $table->boolean('refundable');
+<<<<<<< HEAD
 
+=======
+<<<<<<< HEAD
+            
+=======
+
+>>>>>>> Database-and-Models
+>>>>>>> 4d5a7aa1bf14c0f1d78928c68052db2367164b38
             $table->foreign('employee_id')->references('employee_id')->on('employees')->onDelete('cascade');
             $table->timestamps();
         });
