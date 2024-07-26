@@ -22,7 +22,7 @@ return new class extends Migration
             $table->string('passport_issued_country');
             $table->string('passport_image');
 
-            $table->foreign('travel_requirement_id')->references('id')->on('travel_requirements')->onDelete('cascade');
+            $table->foreign('travel_requirement_id')->references('travel_requirement_id')->on('travel_requirements')->onDelete('cascade');
             $table->timestamps();
         });
     }
