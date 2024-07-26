@@ -13,15 +13,15 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('faq', function (Blueprint $table) {
-            $table->id();
-            $table->unsignedBigInteger('employee_id')->nullable();
+        Schema::create('reviews', function (Blueprint $table) {
+            $table->id('review_id');
             $table->unsignedBigInteger('passenger_id');
-            $table->string('question');
-            $table->string('answer')->nullable();
+            $table->unsignedBigInteger('flight_id');
+            $table->string('comment');
+            $table->integer('rating');
 
-            $table->foreign('employee_id')->references('employee_id')->on('employees')->onDelete('cascade');
             $table->foreign('passenger_id')->references('passenger_id')->on('passengers')->onDelete('cascade');
+            $table->foreign('flight_id')->references('flight_id')->on('flights')->onDelete('cascade');
             $table->timestamps();
         });
     }
@@ -33,6 +33,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('faq');
+        Schema::dropIfExists('reviews');
     }
 };
