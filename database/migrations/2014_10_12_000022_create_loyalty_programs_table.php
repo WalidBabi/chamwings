@@ -13,12 +13,10 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('logs', function (Blueprint $table) {
-            $table->id('log_id');
-            $table->unsignedBigInteger('employee_id');
-            $table->string('message');
-
-            $table->foreign('employee_id')->references('employee_id')->on('employees')->onDelete('cascade');
+        Schema::create('loyalty_programs', function (Blueprint $table) {
+            $table->id('loyalty_program_id');
+            $table->string('name');
+            $table->string('descripton');
             $table->timestamps();
         });
     }
@@ -30,6 +28,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('logs');
+        Schema::dropIfExists('loyalty_programs');
     }
 };
