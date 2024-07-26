@@ -13,15 +13,16 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('faq', function (Blueprint $table) {
-            $table->id();
-            $table->unsignedBigInteger('employee_id')->nullable();
+        Schema::create('passenger_memberships', function (Blueprint $table) {
+            $table->id('passenge_membership_id');
             $table->unsignedBigInteger('passenger_id');
-            $table->string('question');
-            $table->string('answer')->nullable();
+            $table->unsignedBigInteger('program_id');
+            $table->string('tier_level');
+            $table->string('miles');
+            $table->date('join_date');
 
-            $table->foreign('employee_id')->references('employee_id')->on('employees')->onDelete('cascade');
             $table->foreign('passenger_id')->references('passenger_id')->on('passengers')->onDelete('cascade');
+            $table->foreign('program_id')->references('loyalty_program_id')->on('loyalty_programs')->onDelete('cascade');
             $table->timestamps();
         });
     }
@@ -33,10 +34,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('faq');
+        Schema::dropIfExists('passenger_memberships');
     }
-<<<<<<< HEAD
 };
-=======
-};
->>>>>>> Database-and-Models

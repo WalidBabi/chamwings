@@ -13,6 +13,7 @@ class Passenger extends Model
     protected $table = 'passengers';
 
     protected $fillable = [
+<<<<<<< HEAD
         'user_profile_id',
         'passenger_info_id',
     ];
@@ -20,5 +21,19 @@ class Passenger extends Model
     public function passengerInfo()
     {
         return $this->belongsTo(PassengerInfo::class, 'passenger_info_id', 'passenger_info_id');
+=======
+        'user_id',
+        'travel_requirement_id',
+    ];
+
+    public function travelRequirement()
+    {
+        return $this->belongsTo(TravelRequirement::class, 'travel_requirement_id', 'travel_requirement_id');
+    }
+
+    public function user()
+    {
+        return $this->belongsTo(User::class, 'user_id', 'user_id');
+>>>>>>> Database-and-Models
     }
 }

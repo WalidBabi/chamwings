@@ -13,11 +13,10 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('airplanes', function (Blueprint $table) {
-            $table->id('airplane_id');
-            $table->string('model');
-            $table->string('manufacturer');
-            $table->string('range');
+        Schema::create('cities', function (Blueprint $table) {
+            $table->id('city_id');
+            $table->string('code');
+            $table->string('city_name');
             $table->timestamps();
         });
     }
@@ -29,10 +28,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('airplanes');
+        Schema::dropIfExists('cities');
     }
-<<<<<<< HEAD
 };
-=======
-};
->>>>>>> Database-and-Models

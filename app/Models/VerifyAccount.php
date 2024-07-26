@@ -21,7 +21,11 @@ class VerifyAccount extends Authenticatable
         'date_of_birth',
         'address',
         'city',
+<<<<<<< HEAD
         'mobile',
+=======
+        'phone',
+>>>>>>> Database-and-Models
         'age',
         'gender',
         'nationality',

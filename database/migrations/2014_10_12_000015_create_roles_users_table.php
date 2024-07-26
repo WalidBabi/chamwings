@@ -33,4 +33,8 @@ return new class extends Migration
     {
         Schema::dropIfExists('roles_users');
     }
+<<<<<<< HEAD
 };
+=======
+};
+>>>>>>> Database-and-Models

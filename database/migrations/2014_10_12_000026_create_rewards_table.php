@@ -13,11 +13,11 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('airplanes', function (Blueprint $table) {
-            $table->id('airplane_id');
-            $table->string('model');
-            $table->string('manufacturer');
-            $table->string('range');
+        Schema::create('rewards', function (Blueprint $table) {
+            $table->id('reward_id');
+            $table->enum('reward_type', ['e.g', 'Free Flight', 'Upgrade']);
+            $table->string('description');
+            $table->integer('cost_in_miles');
             $table->timestamps();
         });
     }
@@ -29,10 +29,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('airplanes');
+        Schema::dropIfExists('rewards');
     }
-<<<<<<< HEAD
 };
-=======
-};
->>>>>>> Database-and-Models

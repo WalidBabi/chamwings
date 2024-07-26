@@ -14,10 +14,18 @@ class Reservation extends Model
     protected $fillable = [
         'passenger_id',
         'flight_id',
+<<<<<<< HEAD
         'number_of_passengers',
         'reservation_date',
         'round_trip',
         'status',
+=======
+        'round_trip',
+        'status',
+        'is_traveling',
+        'have_companions',
+        'reservation_date',
+>>>>>>> Database-and-Models
     ];
 
     public function passenger()
