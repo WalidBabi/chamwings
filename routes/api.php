@@ -1,7 +1,9 @@
 <?php
 
+use App\Http\Controllers\CustomerSegmentationController;
 use App\Http\Controllers\testcontroller;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Route;
 
 /*
 |--------------------------------------------------------------------------
@@ -18,3 +20,5 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
     return $request->user();
 });
 Route::get('/hello', [testcontroller::class, 'test']);
+Route::post('/run-segmentation', [CustomerSegmentationController::class, 'runSegmentation']);
+Route::get('/segmentation-results', [CustomerSegmentationController::class, 'getLatestResults']);
