@@ -13,22 +13,12 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('reservations', function (Blueprint $table) {
-            $table->id('reservation_id');
+        Schema::create('reviews', function (Blueprint $table) {
+            $table->id('review_id');
             $table->unsignedBigInteger('passenger_id');
             $table->unsignedBigInteger('flight_id');
-<<<<<<< HEAD
-            $table->integer('number_of_passengers');
-            $table->date('reservation_date');
-            $table->boolean('round_trip');
-            $table->enum('status', ['Confirmed', 'Pending', 'Canceled']);
-=======
-            $table->boolean('round_trip');
-            $table->enum('status', ['Confirmed', 'Pending', 'Cancelled']);
-            $table->boolean('is_traveling');
-            $table->boolean('have_companions');
-            $table->date('reservation_date');
->>>>>>> Database-and-Models
+            $table->string('comment');
+            $table->integer('rating');
 
             $table->foreign('passenger_id')->references('passenger_id')->on('passengers')->onDelete('cascade');
             $table->foreign('flight_id')->references('flight_id')->on('flights')->onDelete('cascade');
@@ -43,6 +33,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('reservations');
+        Schema::dropIfExists('reviews');
     }
 };

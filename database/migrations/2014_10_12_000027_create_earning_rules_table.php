@@ -13,11 +13,11 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('airplanes', function (Blueprint $table) {
-            $table->id('airplane_id');
-            $table->string('model');
-            $table->string('manufacturer');
-            $table->string('range');
+        Schema::create('earning_rules', function (Blueprint $table) {
+            $table->id('earning_rule_id');
+            $table->unsignedBigInteger('progrma_id');
+            $table->enum('earning_type', ['e.g', 'Per Mile Flown', 'Based On Fare Class']);
+            $table->enum('earning_rate', ['e.g', '1 Mile kilometer', '2x Miles for Business Class']);
             $table->timestamps();
         });
     }
@@ -29,10 +29,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('airplanes');
+        Schema::dropIfExists('earning_rules');
     }
-<<<<<<< HEAD
 };
-=======
-};
->>>>>>> Database-and-Models

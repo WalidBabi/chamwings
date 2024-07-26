@@ -31,4 +31,8 @@ return new class extends Migration
     {
         Schema::dropIfExists('airports');
     }
+<<<<<<< HEAD
 };
+=======
+};
+>>>>>>> Database-and-Models
