@@ -35,4 +35,12 @@ return new class extends Migration
     {
         Schema::dropIfExists('faq');
     }
+<<<<<<< HEAD
 };
+=======
+<<<<<<< HEAD
+};
+=======
+};
+>>>>>>> Database-and-Models
+>>>>>>> 4d5a7aa1bf14c0f1d78928c68052db2367164b38

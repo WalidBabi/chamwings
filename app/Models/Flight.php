@@ -18,8 +18,17 @@ class Flight extends Model
         'flight_number',
         'number_of_reserved_seats',
         'price',
+        'terminal',
+=======
+        'airplane_id',
+        'departure_airport',
+        'arrival_airport',
+        'flight_number',
+        'number_of_reserved_seats',
+        'price',
         'departure_terminal',
         'arrival_terminal',
+>>>>>>> Database-and-Models
     ];
 
     public function departureAirport()
