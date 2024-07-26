@@ -20,5 +20,5 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
     return $request->user();
 });
 Route::get('/hello', [testcontroller::class, 'test']);
-Route::post('/run-segmentation', [CustomerSegmentationController::class, 'runSegmentation']);
+Route::get('/run-segmentation', [CustomerSegmentationController::class, 'runSegmentation']);
 Route::get('/segmentation-results', [CustomerSegmentationController::class, 'getLatestResults']);
