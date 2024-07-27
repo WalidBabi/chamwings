@@ -16,9 +16,9 @@ return new class extends Migration
         CREATE VIEW customer_segmentation AS
         SELECT 
             p.passenger_id,
-            up.age,
-            up.gender,
-            up.country_of_residence,
+            tr.age,
+            tr.gender,
+            tr.country_of_residence,
             COUNT(r.reservation_id) AS total_reservations,
             AVG(f.price) AS avg_ticket_price,
             SUM(CASE WHEN c.class_name = 'Economy' THEN 1 ELSE 0 END) AS economy_flights,
@@ -26,12 +26,12 @@ return new class extends Migration
             COUNT(DISTINCT f.flight_id) AS total_flights
         FROM 
             passengers p
-            JOIN users_profiles up ON p.user_profile_id = up.user_profile_id
+            JOIN travel_requirements tr ON p.travel_requirement_id = tr.travel_requirement_id
             LEFT JOIN reservations r ON p.passenger_id = r.passenger_id
             LEFT JOIN flights f ON r.flight_id = f.flight_id
             LEFT JOIN classes c ON f.airplane_id = c.airplane_id
         GROUP BY 
-            p.passenger_id, up.age, up.gender, up.country_of_residence
+            p.passenger_id, tr.age, tr.gender, tr.country_of_residence
     ");
     }
 
@@ -43,3 +43,4 @@ return new class extends Migration
         DB::statement("DROP VIEW IF EXISTS customer_segmentation");
     }
 };
+//JOIN users_profiles up ON p.user_profile_id = up.user_profile_id
