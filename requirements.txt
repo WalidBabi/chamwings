@@ -1,0 +1,17 @@
+langchain
+langchain_community
+chromadb
+sentence_transformers
+PyPDF2
+typing_extensions
+
+
+
+langchain_openai
+openai 
+sqlalchemy
+mysqlclient
+mysql-connector-python
+pandas
+scikit-learn
+

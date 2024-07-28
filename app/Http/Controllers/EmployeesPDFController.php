@@ -2,12 +2,9 @@
 
 namespace App\Http\Controllers;
 
-use App\Model\Pdf;
-
+use App\Models\Pdf;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
-use Symfony\Component\Process\Process;
-use Symfony\Component\Process\Exception\ProcessFailedException;
 
 class EmployeesPDFController extends Controller
 {
@@ -16,56 +13,33 @@ class EmployeesPDFController extends Controller
         $request->validate([
             'pdf' => 'required|file|mimes:pdf',
         ]);
-
+        set_time_limit(600);  // Set to 10 minutes
         $file = $request->file('pdf');
         $path = Storage::putFile('pdfs', $file);
         $storagePath = storage_path('app/' . $path);
 
         // Use environment variables for paths
-        $pythonPath = env('PYTHON_PATH', 'python');
-        $scriptPath = env('PDF_INGEST_SCRIPT_PATH', 'Employee_ingest_pdf_script.py');
+        $pythonPath = escapeshellarg(env('PYTHON_PATH', 'python'));
+        $scriptPath = escapeshellarg(env('PDF_INGEST_SCRIPT_PATH', 'Employee_ingest_pdf_script.py'));
 
-        $process = new Process([$pythonPath, $scriptPath, $storagePath]);
-        $process->setWorkingDirectory(getcwd());
-        $process->setTimeout(300);
+        // Construct the command
+        $command = "$pythonPath $scriptPath " . escapeshellarg($storagePath);
 
+        \Log::info('Executing command: ' . $command);
 
-        $process->setEnv([
-            'PYTHONUNBUFFERED' => '1',
-            'PYTHONIOENCODING' => 'UTF-8',
-            'PYTHONHASHSEED' => '0',
-            'PYTHONPATH' => 'C:\\Users\\waled\\AppData\\Roaming\\Python\\Python312\\site-packages'
-        ]);
+        // Execute the command
+        $output = shell_exec($command . ' 2>&1');
 
-        \Log::info('Executing command: ' . $process->getCommandLine());
-        \Log::info('Current working directory: ' . $process->getWorkingDirectory());
-
-        try {
-            $process->mustRun(function ($type, $buffer) {
-                $type === Process::ERR ? \Log::error($buffer) : \Log::info($buffer);
-            });
-
-            \Log::info('Saving PDF to database');
-            $pdf = Pdf::create([
+        if (strpos($output, 'PDF ingested successfully') !== false) {
+            \Log::info('PDF ingested successfully', ['output' => $output]);
+            Pdf::create([
                 'filename' => $file->getClientOriginalName(),
                 'path' => $path,
             ]);
-
-            \Log::info('PDF saved to database', ['pdf' => $pdf]);
-
             return response()->json(['message' => 'PDF ingested successfully']);
-        } catch (ProcessFailedException $exception) {
-            \Log::error('PDF ingestion failed', [
-                'command' => $process->getCommandLine(),
-                'output' => $process->getOutput(),
-                'errorOutput' => $process->getErrorOutput(),
-            ]);
-
-            return response()->json([
-                'error' => 'PDF ingestion failed',
-                'details' => $process->getErrorOutput(),
-                'output' => $process->getOutput(),
-            ], 500);
+        } else {
+            \Log::error('PDF ingestion failed', ['output' => $output]);
+            return response()->json(['error' => 'PDF ingestion failed', 'details' => $output], 500);
         }
     }
 
@@ -78,11 +52,12 @@ class EmployeesPDFController extends Controller
     public function deletePDF($id)
     {
         $pdf = Pdf::findOrFail($id);
-
+        $pdfPath = $pdf->path;
         // Extract the PDF file name without extension
-        $pdfName = pathinfo($pdf->filename, PATHINFO_FILENAME);
+        $pdfName = pathinfo($pdfPath, PATHINFO_FILENAME);
+        // dd($pdfName);
         $persistDirectory = 'C:/Users/waled/Desktop/chamwings/EmployeeChatBot/vectorstore/' . $pdfName;
-
+        
         // Delete the PDF file from storage
         Storage::delete($pdf->path);
 
@@ -94,7 +69,21 @@ class EmployeesPDFController extends Controller
 
         return response()->json(['message' => 'PDF deleted successfully']);
     }
+
+    protected function deleteDirectory($directory)
+    {
+        if (is_dir($directory)) {
+            $files = array_diff(scandir($directory), array('.', '..'));
+
+            foreach ($files as $file) {
+                (is_dir("$directory/$file")) ? $this->deleteDirectory("$directory/$file") : unlink("$directory/$file");
+            }
+
+            rmdir($directory);
+        }
+    }
 }
+
 // C:/Users/waled/AppData/Local/Programs/Python/Python312/python.exe c:/Users/waled/Desktop/chamwings/EmployeeChatBot/Employee_chat_script.py "what is application development?"
 //C:/Users/waled/AppData/Local/Programs/Python/Python312/python.exe C:/Users/waled/Desktop/chamwings/EmployeeChatBot/Employee_ingest_pdf_script.py C:\Users\waled\Desktop\chamwings\application_development.pdf
 
