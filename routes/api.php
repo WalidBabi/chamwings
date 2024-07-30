@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\EmployeesPDFController;
+use App\Http\Controllers\CustomerSegmentationController;
 use App\Http\Controllers\testcontroller;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
@@ -19,6 +20,9 @@ use Illuminate\Support\Facades\Route;
 Route::middleware('auth:api')->get('/user', function (Request $request) {
     return $request->user();
 });
+Route::get('/hello', [testcontroller::class, 'test']);
+Route::get('/run-segmentation', [CustomerSegmentationController::class, 'runSegmentation']);
+Route::get('/segmentation-results', [CustomerSegmentationController::class, 'getLatestResults']);
 
 
 Route::post('/ingest-pdf', [EmployeesPDFController::class, 'employeeIngestPDF']);
