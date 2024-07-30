@@ -32,9 +32,17 @@ class EmployeesPDFController extends Controller
 
         if (strpos($output, 'PDF ingested successfully') !== false) {
             \Log::info('PDF ingested successfully', ['output' => $output]);
-            Pdf::create([
+            $pdf = Pdf::create([
                 'filename' => $file->getClientOriginalName(),
                 'path' => $path,
+            ]);
+            // Retrieve the PDF information from the database
+            $pdfRecord = Pdf::find($pdf->id);
+
+            // Return the PDF information
+            return response()->json([
+                'message' => 'PDF ingested successfully',
+                'pdf' => $pdf
             ]);
             return response()->json(['message' => 'PDF ingested successfully']);
         } else {
@@ -57,7 +65,7 @@ class EmployeesPDFController extends Controller
         $pdfName = pathinfo($pdfPath, PATHINFO_FILENAME);
         // dd($pdfName);
         $persistDirectory = 'C:/Users/waled/Desktop/chamwings/EmployeeChatBot/vectorstore/' . $pdfName;
-        
+
         // Delete the PDF file from storage
         Storage::delete($pdf->path);
 
@@ -84,7 +92,7 @@ class EmployeesPDFController extends Controller
     }
 }
 
-// C:/Users/waled/AppData/Local/Programs/Python/Python312/python.exe c:/Users/waled/Desktop/chamwings/EmployeeChatBot/Employee_chat_script.py "what is application development?"
+//C:/Users/waled/AppData/Local/Programs/Python/Python312/python.exe c:/Users/waled/Desktop/chamwings/EmployeeChatBot/Employee_chat_script.py "what is application development?"
 //C:/Users/waled/AppData/Local/Programs/Python/Python312/python.exe C:/Users/waled/Desktop/chamwings/EmployeeChatBot/Employee_ingest_pdf_script.py C:\Users\waled\Desktop\chamwings\application_development.pdf
 
 //upload_max_filesize = 10M
