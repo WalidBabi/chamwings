@@ -93,11 +93,16 @@ Route::middleware('check-auth')->prefix('/')->group(function () {
         Route::middleware('manage-employee')->group(function () {
             Route::post('/', [EmployeeController::class, 'addEmployee']);
             Route::put('/{employee}', [EmployeeController::class, 'updateEmployee']);
-            Route::delete('/{user}', [EmployeeController::class, 'deleteEmployee']);
+            Route::delete('/{employee}', [EmployeeController::class, 'deleteEmployee']);
+            Route::post('/update-email/{employee}/{email}', [EmployeeController::class, 'updateEmail']);
         });
         Route::middleware('read-employee')->group(function () {
             Route::get('/', [EmployeeController::class, 'getEmployees']);
             Route::get('/{employee}', [EmployeeController::class, 'getEmployeeInformation']);
+        });
+        Route::middleware('manage-employee')->prefix('roles')->group(function () {
+            Route::delete('/{employee}', [EmployeeController::class, 'deleteRoles']);
+            Route::post('/{employee}', [EmployeeController::class, 'addRoles']);
         });
     });
 
@@ -105,4 +110,17 @@ Route::middleware('check-auth')->prefix('/')->group(function () {
         Route::get('/', [RoleController::class, 'getRoles']);
         Route::get('/{role}', [RoleController::class, 'getRoleInformation']);
     });
+
+    /****************************** Need Editing ******************************/
+    // Route::prefix('reservations')->group(function () {
+    //     Route::middleware('manage-reservation')->prefix('/')->group(function () {
+    //         Route::post('/', [ReservationController::class, 'createReservation']);
+    //         Route::put('/{reservation}', [ReservationController::class, 'updateReservation']);
+    //     });
+    //     Route::middleware('read-reservation')->prefix('/')->group(function () {
+    //         Route::get('/', [ReservationController::class, 'getReservations']);
+    //         Route::get('/{reservation}', [ReservationController::class, 'getReservationInformation']);
+    //     });
+    // });
+    /****************************** End ******************************/
 });
