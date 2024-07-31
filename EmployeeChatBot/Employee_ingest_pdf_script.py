@@ -22,8 +22,8 @@ def ingest_pdf(file_path):
     print(f"Processing file: {file_path}")
 
     pdf_name = os.path.splitext(os.path.basename(file_path))[0]
-    persist_directory = os.path.join("C:/Users/waled/Desktop/chamwings/EmployeeChatBot/vectorstore", pdf_name)
-
+    persist_directory = os.path.join("C:/Users/waled/Desktop/chamwings/EmployeeChatBot/vectorstore/", pdf_name)
+    
     try:
         loader = PyPDFLoader(file_path)
         docs = loader.load()
@@ -45,7 +45,7 @@ def ingest_pdf(file_path):
     try:
         embedding_function = SentenceTransformerEmbeddings(model_name="all-MiniLM-L6-v2")
         vectorstore = Chroma.from_documents(documents=splits, embedding=embedding_function, persist_directory=persist_directory)
-        vectorstore.persist()
+        # vectorstore.persist()
     except Exception as e:
         print(f"Error creating vectorstore: {e}")
         print("Traceback:")
