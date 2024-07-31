@@ -10,7 +10,7 @@ class EmployeesChatController extends Controller
     public function chat(Request $request)
     {
         $input = $request->input('input');
-
+        set_time_limit(1800); // Sets the maximum execution time to unlimited
         // Log the received input
         Log::info('Received input for chat processing:', ['input' => $input]);
 
