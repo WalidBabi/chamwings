@@ -13,8 +13,17 @@ class EmployeesPDFController extends Controller
         $request->validate([
             'pdf' => 'required|file|mimes:pdf',
         ]);
+
         set_time_limit(600);  // Set to 10 minutes
         $file = $request->file('pdf');
+        $filename = $file->getClientOriginalName();
+
+        // Check if a PDF with the same name already exists
+        if (Pdf::where('filename', $filename)->exists()) {
+            return response()->json(['error' => 'A PDF with this name already exists. Please rename the file and try again.'], 409);
+        }
+
+        // Save the PDF file
         $path = Storage::putFile('pdfs', $file);
         $storagePath = storage_path('app/' . $path);
 
@@ -30,26 +39,30 @@ class EmployeesPDFController extends Controller
         // Execute the command
         $output = shell_exec($command . ' 2>&1');
 
+        // Check for successful ingestion
         if (strpos($output, 'PDF ingested successfully') !== false) {
             \Log::info('PDF ingested successfully', ['output' => $output]);
+
             $pdf = Pdf::create([
-                'filename' => $file->getClientOriginalName(),
+                'filename' => $filename,
                 'path' => $path,
             ]);
+
             // Retrieve the PDF information from the database
             $pdfRecord = Pdf::find($pdf->id);
 
             // Return the PDF information
             return response()->json([
                 'message' => 'PDF ingested successfully',
-                'pdf' => $pdf
-            ]);
-            return response()->json(['message' => 'PDF ingested successfully']);
+                'pdf' => $pdfRecord
+            ], 200);
         } else {
+            // Handle general ingestion failure
             \Log::error('PDF ingestion failed', ['output' => $output]);
-            return response()->json(['error' => 'PDF ingestion failed', 'details' => $output], 500);
+            return response()->json(['error' => 'PDF could not be read provide it in English and not written by hand .', 'details' => $output], 500);
         }
     }
+
 
     public function getPDFs()
     {
@@ -75,7 +88,7 @@ class EmployeesPDFController extends Controller
         // Delete the PDF record from the database
         $pdf->delete();
 
-        return response()->json(['message' => 'PDF deleted successfully']);
+        return response()->json(['message' => 'PDF deleted successfully'], 200);
     }
 
     protected function deleteDirectory($directory)
