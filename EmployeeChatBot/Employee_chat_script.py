@@ -50,8 +50,11 @@ def chat(input_text):
     chain = rag_chain.pick("answer")
 
     response = ""
-    for chunk in chain.stream({"input": input_text}):
-        response += chunk
+    #json
+    for chunk in rag_chain.stream({"input":input_text}):
+        print(chunk)
+    # for chunk in chain.stream({"input": input_text}):
+    #     response += chunk
 
     return response
 
@@ -64,10 +67,10 @@ if __name__ == "__main__":
     response = chat(input_text)
     
     # Create a JSON object with the input and response
-    output = {
-        "input": input_text,
-        "response": response
-    }
+    # output = {
+    #     "input": input_text,
+    #     "response": response
+    # }
     
-    # Print the JSON-formatted string
-    print(json.dumps(output, ensure_ascii=False))
+    # # Print the JSON-formatted string
+    # print(json.dumps(output, ensure_ascii=False))
