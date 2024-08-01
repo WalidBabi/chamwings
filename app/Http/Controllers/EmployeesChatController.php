@@ -44,7 +44,7 @@ class EmployeesChatController extends Controller
 
             // Continuously read the output from the process
             while ($output = fgets($pipes[1])) {
-                echo "data: " . json_encode(['answer' => $output]) . "\n\n";
+                echo "data: " . json_encode([$output]) . "\n\n";
                 ob_flush();
                 flush();
             }
