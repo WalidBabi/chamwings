@@ -23,7 +23,7 @@ class EmployeesPDFController extends Controller
             return response()->json(['error' => 'A PDF with this name already exists. Please rename the file and try again.'], 409);
         }
 
-        // Save the PDF file
+        // Save the PDF file temporarily
         $path = Storage::putFile('pdfs', $file);
         $storagePath = storage_path('app/' . $path);
 
@@ -43,6 +43,7 @@ class EmployeesPDFController extends Controller
         if (strpos($output, 'PDF ingested successfully') !== false) {
             \Log::info('PDF ingested successfully', ['output' => $output]);
 
+            // Create the PDF record in the database
             $pdf = Pdf::create([
                 'filename' => $filename,
                 'path' => $path,
@@ -59,7 +60,27 @@ class EmployeesPDFController extends Controller
         } else {
             // Handle general ingestion failure
             \Log::error('PDF ingestion failed', ['output' => $output]);
-            return response()->json(['error' => 'PDF could not be read provide it in English and not written by hand .', 'details' => $output], 500);
+
+            // Extract the PDF file name without extension
+            $pdfName = pathinfo($path, PATHINFO_FILENAME);
+
+            // Get the persist directory base path from the .env file
+            $persistDirectoryBase = env('PERSIST_DIRECTORY');
+
+            // Construct the full path to the persist directory
+            $persistDirectory = rtrim($persistDirectoryBase, '/') . '/' . $pdfName;
+            // dd($persistDirectory);
+            // Delete the temporarily saved PDF since it's not valid
+            Storage::delete($path);
+
+            // Delete the associated persist directory
+            $this->deleteDirectory($persistDirectory);
+
+            // Return an error response
+            return response()->json([
+                'error' => 'PDF could not be read. Provide it in English and ensure it is not handwritten.',
+                'details' => $output
+            ], 500);
         }
     }
 
@@ -74,10 +95,15 @@ class EmployeesPDFController extends Controller
     {
         $pdf = Pdf::findOrFail($id);
         $pdfPath = $pdf->path;
+
         // Extract the PDF file name without extension
         $pdfName = pathinfo($pdfPath, PATHINFO_FILENAME);
-        // dd($pdfName);
-        $persistDirectory = 'C:/Users/waled/Desktop/chamwings/EmployeeChatBot/vectorstore/' . $pdfName;
+
+        // Get the persist directory base path from the .env file
+        $persistDirectoryBase = env('PERSIST_DIRECTORY');
+
+        // Construct the full path to the persist directory
+        $persistDirectory = rtrim($persistDirectoryBase, '/') . '/' . $pdfName;
 
         // Delete the PDF file from storage
         Storage::delete($pdf->path);
