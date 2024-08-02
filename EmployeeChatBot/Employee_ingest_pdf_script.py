@@ -1,7 +1,10 @@
 import sys
 import os
 import traceback
+from dotenv import load_dotenv
 
+# Load environment variables from .env file
+load_dotenv()
 def print_environment():
     print("Python version:", sys.version)
     print("Python path:", sys.executable)
@@ -22,8 +25,14 @@ def ingest_pdf(file_path):
     print(f"Processing file: {file_path}")
 
     pdf_name = os.path.splitext(os.path.basename(file_path))[0]
-    persist_directory = os.path.join("C:/Users/waled/Desktop/chamwings/EmployeeChatBot/vectorstore/", pdf_name)
     
+    persist_directory_base = os.getenv("PERSIST_DIRECTORY")
+
+    if not persist_directory_base:
+        print("Error: PERSIST_DIRECTORY is not set in the .env file")
+        sys.exit(1)
+
+    persist_directory = os.path.join(persist_directory_base, pdf_name)
     try:
         loader = PyPDFLoader(file_path)
         docs = loader.load()
