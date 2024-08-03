@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\ChatController;
 use App\Http\Controllers\EmployeesPDFController;
 use App\Http\Controllers\CustomerSegmentationController;
 use App\Http\Controllers\EmployeesChatController;
@@ -30,4 +31,8 @@ Route::post('/ingest-pdf', [EmployeesPDFController::class, 'employeeIngestPDF'])
 Route::get('/pdfs', [EmployeesPDFController::class, 'getPDFs']);
 Route::delete('/pdfs/{id}', [EmployeesPDFController::class, 'deletePDF']);
 
-Route::post('/chat', [EmployeesChatController::class, 'chat']);
+Route::post('/send-message', [ChatController::class, 'sendMessage']);
+Route::get('/chathistory', [ChatController::class, 'getChatHistory']);
+
+Route::post('/store-chat-history', [ChatController::class, 'storeChatHistory']);
+Route::get('/chat-history/{userId}', [ChatController::class, 'getChatHistory']);

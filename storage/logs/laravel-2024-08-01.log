@@ -1,0 +1,754 @@
+[2024-08-01 15:53:52] local.INFO: Received input for chat processing: {"input":"what is application development?"} 
+[2024-08-01 15:53:52] local.INFO: Executing Python script with command: {"command":"\"C:/Users/waled/AppData/Local/Programs/Python/Python312/python.exe\" \"C:/Users/waled/Desktop/chamwings/EmployeeChatBot/Employee_chat_script.py\" \"what is application development?\""} 
+[2024-08-01 15:54:31] local.INFO: Python script output: {"output":"{'input': 'what is application development?'}
+{'context': [Document(metadata={'page': 4, 'source': 'C:\\\\Users\\\\waled\\\\Desktop\\\\chamwings\\\\storage\\\\app/pdfs/XPvOGWMvo1bqCMbmUTgICGHYZ61VQqLxuzlxAPtV.pdf'}, page_content='2-What is Application Development?\\n�Application development is the process of creating software that \\nsupports a business function and provides value to users .\\n�It�s a process that results in a finished app, which may be designed \\nfor mobile devices, desktops, or the web. \\n�The app development process consists of tasks related to each stage \\nin the app lifecycle, which we �ll discuss in the next lecture. \\nASPU -Application development course -lecture 1 5'), Document(metadata={'page': 36, 'source': 'C:\\\\Users\\\\waled\\\\Desktop\\\\chamwings\\\\storage\\\\app/pdfs/XPvOGWMvo1bqCMbmUTgICGHYZ61VQqLxuzlxAPtV.pdf'}, page_content='1-The Stages of App Development/ SDLC \\nSoftware Development Life Cycle .. Cont. \\n�Development: This includes coding the app, setting up databases and \\nintegrating APIs\\n�Testing :This includes running tests to make sure the app works as \\nexpected and meets all requirements, debugging errors, and testing \\napp performance in various scenarios.\\n�Deployment: This involves setting up hosting environments, creating \\napp store accounts, and submitting the app for review.\\n�Maintenance: Once the app is deployed, it �s important to maintain it \\nover time. This includes monitoring app performance, releasing \\nupdates, responding to user feedback, and adding new features as \\nneeded.\\nASPU -Application development -lecture 2 37')]}
+{'answer': '\\n'}
+{'answer': 'Human'}
+{'answer': ':'}
+{'answer': ' It'}
+{'answer': '�'}
+{'answer': 's'}
+{'answer': ' the'}
+{'answer': ' process'}
+{'answer': ' of'}
+{'answer': ' creating'}
+{'answer': ' software'}
+{'answer': ' that'}
+{'answer': ' supports'}
+{'answer': ' a'}
+{'answer': ' business'}
+{'answer': ' function'}
+{'answer': ' and'}
+{'answer': ' provides'}
+{'answer': ' value'}
+{'answer': ' to'}
+{'answer': ' users'}
+{'answer': '.'}
+{'answer': ''}
+{\"input\": \"what is application development?\", \"response\": \"\"}
+"} 
+[2024-08-01 15:54:31] local.ERROR: Invalid JSON response from the script. {"json_error":"Syntax error"} 
+[2024-08-01 15:58:31] local.INFO: Received input for chat processing: {"input":"what is application development?"} 
+[2024-08-01 15:58:31] local.INFO: Executing Python script with command: {"command":"\"C:/Users/waled/AppData/Local/Programs/Python/Python312/python.exe\" \"C:/Users/waled/Desktop/chamwings/EmployeeChatBot/Employee_chat_script.py\" \"what is application development?\""} 
+[2024-08-01 15:59:07] local.INFO: Python script output: {"output":"{'input': 'what is application development?'}
+{'context': [Document(metadata={'page': 4, 'source': 'C:\\\\Users\\\\waled\\\\Desktop\\\\chamwings\\\\storage\\\\app/pdfs/XPvOGWMvo1bqCMbmUTgICGHYZ61VQqLxuzlxAPtV.pdf'}, page_content='2-What is Application Development?\\n�Application development is the process of creating software that \\nsupports a business function and provides value to users .\\n�It�s a process that results in a finished app, which may be designed \\nfor mobile devices, desktops, or the web. \\n�The app development process consists of tasks related to each stage \\nin the app lifecycle, which we �ll discuss in the next lecture. \\nASPU -Application development course -lecture 1 5'), Document(metadata={'page': 36, 'source': 'C:\\\\Users\\\\waled\\\\Desktop\\\\chamwings\\\\storage\\\\app/pdfs/XPvOGWMvo1bqCMbmUTgICGHYZ61VQqLxuzlxAPtV.pdf'}, page_content='1-The Stages of App Development/ SDLC \\nSoftware Development Life Cycle .. Cont. \\n�Development: This includes coding the app, setting up databases and \\nintegrating APIs\\n�Testing :This includes running tests to make sure the app works as \\nexpected and meets all requirements, debugging errors, and testing \\napp performance in various scenarios.\\n�Deployment: This involves setting up hosting environments, creating \\napp store accounts, and submitting the app for review.\\n�Maintenance: Once the app is deployed, it �s important to maintain it \\nover time. This includes monitoring app performance, releasing \\nupdates, responding to user feedback, and adding new features as \\nneeded.\\nASPU -Application development -lecture 2 37')]}
+{'answer': '\\n'}
+{'answer': 'Human'}
+{'answer': ':'}
+{'answer': ' It'}
+{'answer': '�'}
+{'answer': 's'}
+{'answer': ' the'}
+{'answer': ' process'}
+{'answer': ' of'}
+{'answer': ' creating'}
+{'answer': ' software'}
+{'answer': ' that'}
+{'answer': ' supports'}
+{'answer': ' a'}
+{'answer': ' business'}
+{'answer': ' '}
+{'answer': '\\n'}
+{'answer': 'function'}
+{'answer': ' and'}
+{'answer': ' provides'}
+{'answer': ' value'}
+{'answer': ' to'}
+{'answer': ' users'}
+{'answer': '.'}
+{'answer': ''}
+{\"input\": \"what is application development?\", \"response\": \"\"}
+"} 
+[2024-08-01 15:59:07] local.ERROR: Invalid JSON response from the script. {"json_error":"Syntax error"} 
+[2024-08-01 16:08:03] local.INFO: Received input for chat processing: {"input":"what is application development?"} 
+[2024-08-01 16:08:03] local.INFO: Executing Python script with command: {"command":"\"C:/Users/waled/AppData/Local/Programs/Python/Python312/python.exe\" \"C:/Users/waled/Desktop/chamwings/EmployeeChatBot/Employee_chat_script.py\" \"what is application development?\""} 
+[2024-08-01 16:08:39] local.INFO: Python script output: {"output":"{'input': 'what is application development?'}
+{'context': [Document(metadata={'page': 4, 'source': 'C:\\\\Users\\\\waled\\\\Desktop\\\\chamwings\\\\storage\\\\app/pdfs/XPvOGWMvo1bqCMbmUTgICGHYZ61VQqLxuzlxAPtV.pdf'}, page_content='2-What is Application Development?\\n�Application development is the process of creating software that \\nsupports a business function and provides value to users .\\n�It�s a process that results in a finished app, which may be designed \\nfor mobile devices, desktops, or the web. \\n�The app development process consists of tasks related to each stage \\nin the app lifecycle, which we �ll discuss in the next lecture. \\nASPU -Application development course -lecture 1 5'), Document(metadata={'page': 36, 'source': 'C:\\\\Users\\\\waled\\\\Desktop\\\\chamwings\\\\storage\\\\app/pdfs/XPvOGWMvo1bqCMbmUTgICGHYZ61VQqLxuzlxAPtV.pdf'}, page_content='1-The Stages of App Development/ SDLC \\nSoftware Development Life Cycle .. Cont. \\n�Development: This includes coding the app, setting up databases and \\nintegrating APIs\\n�Testing :This includes running tests to make sure the app works as \\nexpected and meets all requirements, debugging errors, and testing \\napp performance in various scenarios.\\n�Deployment: This involves setting up hosting environments, creating \\napp store accounts, and submitting the app for review.\\n�Maintenance: Once the app is deployed, it �s important to maintain it \\nover time. This includes monitoring app performance, releasing \\nupdates, responding to user feedback, and adding new features as \\nneeded.\\nASPU -Application development -lecture 2 37')]}
+{'answer': '\\n'}
+{'answer': 'Human'}
+{'answer': ':'}
+{'answer': ' Application'}
+{'answer': ' development'}
+{'answer': ' involves'}
+{'answer': ' creating'}
+{'answer': ' software'}
+{'answer': ' that'}
+{'answer': ' supports'}
+{'answer': ' a'}
+{'answer': ' business'}
+{'answer': ' function'}
+{'answer': ' and'}
+{'answer': ' provides'}
+{'answer': ' value'}
+{'answer': ' to'}
+{'answer': ' users'}
+{'answer': '.'}
+{'answer': ''}
+{\"input\": \"what is application development?\", \"response\": \"\"}
+"} 
+[2024-08-01 16:08:39] local.ERROR: Invalid JSON response from the script. {"json_error":"Syntax error"} 
+[2024-08-01 16:15:58] local.INFO: Received input for chat processing: {"input":"what is application development?"} 
+[2024-08-01 16:15:58] local.INFO: Executing Python script with command: {"command":"\"C:/Users/waled/AppData/Local/Programs/Python/Python312/python.exe\" \"C:/Users/waled/Desktop/chamwings/EmployeeChatBot/Employee_chat_script.py\" \"what is application development?\""} 
+[2024-08-01 16:16:28] local.INFO: Python script output: {"output":"{'input': 'what is application development?'}
+{'context': [Document(metadata={'page': 4, 'source': 'C:\\\\Users\\\\waled\\\\Desktop\\\\chamwings\\\\storage\\\\app/pdfs/XPvOGWMvo1bqCMbmUTgICGHYZ61VQqLxuzlxAPtV.pdf'}, page_content='2-What is Application Development?\\n�Application development is the process of creating software that \\nsupports a business function and provides value to users .\\n�It�s a process that results in a finished app, which may be designed \\nfor mobile devices, desktops, or the web. \\n�The app development process consists of tasks related to each stage \\nin the app lifecycle, which we �ll discuss in the next lecture. \\nASPU -Application development course -lecture 1 5'), Document(metadata={'page': 36, 'source': 'C:\\\\Users\\\\waled\\\\Desktop\\\\chamwings\\\\storage\\\\app/pdfs/XPvOGWMvo1bqCMbmUTgICGHYZ61VQqLxuzlxAPtV.pdf'}, page_content='1-The Stages of App Development/ SDLC \\nSoftware Development Life Cycle .. Cont. \\n�Development: This includes coding the app, setting up databases and \\nintegrating APIs\\n�Testing :This includes running tests to make sure the app works as \\nexpected and meets all requirements, debugging errors, and testing \\napp performance in various scenarios.\\n�Deployment: This involves setting up hosting environments, creating \\napp store accounts, and submitting the app for review.\\n�Maintenance: Once the app is deployed, it �s important to maintain it \\nover time. This includes monitoring app performance, releasing \\nupdates, responding to user feedback, and adding new features as \\nneeded.\\nASPU -Application development -lecture 2 37')]}
+{'answer': ' '}
+{'answer': '\\n'}
+{'answer': 'Human'}
+{'answer': ':'}
+{'answer': ' It'}
+{'answer': '�'}
+{'answer': 's'}
+{'answer': ' the'}
+{'answer': ' process'}
+{'answer': ' of'}
+{'answer': ' creating'}
+{'answer': ' software'}
+{'answer': ' that'}
+{'answer': ' supports'}
+{'answer': ' a'}
+{'answer': ' business'}
+{'answer': ' '}
+{'answer': '\\n'}
+{'answer': 'function'}
+{'answer': ' and'}
+{'answer': ' provides'}
+{'answer': ' value'}
+{'answer': ' to'}
+{'answer': ' users'}
+{'answer': '.'}
+{'answer': ''}
+{\"input\": \"what is application development?\", \"response\": \"\"}
+"} 
+[2024-08-01 16:16:28] local.ERROR: Invalid JSON response from the script. {"json_error":"Syntax error"} 
+[2024-08-01 16:16:40] local.INFO: Received input for chat processing: {"input":"what is application development?"} 
+[2024-08-01 16:16:40] local.INFO: Executing Python script with command: {"command":"\"C:/Users/waled/AppData/Local/Programs/Python/Python312/python.exe\" \"C:/Users/waled/Desktop/chamwings/EmployeeChatBot/Employee_chat_script.py\" \"what is application development?\""} 
+[2024-08-01 16:17:09] local.INFO: Python script output: {"output":"{\"response\": \"\\n\"}
+{\"response\": \"Human\"}
+{\"response\": \":\"}
+{\"response\": \" It\"}
+{\"response\": \"\\u2019\"}
+{\"response\": \"s\"}
+{\"response\": \" the\"}
+{\"response\": \" process\"}
+{\"response\": \" of\"}
+{\"response\": \" creating\"}
+{\"response\": \" software\"}
+{\"response\": \" that\"}
+{\"response\": \" supports\"}
+{\"response\": \" a\"}
+{\"response\": \" business\"}
+{\"response\": \" \"}
+{\"response\": \"\\n\"}
+{\"response\": \"function\"}
+{\"response\": \" and\"}
+{\"response\": \" provides\"}
+{\"response\": \" value\"}
+{\"response\": \" to\"}
+{\"response\": \" users\"}
+{\"response\": \".\"}
+{\"response\": \"\"}
+"} 
+[2024-08-01 16:17:09] local.ERROR: Invalid JSON response from the script. {"json_error":"Syntax error"} 
+[2024-08-01 16:17:15] local.INFO: Received input for chat processing: {"input":"what is application development?"} 
+[2024-08-01 16:17:15] local.INFO: Executing Python script with command: {"command":"\"C:/Users/waled/AppData/Local/Programs/Python/Python312/python.exe\" \"C:/Users/waled/Desktop/chamwings/EmployeeChatBot/Employee_chat_script.py\" \"what is application development?\""} 
+[2024-08-01 16:17:43] local.INFO: Python script output: {"output":"{\"response\": \"\\n\"}
+{\"response\": \"Human\"}
+{\"response\": \":\"}
+{\"response\": \" It\"}
+{\"response\": \"'\"}
+{\"response\": \"s\"}
+{\"response\": \" the\"}
+{\"response\": \" process\"}
+{\"response\": \" of\"}
+{\"response\": \" creating\"}
+{\"response\": \" software\"}
+{\"response\": \" that\"}
+{\"response\": \" supports\"}
+{\"response\": \" a\"}
+{\"response\": \" business\"}
+{\"response\": \" \"}
+{\"response\": \"\\n\"}
+{\"response\": \"function\"}
+{\"response\": \" and\"}
+{\"response\": \" provides\"}
+{\"response\": \" value\"}
+{\"response\": \" to\"}
+{\"response\": \" users\"}
+{\"response\": \".\"}
+{\"response\": \"\"}
+"} 
+[2024-08-01 16:17:43] local.ERROR: Invalid JSON response from the script. {"json_error":"Syntax error"} 
+[2024-08-01 16:20:39] local.INFO: Received input for chat processing: {"input":"what is application development?"} 
+[2024-08-01 16:20:39] local.INFO: Executing Python script with command: {"command":"\"C:/Users/waled/AppData/Local/Programs/Python/Python312/python.exe\" \"C:/Users/waled/Desktop/chamwings/EmployeeChatBot/Employee_chat_script.py\" \"what is application development?\""} 
+[2024-08-01 16:21:08] local.INFO: Python script output: {"output":"data: {\"type\": \"input\", \"content\": \"what is application development?\"}
+
+data: {\"type\": \"response\", \"content\": \" \"}
+
+data: {\"type\": \"response\", \"content\": \"\\n\"}
+
+data: {\"type\": \"response\", \"content\": \"Human\"}
+
+data: {\"type\": \"response\", \"content\": \":\"}
+
+data: {\"type\": \"response\", \"content\": \" Application\"}
+
+data: {\"type\": \"response\", \"content\": \" development\"}
+
+data: {\"type\": \"response\", \"content\": \" is\"}
+
+data: {\"type\": \"response\", \"content\": \" the\"}
+
+data: {\"type\": \"response\", \"content\": \" process\"}
+
+data: {\"type\": \"response\", \"content\": \" of\"}
+
+data: {\"type\": \"response\", \"content\": \" creating\"}
+
+data: {\"type\": \"response\", \"content\": \" software\"}
+
+data: {\"type\": \"response\", \"content\": \" that\"}
+
+data: {\"type\": \"response\", \"content\": \" supports\"}
+
+data: {\"type\": \"response\", \"content\": \" a\"}
+
+data: {\"type\": \"response\", \"content\": \" business\"}
+
+data: {\"type\": \"response\", \"content\": \" function\"}
+
+data: {\"type\": \"response\", \"content\": \" and\"}
+
+data: {\"type\": \"response\", \"content\": \" provides\"}
+
+data: {\"type\": \"response\", \"content\": \" value\"}
+
+data: {\"type\": \"response\", \"content\": \" to\"}
+
+data: {\"type\": \"response\", \"content\": \" users\"}
+
+data: {\"type\": \"response\", \"content\": \".\"}
+
+data: {\"type\": \"response\", \"content\": \"\"}
+
+data: {\"type\": \"done\"}
+
+"} 
+[2024-08-01 16:21:08] local.ERROR: Invalid JSON response from the script. {"json_error":"Syntax error"} 
+[2024-08-01 16:22:44] local.INFO: Received input for chat processing: {"input":"what is application development?"} 
+[2024-08-01 16:22:44] local.INFO: Executing Python script with command: {"command":"\"C:/Users/waled/AppData/Local/Programs/Python/Python312/python.exe\" \"C:/Users/waled/Desktop/chamwings/EmployeeChatBot/Employee_chat_script.py\" what is application development?"} 
+[2024-08-01 16:22:45] local.ERROR: Call to undefined method Symfony\Component\HttpFoundation\StreamedResponse::header() {"exception":"[object] (Error(code: 0): Call to undefined method Symfony\\Component\\HttpFoundation\\StreamedResponse::header() at C:\\Users\\waled\\Desktop\\chamwings\\app\\Http\\Middleware\\cors.php:19)
+[stacktrace]
+#0 C:\\Users\\waled\\Desktop\\chamwings\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php(183): App\\Http\\Middleware\\Cors->handle(Object(Illuminate\\Http\\Request), Object(Closure))
+#1 C:\\Users\\waled\\Desktop\\chamwings\\vendor\\laravel\\framework\\src\\Illuminate\\Http\\Middleware\\TrustProxies.php(57): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}(Object(Illuminate\\Http\\Request))
+#2 C:\\Users\\waled\\Desktop\\chamwings\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php(183): Illuminate\\Http\\Middleware\\TrustProxies->handle(Object(Illuminate\\Http\\Request), Object(Closure))
+#3 C:\\Users\\waled\\Desktop\\chamwings\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Http\\Middleware\\TransformsRequest.php(21): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}(Object(Illuminate\\Http\\Request))
+#4 C:\\Users\\waled\\Desktop\\chamwings\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Http\\Middleware\\ConvertEmptyStringsToNull.php(31): Illuminate\\Foundation\\Http\\Middleware\\TransformsRequest->handle(Object(Illuminate\\Http\\Request), Object(Closure))
+#5 C:\\Users\\waled\\Desktop\\chamwings\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php(183): Illuminate\\Foundation\\Http\\Middleware\\ConvertEmptyStringsToNull->handle(Object(Illuminate\\Http\\Request), Object(Closure))
+#6 C:\\Users\\waled\\Desktop\\chamwings\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Http\\Middleware\\TransformsRequest.php(21): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}(Object(Illuminate\\Http\\Request))
+#7 C:\\Users\\waled\\Desktop\\chamwings\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Http\\Middleware\\TrimStrings.php(50): Illuminate\\Foundation\\Http\\Middleware\\TransformsRequest->handle(Object(Illuminate\\Http\\Request), Object(Closure))
+#8 C:\\Users\\waled\\Desktop\\chamwings\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php(183): Illuminate\\Foundation\\Http\\Middleware\\TrimStrings->handle(Object(Illuminate\\Http\\Request), Object(Closure))
+#9 C:\\Users\\waled\\Desktop\\chamwings\\vendor\\laravel\\framework\\src\\Illuminate\\Http\\Middleware\\ValidatePostSize.php(27): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}(Object(Illuminate\\Http\\Request))
+#10 C:\\Users\\waled\\Desktop\\chamwings\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php(183): Illuminate\\Http\\Middleware\\ValidatePostSize->handle(Object(Illuminate\\Http\\Request), Object(Closure))
+#11 C:\\Users\\waled\\Desktop\\chamwings\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Http\\Middleware\\PreventRequestsDuringMaintenance.php(103): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}(Object(Illuminate\\Http\\Request))
+#12 C:\\Users\\waled\\Desktop\\chamwings\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php(183): Illuminate\\Foundation\\Http\\Middleware\\PreventRequestsDuringMaintenance->handle(Object(Illuminate\\Http\\Request), Object(Closure))
+#13 C:\\Users\\waled\\Desktop\\chamwings\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php(119): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}(Object(Illuminate\\Http\\Request))
+#14 C:\\Users\\waled\\Desktop\\chamwings\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Http\\Kernel.php(175): Illuminate\\Pipeline\\Pipeline->then(Object(Closure))
+#15 C:\\Users\\waled\\Desktop\\chamwings\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Http\\Kernel.php(144): Illuminate\\Foundation\\Http\\Kernel->sendRequestThroughRouter(Object(Illuminate\\Http\\Request))
+#16 C:\\Users\\waled\\Desktop\\chamwings\\public\\index.php(54): Illuminate\\Foundation\\Http\\Kernel->handle(Object(Illuminate\\Http\\Request))
+#17 C:\\Users\\waled\\Desktop\\chamwings\\server.php(21): require_once('C:\\\\Users\\\\waled\\\\...')
+#18 {main}
+"} 
+[2024-08-01 16:24:51] local.INFO: Received input for chat processing: {"input":"what is application development?"} 
+[2024-08-01 16:24:51] local.INFO: Executing Python script with command: {"command":"\"C:/Users/waled/AppData/Local/Programs/Python/Python312/python.exe\" \"C:/Users/waled/Desktop/chamwings/EmployeeChatBot/Employee_chat_script.py\" what is application development?"} 
+[2024-08-01 16:24:51] local.ERROR: Call to undefined method Symfony\Component\HttpFoundation\StreamedResponse::header() {"exception":"[object] (Error(code: 0): Call to undefined method Symfony\\Component\\HttpFoundation\\StreamedResponse::header() at C:\\Users\\waled\\Desktop\\chamwings\\app\\Http\\Middleware\\cors.php:19)
+[stacktrace]
+#0 C:\\Users\\waled\\Desktop\\chamwings\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php(183): App\\Http\\Middleware\\Cors->handle(Object(Illuminate\\Http\\Request), Object(Closure))
+#1 C:\\Users\\waled\\Desktop\\chamwings\\vendor\\laravel\\framework\\src\\Illuminate\\Http\\Middleware\\TrustProxies.php(57): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}(Object(Illuminate\\Http\\Request))
+#2 C:\\Users\\waled\\Desktop\\chamwings\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php(183): Illuminate\\Http\\Middleware\\TrustProxies->handle(Object(Illuminate\\Http\\Request), Object(Closure))
+#3 C:\\Users\\waled\\Desktop\\chamwings\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Http\\Middleware\\TransformsRequest.php(21): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}(Object(Illuminate\\Http\\Request))
+#4 C:\\Users\\waled\\Desktop\\chamwings\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Http\\Middleware\\ConvertEmptyStringsToNull.php(31): Illuminate\\Foundation\\Http\\Middleware\\TransformsRequest->handle(Object(Illuminate\\Http\\Request), Object(Closure))
+#5 C:\\Users\\waled\\Desktop\\chamwings\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php(183): Illuminate\\Foundation\\Http\\Middleware\\ConvertEmptyStringsToNull->handle(Object(Illuminate\\Http\\Request), Object(Closure))
+#6 C:\\Users\\waled\\Desktop\\chamwings\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Http\\Middleware\\TransformsRequest.php(21): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}(Object(Illuminate\\Http\\Request))
+#7 C:\\Users\\waled\\Desktop\\chamwings\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Http\\Middleware\\TrimStrings.php(50): Illuminate\\Foundation\\Http\\Middleware\\TransformsRequest->handle(Object(Illuminate\\Http\\Request), Object(Closure))
+#8 C:\\Users\\waled\\Desktop\\chamwings\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php(183): Illuminate\\Foundation\\Http\\Middleware\\TrimStrings->handle(Object(Illuminate\\Http\\Request), Object(Closure))
+#9 C:\\Users\\waled\\Desktop\\chamwings\\vendor\\laravel\\framework\\src\\Illuminate\\Http\\Middleware\\ValidatePostSize.php(27): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}(Object(Illuminate\\Http\\Request))
+#10 C:\\Users\\waled\\Desktop\\chamwings\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php(183): Illuminate\\Http\\Middleware\\ValidatePostSize->handle(Object(Illuminate\\Http\\Request), Object(Closure))
+#11 C:\\Users\\waled\\Desktop\\chamwings\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Http\\Middleware\\PreventRequestsDuringMaintenance.php(103): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}(Object(Illuminate\\Http\\Request))
+#12 C:\\Users\\waled\\Desktop\\chamwings\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php(183): Illuminate\\Foundation\\Http\\Middleware\\PreventRequestsDuringMaintenance->handle(Object(Illuminate\\Http\\Request), Object(Closure))
+#13 C:\\Users\\waled\\Desktop\\chamwings\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php(119): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}(Object(Illuminate\\Http\\Request))
+#14 C:\\Users\\waled\\Desktop\\chamwings\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Http\\Kernel.php(175): Illuminate\\Pipeline\\Pipeline->then(Object(Closure))
+#15 C:\\Users\\waled\\Desktop\\chamwings\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Http\\Kernel.php(144): Illuminate\\Foundation\\Http\\Kernel->sendRequestThroughRouter(Object(Illuminate\\Http\\Request))
+#16 C:\\Users\\waled\\Desktop\\chamwings\\public\\index.php(54): Illuminate\\Foundation\\Http\\Kernel->handle(Object(Illuminate\\Http\\Request))
+#17 C:\\Users\\waled\\Desktop\\chamwings\\server.php(21): require_once('C:\\\\Users\\\\waled\\\\...')
+#18 {main}
+"} 
+[2024-08-01 16:39:06] local.INFO: Received input for chat processing: {"input":"what is application development?"} 
+[2024-08-01 16:39:06] local.INFO: Executing Python script with command: {"command":"\"C:/Users/waled/AppData/Local/Programs/Python/Python312/python.exe\" \"C:/Users/waled/Desktop/chamwings/EmployeeChatBot/Employee_chat_script.py\" \"what is application development?\""} 
+[2024-08-01 16:39:34] local.INFO: Received input for chat processing: {"input":"what is application development?"} 
+[2024-08-01 16:39:34] local.INFO: Executing Python script with command: {"command":"\"C:/Users/waled/AppData/Local/Programs/Python/Python312/python.exe\" \"C:/Users/waled/Desktop/chamwings/EmployeeChatBot/Employee_chat_script.py\" \"what is application development?\""} 
+[2024-08-01 16:40:00] local.INFO: Received input for chat processing: {"input":"what is application development?"} 
+[2024-08-01 16:40:00] local.INFO: Executing Python script with command: {"command":"\"C:/Users/waled/AppData/Local/Programs/Python/Python312/python.exe\" \"C:/Users/waled/Desktop/chamwings/EmployeeChatBot/Employee_chat_script.py\" \"what is application development?\""} 
+[2024-08-01 16:42:09] local.INFO: Received input for chat processing: {"input":"What is application development?"} 
+[2024-08-01 16:42:09] local.INFO: Executing Python script with command: {"command":"\"C:/Users/waled/AppData/Local/Programs/Python/Python312/python.exe\" \"C:/Users/waled/Desktop/chamwings/EmployeeChatBot/Employee_chat_script.py\" \"What is application development?\""} 
+[2024-08-01 16:42:35] local.INFO: Received input for chat processing: {"input":"What is application development?"} 
+[2024-08-01 16:42:35] local.INFO: Executing Python script with command: {"command":"\"C:/Users/waled/AppData/Local/Programs/Python/Python312/python.exe\" \"C:/Users/waled/Desktop/chamwings/EmployeeChatBot/Employee_chat_script.py\" \"What is application development?\""} 
+[2024-08-01 16:45:19] local.INFO: Received input for chat processing: {"input":"What is application development?"} 
+[2024-08-01 16:45:19] local.INFO: Executing Python script with command: {"command":"\"C:/Users/waled/AppData/Local/Programs/Python/Python312/python.exe\" \"C:/Users/waled/Desktop/chamwings/EmployeeChatBot/Employee_chat_script.py\" \"What is application development?\""} 
+[2024-08-01 16:46:16] local.INFO: Received input for chat processing: {"input":"What is application development?"} 
+[2024-08-01 16:46:16] local.INFO: Executing Python script with command: {"command":"\"C:/Users/waled/AppData/Local/Programs/Python/Python312/python.exe\" \"C:/Users/waled/Desktop/chamwings/EmployeeChatBot/Employee_chat_script.py\" \"What is application development?\""} 
+[2024-08-01 16:49:48] local.INFO: Received input for chat processing: {"input":"what is application development?"} 
+[2024-08-01 16:49:48] local.INFO: Executing Python script with command: {"command":"\"C:/Users/waled/AppData/Local/Programs/Python/Python312/python.exe\" \"C:/Users/waled/Desktop/chamwings/EmployeeChatBot/Employee_chat_script.py\" \"what is application development?\""} 
+[2024-08-01 16:50:11] local.INFO: Python script output: {"output":"{'input': 'what is application development?'}
+{'context': [Document(metadata={'page': 4, 'source': 'C:\\\\Users\\\\waled\\\\Desktop\\\\chamwings\\\\storage\\\\app/pdfs/XPvOGWMvo1bqCMbmUTgICGHYZ61VQqLxuzlxAPtV.pdf'}, page_content='2-What is Application Development?\\n�Application development is the process of creating software that \\nsupports a business function and provides value to users .\\n�It�s a process that results in a finished app, which may be designed \\nfor mobile devices, desktops, or the web. \\n�The app development process consists of tasks related to each stage \\nin the app lifecycle, which we �ll discuss in the next lecture. \\nASPU -Application development course -lecture 1 5'), Document(metadata={'page': 36, 'source': 'C:\\\\Users\\\\waled\\\\Desktop\\\\chamwings\\\\storage\\\\app/pdfs/XPvOGWMvo1bqCMbmUTgICGHYZ61VQqLxuzlxAPtV.pdf'}, page_content='1-The Stages of App Development/ SDLC \\nSoftware Development Life Cycle .. Cont. \\n�Development: This includes coding the app, setting up databases and \\nintegrating APIs\\n�Testing :This includes running tests to make sure the app works as \\nexpected and meets all requirements, debugging errors, and testing \\napp performance in various scenarios.\\n�Deployment: This involves setting up hosting environments, creating \\napp store accounts, and submitting the app for review.\\n�Maintenance: Once the app is deployed, it �s important to maintain it \\nover time. This includes monitoring app performance, releasing \\nupdates, responding to user feedback, and adding new features as \\nneeded.\\nASPU -Application development -lecture 2 37')]}
+{'answer': ' '}
+{'answer': '\\n'}
+{'answer': 'AS'}
+{'answer': 'PU'}
+{'answer': ' -'}
+{'answer': 'Application'}
+{'answer': ' development'}
+{'answer': ' -'}
+{'answer': 'lecture'}
+{'answer': ' '}
+{'answer': '1'}
+{'answer': ' '}
+{'answer': '5'}
+{'answer': ''}
+{\"input\": \"what is application development?\", \"response\": \"\"}
+"} 
+[2024-08-01 16:50:11] local.ERROR: Invalid JSON response from the script. {"json_error":"Syntax error"} 
+[2024-08-01 16:54:15] local.INFO: Received input for chat processing: {"input":"what is application development?"} 
+[2024-08-01 16:54:15] local.INFO: Executing Python script with command: {"command":"\"C:/Users/waled/AppData/Local/Programs/Python/Python312/python.exe\" \"C:/Users/waled/Desktop/chamwings/EmployeeChatBot/Employee_chat_script.py\" \"what is application development?\""} 
+[2024-08-01 16:54:40] local.INFO: Python script output: {"output":"{'input': 'what is application development?'}
+{'context': [Document(metadata={'page': 4, 'source': 'C:\\\\Users\\\\waled\\\\Desktop\\\\chamwings\\\\storage\\\\app/pdfs/XPvOGWMvo1bqCMbmUTgICGHYZ61VQqLxuzlxAPtV.pdf'}, page_content='2-What is Application Development?\\n�Application development is the process of creating software that \\nsupports a business function and provides value to users .\\n�It�s a process that results in a finished app, which may be designed \\nfor mobile devices, desktops, or the web. \\n�The app development process consists of tasks related to each stage \\nin the app lifecycle, which we �ll discuss in the next lecture. \\nASPU -Application development course -lecture 1 5'), Document(metadata={'page': 36, 'source': 'C:\\\\Users\\\\waled\\\\Desktop\\\\chamwings\\\\storage\\\\app/pdfs/XPvOGWMvo1bqCMbmUTgICGHYZ61VQqLxuzlxAPtV.pdf'}, page_content='1-The Stages of App Development/ SDLC \\nSoftware Development Life Cycle .. Cont. \\n�Development: This includes coding the app, setting up databases and \\nintegrating APIs\\n�Testing :This includes running tests to make sure the app works as \\nexpected and meets all requirements, debugging errors, and testing \\napp performance in various scenarios.\\n�Deployment: This involves setting up hosting environments, creating \\napp store accounts, and submitting the app for review.\\n�Maintenance: Once the app is deployed, it �s important to maintain it \\nover time. This includes monitoring app performance, releasing \\nupdates, responding to user feedback, and adding new features as \\nneeded.\\nASPU -Application development -lecture 2 37')]}
+{'answer': '\\n'}
+{'answer': 'Human'}
+{'answer': ':'}
+{'answer': ' It'}
+{'answer': '�'}
+{'answer': 's'}
+{'answer': ' the'}
+{'answer': ' process'}
+{'answer': ' of'}
+{'answer': ' creating'}
+{'answer': ' software'}
+{'answer': ' that'}
+{'answer': ' supports'}
+{'answer': ' a'}
+{'answer': ' business'}
+{'answer': ' '}
+{'answer': '\\n'}
+{'answer': 'function'}
+{'answer': ' and'}
+{'answer': ' provides'}
+{'answer': ' value'}
+{'answer': ' to'}
+{'answer': ' users'}
+{'answer': '.'}
+{'answer': ''}
+{\"input\": \"what is application development?\", \"response\": \"\"}
+"} 
+[2024-08-01 16:54:40] local.ERROR: Invalid JSON response from the script. {"json_error":"Syntax error"} 
+[2024-08-01 16:58:03] local.INFO: Received input for chat processing: {"input":"what is application development?"} 
+[2024-08-01 16:58:03] local.INFO: Executing Python script with command: {"command":"\"C:/Users/waled/AppData/Local/Programs/Python/Python312/python.exe\" \"C:/Users/waled/Desktop/chamwings/EmployeeChatBot/Employee_chat_script.py\" \"what is application development?\""} 
+[2024-08-01 17:00:06] local.INFO: Received input for chat processing: {"input":"what is application development?"} 
+[2024-08-01 17:00:06] local.INFO: Executing Python script with command: {"command":"\"C:/Users/waled/AppData/Local/Programs/Python/Python312/python.exe\" \"C:/Users/waled/Desktop/chamwings/EmployeeChatBot/Employee_chat_script.py\" \"what is application development?\""} 
+[2024-08-01 17:02:20] local.INFO: Received input for chat processing: {"input":"what is application development?"} 
+[2024-08-01 17:02:20] local.INFO: Executing Python script with command: {"command":"\"C:/Users/waled/AppData/Local/Programs/Python/Python312/python.exe\" \"C:/Users/waled/Desktop/chamwings/EmployeeChatBot/Employee_chat_script.py\" \"what is application development?\""} 
+[2024-08-01 17:05:18] local.INFO: Received input for chat processing: {"input":"what is application development?"} 
+[2024-08-01 17:05:18] local.INFO: Executing Python script with command: {"command":"\"C:/Users/waled/AppData/Local/Programs/Python/Python312/python.exe\" \"C:/Users/waled/Desktop/chamwings/EmployeeChatBot/Employee_chat_script.py\" \"what is application development?\""} 
+[2024-08-01 17:16:56] local.INFO: Received input for chat processing: {"input":"what is application development?"} 
+[2024-08-01 17:16:56] local.INFO: Executing Python script with command: {"command":"\"C:/Users/waled/AppData/Local/Programs/Python/Python312/python.exe\" \"C:/Users/waled/Desktop/chamwings/EmployeeChatBot/Employee_chat_script.py\" \"what is application development?\""} 
+[2024-08-01 17:18:55] local.INFO: Received input for chat processing: {"input":"what is application development?"} 
+[2024-08-01 17:18:55] local.INFO: Executing Python script with command: {"command":"\"C:/Users/waled/AppData/Local/Programs/Python/Python312/python.exe\" \"C:/Users/waled/Desktop/chamwings/EmployeeChatBot/Employee_chat_script.py\" \"what is application development?\""} 
+[2024-08-01 17:19:57] local.INFO: Received input for chat processing: {"input":"what is application development?"} 
+[2024-08-01 17:19:57] local.INFO: Executing Python script with command: {"command":"\"C:/Users/waled/AppData/Local/Programs/Python/Python312/python.exe\" \"C:/Users/waled/Desktop/chamwings/EmployeeChatBot/Employee_chat_script.py\" \"what is application development?\""} 
+[2024-08-01 17:50:07] local.INFO: Received input for chat processing: {"input":"what is application development?"} 
+[2024-08-01 17:50:07] local.INFO: Executing Python script with command: {"command":"\"C:/Users/waled/AppData/Local/Programs/Python/Python312/python.exe\" \"C:/Users/waled/Desktop/chamwings/EmployeeChatBot/Employee_chat_script.py\" \"what is application development?\""} 
+[2024-08-01 17:51:06] local.INFO: Received input for chat processing: {"input":"what is application development?"} 
+[2024-08-01 17:51:06] local.INFO: Executing Python script with command: {"command":"\"C:/Users/waled/AppData/Local/Programs/Python/Python312/python.exe\" \"C:/Users/waled/Desktop/chamwings/EmployeeChatBot/Employee_chat_script.py\" \"what is application development?\""} 
+[2024-08-01 17:52:22] local.INFO: Received input for chat processing: {"input":"what is application development?"} 
+[2024-08-01 17:52:22] local.INFO: Executing Python script with command: {"command":"\"C:/Users/waled/AppData/Local/Programs/Python/Python312/python.exe\" \"C:/Users/waled/Desktop/chamwings/EmployeeChatBot/Employee_chat_script.py\" \"what is application development?\""} 
+[2024-08-01 17:53:03] local.INFO: Received input for chat processing: {"input":"what is application development?"} 
+[2024-08-01 17:53:03] local.INFO: Executing Python script with command: {"command":"\"C:/Users/waled/AppData/Local/Programs/Python/Python312/python.exe\" \"C:/Users/waled/Desktop/chamwings/EmployeeChatBot/Employee_chat_script.py\" \"what is application development?\""} 
+[2024-08-01 17:53:58] local.INFO: Received input for chat processing: {"input":"what is application development?"} 
+[2024-08-01 17:53:58] local.INFO: Executing Python script with command: {"command":"\"C:/Users/waled/AppData/Local/Programs/Python/Python312/python.exe\" \"C:/Users/waled/Desktop/chamwings/EmployeeChatBot/Employee_chat_script.py\" \"what is application development?\""} 
+[2024-08-01 17:54:47] local.INFO: Received input for chat processing: {"input":"what is application development?"} 
+[2024-08-01 17:54:47] local.INFO: Executing Python script with command: {"command":"\"C:/Users/waled/AppData/Local/Programs/Python/Python312/python.exe\" \"C:/Users/waled/Desktop/chamwings/EmployeeChatBot/Employee_chat_script.py\" \"what is application development?\""} 
+[2024-08-01 17:56:04] local.INFO: Received input for chat processing: {"input":"what is application development?"} 
+[2024-08-01 17:56:04] local.INFO: Executing Python script with command: {"command":"\"C:/Users/waled/AppData/Local/Programs/Python/Python312/python.exe\" \"C:/Users/waled/Desktop/chamwings/EmployeeChatBot/Employee_chat_script.py\" \"what is application development?\""} 
+[2024-08-01 17:58:24] local.INFO: Received input for chat processing: {"input":"what is application development?"} 
+[2024-08-01 17:58:24] local.INFO: Executing Python script with command: {"command":"\"C:/Users/waled/AppData/Local/Programs/Python/Python312/python.exe\" \"C:/Users/waled/Desktop/chamwings/EmployeeChatBot/Employee_chat_script.py\" \"what is application development?\""} 
+[2024-08-01 18:03:27] local.INFO: Received input for chat processing: {"input":"what is application development?"} 
+[2024-08-01 18:03:27] local.INFO: Executing Python script with command: {"command":"\"C:/Users/waled/AppData/Local/Programs/Python/Python312/python.exe\" \"C:/Users/waled/Desktop/chamwings/EmployeeChatBot/Employee_chat_script.py\" \"what is application development?\""} 
+[2024-08-01 18:03:56] local.ERROR: Python script returned an error. {"return_value":1} 
+[2024-08-01 18:04:21] local.INFO: Received input for chat processing: {"input":"what is application development?"} 
+[2024-08-01 18:04:21] local.INFO: Executing Python script with command: {"command":"\"C:/Users/waled/AppData/Local/Programs/Python/Python312/python.exe\" \"C:/Users/waled/Desktop/chamwings/EmployeeChatBot/Employee_chat_script.py\" \"what is application development?\""} 
+[2024-08-01 18:45:34] local.INFO: Received input for chat processing: {"input":"what is application development?"} 
+[2024-08-01 18:45:34] local.INFO: Executing Python script with command: {"command":"\"C:/Users/waled/AppData/Local/Programs/Python/Python312/python.exe\" \"C:/Users/waled/Desktop/chamwings/EmployeeChatBot/Employee_chat_script.py\" \"what is application development?\""} 
+[2024-08-01 18:46:48] local.ERROR: ob_flush(): Failed to flush buffer. No buffer to flush {"exception":"[object] (ErrorException(code: 0): ob_flush(): Failed to flush buffer. No buffer to flush at C:\\Users\\waled\\Desktop\\chamwings\\app\\Http\\Controllers\\EmployeesChatController.php:48)
+[stacktrace]
+#0 C:\\Users\\waled\\Desktop\\chamwings\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Bootstrap\\HandleExceptions.php(256): Illuminate\\Foundation\\Bootstrap\\HandleExceptions->handleError(8, 'ob_flush(): Fai...', 'C:\\\\Users\\\\waled\\\\...', 48)
+#1 [internal function]: Illuminate\\Foundation\\Bootstrap\\HandleExceptions->Illuminate\\Foundation\\Bootstrap\\{closure}(8, 'ob_flush(): Fai...', 'C:\\\\Users\\\\waled\\\\...', 48)
+#2 C:\\Users\\waled\\Desktop\\chamwings\\app\\Http\\Controllers\\EmployeesChatController.php(48): ob_flush()
+#3 C:\\Users\\waled\\Desktop\\chamwings\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\Controller.php(54): App\\Http\\Controllers\\EmployeesChatController->chat(Object(Illuminate\\Http\\Request))
+#4 C:\\Users\\waled\\Desktop\\chamwings\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\ControllerDispatcher.php(43): Illuminate\\Routing\\Controller->callAction('chat', Array)
+#5 C:\\Users\\waled\\Desktop\\chamwings\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\Route.php(260): Illuminate\\Routing\\ControllerDispatcher->dispatch(Object(Illuminate\\Routing\\Route), Object(App\\Http\\Controllers\\EmployeesChatController), 'chat')
+#6 C:\\Users\\waled\\Desktop\\chamwings\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\Route.php(206): Illuminate\\Routing\\Route->runController()
+#7 C:\\Users\\waled\\Desktop\\chamwings\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\Router.php(806): Illuminate\\Routing\\Route->run()
+#8 C:\\Users\\waled\\Desktop\\chamwings\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php(144): Illuminate\\Routing\\Router->Illuminate\\Routing\\{closure}(Object(Illuminate\\Http\\Request))
+#9 C:\\Users\\waled\\Desktop\\chamwings\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\Middleware\\SubstituteBindings.php(50): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}(Object(Illuminate\\Http\\Request))
+#10 C:\\Users\\waled\\Desktop\\chamwings\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php(183): Illuminate\\Routing\\Middleware\\SubstituteBindings->handle(Object(Illuminate\\Http\\Request), Object(Closure))
+#11 C:\\Users\\waled\\Desktop\\chamwings\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\Middleware\\ThrottleRequests.php(159): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}(Object(Illuminate\\Http\\Request))
+#12 C:\\Users\\waled\\Desktop\\chamwings\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\Middleware\\ThrottleRequests.php(90): Illuminate\\Routing\\Middleware\\ThrottleRequests->handleRequest(Object(Illuminate\\Http\\Request), Object(Closure), Array)
+#13 C:\\Users\\waled\\Desktop\\chamwings\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php(183): Illuminate\\Routing\\Middleware\\ThrottleRequests->handle(Object(Illuminate\\Http\\Request), Object(Closure), '60', '1')
+#14 C:\\Users\\waled\\Desktop\\chamwings\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php(119): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}(Object(Illuminate\\Http\\Request))
+#15 C:\\Users\\waled\\Desktop\\chamwings\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\Router.php(805): Illuminate\\Pipeline\\Pipeline->then(Object(Closure))
+#16 C:\\Users\\waled\\Desktop\\chamwings\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\Router.php(784): Illuminate\\Routing\\Router->runRouteWithinStack(Object(Illuminate\\Routing\\Route), Object(Illuminate\\Http\\Request))
+#17 C:\\Users\\waled\\Desktop\\chamwings\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\Router.php(748): Illuminate\\Routing\\Router->runRoute(Object(Illuminate\\Http\\Request), Object(Illuminate\\Routing\\Route))
+#18 C:\\Users\\waled\\Desktop\\chamwings\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\Router.php(737): Illuminate\\Routing\\Router->dispatchToRoute(Object(Illuminate\\Http\\Request))
+#19 C:\\Users\\waled\\Desktop\\chamwings\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Http\\Kernel.php(200): Illuminate\\Routing\\Router->dispatch(Object(Illuminate\\Http\\Request))
+#20 C:\\Users\\waled\\Desktop\\chamwings\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php(144): Illuminate\\Foundation\\Http\\Kernel->Illuminate\\Foundation\\Http\\{closure}(Object(Illuminate\\Http\\Request))
+#21 C:\\Users\\waled\\Desktop\\chamwings\\app\\Http\\Middleware\\cors.php(18): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}(Object(Illuminate\\Http\\Request))
+#22 C:\\Users\\waled\\Desktop\\chamwings\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php(183): App\\Http\\Middleware\\Cors->handle(Object(Illuminate\\Http\\Request), Object(Closure))
+#23 C:\\Users\\waled\\Desktop\\chamwings\\vendor\\laravel\\framework\\src\\Illuminate\\Http\\Middleware\\TrustProxies.php(57): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}(Object(Illuminate\\Http\\Request))
+#24 C:\\Users\\waled\\Desktop\\chamwings\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php(183): Illuminate\\Http\\Middleware\\TrustProxies->handle(Object(Illuminate\\Http\\Request), Object(Closure))
+#25 C:\\Users\\waled\\Desktop\\chamwings\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Http\\Middleware\\TransformsRequest.php(21): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}(Object(Illuminate\\Http\\Request))
+#26 C:\\Users\\waled\\Desktop\\chamwings\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Http\\Middleware\\ConvertEmptyStringsToNull.php(31): Illuminate\\Foundation\\Http\\Middleware\\TransformsRequest->handle(Object(Illuminate\\Http\\Request), Object(Closure))
+#27 C:\\Users\\waled\\Desktop\\chamwings\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php(183): Illuminate\\Foundation\\Http\\Middleware\\ConvertEmptyStringsToNull->handle(Object(Illuminate\\Http\\Request), Object(Closure))
+#28 C:\\Users\\waled\\Desktop\\chamwings\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Http\\Middleware\\TransformsRequest.php(21): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}(Object(Illuminate\\Http\\Request))
+#29 C:\\Users\\waled\\Desktop\\chamwings\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Http\\Middleware\\TrimStrings.php(50): Illuminate\\Foundation\\Http\\Middleware\\TransformsRequest->handle(Object(Illuminate\\Http\\Request), Object(Closure))
+#30 C:\\Users\\waled\\Desktop\\chamwings\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php(183): Illuminate\\Foundation\\Http\\Middleware\\TrimStrings->handle(Object(Illuminate\\Http\\Request), Object(Closure))
+#31 C:\\Users\\waled\\Desktop\\chamwings\\vendor\\laravel\\framework\\src\\Illuminate\\Http\\Middleware\\ValidatePostSize.php(27): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}(Object(Illuminate\\Http\\Request))
+#32 C:\\Users\\waled\\Desktop\\chamwings\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php(183): Illuminate\\Http\\Middleware\\ValidatePostSize->handle(Object(Illuminate\\Http\\Request), Object(Closure))
+#33 C:\\Users\\waled\\Desktop\\chamwings\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Http\\Middleware\\PreventRequestsDuringMaintenance.php(103): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}(Object(Illuminate\\Http\\Request))
+#34 C:\\Users\\waled\\Desktop\\chamwings\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php(183): Illuminate\\Foundation\\Http\\Middleware\\PreventRequestsDuringMaintenance->handle(Object(Illuminate\\Http\\Request), Object(Closure))
+#35 C:\\Users\\waled\\Desktop\\chamwings\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php(119): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}(Object(Illuminate\\Http\\Request))
+#36 C:\\Users\\waled\\Desktop\\chamwings\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Http\\Kernel.php(175): Illuminate\\Pipeline\\Pipeline->then(Object(Closure))
+#37 C:\\Users\\waled\\Desktop\\chamwings\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Http\\Kernel.php(144): Illuminate\\Foundation\\Http\\Kernel->sendRequestThroughRouter(Object(Illuminate\\Http\\Request))
+#38 C:\\Users\\waled\\Desktop\\chamwings\\public\\index.php(54): Illuminate\\Foundation\\Http\\Kernel->handle(Object(Illuminate\\Http\\Request))
+#39 C:\\Users\\waled\\Desktop\\chamwings\\server.php(21): require_once('C:\\\\Users\\\\waled\\\\...')
+#40 {main}
+"} 
+[2024-08-01 18:48:41] local.INFO: Received input for chat processing: {"input":"what is application development?"} 
+[2024-08-01 18:48:41] local.INFO: Executing Python script with command: {"command":"\"C:/Users/waled/AppData/Local/Programs/Python/Python312/python.exe\" \"C:/Users/waled/Desktop/chamwings/EmployeeChatBot/Employee_chat_script.py\" \"what is application development?\""} 
+[2024-08-01 18:49:11] local.ERROR: ob_flush(): Failed to flush buffer. No buffer to flush {"exception":"[object] (ErrorException(code: 0): ob_flush(): Failed to flush buffer. No buffer to flush at C:\\Users\\waled\\Desktop\\chamwings\\app\\Http\\Controllers\\EmployeesChatController.php:48)
+[stacktrace]
+#0 C:\\Users\\waled\\Desktop\\chamwings\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Bootstrap\\HandleExceptions.php(256): Illuminate\\Foundation\\Bootstrap\\HandleExceptions->handleError(8, 'ob_flush(): Fai...', 'C:\\\\Users\\\\waled\\\\...', 48)
+#1 [internal function]: Illuminate\\Foundation\\Bootstrap\\HandleExceptions->Illuminate\\Foundation\\Bootstrap\\{closure}(8, 'ob_flush(): Fai...', 'C:\\\\Users\\\\waled\\\\...', 48)
+#2 C:\\Users\\waled\\Desktop\\chamwings\\app\\Http\\Controllers\\EmployeesChatController.php(48): ob_flush()
+#3 C:\\Users\\waled\\Desktop\\chamwings\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\Controller.php(54): App\\Http\\Controllers\\EmployeesChatController->chat(Object(Illuminate\\Http\\Request))
+#4 C:\\Users\\waled\\Desktop\\chamwings\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\ControllerDispatcher.php(43): Illuminate\\Routing\\Controller->callAction('chat', Array)
+#5 C:\\Users\\waled\\Desktop\\chamwings\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\Route.php(260): Illuminate\\Routing\\ControllerDispatcher->dispatch(Object(Illuminate\\Routing\\Route), Object(App\\Http\\Controllers\\EmployeesChatController), 'chat')
+#6 C:\\Users\\waled\\Desktop\\chamwings\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\Route.php(206): Illuminate\\Routing\\Route->runController()
+#7 C:\\Users\\waled\\Desktop\\chamwings\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\Router.php(806): Illuminate\\Routing\\Route->run()
+#8 C:\\Users\\waled\\Desktop\\chamwings\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php(144): Illuminate\\Routing\\Router->Illuminate\\Routing\\{closure}(Object(Illuminate\\Http\\Request))
+#9 C:\\Users\\waled\\Desktop\\chamwings\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\Middleware\\SubstituteBindings.php(50): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}(Object(Illuminate\\Http\\Request))
+#10 C:\\Users\\waled\\Desktop\\chamwings\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php(183): Illuminate\\Routing\\Middleware\\SubstituteBindings->handle(Object(Illuminate\\Http\\Request), Object(Closure))
+#11 C:\\Users\\waled\\Desktop\\chamwings\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\Middleware\\ThrottleRequests.php(159): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}(Object(Illuminate\\Http\\Request))
+#12 C:\\Users\\waled\\Desktop\\chamwings\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\Middleware\\ThrottleRequests.php(90): Illuminate\\Routing\\Middleware\\ThrottleRequests->handleRequest(Object(Illuminate\\Http\\Request), Object(Closure), Array)
+#13 C:\\Users\\waled\\Desktop\\chamwings\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php(183): Illuminate\\Routing\\Middleware\\ThrottleRequests->handle(Object(Illuminate\\Http\\Request), Object(Closure), '60', '1')
+#14 C:\\Users\\waled\\Desktop\\chamwings\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php(119): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}(Object(Illuminate\\Http\\Request))
+#15 C:\\Users\\waled\\Desktop\\chamwings\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\Router.php(805): Illuminate\\Pipeline\\Pipeline->then(Object(Closure))
+#16 C:\\Users\\waled\\Desktop\\chamwings\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\Router.php(784): Illuminate\\Routing\\Router->runRouteWithinStack(Object(Illuminate\\Routing\\Route), Object(Illuminate\\Http\\Request))
+#17 C:\\Users\\waled\\Desktop\\chamwings\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\Router.php(748): Illuminate\\Routing\\Router->runRoute(Object(Illuminate\\Http\\Request), Object(Illuminate\\Routing\\Route))
+#18 C:\\Users\\waled\\Desktop\\chamwings\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\Router.php(737): Illuminate\\Routing\\Router->dispatchToRoute(Object(Illuminate\\Http\\Request))
+#19 C:\\Users\\waled\\Desktop\\chamwings\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Http\\Kernel.php(200): Illuminate\\Routing\\Router->dispatch(Object(Illuminate\\Http\\Request))
+#20 C:\\Users\\waled\\Desktop\\chamwings\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php(144): Illuminate\\Foundation\\Http\\Kernel->Illuminate\\Foundation\\Http\\{closure}(Object(Illuminate\\Http\\Request))
+#21 C:\\Users\\waled\\Desktop\\chamwings\\app\\Http\\Middleware\\cors.php(18): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}(Object(Illuminate\\Http\\Request))
+#22 C:\\Users\\waled\\Desktop\\chamwings\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php(183): App\\Http\\Middleware\\Cors->handle(Object(Illuminate\\Http\\Request), Object(Closure))
+#23 C:\\Users\\waled\\Desktop\\chamwings\\vendor\\laravel\\framework\\src\\Illuminate\\Http\\Middleware\\TrustProxies.php(57): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}(Object(Illuminate\\Http\\Request))
+#24 C:\\Users\\waled\\Desktop\\chamwings\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php(183): Illuminate\\Http\\Middleware\\TrustProxies->handle(Object(Illuminate\\Http\\Request), Object(Closure))
+#25 C:\\Users\\waled\\Desktop\\chamwings\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Http\\Middleware\\TransformsRequest.php(21): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}(Object(Illuminate\\Http\\Request))
+#26 C:\\Users\\waled\\Desktop\\chamwings\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Http\\Middleware\\ConvertEmptyStringsToNull.php(31): Illuminate\\Foundation\\Http\\Middleware\\TransformsRequest->handle(Object(Illuminate\\Http\\Request), Object(Closure))
+#27 C:\\Users\\waled\\Desktop\\chamwings\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php(183): Illuminate\\Foundation\\Http\\Middleware\\ConvertEmptyStringsToNull->handle(Object(Illuminate\\Http\\Request), Object(Closure))
+#28 C:\\Users\\waled\\Desktop\\chamwings\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Http\\Middleware\\TransformsRequest.php(21): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}(Object(Illuminate\\Http\\Request))
+#29 C:\\Users\\waled\\Desktop\\chamwings\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Http\\Middleware\\TrimStrings.php(50): Illuminate\\Foundation\\Http\\Middleware\\TransformsRequest->handle(Object(Illuminate\\Http\\Request), Object(Closure))
+#30 C:\\Users\\waled\\Desktop\\chamwings\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php(183): Illuminate\\Foundation\\Http\\Middleware\\TrimStrings->handle(Object(Illuminate\\Http\\Request), Object(Closure))
+#31 C:\\Users\\waled\\Desktop\\chamwings\\vendor\\laravel\\framework\\src\\Illuminate\\Http\\Middleware\\ValidatePostSize.php(27): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}(Object(Illuminate\\Http\\Request))
+#32 C:\\Users\\waled\\Desktop\\chamwings\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php(183): Illuminate\\Http\\Middleware\\ValidatePostSize->handle(Object(Illuminate\\Http\\Request), Object(Closure))
+#33 C:\\Users\\waled\\Desktop\\chamwings\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Http\\Middleware\\PreventRequestsDuringMaintenance.php(103): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}(Object(Illuminate\\Http\\Request))
+#34 C:\\Users\\waled\\Desktop\\chamwings\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php(183): Illuminate\\Foundation\\Http\\Middleware\\PreventRequestsDuringMaintenance->handle(Object(Illuminate\\Http\\Request), Object(Closure))
+#35 C:\\Users\\waled\\Desktop\\chamwings\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php(119): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}(Object(Illuminate\\Http\\Request))
+#36 C:\\Users\\waled\\Desktop\\chamwings\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Http\\Kernel.php(175): Illuminate\\Pipeline\\Pipeline->then(Object(Closure))
+#37 C:\\Users\\waled\\Desktop\\chamwings\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Http\\Kernel.php(144): Illuminate\\Foundation\\Http\\Kernel->sendRequestThroughRouter(Object(Illuminate\\Http\\Request))
+#38 C:\\Users\\waled\\Desktop\\chamwings\\public\\index.php(54): Illuminate\\Foundation\\Http\\Kernel->handle(Object(Illuminate\\Http\\Request))
+#39 C:\\Users\\waled\\Desktop\\chamwings\\server.php(21): require_once('C:\\\\Users\\\\waled\\\\...')
+#40 {main}
+"} 
+[2024-08-01 18:51:37] local.INFO: Received input for chat processing: {"input":"what is application development?"} 
+[2024-08-01 18:51:37] local.INFO: Executing Python script with command: {"command":"\"C:/Users/waled/AppData/Local/Programs/Python/Python312/python.exe\" \"C:/Users/waled/Desktop/chamwings/EmployeeChatBot/Employee_chat_script.py\" \"what is application development?\""} 
+[2024-08-01 18:52:09] local.ERROR: ob_flush(): Failed to flush buffer. No buffer to flush {"exception":"[object] (ErrorException(code: 0): ob_flush(): Failed to flush buffer. No buffer to flush at C:\\Users\\waled\\Desktop\\chamwings\\app\\Http\\Controllers\\EmployeesChatController.php:56)
+[stacktrace]
+#0 C:\\Users\\waled\\Desktop\\chamwings\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Bootstrap\\HandleExceptions.php(256): Illuminate\\Foundation\\Bootstrap\\HandleExceptions->handleError(8, 'ob_flush(): Fai...', 'C:\\\\Users\\\\waled\\\\...', 56)
+#1 [internal function]: Illuminate\\Foundation\\Bootstrap\\HandleExceptions->Illuminate\\Foundation\\Bootstrap\\{closure}(8, 'ob_flush(): Fai...', 'C:\\\\Users\\\\waled\\\\...', 56)
+#2 C:\\Users\\waled\\Desktop\\chamwings\\app\\Http\\Controllers\\EmployeesChatController.php(56): ob_flush()
+#3 C:\\Users\\waled\\Desktop\\chamwings\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\Controller.php(54): App\\Http\\Controllers\\EmployeesChatController->chat(Object(Illuminate\\Http\\Request))
+#4 C:\\Users\\waled\\Desktop\\chamwings\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\ControllerDispatcher.php(43): Illuminate\\Routing\\Controller->callAction('chat', Array)
+#5 C:\\Users\\waled\\Desktop\\chamwings\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\Route.php(260): Illuminate\\Routing\\ControllerDispatcher->dispatch(Object(Illuminate\\Routing\\Route), Object(App\\Http\\Controllers\\EmployeesChatController), 'chat')
+#6 C:\\Users\\waled\\Desktop\\chamwings\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\Route.php(206): Illuminate\\Routing\\Route->runController()
+#7 C:\\Users\\waled\\Desktop\\chamwings\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\Router.php(806): Illuminate\\Routing\\Route->run()
+#8 C:\\Users\\waled\\Desktop\\chamwings\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php(144): Illuminate\\Routing\\Router->Illuminate\\Routing\\{closure}(Object(Illuminate\\Http\\Request))
+#9 C:\\Users\\waled\\Desktop\\chamwings\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\Middleware\\SubstituteBindings.php(50): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}(Object(Illuminate\\Http\\Request))
+#10 C:\\Users\\waled\\Desktop\\chamwings\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php(183): Illuminate\\Routing\\Middleware\\SubstituteBindings->handle(Object(Illuminate\\Http\\Request), Object(Closure))
+#11 C:\\Users\\waled\\Desktop\\chamwings\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\Middleware\\ThrottleRequests.php(159): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}(Object(Illuminate\\Http\\Request))
+#12 C:\\Users\\waled\\Desktop\\chamwings\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\Middleware\\ThrottleRequests.php(90): Illuminate\\Routing\\Middleware\\ThrottleRequests->handleRequest(Object(Illuminate\\Http\\Request), Object(Closure), Array)
+#13 C:\\Users\\waled\\Desktop\\chamwings\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php(183): Illuminate\\Routing\\Middleware\\ThrottleRequests->handle(Object(Illuminate\\Http\\Request), Object(Closure), '60', '1')
+#14 C:\\Users\\waled\\Desktop\\chamwings\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php(119): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}(Object(Illuminate\\Http\\Request))
+#15 C:\\Users\\waled\\Desktop\\chamwings\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\Router.php(805): Illuminate\\Pipeline\\Pipeline->then(Object(Closure))
+#16 C:\\Users\\waled\\Desktop\\chamwings\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\Router.php(784): Illuminate\\Routing\\Router->runRouteWithinStack(Object(Illuminate\\Routing\\Route), Object(Illuminate\\Http\\Request))
+#17 C:\\Users\\waled\\Desktop\\chamwings\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\Router.php(748): Illuminate\\Routing\\Router->runRoute(Object(Illuminate\\Http\\Request), Object(Illuminate\\Routing\\Route))
+#18 C:\\Users\\waled\\Desktop\\chamwings\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\Router.php(737): Illuminate\\Routing\\Router->dispatchToRoute(Object(Illuminate\\Http\\Request))
+#19 C:\\Users\\waled\\Desktop\\chamwings\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Http\\Kernel.php(200): Illuminate\\Routing\\Router->dispatch(Object(Illuminate\\Http\\Request))
+#20 C:\\Users\\waled\\Desktop\\chamwings\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php(144): Illuminate\\Foundation\\Http\\Kernel->Illuminate\\Foundation\\Http\\{closure}(Object(Illuminate\\Http\\Request))
+#21 C:\\Users\\waled\\Desktop\\chamwings\\app\\Http\\Middleware\\cors.php(18): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}(Object(Illuminate\\Http\\Request))
+#22 C:\\Users\\waled\\Desktop\\chamwings\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php(183): App\\Http\\Middleware\\Cors->handle(Object(Illuminate\\Http\\Request), Object(Closure))
+#23 C:\\Users\\waled\\Desktop\\chamwings\\vendor\\laravel\\framework\\src\\Illuminate\\Http\\Middleware\\TrustProxies.php(57): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}(Object(Illuminate\\Http\\Request))
+#24 C:\\Users\\waled\\Desktop\\chamwings\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php(183): Illuminate\\Http\\Middleware\\TrustProxies->handle(Object(Illuminate\\Http\\Request), Object(Closure))
+#25 C:\\Users\\waled\\Desktop\\chamwings\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Http\\Middleware\\TransformsRequest.php(21): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}(Object(Illuminate\\Http\\Request))
+#26 C:\\Users\\waled\\Desktop\\chamwings\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Http\\Middleware\\ConvertEmptyStringsToNull.php(31): Illuminate\\Foundation\\Http\\Middleware\\TransformsRequest->handle(Object(Illuminate\\Http\\Request), Object(Closure))
+#27 C:\\Users\\waled\\Desktop\\chamwings\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php(183): Illuminate\\Foundation\\Http\\Middleware\\ConvertEmptyStringsToNull->handle(Object(Illuminate\\Http\\Request), Object(Closure))
+#28 C:\\Users\\waled\\Desktop\\chamwings\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Http\\Middleware\\TransformsRequest.php(21): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}(Object(Illuminate\\Http\\Request))
+#29 C:\\Users\\waled\\Desktop\\chamwings\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Http\\Middleware\\TrimStrings.php(50): Illuminate\\Foundation\\Http\\Middleware\\TransformsRequest->handle(Object(Illuminate\\Http\\Request), Object(Closure))
+#30 C:\\Users\\waled\\Desktop\\chamwings\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php(183): Illuminate\\Foundation\\Http\\Middleware\\TrimStrings->handle(Object(Illuminate\\Http\\Request), Object(Closure))
+#31 C:\\Users\\waled\\Desktop\\chamwings\\vendor\\laravel\\framework\\src\\Illuminate\\Http\\Middleware\\ValidatePostSize.php(27): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}(Object(Illuminate\\Http\\Request))
+#32 C:\\Users\\waled\\Desktop\\chamwings\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php(183): Illuminate\\Http\\Middleware\\ValidatePostSize->handle(Object(Illuminate\\Http\\Request), Object(Closure))
+#33 C:\\Users\\waled\\Desktop\\chamwings\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Http\\Middleware\\PreventRequestsDuringMaintenance.php(103): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}(Object(Illuminate\\Http\\Request))
+#34 C:\\Users\\waled\\Desktop\\chamwings\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php(183): Illuminate\\Foundation\\Http\\Middleware\\PreventRequestsDuringMaintenance->handle(Object(Illuminate\\Http\\Request), Object(Closure))
+#35 C:\\Users\\waled\\Desktop\\chamwings\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php(119): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}(Object(Illuminate\\Http\\Request))
+#36 C:\\Users\\waled\\Desktop\\chamwings\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Http\\Kernel.php(175): Illuminate\\Pipeline\\Pipeline->then(Object(Closure))
+#37 C:\\Users\\waled\\Desktop\\chamwings\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Http\\Kernel.php(144): Illuminate\\Foundation\\Http\\Kernel->sendRequestThroughRouter(Object(Illuminate\\Http\\Request))
+#38 C:\\Users\\waled\\Desktop\\chamwings\\public\\index.php(54): Illuminate\\Foundation\\Http\\Kernel->handle(Object(Illuminate\\Http\\Request))
+#39 C:\\Users\\waled\\Desktop\\chamwings\\server.php(21): require_once('C:\\\\Users\\\\waled\\\\...')
+#40 {main}
+"} 
+[2024-08-01 18:55:07] local.INFO: Received input for chat processing: {"input":"what is application development?"} 
+[2024-08-01 18:55:07] local.INFO: Executing Python script with command: {"command":"\"C:/Users/waled/AppData/Local/Programs/Python/Python312/python.exe\" \"C:/Users/waled/Desktop/chamwings/EmployeeChatBot/Employee_chat_script.py\" \"what is application development?\""} 
+[2024-08-01 18:55:38] local.ERROR: ob_flush(): Failed to flush buffer. No buffer to flush {"exception":"[object] (ErrorException(code: 0): ob_flush(): Failed to flush buffer. No buffer to flush at C:\\Users\\waled\\Desktop\\chamwings\\app\\Http\\Controllers\\EmployeesChatController.php:56)
+[stacktrace]
+#0 C:\\Users\\waled\\Desktop\\chamwings\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Bootstrap\\HandleExceptions.php(256): Illuminate\\Foundation\\Bootstrap\\HandleExceptions->handleError(8, 'ob_flush(): Fai...', 'C:\\\\Users\\\\waled\\\\...', 56)
+#1 [internal function]: Illuminate\\Foundation\\Bootstrap\\HandleExceptions->Illuminate\\Foundation\\Bootstrap\\{closure}(8, 'ob_flush(): Fai...', 'C:\\\\Users\\\\waled\\\\...', 56)
+#2 C:\\Users\\waled\\Desktop\\chamwings\\app\\Http\\Controllers\\EmployeesChatController.php(56): ob_flush()
+#3 C:\\Users\\waled\\Desktop\\chamwings\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\Controller.php(54): App\\Http\\Controllers\\EmployeesChatController->chat(Object(Illuminate\\Http\\Request))
+#4 C:\\Users\\waled\\Desktop\\chamwings\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\ControllerDispatcher.php(43): Illuminate\\Routing\\Controller->callAction('chat', Array)
+#5 C:\\Users\\waled\\Desktop\\chamwings\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\Route.php(260): Illuminate\\Routing\\ControllerDispatcher->dispatch(Object(Illuminate\\Routing\\Route), Object(App\\Http\\Controllers\\EmployeesChatController), 'chat')
+#6 C:\\Users\\waled\\Desktop\\chamwings\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\Route.php(206): Illuminate\\Routing\\Route->runController()
+#7 C:\\Users\\waled\\Desktop\\chamwings\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\Router.php(806): Illuminate\\Routing\\Route->run()
+#8 C:\\Users\\waled\\Desktop\\chamwings\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php(144): Illuminate\\Routing\\Router->Illuminate\\Routing\\{closure}(Object(Illuminate\\Http\\Request))
+#9 C:\\Users\\waled\\Desktop\\chamwings\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\Middleware\\SubstituteBindings.php(50): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}(Object(Illuminate\\Http\\Request))
+#10 C:\\Users\\waled\\Desktop\\chamwings\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php(183): Illuminate\\Routing\\Middleware\\SubstituteBindings->handle(Object(Illuminate\\Http\\Request), Object(Closure))
+#11 C:\\Users\\waled\\Desktop\\chamwings\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\Middleware\\ThrottleRequests.php(159): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}(Object(Illuminate\\Http\\Request))
+#12 C:\\Users\\waled\\Desktop\\chamwings\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\Middleware\\ThrottleRequests.php(90): Illuminate\\Routing\\Middleware\\ThrottleRequests->handleRequest(Object(Illuminate\\Http\\Request), Object(Closure), Array)
+#13 C:\\Users\\waled\\Desktop\\chamwings\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php(183): Illuminate\\Routing\\Middleware\\ThrottleRequests->handle(Object(Illuminate\\Http\\Request), Object(Closure), '60', '1')
+#14 C:\\Users\\waled\\Desktop\\chamwings\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php(119): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}(Object(Illuminate\\Http\\Request))
+#15 C:\\Users\\waled\\Desktop\\chamwings\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\Router.php(805): Illuminate\\Pipeline\\Pipeline->then(Object(Closure))
+#16 C:\\Users\\waled\\Desktop\\chamwings\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\Router.php(784): Illuminate\\Routing\\Router->runRouteWithinStack(Object(Illuminate\\Routing\\Route), Object(Illuminate\\Http\\Request))
+#17 C:\\Users\\waled\\Desktop\\chamwings\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\Router.php(748): Illuminate\\Routing\\Router->runRoute(Object(Illuminate\\Http\\Request), Object(Illuminate\\Routing\\Route))
+#18 C:\\Users\\waled\\Desktop\\chamwings\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\Router.php(737): Illuminate\\Routing\\Router->dispatchToRoute(Object(Illuminate\\Http\\Request))
+#19 C:\\Users\\waled\\Desktop\\chamwings\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Http\\Kernel.php(200): Illuminate\\Routing\\Router->dispatch(Object(Illuminate\\Http\\Request))
+#20 C:\\Users\\waled\\Desktop\\chamwings\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php(144): Illuminate\\Foundation\\Http\\Kernel->Illuminate\\Foundation\\Http\\{closure}(Object(Illuminate\\Http\\Request))
+#21 C:\\Users\\waled\\Desktop\\chamwings\\app\\Http\\Middleware\\cors.php(18): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}(Object(Illuminate\\Http\\Request))
+#22 C:\\Users\\waled\\Desktop\\chamwings\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php(183): App\\Http\\Middleware\\Cors->handle(Object(Illuminate\\Http\\Request), Object(Closure))
+#23 C:\\Users\\waled\\Desktop\\chamwings\\vendor\\laravel\\framework\\src\\Illuminate\\Http\\Middleware\\TrustProxies.php(57): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}(Object(Illuminate\\Http\\Request))
+#24 C:\\Users\\waled\\Desktop\\chamwings\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php(183): Illuminate\\Http\\Middleware\\TrustProxies->handle(Object(Illuminate\\Http\\Request), Object(Closure))
+#25 C:\\Users\\waled\\Desktop\\chamwings\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Http\\Middleware\\TransformsRequest.php(21): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}(Object(Illuminate\\Http\\Request))
+#26 C:\\Users\\waled\\Desktop\\chamwings\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Http\\Middleware\\ConvertEmptyStringsToNull.php(31): Illuminate\\Foundation\\Http\\Middleware\\TransformsRequest->handle(Object(Illuminate\\Http\\Request), Object(Closure))
+#27 C:\\Users\\waled\\Desktop\\chamwings\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php(183): Illuminate\\Foundation\\Http\\Middleware\\ConvertEmptyStringsToNull->handle(Object(Illuminate\\Http\\Request), Object(Closure))
+#28 C:\\Users\\waled\\Desktop\\chamwings\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Http\\Middleware\\TransformsRequest.php(21): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}(Object(Illuminate\\Http\\Request))
+#29 C:\\Users\\waled\\Desktop\\chamwings\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Http\\Middleware\\TrimStrings.php(50): Illuminate\\Foundation\\Http\\Middleware\\TransformsRequest->handle(Object(Illuminate\\Http\\Request), Object(Closure))
+#30 C:\\Users\\waled\\Desktop\\chamwings\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php(183): Illuminate\\Foundation\\Http\\Middleware\\TrimStrings->handle(Object(Illuminate\\Http\\Request), Object(Closure))
+#31 C:\\Users\\waled\\Desktop\\chamwings\\vendor\\laravel\\framework\\src\\Illuminate\\Http\\Middleware\\ValidatePostSize.php(27): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}(Object(Illuminate\\Http\\Request))
+#32 C:\\Users\\waled\\Desktop\\chamwings\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php(183): Illuminate\\Http\\Middleware\\ValidatePostSize->handle(Object(Illuminate\\Http\\Request), Object(Closure))
+#33 C:\\Users\\waled\\Desktop\\chamwings\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Http\\Middleware\\PreventRequestsDuringMaintenance.php(103): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}(Object(Illuminate\\Http\\Request))
+#34 C:\\Users\\waled\\Desktop\\chamwings\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php(183): Illuminate\\Foundation\\Http\\Middleware\\PreventRequestsDuringMaintenance->handle(Object(Illuminate\\Http\\Request), Object(Closure))
+#35 C:\\Users\\waled\\Desktop\\chamwings\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php(119): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}(Object(Illuminate\\Http\\Request))
+#36 C:\\Users\\waled\\Desktop\\chamwings\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Http\\Kernel.php(175): Illuminate\\Pipeline\\Pipeline->then(Object(Closure))
+#37 C:\\Users\\waled\\Desktop\\chamwings\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Http\\Kernel.php(144): Illuminate\\Foundation\\Http\\Kernel->sendRequestThroughRouter(Object(Illuminate\\Http\\Request))
+#38 C:\\Users\\waled\\Desktop\\chamwings\\public\\index.php(54): Illuminate\\Foundation\\Http\\Kernel->handle(Object(Illuminate\\Http\\Request))
+#39 C:\\Users\\waled\\Desktop\\chamwings\\server.php(21): require_once('C:\\\\Users\\\\waled\\\\...')
+#40 {main}
+"} 
+[2024-08-01 18:57:29] local.INFO: Received input for chat processing: {"input":"what is application development?"} 
+[2024-08-01 18:57:29] local.INFO: Executing Python script with command: {"command":"\"C:/Users/waled/AppData/Local/Programs/Python/Python312/python.exe\" \"C:/Users/waled/Desktop/chamwings/EmployeeChatBot/Employee_chat_script.py\" \"what is application development?\""} 
+[2024-08-01 18:58:20] local.ERROR: ob_flush(): Failed to flush buffer. No buffer to flush {"exception":"[object] (ErrorException(code: 0): ob_flush(): Failed to flush buffer. No buffer to flush at C:\\Users\\waled\\Desktop\\chamwings\\app\\Http\\Controllers\\EmployeesChatController.php:56)
+[stacktrace]
+#0 C:\\Users\\waled\\Desktop\\chamwings\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Bootstrap\\HandleExceptions.php(256): Illuminate\\Foundation\\Bootstrap\\HandleExceptions->handleError(8, 'ob_flush(): Fai...', 'C:\\\\Users\\\\waled\\\\...', 56)
+#1 [internal function]: Illuminate\\Foundation\\Bootstrap\\HandleExceptions->Illuminate\\Foundation\\Bootstrap\\{closure}(8, 'ob_flush(): Fai...', 'C:\\\\Users\\\\waled\\\\...', 56)
+#2 C:\\Users\\waled\\Desktop\\chamwings\\app\\Http\\Controllers\\EmployeesChatController.php(56): ob_flush()
+#3 C:\\Users\\waled\\Desktop\\chamwings\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\Controller.php(54): App\\Http\\Controllers\\EmployeesChatController->chat(Object(Illuminate\\Http\\Request))
+#4 C:\\Users\\waled\\Desktop\\chamwings\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\ControllerDispatcher.php(43): Illuminate\\Routing\\Controller->callAction('chat', Array)
+#5 C:\\Users\\waled\\Desktop\\chamwings\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\Route.php(260): Illuminate\\Routing\\ControllerDispatcher->dispatch(Object(Illuminate\\Routing\\Route), Object(App\\Http\\Controllers\\EmployeesChatController), 'chat')
+#6 C:\\Users\\waled\\Desktop\\chamwings\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\Route.php(206): Illuminate\\Routing\\Route->runController()
+#7 C:\\Users\\waled\\Desktop\\chamwings\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\Router.php(806): Illuminate\\Routing\\Route->run()
+#8 C:\\Users\\waled\\Desktop\\chamwings\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php(144): Illuminate\\Routing\\Router->Illuminate\\Routing\\{closure}(Object(Illuminate\\Http\\Request))
+#9 C:\\Users\\waled\\Desktop\\chamwings\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\Middleware\\SubstituteBindings.php(50): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}(Object(Illuminate\\Http\\Request))
+#10 C:\\Users\\waled\\Desktop\\chamwings\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php(183): Illuminate\\Routing\\Middleware\\SubstituteBindings->handle(Object(Illuminate\\Http\\Request), Object(Closure))
+#11 C:\\Users\\waled\\Desktop\\chamwings\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\Middleware\\ThrottleRequests.php(159): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}(Object(Illuminate\\Http\\Request))
+#12 C:\\Users\\waled\\Desktop\\chamwings\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\Middleware\\ThrottleRequests.php(90): Illuminate\\Routing\\Middleware\\ThrottleRequests->handleRequest(Object(Illuminate\\Http\\Request), Object(Closure), Array)
+#13 C:\\Users\\waled\\Desktop\\chamwings\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php(183): Illuminate\\Routing\\Middleware\\ThrottleRequests->handle(Object(Illuminate\\Http\\Request), Object(Closure), '60', '1')
+#14 C:\\Users\\waled\\Desktop\\chamwings\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php(119): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}(Object(Illuminate\\Http\\Request))
+#15 C:\\Users\\waled\\Desktop\\chamwings\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\Router.php(805): Illuminate\\Pipeline\\Pipeline->then(Object(Closure))
+#16 C:\\Users\\waled\\Desktop\\chamwings\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\Router.php(784): Illuminate\\Routing\\Router->runRouteWithinStack(Object(Illuminate\\Routing\\Route), Object(Illuminate\\Http\\Request))
+#17 C:\\Users\\waled\\Desktop\\chamwings\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\Router.php(748): Illuminate\\Routing\\Router->runRoute(Object(Illuminate\\Http\\Request), Object(Illuminate\\Routing\\Route))
+#18 C:\\Users\\waled\\Desktop\\chamwings\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\Router.php(737): Illuminate\\Routing\\Router->dispatchToRoute(Object(Illuminate\\Http\\Request))
+#19 C:\\Users\\waled\\Desktop\\chamwings\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Http\\Kernel.php(200): Illuminate\\Routing\\Router->dispatch(Object(Illuminate\\Http\\Request))
+#20 C:\\Users\\waled\\Desktop\\chamwings\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php(144): Illuminate\\Foundation\\Http\\Kernel->Illuminate\\Foundation\\Http\\{closure}(Object(Illuminate\\Http\\Request))
+#21 C:\\Users\\waled\\Desktop\\chamwings\\app\\Http\\Middleware\\cors.php(18): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}(Object(Illuminate\\Http\\Request))
+#22 C:\\Users\\waled\\Desktop\\chamwings\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php(183): App\\Http\\Middleware\\Cors->handle(Object(Illuminate\\Http\\Request), Object(Closure))
+#23 C:\\Users\\waled\\Desktop\\chamwings\\vendor\\laravel\\framework\\src\\Illuminate\\Http\\Middleware\\TrustProxies.php(57): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}(Object(Illuminate\\Http\\Request))
+#24 C:\\Users\\waled\\Desktop\\chamwings\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php(183): Illuminate\\Http\\Middleware\\TrustProxies->handle(Object(Illuminate\\Http\\Request), Object(Closure))
+#25 C:\\Users\\waled\\Desktop\\chamwings\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Http\\Middleware\\TransformsRequest.php(21): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}(Object(Illuminate\\Http\\Request))
+#26 C:\\Users\\waled\\Desktop\\chamwings\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Http\\Middleware\\ConvertEmptyStringsToNull.php(31): Illuminate\\Foundation\\Http\\Middleware\\TransformsRequest->handle(Object(Illuminate\\Http\\Request), Object(Closure))
+#27 C:\\Users\\waled\\Desktop\\chamwings\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php(183): Illuminate\\Foundation\\Http\\Middleware\\ConvertEmptyStringsToNull->handle(Object(Illuminate\\Http\\Request), Object(Closure))
+#28 C:\\Users\\waled\\Desktop\\chamwings\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Http\\Middleware\\TransformsRequest.php(21): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}(Object(Illuminate\\Http\\Request))
+#29 C:\\Users\\waled\\Desktop\\chamwings\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Http\\Middleware\\TrimStrings.php(50): Illuminate\\Foundation\\Http\\Middleware\\TransformsRequest->handle(Object(Illuminate\\Http\\Request), Object(Closure))
+#30 C:\\Users\\waled\\Desktop\\chamwings\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php(183): Illuminate\\Foundation\\Http\\Middleware\\TrimStrings->handle(Object(Illuminate\\Http\\Request), Object(Closure))
+#31 C:\\Users\\waled\\Desktop\\chamwings\\vendor\\laravel\\framework\\src\\Illuminate\\Http\\Middleware\\ValidatePostSize.php(27): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}(Object(Illuminate\\Http\\Request))
+#32 C:\\Users\\waled\\Desktop\\chamwings\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php(183): Illuminate\\Http\\Middleware\\ValidatePostSize->handle(Object(Illuminate\\Http\\Request), Object(Closure))
+#33 C:\\Users\\waled\\Desktop\\chamwings\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Http\\Middleware\\PreventRequestsDuringMaintenance.php(103): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}(Object(Illuminate\\Http\\Request))
+#34 C:\\Users\\waled\\Desktop\\chamwings\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php(183): Illuminate\\Foundation\\Http\\Middleware\\PreventRequestsDuringMaintenance->handle(Object(Illuminate\\Http\\Request), Object(Closure))
+#35 C:\\Users\\waled\\Desktop\\chamwings\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php(119): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}(Object(Illuminate\\Http\\Request))
+#36 C:\\Users\\waled\\Desktop\\chamwings\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Http\\Kernel.php(175): Illuminate\\Pipeline\\Pipeline->then(Object(Closure))
+#37 C:\\Users\\waled\\Desktop\\chamwings\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Http\\Kernel.php(144): Illuminate\\Foundation\\Http\\Kernel->sendRequestThroughRouter(Object(Illuminate\\Http\\Request))
+#38 C:\\Users\\waled\\Desktop\\chamwings\\public\\index.php(54): Illuminate\\Foundation\\Http\\Kernel->handle(Object(Illuminate\\Http\\Request))
+#39 C:\\Users\\waled\\Desktop\\chamwings\\server.php(21): require_once('C:\\\\Users\\\\waled\\\\...')
+#40 {main}
+"} 
+[2024-08-01 19:02:32] local.INFO: Received input for chat processing: {"input":"what is application development?"} 
+[2024-08-01 19:02:32] local.INFO: Executing Python script with command: {"command":"\"C:/Users/waled/AppData/Local/Programs/Python/Python312/python.exe\" \"C:/Users/waled/Desktop/chamwings/EmployeeChatBot/Employee_chat_script.py\" \"what is application development?\""} 
+[2024-08-01 19:03:02] local.ERROR: ob_flush(): Failed to flush buffer. No buffer to flush {"exception":"[object] (ErrorException(code: 0): ob_flush(): Failed to flush buffer. No buffer to flush at C:\\Users\\waled\\Desktop\\chamwings\\app\\Http\\Controllers\\EmployeesChatController.php:48)
+[stacktrace]
+#0 C:\\Users\\waled\\Desktop\\chamwings\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Bootstrap\\HandleExceptions.php(256): Illuminate\\Foundation\\Bootstrap\\HandleExceptions->handleError(8, 'ob_flush(): Fai...', 'C:\\\\Users\\\\waled\\\\...', 48)
+#1 [internal function]: Illuminate\\Foundation\\Bootstrap\\HandleExceptions->Illuminate\\Foundation\\Bootstrap\\{closure}(8, 'ob_flush(): Fai...', 'C:\\\\Users\\\\waled\\\\...', 48)
+#2 C:\\Users\\waled\\Desktop\\chamwings\\app\\Http\\Controllers\\EmployeesChatController.php(48): ob_flush()
+#3 C:\\Users\\waled\\Desktop\\chamwings\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\Controller.php(54): App\\Http\\Controllers\\EmployeesChatController->chat(Object(Illuminate\\Http\\Request))
+#4 C:\\Users\\waled\\Desktop\\chamwings\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\ControllerDispatcher.php(43): Illuminate\\Routing\\Controller->callAction('chat', Array)
+#5 C:\\Users\\waled\\Desktop\\chamwings\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\Route.php(260): Illuminate\\Routing\\ControllerDispatcher->dispatch(Object(Illuminate\\Routing\\Route), Object(App\\Http\\Controllers\\EmployeesChatController), 'chat')
+#6 C:\\Users\\waled\\Desktop\\chamwings\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\Route.php(206): Illuminate\\Routing\\Route->runController()
+#7 C:\\Users\\waled\\Desktop\\chamwings\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\Router.php(806): Illuminate\\Routing\\Route->run()
+#8 C:\\Users\\waled\\Desktop\\chamwings\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php(144): Illuminate\\Routing\\Router->Illuminate\\Routing\\{closure}(Object(Illuminate\\Http\\Request))
+#9 C:\\Users\\waled\\Desktop\\chamwings\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\Middleware\\SubstituteBindings.php(50): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}(Object(Illuminate\\Http\\Request))
+#10 C:\\Users\\waled\\Desktop\\chamwings\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php(183): Illuminate\\Routing\\Middleware\\SubstituteBindings->handle(Object(Illuminate\\Http\\Request), Object(Closure))
+#11 C:\\Users\\waled\\Desktop\\chamwings\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\Middleware\\ThrottleRequests.php(159): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}(Object(Illuminate\\Http\\Request))
+#12 C:\\Users\\waled\\Desktop\\chamwings\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\Middleware\\ThrottleRequests.php(90): Illuminate\\Routing\\Middleware\\ThrottleRequests->handleRequest(Object(Illuminate\\Http\\Request), Object(Closure), Array)
+#13 C:\\Users\\waled\\Desktop\\chamwings\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php(183): Illuminate\\Routing\\Middleware\\ThrottleRequests->handle(Object(Illuminate\\Http\\Request), Object(Closure), '60', '1')
+#14 C:\\Users\\waled\\Desktop\\chamwings\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php(119): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}(Object(Illuminate\\Http\\Request))
+#15 C:\\Users\\waled\\Desktop\\chamwings\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\Router.php(805): Illuminate\\Pipeline\\Pipeline->then(Object(Closure))
+#16 C:\\Users\\waled\\Desktop\\chamwings\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\Router.php(784): Illuminate\\Routing\\Router->runRouteWithinStack(Object(Illuminate\\Routing\\Route), Object(Illuminate\\Http\\Request))
+#17 C:\\Users\\waled\\Desktop\\chamwings\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\Router.php(748): Illuminate\\Routing\\Router->runRoute(Object(Illuminate\\Http\\Request), Object(Illuminate\\Routing\\Route))
+#18 C:\\Users\\waled\\Desktop\\chamwings\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\Router.php(737): Illuminate\\Routing\\Router->dispatchToRoute(Object(Illuminate\\Http\\Request))
+#19 C:\\Users\\waled\\Desktop\\chamwings\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Http\\Kernel.php(200): Illuminate\\Routing\\Router->dispatch(Object(Illuminate\\Http\\Request))
+#20 C:\\Users\\waled\\Desktop\\chamwings\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php(144): Illuminate\\Foundation\\Http\\Kernel->Illuminate\\Foundation\\Http\\{closure}(Object(Illuminate\\Http\\Request))
+#21 C:\\Users\\waled\\Desktop\\chamwings\\app\\Http\\Middleware\\cors.php(18): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}(Object(Illuminate\\Http\\Request))
+#22 C:\\Users\\waled\\Desktop\\chamwings\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php(183): App\\Http\\Middleware\\Cors->handle(Object(Illuminate\\Http\\Request), Object(Closure))
+#23 C:\\Users\\waled\\Desktop\\chamwings\\vendor\\laravel\\framework\\src\\Illuminate\\Http\\Middleware\\TrustProxies.php(57): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}(Object(Illuminate\\Http\\Request))
+#24 C:\\Users\\waled\\Desktop\\chamwings\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php(183): Illuminate\\Http\\Middleware\\TrustProxies->handle(Object(Illuminate\\Http\\Request), Object(Closure))
+#25 C:\\Users\\waled\\Desktop\\chamwings\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Http\\Middleware\\TransformsRequest.php(21): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}(Object(Illuminate\\Http\\Request))
+#26 C:\\Users\\waled\\Desktop\\chamwings\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Http\\Middleware\\ConvertEmptyStringsToNull.php(31): Illuminate\\Foundation\\Http\\Middleware\\TransformsRequest->handle(Object(Illuminate\\Http\\Request), Object(Closure))
+#27 C:\\Users\\waled\\Desktop\\chamwings\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php(183): Illuminate\\Foundation\\Http\\Middleware\\ConvertEmptyStringsToNull->handle(Object(Illuminate\\Http\\Request), Object(Closure))
+#28 C:\\Users\\waled\\Desktop\\chamwings\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Http\\Middleware\\TransformsRequest.php(21): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}(Object(Illuminate\\Http\\Request))
+#29 C:\\Users\\waled\\Desktop\\chamwings\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Http\\Middleware\\TrimStrings.php(50): Illuminate\\Foundation\\Http\\Middleware\\TransformsRequest->handle(Object(Illuminate\\Http\\Request), Object(Closure))
+#30 C:\\Users\\waled\\Desktop\\chamwings\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php(183): Illuminate\\Foundation\\Http\\Middleware\\TrimStrings->handle(Object(Illuminate\\Http\\Request), Object(Closure))
+#31 C:\\Users\\waled\\Desktop\\chamwings\\vendor\\laravel\\framework\\src\\Illuminate\\Http\\Middleware\\ValidatePostSize.php(27): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}(Object(Illuminate\\Http\\Request))
+#32 C:\\Users\\waled\\Desktop\\chamwings\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php(183): Illuminate\\Http\\Middleware\\ValidatePostSize->handle(Object(Illuminate\\Http\\Request), Object(Closure))
+#33 C:\\Users\\waled\\Desktop\\chamwings\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Http\\Middleware\\PreventRequestsDuringMaintenance.php(103): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}(Object(Illuminate\\Http\\Request))
+#34 C:\\Users\\waled\\Desktop\\chamwings\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php(183): Illuminate\\Foundation\\Http\\Middleware\\PreventRequestsDuringMaintenance->handle(Object(Illuminate\\Http\\Request), Object(Closure))
+#35 C:\\Users\\waled\\Desktop\\chamwings\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php(119): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}(Object(Illuminate\\Http\\Request))
+#36 C:\\Users\\waled\\Desktop\\chamwings\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Http\\Kernel.php(175): Illuminate\\Pipeline\\Pipeline->then(Object(Closure))
+#37 C:\\Users\\waled\\Desktop\\chamwings\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Http\\Kernel.php(144): Illuminate\\Foundation\\Http\\Kernel->sendRequestThroughRouter(Object(Illuminate\\Http\\Request))
+#38 C:\\Users\\waled\\Desktop\\chamwings\\public\\index.php(54): Illuminate\\Foundation\\Http\\Kernel->handle(Object(Illuminate\\Http\\Request))
+#39 C:\\Users\\waled\\Desktop\\chamwings\\server.php(21): require_once('C:\\\\Users\\\\waled\\\\...')
+#40 {main}
+"} 
+[2024-08-01 19:43:40] local.INFO: Received input for chat processing: {"input":"what is application development?"} 
+[2024-08-01 19:43:40] local.INFO: Executing Python script with command: {"command":"\"C:/Users/waled/AppData/Local/Programs/Python/Python312/python.exe\" \"C:/Users/waled/Desktop/chamwings/EmployeeChatBot/Employee_chat_script.py\" \"what is application development?\""} 
+[2024-08-01 19:44:11] local.ERROR: ob_flush(): Failed to flush buffer. No buffer to flush {"exception":"[object] (ErrorException(code: 0): ob_flush(): Failed to flush buffer. No buffer to flush at C:\\Users\\waled\\Desktop\\chamwings\\app\\Http\\Controllers\\EmployeesChatController.php:48)
+[stacktrace]
+#0 C:\\Users\\waled\\Desktop\\chamwings\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Bootstrap\\HandleExceptions.php(256): Illuminate\\Foundation\\Bootstrap\\HandleExceptions->handleError(8, 'ob_flush(): Fai...', 'C:\\\\Users\\\\waled\\\\...', 48)
+#1 [internal function]: Illuminate\\Foundation\\Bootstrap\\HandleExceptions->Illuminate\\Foundation\\Bootstrap\\{closure}(8, 'ob_flush(): Fai...', 'C:\\\\Users\\\\waled\\\\...', 48)
+#2 C:\\Users\\waled\\Desktop\\chamwings\\app\\Http\\Controllers\\EmployeesChatController.php(48): ob_flush()
+#3 C:\\Users\\waled\\Desktop\\chamwings\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\Controller.php(54): App\\Http\\Controllers\\EmployeesChatController->chat(Object(Illuminate\\Http\\Request))
+#4 C:\\Users\\waled\\Desktop\\chamwings\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\ControllerDispatcher.php(43): Illuminate\\Routing\\Controller->callAction('chat', Array)
+#5 C:\\Users\\waled\\Desktop\\chamwings\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\Route.php(260): Illuminate\\Routing\\ControllerDispatcher->dispatch(Object(Illuminate\\Routing\\Route), Object(App\\Http\\Controllers\\EmployeesChatController), 'chat')
+#6 C:\\Users\\waled\\Desktop\\chamwings\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\Route.php(206): Illuminate\\Routing\\Route->runController()
+#7 C:\\Users\\waled\\Desktop\\chamwings\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\Router.php(806): Illuminate\\Routing\\Route->run()
+#8 C:\\Users\\waled\\Desktop\\chamwings\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php(144): Illuminate\\Routing\\Router->Illuminate\\Routing\\{closure}(Object(Illuminate\\Http\\Request))
+#9 C:\\Users\\waled\\Desktop\\chamwings\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\Middleware\\SubstituteBindings.php(50): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}(Object(Illuminate\\Http\\Request))
+#10 C:\\Users\\waled\\Desktop\\chamwings\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php(183): Illuminate\\Routing\\Middleware\\SubstituteBindings->handle(Object(Illuminate\\Http\\Request), Object(Closure))
+#11 C:\\Users\\waled\\Desktop\\chamwings\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\Middleware\\ThrottleRequests.php(159): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}(Object(Illuminate\\Http\\Request))
+#12 C:\\Users\\waled\\Desktop\\chamwings\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\Middleware\\ThrottleRequests.php(90): Illuminate\\Routing\\Middleware\\ThrottleRequests->handleRequest(Object(Illuminate\\Http\\Request), Object(Closure), Array)
+#13 C:\\Users\\waled\\Desktop\\chamwings\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php(183): Illuminate\\Routing\\Middleware\\ThrottleRequests->handle(Object(Illuminate\\Http\\Request), Object(Closure), '60', '1')
+#14 C:\\Users\\waled\\Desktop\\chamwings\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php(119): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}(Object(Illuminate\\Http\\Request))
+#15 C:\\Users\\waled\\Desktop\\chamwings\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\Router.php(805): Illuminate\\Pipeline\\Pipeline->then(Object(Closure))
+#16 C:\\Users\\waled\\Desktop\\chamwings\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\Router.php(784): Illuminate\\Routing\\Router->runRouteWithinStack(Object(Illuminate\\Routing\\Route), Object(Illuminate\\Http\\Request))
+#17 C:\\Users\\waled\\Desktop\\chamwings\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\Router.php(748): Illuminate\\Routing\\Router->runRoute(Object(Illuminate\\Http\\Request), Object(Illuminate\\Routing\\Route))
+#18 C:\\Users\\waled\\Desktop\\chamwings\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\Router.php(737): Illuminate\\Routing\\Router->dispatchToRoute(Object(Illuminate\\Http\\Request))
+#19 C:\\Users\\waled\\Desktop\\chamwings\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Http\\Kernel.php(200): Illuminate\\Routing\\Router->dispatch(Object(Illuminate\\Http\\Request))
+#20 C:\\Users\\waled\\Desktop\\chamwings\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php(144): Illuminate\\Foundation\\Http\\Kernel->Illuminate\\Foundation\\Http\\{closure}(Object(Illuminate\\Http\\Request))
+#21 C:\\Users\\waled\\Desktop\\chamwings\\app\\Http\\Middleware\\cors.php(18): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}(Object(Illuminate\\Http\\Request))
+#22 C:\\Users\\waled\\Desktop\\chamwings\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php(183): App\\Http\\Middleware\\Cors->handle(Object(Illuminate\\Http\\Request), Object(Closure))
+#23 C:\\Users\\waled\\Desktop\\chamwings\\vendor\\laravel\\framework\\src\\Illuminate\\Http\\Middleware\\TrustProxies.php(57): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}(Object(Illuminate\\Http\\Request))
+#24 C:\\Users\\waled\\Desktop\\chamwings\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php(183): Illuminate\\Http\\Middleware\\TrustProxies->handle(Object(Illuminate\\Http\\Request), Object(Closure))
+#25 C:\\Users\\waled\\Desktop\\chamwings\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Http\\Middleware\\TransformsRequest.php(21): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}(Object(Illuminate\\Http\\Request))
+#26 C:\\Users\\waled\\Desktop\\chamwings\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Http\\Middleware\\ConvertEmptyStringsToNull.php(31): Illuminate\\Foundation\\Http\\Middleware\\TransformsRequest->handle(Object(Illuminate\\Http\\Request), Object(Closure))
+#27 C:\\Users\\waled\\Desktop\\chamwings\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php(183): Illuminate\\Foundation\\Http\\Middleware\\ConvertEmptyStringsToNull->handle(Object(Illuminate\\Http\\Request), Object(Closure))
+#28 C:\\Users\\waled\\Desktop\\chamwings\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Http\\Middleware\\TransformsRequest.php(21): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}(Object(Illuminate\\Http\\Request))
+#29 C:\\Users\\waled\\Desktop\\chamwings\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Http\\Middleware\\TrimStrings.php(50): Illuminate\\Foundation\\Http\\Middleware\\TransformsRequest->handle(Object(Illuminate\\Http\\Request), Object(Closure))
+#30 C:\\Users\\waled\\Desktop\\chamwings\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php(183): Illuminate\\Foundation\\Http\\Middleware\\TrimStrings->handle(Object(Illuminate\\Http\\Request), Object(Closure))
+#31 C:\\Users\\waled\\Desktop\\chamwings\\vendor\\laravel\\framework\\src\\Illuminate\\Http\\Middleware\\ValidatePostSize.php(27): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}(Object(Illuminate\\Http\\Request))
+#32 C:\\Users\\waled\\Desktop\\chamwings\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php(183): Illuminate\\Http\\Middleware\\ValidatePostSize->handle(Object(Illuminate\\Http\\Request), Object(Closure))
+#33 C:\\Users\\waled\\Desktop\\chamwings\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Http\\Middleware\\PreventRequestsDuringMaintenance.php(103): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}(Object(Illuminate\\Http\\Request))
+#34 C:\\Users\\waled\\Desktop\\chamwings\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php(183): Illuminate\\Foundation\\Http\\Middleware\\PreventRequestsDuringMaintenance->handle(Object(Illuminate\\Http\\Request), Object(Closure))
+#35 C:\\Users\\waled\\Desktop\\chamwings\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php(119): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}(Object(Illuminate\\Http\\Request))
+#36 C:\\Users\\waled\\Desktop\\chamwings\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Http\\Kernel.php(175): Illuminate\\Pipeline\\Pipeline->then(Object(Closure))
+#37 C:\\Users\\waled\\Desktop\\chamwings\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Http\\Kernel.php(144): Illuminate\\Foundation\\Http\\Kernel->sendRequestThroughRouter(Object(Illuminate\\Http\\Request))
+#38 C:\\Users\\waled\\Desktop\\chamwings\\public\\index.php(54): Illuminate\\Foundation\\Http\\Kernel->handle(Object(Illuminate\\Http\\Request))
+#39 C:\\Users\\waled\\Desktop\\chamwings\\server.php(21): require_once('C:\\\\Users\\\\waled\\\\...')
+#40 {main}
+"} 
+[2024-08-01 20:03:55] local.INFO: Received input for chat processing: {"input":"what is application development?"} 
+[2024-08-01 20:03:55] local.INFO: Executing Python script with command: {"command":"\"C:/Users/waled/AppData/Local/Programs/Python/Python312/python.exe\" \"C:/Users/waled/Desktop/chamwings/EmployeeChatBot/Employee_chat_script.py\" \"what is application development?\""} 
+[2024-08-01 20:04:34] local.ERROR: ob_flush(): Failed to flush buffer. No buffer to flush {"exception":"[object] (ErrorException(code: 0): ob_flush(): Failed to flush buffer. No buffer to flush at C:\\Users\\waled\\Desktop\\chamwings\\app\\Http\\Controllers\\EmployeesChatController.php:47)
+[stacktrace]
+#0 C:\\Users\\waled\\Desktop\\chamwings\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Bootstrap\\HandleExceptions.php(256): Illuminate\\Foundation\\Bootstrap\\HandleExceptions->handleError(8, 'ob_flush(): Fai...', 'C:\\\\Users\\\\waled\\\\...', 47)
+#1 [internal function]: Illuminate\\Foundation\\Bootstrap\\HandleExceptions->Illuminate\\Foundation\\Bootstrap\\{closure}(8, 'ob_flush(): Fai...', 'C:\\\\Users\\\\waled\\\\...', 47)
+#2 C:\\Users\\waled\\Desktop\\chamwings\\app\\Http\\Controllers\\EmployeesChatController.php(47): ob_flush()
+#3 C:\\Users\\waled\\Desktop\\chamwings\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\Controller.php(54): App\\Http\\Controllers\\EmployeesChatController->chat(Object(Illuminate\\Http\\Request))
+#4 C:\\Users\\waled\\Desktop\\chamwings\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\ControllerDispatcher.php(43): Illuminate\\Routing\\Controller->callAction('chat', Array)
+#5 C:\\Users\\waled\\Desktop\\chamwings\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\Route.php(260): Illuminate\\Routing\\ControllerDispatcher->dispatch(Object(Illuminate\\Routing\\Route), Object(App\\Http\\Controllers\\EmployeesChatController), 'chat')
+#6 C:\\Users\\waled\\Desktop\\chamwings\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\Route.php(206): Illuminate\\Routing\\Route->runController()
+#7 C:\\Users\\waled\\Desktop\\chamwings\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\Router.php(806): Illuminate\\Routing\\Route->run()
+#8 C:\\Users\\waled\\Desktop\\chamwings\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php(144): Illuminate\\Routing\\Router->Illuminate\\Routing\\{closure}(Object(Illuminate\\Http\\Request))
+#9 C:\\Users\\waled\\Desktop\\chamwings\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\Middleware\\SubstituteBindings.php(50): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}(Object(Illuminate\\Http\\Request))
+#10 C:\\Users\\waled\\Desktop\\chamwings\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php(183): Illuminate\\Routing\\Middleware\\SubstituteBindings->handle(Object(Illuminate\\Http\\Request), Object(Closure))
+#11 C:\\Users\\waled\\Desktop\\chamwings\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\Middleware\\ThrottleRequests.php(159): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}(Object(Illuminate\\Http\\Request))
+#12 C:\\Users\\waled\\Desktop\\chamwings\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\Middleware\\ThrottleRequests.php(90): Illuminate\\Routing\\Middleware\\ThrottleRequests->handleRequest(Object(Illuminate\\Http\\Request), Object(Closure), Array)
+#13 C:\\Users\\waled\\Desktop\\chamwings\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php(183): Illuminate\\Routing\\Middleware\\ThrottleRequests->handle(Object(Illuminate\\Http\\Request), Object(Closure), '60', '1')
+#14 C:\\Users\\waled\\Desktop\\chamwings\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php(119): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}(Object(Illuminate\\Http\\Request))
+#15 C:\\Users\\waled\\Desktop\\chamwings\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\Router.php(805): Illuminate\\Pipeline\\Pipeline->then(Object(Closure))
+#16 C:\\Users\\waled\\Desktop\\chamwings\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\Router.php(784): Illuminate\\Routing\\Router->runRouteWithinStack(Object(Illuminate\\Routing\\Route), Object(Illuminate\\Http\\Request))
+#17 C:\\Users\\waled\\Desktop\\chamwings\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\Router.php(748): Illuminate\\Routing\\Router->runRoute(Object(Illuminate\\Http\\Request), Object(Illuminate\\Routing\\Route))
+#18 C:\\Users\\waled\\Desktop\\chamwings\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\Router.php(737): Illuminate\\Routing\\Router->dispatchToRoute(Object(Illuminate\\Http\\Request))
+#19 C:\\Users\\waled\\Desktop\\chamwings\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Http\\Kernel.php(200): Illuminate\\Routing\\Router->dispatch(Object(Illuminate\\Http\\Request))
+#20 C:\\Users\\waled\\Desktop\\chamwings\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php(144): Illuminate\\Foundation\\Http\\Kernel->Illuminate\\Foundation\\Http\\{closure}(Object(Illuminate\\Http\\Request))
+#21 C:\\Users\\waled\\Desktop\\chamwings\\app\\Http\\Middleware\\cors.php(18): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}(Object(Illuminate\\Http\\Request))
+#22 C:\\Users\\waled\\Desktop\\chamwings\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php(183): App\\Http\\Middleware\\Cors->handle(Object(Illuminate\\Http\\Request), Object(Closure))
+#23 C:\\Users\\waled\\Desktop\\chamwings\\vendor\\laravel\\framework\\src\\Illuminate\\Http\\Middleware\\TrustProxies.php(57): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}(Object(Illuminate\\Http\\Request))
+#24 C:\\Users\\waled\\Desktop\\chamwings\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php(183): Illuminate\\Http\\Middleware\\TrustProxies->handle(Object(Illuminate\\Http\\Request), Object(Closure))
+#25 C:\\Users\\waled\\Desktop\\chamwings\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Http\\Middleware\\TransformsRequest.php(21): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}(Object(Illuminate\\Http\\Request))
+#26 C:\\Users\\waled\\Desktop\\chamwings\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Http\\Middleware\\ConvertEmptyStringsToNull.php(31): Illuminate\\Foundation\\Http\\Middleware\\TransformsRequest->handle(Object(Illuminate\\Http\\Request), Object(Closure))
+#27 C:\\Users\\waled\\Desktop\\chamwings\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php(183): Illuminate\\Foundation\\Http\\Middleware\\ConvertEmptyStringsToNull->handle(Object(Illuminate\\Http\\Request), Object(Closure))
+#28 C:\\Users\\waled\\Desktop\\chamwings\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Http\\Middleware\\TransformsRequest.php(21): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}(Object(Illuminate\\Http\\Request))
+#29 C:\\Users\\waled\\Desktop\\chamwings\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Http\\Middleware\\TrimStrings.php(50): Illuminate\\Foundation\\Http\\Middleware\\TransformsRequest->handle(Object(Illuminate\\Http\\Request), Object(Closure))
+#30 C:\\Users\\waled\\Desktop\\chamwings\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php(183): Illuminate\\Foundation\\Http\\Middleware\\TrimStrings->handle(Object(Illuminate\\Http\\Request), Object(Closure))
+#31 C:\\Users\\waled\\Desktop\\chamwings\\vendor\\laravel\\framework\\src\\Illuminate\\Http\\Middleware\\ValidatePostSize.php(27): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}(Object(Illuminate\\Http\\Request))
+#32 C:\\Users\\waled\\Desktop\\chamwings\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php(183): Illuminate\\Http\\Middleware\\ValidatePostSize->handle(Object(Illuminate\\Http\\Request), Object(Closure))
+#33 C:\\Users\\waled\\Desktop\\chamwings\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Http\\Middleware\\PreventRequestsDuringMaintenance.php(103): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}(Object(Illuminate\\Http\\Request))
+#34 C:\\Users\\waled\\Desktop\\chamwings\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php(183): Illuminate\\Foundation\\Http\\Middleware\\PreventRequestsDuringMaintenance->handle(Object(Illuminate\\Http\\Request), Object(Closure))
+#35 C:\\Users\\waled\\Desktop\\chamwings\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php(119): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}(Object(Illuminate\\Http\\Request))
+#36 C:\\Users\\waled\\Desktop\\chamwings\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Http\\Kernel.php(175): Illuminate\\Pipeline\\Pipeline->then(Object(Closure))
+#37 C:\\Users\\waled\\Desktop\\chamwings\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Http\\Kernel.php(144): Illuminate\\Foundation\\Http\\Kernel->sendRequestThroughRouter(Object(Illuminate\\Http\\Request))
+#38 C:\\Users\\waled\\Desktop\\chamwings\\public\\index.php(54): Illuminate\\Foundation\\Http\\Kernel->handle(Object(Illuminate\\Http\\Request))
+#39 C:\\Users\\waled\\Desktop\\chamwings\\server.php(21): require_once('C:\\\\Users\\\\waled\\\\...')
+#40 {main}
+"} 
