@@ -1,0 +1,503 @@
+[2024-08-02 05:53:36] local.INFO: Received input for chat processing: {"input":"what is application development?"} 
+[2024-08-02 05:53:36] local.INFO: Executing Python script with command: {"command":"\"C:/Users/waled/AppData/Local/Programs/Python/Python312/python.exe\" \"C:/Users/waled/Desktop/chamwings/EmployeeChatBot/Employee_chat_script.py\" \"what is application development?\""} 
+[2024-08-02 05:54:11] local.ERROR: ob_flush(): Failed to flush buffer. No buffer to flush {"exception":"[object] (ErrorException(code: 0): ob_flush(): Failed to flush buffer. No buffer to flush at C:\\Users\\waled\\Desktop\\chamwings\\app\\Http\\Controllers\\EmployeesChatController.php:47)
+[stacktrace]
+#0 C:\\Users\\waled\\Desktop\\chamwings\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Bootstrap\\HandleExceptions.php(256): Illuminate\\Foundation\\Bootstrap\\HandleExceptions->handleError(8, 'ob_flush(): Fai...', 'C:\\\\Users\\\\waled\\\\...', 47)
+#1 [internal function]: Illuminate\\Foundation\\Bootstrap\\HandleExceptions->Illuminate\\Foundation\\Bootstrap\\{closure}(8, 'ob_flush(): Fai...', 'C:\\\\Users\\\\waled\\\\...', 47)
+#2 C:\\Users\\waled\\Desktop\\chamwings\\app\\Http\\Controllers\\EmployeesChatController.php(47): ob_flush()
+#3 C:\\Users\\waled\\Desktop\\chamwings\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\Controller.php(54): App\\Http\\Controllers\\EmployeesChatController->chat(Object(Illuminate\\Http\\Request))
+#4 C:\\Users\\waled\\Desktop\\chamwings\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\ControllerDispatcher.php(43): Illuminate\\Routing\\Controller->callAction('chat', Array)
+#5 C:\\Users\\waled\\Desktop\\chamwings\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\Route.php(260): Illuminate\\Routing\\ControllerDispatcher->dispatch(Object(Illuminate\\Routing\\Route), Object(App\\Http\\Controllers\\EmployeesChatController), 'chat')
+#6 C:\\Users\\waled\\Desktop\\chamwings\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\Route.php(206): Illuminate\\Routing\\Route->runController()
+#7 C:\\Users\\waled\\Desktop\\chamwings\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\Router.php(806): Illuminate\\Routing\\Route->run()
+#8 C:\\Users\\waled\\Desktop\\chamwings\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php(144): Illuminate\\Routing\\Router->Illuminate\\Routing\\{closure}(Object(Illuminate\\Http\\Request))
+#9 C:\\Users\\waled\\Desktop\\chamwings\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\Middleware\\SubstituteBindings.php(50): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}(Object(Illuminate\\Http\\Request))
+#10 C:\\Users\\waled\\Desktop\\chamwings\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php(183): Illuminate\\Routing\\Middleware\\SubstituteBindings->handle(Object(Illuminate\\Http\\Request), Object(Closure))
+#11 C:\\Users\\waled\\Desktop\\chamwings\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\Middleware\\ThrottleRequests.php(159): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}(Object(Illuminate\\Http\\Request))
+#12 C:\\Users\\waled\\Desktop\\chamwings\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\Middleware\\ThrottleRequests.php(90): Illuminate\\Routing\\Middleware\\ThrottleRequests->handleRequest(Object(Illuminate\\Http\\Request), Object(Closure), Array)
+#13 C:\\Users\\waled\\Desktop\\chamwings\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php(183): Illuminate\\Routing\\Middleware\\ThrottleRequests->handle(Object(Illuminate\\Http\\Request), Object(Closure), '60', '1')
+#14 C:\\Users\\waled\\Desktop\\chamwings\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php(119): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}(Object(Illuminate\\Http\\Request))
+#15 C:\\Users\\waled\\Desktop\\chamwings\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\Router.php(805): Illuminate\\Pipeline\\Pipeline->then(Object(Closure))
+#16 C:\\Users\\waled\\Desktop\\chamwings\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\Router.php(784): Illuminate\\Routing\\Router->runRouteWithinStack(Object(Illuminate\\Routing\\Route), Object(Illuminate\\Http\\Request))
+#17 C:\\Users\\waled\\Desktop\\chamwings\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\Router.php(748): Illuminate\\Routing\\Router->runRoute(Object(Illuminate\\Http\\Request), Object(Illuminate\\Routing\\Route))
+#18 C:\\Users\\waled\\Desktop\\chamwings\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\Router.php(737): Illuminate\\Routing\\Router->dispatchToRoute(Object(Illuminate\\Http\\Request))
+#19 C:\\Users\\waled\\Desktop\\chamwings\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Http\\Kernel.php(200): Illuminate\\Routing\\Router->dispatch(Object(Illuminate\\Http\\Request))
+#20 C:\\Users\\waled\\Desktop\\chamwings\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php(144): Illuminate\\Foundation\\Http\\Kernel->Illuminate\\Foundation\\Http\\{closure}(Object(Illuminate\\Http\\Request))
+#21 C:\\Users\\waled\\Desktop\\chamwings\\app\\Http\\Middleware\\cors.php(18): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}(Object(Illuminate\\Http\\Request))
+#22 C:\\Users\\waled\\Desktop\\chamwings\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php(183): App\\Http\\Middleware\\Cors->handle(Object(Illuminate\\Http\\Request), Object(Closure))
+#23 C:\\Users\\waled\\Desktop\\chamwings\\vendor\\laravel\\framework\\src\\Illuminate\\Http\\Middleware\\TrustProxies.php(57): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}(Object(Illuminate\\Http\\Request))
+#24 C:\\Users\\waled\\Desktop\\chamwings\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php(183): Illuminate\\Http\\Middleware\\TrustProxies->handle(Object(Illuminate\\Http\\Request), Object(Closure))
+#25 C:\\Users\\waled\\Desktop\\chamwings\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Http\\Middleware\\TransformsRequest.php(21): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}(Object(Illuminate\\Http\\Request))
+#26 C:\\Users\\waled\\Desktop\\chamwings\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Http\\Middleware\\ConvertEmptyStringsToNull.php(31): Illuminate\\Foundation\\Http\\Middleware\\TransformsRequest->handle(Object(Illuminate\\Http\\Request), Object(Closure))
+#27 C:\\Users\\waled\\Desktop\\chamwings\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php(183): Illuminate\\Foundation\\Http\\Middleware\\ConvertEmptyStringsToNull->handle(Object(Illuminate\\Http\\Request), Object(Closure))
+#28 C:\\Users\\waled\\Desktop\\chamwings\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Http\\Middleware\\TransformsRequest.php(21): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}(Object(Illuminate\\Http\\Request))
+#29 C:\\Users\\waled\\Desktop\\chamwings\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Http\\Middleware\\TrimStrings.php(50): Illuminate\\Foundation\\Http\\Middleware\\TransformsRequest->handle(Object(Illuminate\\Http\\Request), Object(Closure))
+#30 C:\\Users\\waled\\Desktop\\chamwings\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php(183): Illuminate\\Foundation\\Http\\Middleware\\TrimStrings->handle(Object(Illuminate\\Http\\Request), Object(Closure))
+#31 C:\\Users\\waled\\Desktop\\chamwings\\vendor\\laravel\\framework\\src\\Illuminate\\Http\\Middleware\\ValidatePostSize.php(27): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}(Object(Illuminate\\Http\\Request))
+#32 C:\\Users\\waled\\Desktop\\chamwings\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php(183): Illuminate\\Http\\Middleware\\ValidatePostSize->handle(Object(Illuminate\\Http\\Request), Object(Closure))
+#33 C:\\Users\\waled\\Desktop\\chamwings\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Http\\Middleware\\PreventRequestsDuringMaintenance.php(103): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}(Object(Illuminate\\Http\\Request))
+#34 C:\\Users\\waled\\Desktop\\chamwings\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php(183): Illuminate\\Foundation\\Http\\Middleware\\PreventRequestsDuringMaintenance->handle(Object(Illuminate\\Http\\Request), Object(Closure))
+#35 C:\\Users\\waled\\Desktop\\chamwings\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php(119): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}(Object(Illuminate\\Http\\Request))
+#36 C:\\Users\\waled\\Desktop\\chamwings\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Http\\Kernel.php(175): Illuminate\\Pipeline\\Pipeline->then(Object(Closure))
+#37 C:\\Users\\waled\\Desktop\\chamwings\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Http\\Kernel.php(144): Illuminate\\Foundation\\Http\\Kernel->sendRequestThroughRouter(Object(Illuminate\\Http\\Request))
+#38 C:\\Users\\waled\\Desktop\\chamwings\\public\\index.php(54): Illuminate\\Foundation\\Http\\Kernel->handle(Object(Illuminate\\Http\\Request))
+#39 C:\\Users\\waled\\Desktop\\chamwings\\server.php(21): require_once('C:\\\\Users\\\\waled\\\\...')
+#40 {main}
+"} 
+[2024-08-02 05:55:24] local.INFO: Received input for chat processing: {"input":"what is application development?"} 
+[2024-08-02 05:55:24] local.INFO: Executing Python script with command: {"command":"\"C:/Users/waled/AppData/Local/Programs/Python/Python312/python.exe\" \"C:/Users/waled/Desktop/chamwings/EmployeeChatBot/Employee_chat_script.py\" \"what is application development?\""} 
+[2024-08-02 05:55:44] local.ERROR: Python script returned an error. {"return_value":1} 
+[2024-08-02 05:55:44] local.ERROR: ob_flush(): Failed to flush buffer. No buffer to flush {"exception":"[object] (ErrorException(code: 0): ob_flush(): Failed to flush buffer. No buffer to flush at C:\\Users\\waled\\Desktop\\chamwings\\app\\Http\\Controllers\\EmployeesChatController.php:62)
+[stacktrace]
+#0 C:\\Users\\waled\\Desktop\\chamwings\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Bootstrap\\HandleExceptions.php(256): Illuminate\\Foundation\\Bootstrap\\HandleExceptions->handleError(8, 'ob_flush(): Fai...', 'C:\\\\Users\\\\waled\\\\...', 62)
+#1 [internal function]: Illuminate\\Foundation\\Bootstrap\\HandleExceptions->Illuminate\\Foundation\\Bootstrap\\{closure}(8, 'ob_flush(): Fai...', 'C:\\\\Users\\\\waled\\\\...', 62)
+#2 C:\\Users\\waled\\Desktop\\chamwings\\app\\Http\\Controllers\\EmployeesChatController.php(62): ob_flush()
+#3 C:\\Users\\waled\\Desktop\\chamwings\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\Controller.php(54): App\\Http\\Controllers\\EmployeesChatController->chat(Object(Illuminate\\Http\\Request))
+#4 C:\\Users\\waled\\Desktop\\chamwings\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\ControllerDispatcher.php(43): Illuminate\\Routing\\Controller->callAction('chat', Array)
+#5 C:\\Users\\waled\\Desktop\\chamwings\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\Route.php(260): Illuminate\\Routing\\ControllerDispatcher->dispatch(Object(Illuminate\\Routing\\Route), Object(App\\Http\\Controllers\\EmployeesChatController), 'chat')
+#6 C:\\Users\\waled\\Desktop\\chamwings\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\Route.php(206): Illuminate\\Routing\\Route->runController()
+#7 C:\\Users\\waled\\Desktop\\chamwings\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\Router.php(806): Illuminate\\Routing\\Route->run()
+#8 C:\\Users\\waled\\Desktop\\chamwings\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php(144): Illuminate\\Routing\\Router->Illuminate\\Routing\\{closure}(Object(Illuminate\\Http\\Request))
+#9 C:\\Users\\waled\\Desktop\\chamwings\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\Middleware\\SubstituteBindings.php(50): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}(Object(Illuminate\\Http\\Request))
+#10 C:\\Users\\waled\\Desktop\\chamwings\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php(183): Illuminate\\Routing\\Middleware\\SubstituteBindings->handle(Object(Illuminate\\Http\\Request), Object(Closure))
+#11 C:\\Users\\waled\\Desktop\\chamwings\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\Middleware\\ThrottleRequests.php(159): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}(Object(Illuminate\\Http\\Request))
+#12 C:\\Users\\waled\\Desktop\\chamwings\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\Middleware\\ThrottleRequests.php(90): Illuminate\\Routing\\Middleware\\ThrottleRequests->handleRequest(Object(Illuminate\\Http\\Request), Object(Closure), Array)
+#13 C:\\Users\\waled\\Desktop\\chamwings\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php(183): Illuminate\\Routing\\Middleware\\ThrottleRequests->handle(Object(Illuminate\\Http\\Request), Object(Closure), '60', '1')
+#14 C:\\Users\\waled\\Desktop\\chamwings\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php(119): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}(Object(Illuminate\\Http\\Request))
+#15 C:\\Users\\waled\\Desktop\\chamwings\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\Router.php(805): Illuminate\\Pipeline\\Pipeline->then(Object(Closure))
+#16 C:\\Users\\waled\\Desktop\\chamwings\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\Router.php(784): Illuminate\\Routing\\Router->runRouteWithinStack(Object(Illuminate\\Routing\\Route), Object(Illuminate\\Http\\Request))
+#17 C:\\Users\\waled\\Desktop\\chamwings\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\Router.php(748): Illuminate\\Routing\\Router->runRoute(Object(Illuminate\\Http\\Request), Object(Illuminate\\Routing\\Route))
+#18 C:\\Users\\waled\\Desktop\\chamwings\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\Router.php(737): Illuminate\\Routing\\Router->dispatchToRoute(Object(Illuminate\\Http\\Request))
+#19 C:\\Users\\waled\\Desktop\\chamwings\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Http\\Kernel.php(200): Illuminate\\Routing\\Router->dispatch(Object(Illuminate\\Http\\Request))
+#20 C:\\Users\\waled\\Desktop\\chamwings\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php(144): Illuminate\\Foundation\\Http\\Kernel->Illuminate\\Foundation\\Http\\{closure}(Object(Illuminate\\Http\\Request))
+#21 C:\\Users\\waled\\Desktop\\chamwings\\app\\Http\\Middleware\\cors.php(18): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}(Object(Illuminate\\Http\\Request))
+#22 C:\\Users\\waled\\Desktop\\chamwings\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php(183): App\\Http\\Middleware\\Cors->handle(Object(Illuminate\\Http\\Request), Object(Closure))
+#23 C:\\Users\\waled\\Desktop\\chamwings\\vendor\\laravel\\framework\\src\\Illuminate\\Http\\Middleware\\TrustProxies.php(57): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}(Object(Illuminate\\Http\\Request))
+#24 C:\\Users\\waled\\Desktop\\chamwings\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php(183): Illuminate\\Http\\Middleware\\TrustProxies->handle(Object(Illuminate\\Http\\Request), Object(Closure))
+#25 C:\\Users\\waled\\Desktop\\chamwings\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Http\\Middleware\\TransformsRequest.php(21): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}(Object(Illuminate\\Http\\Request))
+#26 C:\\Users\\waled\\Desktop\\chamwings\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Http\\Middleware\\ConvertEmptyStringsToNull.php(31): Illuminate\\Foundation\\Http\\Middleware\\TransformsRequest->handle(Object(Illuminate\\Http\\Request), Object(Closure))
+#27 C:\\Users\\waled\\Desktop\\chamwings\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php(183): Illuminate\\Foundation\\Http\\Middleware\\ConvertEmptyStringsToNull->handle(Object(Illuminate\\Http\\Request), Object(Closure))
+#28 C:\\Users\\waled\\Desktop\\chamwings\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Http\\Middleware\\TransformsRequest.php(21): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}(Object(Illuminate\\Http\\Request))
+#29 C:\\Users\\waled\\Desktop\\chamwings\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Http\\Middleware\\TrimStrings.php(50): Illuminate\\Foundation\\Http\\Middleware\\TransformsRequest->handle(Object(Illuminate\\Http\\Request), Object(Closure))
+#30 C:\\Users\\waled\\Desktop\\chamwings\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php(183): Illuminate\\Foundation\\Http\\Middleware\\TrimStrings->handle(Object(Illuminate\\Http\\Request), Object(Closure))
+#31 C:\\Users\\waled\\Desktop\\chamwings\\vendor\\laravel\\framework\\src\\Illuminate\\Http\\Middleware\\ValidatePostSize.php(27): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}(Object(Illuminate\\Http\\Request))
+#32 C:\\Users\\waled\\Desktop\\chamwings\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php(183): Illuminate\\Http\\Middleware\\ValidatePostSize->handle(Object(Illuminate\\Http\\Request), Object(Closure))
+#33 C:\\Users\\waled\\Desktop\\chamwings\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Http\\Middleware\\PreventRequestsDuringMaintenance.php(103): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}(Object(Illuminate\\Http\\Request))
+#34 C:\\Users\\waled\\Desktop\\chamwings\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php(183): Illuminate\\Foundation\\Http\\Middleware\\PreventRequestsDuringMaintenance->handle(Object(Illuminate\\Http\\Request), Object(Closure))
+#35 C:\\Users\\waled\\Desktop\\chamwings\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php(119): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}(Object(Illuminate\\Http\\Request))
+#36 C:\\Users\\waled\\Desktop\\chamwings\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Http\\Kernel.php(175): Illuminate\\Pipeline\\Pipeline->then(Object(Closure))
+#37 C:\\Users\\waled\\Desktop\\chamwings\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Http\\Kernel.php(144): Illuminate\\Foundation\\Http\\Kernel->sendRequestThroughRouter(Object(Illuminate\\Http\\Request))
+#38 C:\\Users\\waled\\Desktop\\chamwings\\public\\index.php(54): Illuminate\\Foundation\\Http\\Kernel->handle(Object(Illuminate\\Http\\Request))
+#39 C:\\Users\\waled\\Desktop\\chamwings\\server.php(21): require_once('C:\\\\Users\\\\waled\\\\...')
+#40 {main}
+"} 
+[2024-08-02 06:01:23] local.INFO: Received input for chat processing: {"input":"what is application development?"} 
+[2024-08-02 06:01:23] local.INFO: Executing Python script with command: {"command":"\"C:/Users/waled/AppData/Local/Programs/Python/Python312/python.exe\" \"C:/Users/waled/Desktop/chamwings/EmployeeChatBot/Employee_chat_script.py\" \"what is application development?\""} 
+[2024-08-02 06:02:26] local.INFO: Received input for chat processing: {"input":"what is application development?"} 
+[2024-08-02 06:02:26] local.INFO: Executing Python script with command: {"command":"\"C:/Users/waled/AppData/Local/Programs/Python/Python312/python.exe\" \"C:/Users/waled/Desktop/chamwings/EmployeeChatBot/Employee_chat_script.py\" \"what is application development?\""} 
+[2024-08-02 06:03:01] local.ERROR: ob_flush(): Failed to flush buffer. No buffer to flush {"exception":"[object] (ErrorException(code: 0): ob_flush(): Failed to flush buffer. No buffer to flush at C:\\Users\\waled\\Desktop\\chamwings\\app\\Http\\Controllers\\EmployeesChatController.php:53)
+[stacktrace]
+#0 C:\\Users\\waled\\Desktop\\chamwings\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Bootstrap\\HandleExceptions.php(256): Illuminate\\Foundation\\Bootstrap\\HandleExceptions->handleError(8, 'ob_flush(): Fai...', 'C:\\\\Users\\\\waled\\\\...', 53)
+#1 [internal function]: Illuminate\\Foundation\\Bootstrap\\HandleExceptions->Illuminate\\Foundation\\Bootstrap\\{closure}(8, 'ob_flush(): Fai...', 'C:\\\\Users\\\\waled\\\\...', 53)
+#2 C:\\Users\\waled\\Desktop\\chamwings\\app\\Http\\Controllers\\EmployeesChatController.php(53): ob_flush()
+#3 C:\\Users\\waled\\Desktop\\chamwings\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\Controller.php(54): App\\Http\\Controllers\\EmployeesChatController->chat(Object(Illuminate\\Http\\Request))
+#4 C:\\Users\\waled\\Desktop\\chamwings\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\ControllerDispatcher.php(43): Illuminate\\Routing\\Controller->callAction('chat', Array)
+#5 C:\\Users\\waled\\Desktop\\chamwings\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\Route.php(260): Illuminate\\Routing\\ControllerDispatcher->dispatch(Object(Illuminate\\Routing\\Route), Object(App\\Http\\Controllers\\EmployeesChatController), 'chat')
+#6 C:\\Users\\waled\\Desktop\\chamwings\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\Route.php(206): Illuminate\\Routing\\Route->runController()
+#7 C:\\Users\\waled\\Desktop\\chamwings\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\Router.php(806): Illuminate\\Routing\\Route->run()
+#8 C:\\Users\\waled\\Desktop\\chamwings\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php(144): Illuminate\\Routing\\Router->Illuminate\\Routing\\{closure}(Object(Illuminate\\Http\\Request))
+#9 C:\\Users\\waled\\Desktop\\chamwings\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\Middleware\\SubstituteBindings.php(50): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}(Object(Illuminate\\Http\\Request))
+#10 C:\\Users\\waled\\Desktop\\chamwings\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php(183): Illuminate\\Routing\\Middleware\\SubstituteBindings->handle(Object(Illuminate\\Http\\Request), Object(Closure))
+#11 C:\\Users\\waled\\Desktop\\chamwings\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\Middleware\\ThrottleRequests.php(159): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}(Object(Illuminate\\Http\\Request))
+#12 C:\\Users\\waled\\Desktop\\chamwings\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\Middleware\\ThrottleRequests.php(90): Illuminate\\Routing\\Middleware\\ThrottleRequests->handleRequest(Object(Illuminate\\Http\\Request), Object(Closure), Array)
+#13 C:\\Users\\waled\\Desktop\\chamwings\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php(183): Illuminate\\Routing\\Middleware\\ThrottleRequests->handle(Object(Illuminate\\Http\\Request), Object(Closure), '60', '1')
+#14 C:\\Users\\waled\\Desktop\\chamwings\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php(119): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}(Object(Illuminate\\Http\\Request))
+#15 C:\\Users\\waled\\Desktop\\chamwings\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\Router.php(805): Illuminate\\Pipeline\\Pipeline->then(Object(Closure))
+#16 C:\\Users\\waled\\Desktop\\chamwings\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\Router.php(784): Illuminate\\Routing\\Router->runRouteWithinStack(Object(Illuminate\\Routing\\Route), Object(Illuminate\\Http\\Request))
+#17 C:\\Users\\waled\\Desktop\\chamwings\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\Router.php(748): Illuminate\\Routing\\Router->runRoute(Object(Illuminate\\Http\\Request), Object(Illuminate\\Routing\\Route))
+#18 C:\\Users\\waled\\Desktop\\chamwings\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\Router.php(737): Illuminate\\Routing\\Router->dispatchToRoute(Object(Illuminate\\Http\\Request))
+#19 C:\\Users\\waled\\Desktop\\chamwings\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Http\\Kernel.php(200): Illuminate\\Routing\\Router->dispatch(Object(Illuminate\\Http\\Request))
+#20 C:\\Users\\waled\\Desktop\\chamwings\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php(144): Illuminate\\Foundation\\Http\\Kernel->Illuminate\\Foundation\\Http\\{closure}(Object(Illuminate\\Http\\Request))
+#21 C:\\Users\\waled\\Desktop\\chamwings\\app\\Http\\Middleware\\cors.php(18): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}(Object(Illuminate\\Http\\Request))
+#22 C:\\Users\\waled\\Desktop\\chamwings\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php(183): App\\Http\\Middleware\\Cors->handle(Object(Illuminate\\Http\\Request), Object(Closure))
+#23 C:\\Users\\waled\\Desktop\\chamwings\\vendor\\laravel\\framework\\src\\Illuminate\\Http\\Middleware\\TrustProxies.php(57): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}(Object(Illuminate\\Http\\Request))
+#24 C:\\Users\\waled\\Desktop\\chamwings\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php(183): Illuminate\\Http\\Middleware\\TrustProxies->handle(Object(Illuminate\\Http\\Request), Object(Closure))
+#25 C:\\Users\\waled\\Desktop\\chamwings\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Http\\Middleware\\TransformsRequest.php(21): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}(Object(Illuminate\\Http\\Request))
+#26 C:\\Users\\waled\\Desktop\\chamwings\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Http\\Middleware\\ConvertEmptyStringsToNull.php(31): Illuminate\\Foundation\\Http\\Middleware\\TransformsRequest->handle(Object(Illuminate\\Http\\Request), Object(Closure))
+#27 C:\\Users\\waled\\Desktop\\chamwings\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php(183): Illuminate\\Foundation\\Http\\Middleware\\ConvertEmptyStringsToNull->handle(Object(Illuminate\\Http\\Request), Object(Closure))
+#28 C:\\Users\\waled\\Desktop\\chamwings\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Http\\Middleware\\TransformsRequest.php(21): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}(Object(Illuminate\\Http\\Request))
+#29 C:\\Users\\waled\\Desktop\\chamwings\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Http\\Middleware\\TrimStrings.php(50): Illuminate\\Foundation\\Http\\Middleware\\TransformsRequest->handle(Object(Illuminate\\Http\\Request), Object(Closure))
+#30 C:\\Users\\waled\\Desktop\\chamwings\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php(183): Illuminate\\Foundation\\Http\\Middleware\\TrimStrings->handle(Object(Illuminate\\Http\\Request), Object(Closure))
+#31 C:\\Users\\waled\\Desktop\\chamwings\\vendor\\laravel\\framework\\src\\Illuminate\\Http\\Middleware\\ValidatePostSize.php(27): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}(Object(Illuminate\\Http\\Request))
+#32 C:\\Users\\waled\\Desktop\\chamwings\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php(183): Illuminate\\Http\\Middleware\\ValidatePostSize->handle(Object(Illuminate\\Http\\Request), Object(Closure))
+#33 C:\\Users\\waled\\Desktop\\chamwings\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Http\\Middleware\\PreventRequestsDuringMaintenance.php(103): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}(Object(Illuminate\\Http\\Request))
+#34 C:\\Users\\waled\\Desktop\\chamwings\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php(183): Illuminate\\Foundation\\Http\\Middleware\\PreventRequestsDuringMaintenance->handle(Object(Illuminate\\Http\\Request), Object(Closure))
+#35 C:\\Users\\waled\\Desktop\\chamwings\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php(119): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}(Object(Illuminate\\Http\\Request))
+#36 C:\\Users\\waled\\Desktop\\chamwings\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Http\\Kernel.php(175): Illuminate\\Pipeline\\Pipeline->then(Object(Closure))
+#37 C:\\Users\\waled\\Desktop\\chamwings\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Http\\Kernel.php(144): Illuminate\\Foundation\\Http\\Kernel->sendRequestThroughRouter(Object(Illuminate\\Http\\Request))
+#38 C:\\Users\\waled\\Desktop\\chamwings\\public\\index.php(54): Illuminate\\Foundation\\Http\\Kernel->handle(Object(Illuminate\\Http\\Request))
+#39 C:\\Users\\waled\\Desktop\\chamwings\\server.php(21): require_once('C:\\\\Users\\\\waled\\\\...')
+#40 {main}
+"} 
+[2024-08-02 06:08:30] local.INFO: Executing command: "C:/Users/waled/AppData/Local/Programs/Python/Python312/python.exe" "C:/Users/waled/Desktop/chamwings/EmployeeChatBot/Employee_ingest_pdf_script.py" "C:\Users\waled\Desktop\chamwings\storage\app/pdfs/Rj7ATu8quj9lJDyq3E0gCtvWT67p6SVgtqocHsA4.pdf"  
+[2024-08-02 06:08:30] local.ERROR: PDF ingestion failed {"output":"  File \"C:\\Users\\waled\\Desktop\\chamwings\\EmployeeChatBot\\Employee_ingest_pdf_script.py\", line 29
+    persist_directory_base = os.getenv(\"PERSIST_DIRECTORY\")
+IndentationError: unexpected indent
+"} 
+[2024-08-02 06:09:06] local.INFO: Executing command: "C:/Users/waled/AppData/Local/Programs/Python/Python312/python.exe" "C:/Users/waled/Desktop/chamwings/EmployeeChatBot/Employee_ingest_pdf_script.py" "C:\Users\waled\Desktop\chamwings\storage\app/pdfs/bx88ynPLw02XMRN46MRyNi55yCYEFBzJayHf1ToC.pdf"  
+[2024-08-02 06:10:13] local.INFO: PDF ingested successfully {"output":"C:\\Users\\waled\\AppData\\Local\\Programs\\Python\\Python312\\Lib\\site-packages\\langchain_core\\_api\\deprecation.py:139: LangChainDeprecationWarning: The class `HuggingFaceEmbeddings` was deprecated in LangChain 0.2.2 and will be removed in 0.3.0. An updated version of the class exists in the langchain-huggingface package and should be used instead. To use it run `pip install -U langchain-huggingface` and import as `from langchain_huggingface import HuggingFaceEmbeddings`.
+  warn_deprecated(
+Python version: 3.12.4 (tags/v3.12.4:8e8a4ba, Jun  6 2024, 19:30:16) [MSC v.1940 64 bit (AMD64)]
+Python path: C:\\Users\\waled\\AppData\\Local\\Programs\\Python\\Python312\\python.exe
+Working directory: C:\\Users\\waled\\Desktop\\chamwings\\public
+Script location: C:\\Users\\waled\\Desktop\\chamwings\\EmployeeChatBot\\Employee_ingest_pdf_script.py
+Arguments: ['C:/Users/waled/Desktop/chamwings/EmployeeChatBot/Employee_ingest_pdf_script.py', 'C:\\\\Users\\\\waled\\\\Desktop\\\\chamwings\\\\storage\\\\app/pdfs/bx88ynPLw02XMRN46MRyNi55yCYEFBzJayHf1ToC.pdf']
+Processing file: C:\\Users\\waled\\Desktop\\chamwings\\storage\\app/pdfs/bx88ynPLw02XMRN46MRyNi55yCYEFBzJayHf1ToC.pdf
+PDF ingested successfully
+"} 
+[2024-08-02 06:17:59] local.INFO: Executing command: "C:/Users/waled/AppData/Local/Programs/Python/Python312/python.exe" "C:/Users/waled/Desktop/chamwings/EmployeeChatBot/Employee_ingest_pdf_script.py" "C:\Users\waled\Desktop\chamwings\storage\app/pdfs/vr6t147tJcM54gKtAvUp30W29md2wxBeMZeGfAI5.pdf"  
+[2024-08-02 06:18:31] local.ERROR: PDF ingestion failed {"output":"C:\\Users\\waled\\AppData\\Local\\Programs\\Python\\Python312\\Lib\\site-packages\\langchain_core\\_api\\deprecation.py:139: LangChainDeprecationWarning: The class `HuggingFaceEmbeddings` was deprecated in LangChain 0.2.2 and will be removed in 0.3.0. An updated version of the class exists in the langchain-huggingface package and should be used instead. To use it run `pip install -U langchain-huggingface` and import as `from langchain_huggingface import HuggingFaceEmbeddings`.
+  warn_deprecated(
+Python version: 3.12.4 (tags/v3.12.4:8e8a4ba, Jun  6 2024, 19:30:16) [MSC v.1940 64 bit (AMD64)]
+Python path: C:\\Users\\waled\\AppData\\Local\\Programs\\Python\\Python312\\python.exe
+Working directory: C:\\Users\\waled\\Desktop\\chamwings\\public
+Script location: C:\\Users\\waled\\Desktop\\chamwings\\EmployeeChatBot\\Employee_ingest_pdf_script.py
+Arguments: ['C:/Users/waled/Desktop/chamwings/EmployeeChatBot/Employee_ingest_pdf_script.py', 'C:\\\\Users\\\\waled\\\\Desktop\\\\chamwings\\\\storage\\\\app/pdfs/vr6t147tJcM54gKtAvUp30W29md2wxBeMZeGfAI5.pdf']
+Processing file: C:\\Users\\waled\\Desktop\\chamwings\\storage\\app/pdfs/vr6t147tJcM54gKtAvUp30W29md2wxBeMZeGfAI5.pdf
+Error creating vectorstore: list index out of range
+Traceback:
+Traceback (most recent call last):
+  File \"C:\\Users\\waled\\Desktop\\chamwings\\EmployeeChatBot\\Employee_ingest_pdf_script.py\", line 56, in ingest_pdf
+    vectorstore = Chroma.from_documents(documents=splits, embedding=embedding_function, persist_directory=persist_directory)
+                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File \"C:\\Users\\waled\\AppData\\Local\\Programs\\Python\\Python312\\Lib\\site-packages\\langchain_community\\vectorstores\\chroma.py\", line 790, in from_documents
+    return cls.from_texts(
+           ^^^^^^^^^^^^^^^
+  File \"C:\\Users\\waled\\AppData\\Local\\Programs\\Python\\Python312\\Lib\\site-packages\\langchain_community\\vectorstores\\chroma.py\", line 754, in from_texts
+    chroma_collection.add_texts(texts=texts, metadatas=metadatas, ids=ids)
+  File \"C:\\Users\\waled\\AppData\\Local\\Programs\\Python\\Python312\\Lib\\site-packages\\langchain_community\\vectorstores\\chroma.py\", line 276, in add_texts
+    embeddings = self._embedding_function.embed_documents(texts)
+                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File \"C:\\Users\\waled\\AppData\\Local\\Programs\\Python\\Python312\\Lib\\site-packages\\langchain_community\\embeddings\\huggingface.py\", line 105, in embed_documents
+    embeddings = self.client.encode(
+                 ^^^^^^^^^^^^^^^^^^^
+  File \"C:\\Users\\waled\\AppData\\Local\\Programs\\Python\\Python312\\Lib\\site-packages\\sentence_transformers\\SentenceTransformer.py\", line 565, in encode
+    if all_embeddings[0].dtype == torch.bfloat16:
+       ~~~~~~~~~~~~~~^^^
+IndexError: list index out of range
+
+"} 
+[2024-08-02 06:22:17] local.INFO: Executing command: "C:/Users/waled/AppData/Local/Programs/Python/Python312/python.exe" "C:/Users/waled/Desktop/chamwings/EmployeeChatBot/Employee_ingest_pdf_script.py" "C:\Users\waled\Desktop\chamwings\storage\app/pdfs/L3YuPY7EhG8fV8Y1GOUd6rMDU5nGCTca4RlX56vA.pdf"  
+[2024-08-02 06:22:38] local.ERROR: PDF ingestion failed {"output":"C:\\Users\\waled\\AppData\\Local\\Programs\\Python\\Python312\\Lib\\site-packages\\langchain_core\\_api\\deprecation.py:139: LangChainDeprecationWarning: The class `HuggingFaceEmbeddings` was deprecated in LangChain 0.2.2 and will be removed in 0.3.0. An updated version of the class exists in the langchain-huggingface package and should be used instead. To use it run `pip install -U langchain-huggingface` and import as `from langchain_huggingface import HuggingFaceEmbeddings`.
+  warn_deprecated(
+Python version: 3.12.4 (tags/v3.12.4:8e8a4ba, Jun  6 2024, 19:30:16) [MSC v.1940 64 bit (AMD64)]
+Python path: C:\\Users\\waled\\AppData\\Local\\Programs\\Python\\Python312\\python.exe
+Working directory: C:\\Users\\waled\\Desktop\\chamwings\\public
+Script location: C:\\Users\\waled\\Desktop\\chamwings\\EmployeeChatBot\\Employee_ingest_pdf_script.py
+Arguments: ['C:/Users/waled/Desktop/chamwings/EmployeeChatBot/Employee_ingest_pdf_script.py', 'C:\\\\Users\\\\waled\\\\Desktop\\\\chamwings\\\\storage\\\\app/pdfs/L3YuPY7EhG8fV8Y1GOUd6rMDU5nGCTca4RlX56vA.pdf']
+Processing file: C:\\Users\\waled\\Desktop\\chamwings\\storage\\app/pdfs/L3YuPY7EhG8fV8Y1GOUd6rMDU5nGCTca4RlX56vA.pdf
+Error creating vectorstore: list index out of range
+Traceback:
+Traceback (most recent call last):
+  File \"C:\\Users\\waled\\Desktop\\chamwings\\EmployeeChatBot\\Employee_ingest_pdf_script.py\", line 56, in ingest_pdf
+    vectorstore = Chroma.from_documents(documents=splits, embedding=embedding_function, persist_directory=persist_directory)
+                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File \"C:\\Users\\waled\\AppData\\Local\\Programs\\Python\\Python312\\Lib\\site-packages\\langchain_community\\vectorstores\\chroma.py\", line 790, in from_documents
+    return cls.from_texts(
+           ^^^^^^^^^^^^^^^
+  File \"C:\\Users\\waled\\AppData\\Local\\Programs\\Python\\Python312\\Lib\\site-packages\\langchain_community\\vectorstores\\chroma.py\", line 754, in from_texts
+    chroma_collection.add_texts(texts=texts, metadatas=metadatas, ids=ids)
+  File \"C:\\Users\\waled\\AppData\\Local\\Programs\\Python\\Python312\\Lib\\site-packages\\langchain_community\\vectorstores\\chroma.py\", line 276, in add_texts
+    embeddings = self._embedding_function.embed_documents(texts)
+                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File \"C:\\Users\\waled\\AppData\\Local\\Programs\\Python\\Python312\\Lib\\site-packages\\langchain_community\\embeddings\\huggingface.py\", line 105, in embed_documents
+    embeddings = self.client.encode(
+                 ^^^^^^^^^^^^^^^^^^^
+  File \"C:\\Users\\waled\\AppData\\Local\\Programs\\Python\\Python312\\Lib\\site-packages\\sentence_transformers\\SentenceTransformer.py\", line 565, in encode
+    if all_embeddings[0].dtype == torch.bfloat16:
+       ~~~~~~~~~~~~~~^^^
+IndexError: list index out of range
+
+"} 
+[2024-08-02 06:25:25] local.INFO: Executing command: "C:/Users/waled/AppData/Local/Programs/Python/Python312/python.exe" "C:/Users/waled/Desktop/chamwings/EmployeeChatBot/Employee_ingest_pdf_script.py" "C:\Users\waled\Desktop\chamwings\storage\app/pdfs/eatnIuA4gedLujuDb1r3nOcEyJHenRu2pIkirs7t.pdf"  
+[2024-08-02 06:25:44] local.ERROR: PDF ingestion failed {"output":"C:\\Users\\waled\\AppData\\Local\\Programs\\Python\\Python312\\Lib\\site-packages\\langchain_core\\_api\\deprecation.py:139: LangChainDeprecationWarning: The class `HuggingFaceEmbeddings` was deprecated in LangChain 0.2.2 and will be removed in 0.3.0. An updated version of the class exists in the langchain-huggingface package and should be used instead. To use it run `pip install -U langchain-huggingface` and import as `from langchain_huggingface import HuggingFaceEmbeddings`.
+  warn_deprecated(
+Python version: 3.12.4 (tags/v3.12.4:8e8a4ba, Jun  6 2024, 19:30:16) [MSC v.1940 64 bit (AMD64)]
+Python path: C:\\Users\\waled\\AppData\\Local\\Programs\\Python\\Python312\\python.exe
+Working directory: C:\\Users\\waled\\Desktop\\chamwings\\public
+Script location: C:\\Users\\waled\\Desktop\\chamwings\\EmployeeChatBot\\Employee_ingest_pdf_script.py
+Arguments: ['C:/Users/waled/Desktop/chamwings/EmployeeChatBot/Employee_ingest_pdf_script.py', 'C:\\\\Users\\\\waled\\\\Desktop\\\\chamwings\\\\storage\\\\app/pdfs/eatnIuA4gedLujuDb1r3nOcEyJHenRu2pIkirs7t.pdf']
+Processing file: C:\\Users\\waled\\Desktop\\chamwings\\storage\\app/pdfs/eatnIuA4gedLujuDb1r3nOcEyJHenRu2pIkirs7t.pdf
+Error creating vectorstore: list index out of range
+Traceback:
+Traceback (most recent call last):
+  File \"C:\\Users\\waled\\Desktop\\chamwings\\EmployeeChatBot\\Employee_ingest_pdf_script.py\", line 56, in ingest_pdf
+    vectorstore = Chroma.from_documents(documents=splits, embedding=embedding_function, persist_directory=persist_directory)
+                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File \"C:\\Users\\waled\\AppData\\Local\\Programs\\Python\\Python312\\Lib\\site-packages\\langchain_community\\vectorstores\\chroma.py\", line 790, in from_documents
+    return cls.from_texts(
+           ^^^^^^^^^^^^^^^
+  File \"C:\\Users\\waled\\AppData\\Local\\Programs\\Python\\Python312\\Lib\\site-packages\\langchain_community\\vectorstores\\chroma.py\", line 754, in from_texts
+    chroma_collection.add_texts(texts=texts, metadatas=metadatas, ids=ids)
+  File \"C:\\Users\\waled\\AppData\\Local\\Programs\\Python\\Python312\\Lib\\site-packages\\langchain_community\\vectorstores\\chroma.py\", line 276, in add_texts
+    embeddings = self._embedding_function.embed_documents(texts)
+                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File \"C:\\Users\\waled\\AppData\\Local\\Programs\\Python\\Python312\\Lib\\site-packages\\langchain_community\\embeddings\\huggingface.py\", line 105, in embed_documents
+    embeddings = self.client.encode(
+                 ^^^^^^^^^^^^^^^^^^^
+  File \"C:\\Users\\waled\\AppData\\Local\\Programs\\Python\\Python312\\Lib\\site-packages\\sentence_transformers\\SentenceTransformer.py\", line 565, in encode
+    if all_embeddings[0].dtype == torch.bfloat16:
+       ~~~~~~~~~~~~~~^^^
+IndexError: list index out of range
+
+"} 
+[2024-08-02 06:28:33] local.INFO: Executing command: "C:/Users/waled/AppData/Local/Programs/Python/Python312/python.exe" "C:/Users/waled/Desktop/chamwings/EmployeeChatBot/Employee_ingest_pdf_script.py" "C:\Users\waled\Desktop\chamwings\storage\app/pdfs/0CL7bFulChcTzvkKEUhtgoRnncTBvBJDg981Kbli.pdf"  
+[2024-08-02 06:28:51] local.ERROR: PDF ingestion failed {"output":"C:\\Users\\waled\\AppData\\Local\\Programs\\Python\\Python312\\Lib\\site-packages\\langchain_core\\_api\\deprecation.py:139: LangChainDeprecationWarning: The class `HuggingFaceEmbeddings` was deprecated in LangChain 0.2.2 and will be removed in 0.3.0. An updated version of the class exists in the langchain-huggingface package and should be used instead. To use it run `pip install -U langchain-huggingface` and import as `from langchain_huggingface import HuggingFaceEmbeddings`.
+  warn_deprecated(
+Python version: 3.12.4 (tags/v3.12.4:8e8a4ba, Jun  6 2024, 19:30:16) [MSC v.1940 64 bit (AMD64)]
+Python path: C:\\Users\\waled\\AppData\\Local\\Programs\\Python\\Python312\\python.exe
+Working directory: C:\\Users\\waled\\Desktop\\chamwings\\public
+Script location: C:\\Users\\waled\\Desktop\\chamwings\\EmployeeChatBot\\Employee_ingest_pdf_script.py
+Arguments: ['C:/Users/waled/Desktop/chamwings/EmployeeChatBot/Employee_ingest_pdf_script.py', 'C:\\\\Users\\\\waled\\\\Desktop\\\\chamwings\\\\storage\\\\app/pdfs/0CL7bFulChcTzvkKEUhtgoRnncTBvBJDg981Kbli.pdf']
+Processing file: C:\\Users\\waled\\Desktop\\chamwings\\storage\\app/pdfs/0CL7bFulChcTzvkKEUhtgoRnncTBvBJDg981Kbli.pdf
+Error creating vectorstore: list index out of range
+Traceback:
+Traceback (most recent call last):
+  File \"C:\\Users\\waled\\Desktop\\chamwings\\EmployeeChatBot\\Employee_ingest_pdf_script.py\", line 56, in ingest_pdf
+    vectorstore = Chroma.from_documents(documents=splits, embedding=embedding_function, persist_directory=persist_directory)
+                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File \"C:\\Users\\waled\\AppData\\Local\\Programs\\Python\\Python312\\Lib\\site-packages\\langchain_community\\vectorstores\\chroma.py\", line 790, in from_documents
+    return cls.from_texts(
+           ^^^^^^^^^^^^^^^
+  File \"C:\\Users\\waled\\AppData\\Local\\Programs\\Python\\Python312\\Lib\\site-packages\\langchain_community\\vectorstores\\chroma.py\", line 754, in from_texts
+    chroma_collection.add_texts(texts=texts, metadatas=metadatas, ids=ids)
+  File \"C:\\Users\\waled\\AppData\\Local\\Programs\\Python\\Python312\\Lib\\site-packages\\langchain_community\\vectorstores\\chroma.py\", line 276, in add_texts
+    embeddings = self._embedding_function.embed_documents(texts)
+                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File \"C:\\Users\\waled\\AppData\\Local\\Programs\\Python\\Python312\\Lib\\site-packages\\langchain_community\\embeddings\\huggingface.py\", line 105, in embed_documents
+    embeddings = self.client.encode(
+                 ^^^^^^^^^^^^^^^^^^^
+  File \"C:\\Users\\waled\\AppData\\Local\\Programs\\Python\\Python312\\Lib\\site-packages\\sentence_transformers\\SentenceTransformer.py\", line 565, in encode
+    if all_embeddings[0].dtype == torch.bfloat16:
+       ~~~~~~~~~~~~~~^^^
+IndexError: list index out of range
+
+"} 
+[2024-08-02 06:31:53] local.INFO: Executing command: "C:/Users/waled/AppData/Local/Programs/Python/Python312/python.exe" "C:/Users/waled/Desktop/chamwings/EmployeeChatBot/Employee_ingest_pdf_script.py" "C:\Users\waled\Desktop\chamwings\storage\app/pdfs/zqeF2H7JkNp6U2C11jP0FjvsGImDbt4jVB0aIYAd.pdf"  
+[2024-08-02 06:32:53] local.INFO: PDF ingested successfully {"output":"C:\\Users\\waled\\AppData\\Local\\Programs\\Python\\Python312\\Lib\\site-packages\\langchain_core\\_api\\deprecation.py:139: LangChainDeprecationWarning: The class `HuggingFaceEmbeddings` was deprecated in LangChain 0.2.2 and will be removed in 0.3.0. An updated version of the class exists in the langchain-huggingface package and should be used instead. To use it run `pip install -U langchain-huggingface` and import as `from langchain_huggingface import HuggingFaceEmbeddings`.
+  warn_deprecated(
+Python version: 3.12.4 (tags/v3.12.4:8e8a4ba, Jun  6 2024, 19:30:16) [MSC v.1940 64 bit (AMD64)]
+Python path: C:\\Users\\waled\\AppData\\Local\\Programs\\Python\\Python312\\python.exe
+Working directory: C:\\Users\\waled\\Desktop\\chamwings\\public
+Script location: C:\\Users\\waled\\Desktop\\chamwings\\EmployeeChatBot\\Employee_ingest_pdf_script.py
+Arguments: ['C:/Users/waled/Desktop/chamwings/EmployeeChatBot/Employee_ingest_pdf_script.py', 'C:\\\\Users\\\\waled\\\\Desktop\\\\chamwings\\\\storage\\\\app/pdfs/zqeF2H7JkNp6U2C11jP0FjvsGImDbt4jVB0aIYAd.pdf']
+Processing file: C:\\Users\\waled\\Desktop\\chamwings\\storage\\app/pdfs/zqeF2H7JkNp6U2C11jP0FjvsGImDbt4jVB0aIYAd.pdf
+PDF ingested successfully
+"} 
+[2024-08-02 06:33:36] local.INFO: Executing command: "C:/Users/waled/AppData/Local/Programs/Python/Python312/python.exe" "C:/Users/waled/Desktop/chamwings/EmployeeChatBot/Employee_ingest_pdf_script.py" "C:\Users\waled\Desktop\chamwings\storage\app/pdfs/hyGHgMtSgZ3zV3c2VkRrnExCSMqcmgykouF2YXBX.pdf"  
+[2024-08-02 06:34:31] local.INFO: PDF ingested successfully {"output":"C:\\Users\\waled\\AppData\\Local\\Programs\\Python\\Python312\\Lib\\site-packages\\langchain_core\\_api\\deprecation.py:139: LangChainDeprecationWarning: The class `HuggingFaceEmbeddings` was deprecated in LangChain 0.2.2 and will be removed in 0.3.0. An updated version of the class exists in the langchain-huggingface package and should be used instead. To use it run `pip install -U langchain-huggingface` and import as `from langchain_huggingface import HuggingFaceEmbeddings`.
+  warn_deprecated(
+Python version: 3.12.4 (tags/v3.12.4:8e8a4ba, Jun  6 2024, 19:30:16) [MSC v.1940 64 bit (AMD64)]
+Python path: C:\\Users\\waled\\AppData\\Local\\Programs\\Python\\Python312\\python.exe
+Working directory: C:\\Users\\waled\\Desktop\\chamwings\\public
+Script location: C:\\Users\\waled\\Desktop\\chamwings\\EmployeeChatBot\\Employee_ingest_pdf_script.py
+Arguments: ['C:/Users/waled/Desktop/chamwings/EmployeeChatBot/Employee_ingest_pdf_script.py', 'C:\\\\Users\\\\waled\\\\Desktop\\\\chamwings\\\\storage\\\\app/pdfs/hyGHgMtSgZ3zV3c2VkRrnExCSMqcmgykouF2YXBX.pdf']
+Processing file: C:\\Users\\waled\\Desktop\\chamwings\\storage\\app/pdfs/hyGHgMtSgZ3zV3c2VkRrnExCSMqcmgykouF2YXBX.pdf
+PDF ingested successfully
+"} 
+[2024-08-02 06:35:29] local.INFO: Executing command: "C:/Users/waled/AppData/Local/Programs/Python/Python312/python.exe" "C:/Users/waled/Desktop/chamwings/EmployeeChatBot/Employee_ingest_pdf_script.py" "C:\Users\waled\Desktop\chamwings\storage\app/pdfs/rBqruHyEAwJ4ohMVsMxd5cL2LdvSC2dJeD0kSO7O.pdf"  
+[2024-08-02 06:35:48] local.ERROR: PDF ingestion failed {"output":"C:\\Users\\waled\\AppData\\Local\\Programs\\Python\\Python312\\Lib\\site-packages\\langchain_core\\_api\\deprecation.py:139: LangChainDeprecationWarning: The class `HuggingFaceEmbeddings` was deprecated in LangChain 0.2.2 and will be removed in 0.3.0. An updated version of the class exists in the langchain-huggingface package and should be used instead. To use it run `pip install -U langchain-huggingface` and import as `from langchain_huggingface import HuggingFaceEmbeddings`.
+  warn_deprecated(
+Python version: 3.12.4 (tags/v3.12.4:8e8a4ba, Jun  6 2024, 19:30:16) [MSC v.1940 64 bit (AMD64)]
+Python path: C:\\Users\\waled\\AppData\\Local\\Programs\\Python\\Python312\\python.exe
+Working directory: C:\\Users\\waled\\Desktop\\chamwings\\public
+Script location: C:\\Users\\waled\\Desktop\\chamwings\\EmployeeChatBot\\Employee_ingest_pdf_script.py
+Arguments: ['C:/Users/waled/Desktop/chamwings/EmployeeChatBot/Employee_ingest_pdf_script.py', 'C:\\\\Users\\\\waled\\\\Desktop\\\\chamwings\\\\storage\\\\app/pdfs/rBqruHyEAwJ4ohMVsMxd5cL2LdvSC2dJeD0kSO7O.pdf']
+Processing file: C:\\Users\\waled\\Desktop\\chamwings\\storage\\app/pdfs/rBqruHyEAwJ4ohMVsMxd5cL2LdvSC2dJeD0kSO7O.pdf
+Error creating vectorstore: list index out of range
+Traceback:
+Traceback (most recent call last):
+  File \"C:\\Users\\waled\\Desktop\\chamwings\\EmployeeChatBot\\Employee_ingest_pdf_script.py\", line 56, in ingest_pdf
+    vectorstore = Chroma.from_documents(documents=splits, embedding=embedding_function, persist_directory=persist_directory)
+                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File \"C:\\Users\\waled\\AppData\\Local\\Programs\\Python\\Python312\\Lib\\site-packages\\langchain_community\\vectorstores\\chroma.py\", line 790, in from_documents
+    return cls.from_texts(
+           ^^^^^^^^^^^^^^^
+  File \"C:\\Users\\waled\\AppData\\Local\\Programs\\Python\\Python312\\Lib\\site-packages\\langchain_community\\vectorstores\\chroma.py\", line 754, in from_texts
+    chroma_collection.add_texts(texts=texts, metadatas=metadatas, ids=ids)
+  File \"C:\\Users\\waled\\AppData\\Local\\Programs\\Python\\Python312\\Lib\\site-packages\\langchain_community\\vectorstores\\chroma.py\", line 276, in add_texts
+    embeddings = self._embedding_function.embed_documents(texts)
+                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File \"C:\\Users\\waled\\AppData\\Local\\Programs\\Python\\Python312\\Lib\\site-packages\\langchain_community\\embeddings\\huggingface.py\", line 105, in embed_documents
+    embeddings = self.client.encode(
+                 ^^^^^^^^^^^^^^^^^^^
+  File \"C:\\Users\\waled\\AppData\\Local\\Programs\\Python\\Python312\\Lib\\site-packages\\sentence_transformers\\SentenceTransformer.py\", line 565, in encode
+    if all_embeddings[0].dtype == torch.bfloat16:
+       ~~~~~~~~~~~~~~^^^
+IndexError: list index out of range
+
+"} 
+[2024-08-02 06:37:28] local.INFO: Executing command: "C:/Users/waled/AppData/Local/Programs/Python/Python312/python.exe" "C:/Users/waled/Desktop/chamwings/EmployeeChatBot/Employee_ingest_pdf_script.py" "C:\Users\waled\Desktop\chamwings\storage\app/pdfs/mVEFIBu40RoQDdkZuuMmZQhViVaN3sb43ZTYOlL8.pdf"  
+[2024-08-02 06:37:50] local.ERROR: PDF ingestion failed {"output":"C:\\Users\\waled\\AppData\\Local\\Programs\\Python\\Python312\\Lib\\site-packages\\langchain_core\\_api\\deprecation.py:139: LangChainDeprecationWarning: The class `HuggingFaceEmbeddings` was deprecated in LangChain 0.2.2 and will be removed in 0.3.0. An updated version of the class exists in the langchain-huggingface package and should be used instead. To use it run `pip install -U langchain-huggingface` and import as `from langchain_huggingface import HuggingFaceEmbeddings`.
+  warn_deprecated(
+Python version: 3.12.4 (tags/v3.12.4:8e8a4ba, Jun  6 2024, 19:30:16) [MSC v.1940 64 bit (AMD64)]
+Python path: C:\\Users\\waled\\AppData\\Local\\Programs\\Python\\Python312\\python.exe
+Working directory: C:\\Users\\waled\\Desktop\\chamwings\\public
+Script location: C:\\Users\\waled\\Desktop\\chamwings\\EmployeeChatBot\\Employee_ingest_pdf_script.py
+Arguments: ['C:/Users/waled/Desktop/chamwings/EmployeeChatBot/Employee_ingest_pdf_script.py', 'C:\\\\Users\\\\waled\\\\Desktop\\\\chamwings\\\\storage\\\\app/pdfs/mVEFIBu40RoQDdkZuuMmZQhViVaN3sb43ZTYOlL8.pdf']
+Processing file: C:\\Users\\waled\\Desktop\\chamwings\\storage\\app/pdfs/mVEFIBu40RoQDdkZuuMmZQhViVaN3sb43ZTYOlL8.pdf
+Error creating vectorstore: list index out of range
+Traceback:
+Traceback (most recent call last):
+  File \"C:\\Users\\waled\\Desktop\\chamwings\\EmployeeChatBot\\Employee_ingest_pdf_script.py\", line 56, in ingest_pdf
+    vectorstore = Chroma.from_documents(documents=splits, embedding=embedding_function, persist_directory=persist_directory)
+                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File \"C:\\Users\\waled\\AppData\\Local\\Programs\\Python\\Python312\\Lib\\site-packages\\langchain_community\\vectorstores\\chroma.py\", line 790, in from_documents
+    return cls.from_texts(
+           ^^^^^^^^^^^^^^^
+  File \"C:\\Users\\waled\\AppData\\Local\\Programs\\Python\\Python312\\Lib\\site-packages\\langchain_community\\vectorstores\\chroma.py\", line 754, in from_texts
+    chroma_collection.add_texts(texts=texts, metadatas=metadatas, ids=ids)
+  File \"C:\\Users\\waled\\AppData\\Local\\Programs\\Python\\Python312\\Lib\\site-packages\\langchain_community\\vectorstores\\chroma.py\", line 276, in add_texts
+    embeddings = self._embedding_function.embed_documents(texts)
+                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File \"C:\\Users\\waled\\AppData\\Local\\Programs\\Python\\Python312\\Lib\\site-packages\\langchain_community\\embeddings\\huggingface.py\", line 105, in embed_documents
+    embeddings = self.client.encode(
+                 ^^^^^^^^^^^^^^^^^^^
+  File \"C:\\Users\\waled\\AppData\\Local\\Programs\\Python\\Python312\\Lib\\site-packages\\sentence_transformers\\SentenceTransformer.py\", line 565, in encode
+    if all_embeddings[0].dtype == torch.bfloat16:
+       ~~~~~~~~~~~~~~^^^
+IndexError: list index out of range
+
+"} 
+[2024-08-02 06:40:22] local.INFO: Executing command: "C:/Users/waled/AppData/Local/Programs/Python/Python312/python.exe" "C:/Users/waled/Desktop/chamwings/EmployeeChatBot/Employee_ingest_pdf_script.py" "C:\Users\waled\Desktop\chamwings\storage\app/pdfs/WP5RUrgr7QJ9O5d4RW4JBNRLtpaquBNarq6CNh5C.pdf"  
+[2024-08-02 06:40:47] local.ERROR: PDF ingestion failed {"output":"C:\\Users\\waled\\AppData\\Local\\Programs\\Python\\Python312\\Lib\\site-packages\\langchain_core\\_api\\deprecation.py:139: LangChainDeprecationWarning: The class `HuggingFaceEmbeddings` was deprecated in LangChain 0.2.2 and will be removed in 0.3.0. An updated version of the class exists in the langchain-huggingface package and should be used instead. To use it run `pip install -U langchain-huggingface` and import as `from langchain_huggingface import HuggingFaceEmbeddings`.
+  warn_deprecated(
+Python version: 3.12.4 (tags/v3.12.4:8e8a4ba, Jun  6 2024, 19:30:16) [MSC v.1940 64 bit (AMD64)]
+Python path: C:\\Users\\waled\\AppData\\Local\\Programs\\Python\\Python312\\python.exe
+Working directory: C:\\Users\\waled\\Desktop\\chamwings\\public
+Script location: C:\\Users\\waled\\Desktop\\chamwings\\EmployeeChatBot\\Employee_ingest_pdf_script.py
+Arguments: ['C:/Users/waled/Desktop/chamwings/EmployeeChatBot/Employee_ingest_pdf_script.py', 'C:\\\\Users\\\\waled\\\\Desktop\\\\chamwings\\\\storage\\\\app/pdfs/WP5RUrgr7QJ9O5d4RW4JBNRLtpaquBNarq6CNh5C.pdf']
+Processing file: C:\\Users\\waled\\Desktop\\chamwings\\storage\\app/pdfs/WP5RUrgr7QJ9O5d4RW4JBNRLtpaquBNarq6CNh5C.pdf
+Error creating vectorstore: list index out of range
+Traceback:
+Traceback (most recent call last):
+  File \"C:\\Users\\waled\\Desktop\\chamwings\\EmployeeChatBot\\Employee_ingest_pdf_script.py\", line 56, in ingest_pdf
+    vectorstore = Chroma.from_documents(documents=splits, embedding=embedding_function, persist_directory=persist_directory)
+                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File \"C:\\Users\\waled\\AppData\\Local\\Programs\\Python\\Python312\\Lib\\site-packages\\langchain_community\\vectorstores\\chroma.py\", line 790, in from_documents
+    return cls.from_texts(
+           ^^^^^^^^^^^^^^^
+  File \"C:\\Users\\waled\\AppData\\Local\\Programs\\Python\\Python312\\Lib\\site-packages\\langchain_community\\vectorstores\\chroma.py\", line 754, in from_texts
+    chroma_collection.add_texts(texts=texts, metadatas=metadatas, ids=ids)
+  File \"C:\\Users\\waled\\AppData\\Local\\Programs\\Python\\Python312\\Lib\\site-packages\\langchain_community\\vectorstores\\chroma.py\", line 276, in add_texts
+    embeddings = self._embedding_function.embed_documents(texts)
+                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File \"C:\\Users\\waled\\AppData\\Local\\Programs\\Python\\Python312\\Lib\\site-packages\\langchain_community\\embeddings\\huggingface.py\", line 105, in embed_documents
+    embeddings = self.client.encode(
+                 ^^^^^^^^^^^^^^^^^^^
+  File \"C:\\Users\\waled\\AppData\\Local\\Programs\\Python\\Python312\\Lib\\site-packages\\sentence_transformers\\SentenceTransformer.py\", line 565, in encode
+    if all_embeddings[0].dtype == torch.bfloat16:
+       ~~~~~~~~~~~~~~^^^
+IndexError: list index out of range
+
+"} 
+[2024-08-02 06:41:06] local.INFO: Executing command: "C:/Users/waled/AppData/Local/Programs/Python/Python312/python.exe" "C:/Users/waled/Desktop/chamwings/EmployeeChatBot/Employee_ingest_pdf_script.py" "C:\Users\waled\Desktop\chamwings\storage\app/pdfs/jnOUen7cQgDAl9uy3XbIdrc7R2xPip9eRzULBEKg.pdf"  
+[2024-08-02 06:41:27] local.ERROR: PDF ingestion failed {"output":"C:\\Users\\waled\\AppData\\Local\\Programs\\Python\\Python312\\Lib\\site-packages\\langchain_core\\_api\\deprecation.py:139: LangChainDeprecationWarning: The class `HuggingFaceEmbeddings` was deprecated in LangChain 0.2.2 and will be removed in 0.3.0. An updated version of the class exists in the langchain-huggingface package and should be used instead. To use it run `pip install -U langchain-huggingface` and import as `from langchain_huggingface import HuggingFaceEmbeddings`.
+  warn_deprecated(
+Python version: 3.12.4 (tags/v3.12.4:8e8a4ba, Jun  6 2024, 19:30:16) [MSC v.1940 64 bit (AMD64)]
+Python path: C:\\Users\\waled\\AppData\\Local\\Programs\\Python\\Python312\\python.exe
+Working directory: C:\\Users\\waled\\Desktop\\chamwings\\public
+Script location: C:\\Users\\waled\\Desktop\\chamwings\\EmployeeChatBot\\Employee_ingest_pdf_script.py
+Arguments: ['C:/Users/waled/Desktop/chamwings/EmployeeChatBot/Employee_ingest_pdf_script.py', 'C:\\\\Users\\\\waled\\\\Desktop\\\\chamwings\\\\storage\\\\app/pdfs/jnOUen7cQgDAl9uy3XbIdrc7R2xPip9eRzULBEKg.pdf']
+Processing file: C:\\Users\\waled\\Desktop\\chamwings\\storage\\app/pdfs/jnOUen7cQgDAl9uy3XbIdrc7R2xPip9eRzULBEKg.pdf
+Error creating vectorstore: list index out of range
+Traceback:
+Traceback (most recent call last):
+  File \"C:\\Users\\waled\\Desktop\\chamwings\\EmployeeChatBot\\Employee_ingest_pdf_script.py\", line 56, in ingest_pdf
+    vectorstore = Chroma.from_documents(documents=splits, embedding=embedding_function, persist_directory=persist_directory)
+                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File \"C:\\Users\\waled\\AppData\\Local\\Programs\\Python\\Python312\\Lib\\site-packages\\langchain_community\\vectorstores\\chroma.py\", line 790, in from_documents
+    return cls.from_texts(
+           ^^^^^^^^^^^^^^^
+  File \"C:\\Users\\waled\\AppData\\Local\\Programs\\Python\\Python312\\Lib\\site-packages\\langchain_community\\vectorstores\\chroma.py\", line 754, in from_texts
+    chroma_collection.add_texts(texts=texts, metadatas=metadatas, ids=ids)
+  File \"C:\\Users\\waled\\AppData\\Local\\Programs\\Python\\Python312\\Lib\\site-packages\\langchain_community\\vectorstores\\chroma.py\", line 276, in add_texts
+    embeddings = self._embedding_function.embed_documents(texts)
+                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File \"C:\\Users\\waled\\AppData\\Local\\Programs\\Python\\Python312\\Lib\\site-packages\\langchain_community\\embeddings\\huggingface.py\", line 105, in embed_documents
+    embeddings = self.client.encode(
+                 ^^^^^^^^^^^^^^^^^^^
+  File \"C:\\Users\\waled\\AppData\\Local\\Programs\\Python\\Python312\\Lib\\site-packages\\sentence_transformers\\SentenceTransformer.py\", line 565, in encode
+    if all_embeddings[0].dtype == torch.bfloat16:
+       ~~~~~~~~~~~~~~^^^
+IndexError: list index out of range
+
+"} 
+[2024-08-02 06:41:43] local.INFO: Executing command: "C:/Users/waled/AppData/Local/Programs/Python/Python312/python.exe" "C:/Users/waled/Desktop/chamwings/EmployeeChatBot/Employee_ingest_pdf_script.py" "C:\Users\waled\Desktop\chamwings\storage\app/pdfs/m13v36IqknNoHDomjfCVDKQJc8hPZ0HIZJeulcA4.pdf"  
+[2024-08-02 06:42:47] local.INFO: PDF ingested successfully {"output":"C:\\Users\\waled\\AppData\\Local\\Programs\\Python\\Python312\\Lib\\site-packages\\langchain_core\\_api\\deprecation.py:139: LangChainDeprecationWarning: The class `HuggingFaceEmbeddings` was deprecated in LangChain 0.2.2 and will be removed in 0.3.0. An updated version of the class exists in the langchain-huggingface package and should be used instead. To use it run `pip install -U langchain-huggingface` and import as `from langchain_huggingface import HuggingFaceEmbeddings`.
+  warn_deprecated(
+Python version: 3.12.4 (tags/v3.12.4:8e8a4ba, Jun  6 2024, 19:30:16) [MSC v.1940 64 bit (AMD64)]
+Python path: C:\\Users\\waled\\AppData\\Local\\Programs\\Python\\Python312\\python.exe
+Working directory: C:\\Users\\waled\\Desktop\\chamwings\\public
+Script location: C:\\Users\\waled\\Desktop\\chamwings\\EmployeeChatBot\\Employee_ingest_pdf_script.py
+Arguments: ['C:/Users/waled/Desktop/chamwings/EmployeeChatBot/Employee_ingest_pdf_script.py', 'C:\\\\Users\\\\waled\\\\Desktop\\\\chamwings\\\\storage\\\\app/pdfs/m13v36IqknNoHDomjfCVDKQJc8hPZ0HIZJeulcA4.pdf']
+Processing file: C:\\Users\\waled\\Desktop\\chamwings\\storage\\app/pdfs/m13v36IqknNoHDomjfCVDKQJc8hPZ0HIZJeulcA4.pdf
+PDF ingested successfully
+"} 
+[2024-08-02 06:43:17] local.INFO: Received input for chat processing: {"input":"what is application development?"} 
+[2024-08-02 06:43:17] local.INFO: Executing Python script with command: {"command":"\"C:/Users/waled/AppData/Local/Programs/Python/Python312/python.exe\" \"C:/Users/waled/Desktop/chamwings/EmployeeChatBot/Employee_chat_script.py\" \"what is application development?\""} 
+[2024-08-02 06:43:47] local.ERROR: ob_flush(): Failed to flush buffer. No buffer to flush {"exception":"[object] (ErrorException(code: 0): ob_flush(): Failed to flush buffer. No buffer to flush at C:\\Users\\waled\\Desktop\\chamwings\\app\\Http\\Controllers\\EmployeesChatController.php:53)
+[stacktrace]
+#0 C:\\Users\\waled\\Desktop\\chamwings\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Bootstrap\\HandleExceptions.php(256): Illuminate\\Foundation\\Bootstrap\\HandleExceptions->handleError(8, 'ob_flush(): Fai...', 'C:\\\\Users\\\\waled\\\\...', 53)
+#1 [internal function]: Illuminate\\Foundation\\Bootstrap\\HandleExceptions->Illuminate\\Foundation\\Bootstrap\\{closure}(8, 'ob_flush(): Fai...', 'C:\\\\Users\\\\waled\\\\...', 53)
+#2 C:\\Users\\waled\\Desktop\\chamwings\\app\\Http\\Controllers\\EmployeesChatController.php(53): ob_flush()
+#3 C:\\Users\\waled\\Desktop\\chamwings\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\Controller.php(54): App\\Http\\Controllers\\EmployeesChatController->chat(Object(Illuminate\\Http\\Request))
+#4 C:\\Users\\waled\\Desktop\\chamwings\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\ControllerDispatcher.php(43): Illuminate\\Routing\\Controller->callAction('chat', Array)
+#5 C:\\Users\\waled\\Desktop\\chamwings\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\Route.php(260): Illuminate\\Routing\\ControllerDispatcher->dispatch(Object(Illuminate\\Routing\\Route), Object(App\\Http\\Controllers\\EmployeesChatController), 'chat')
+#6 C:\\Users\\waled\\Desktop\\chamwings\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\Route.php(206): Illuminate\\Routing\\Route->runController()
+#7 C:\\Users\\waled\\Desktop\\chamwings\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\Router.php(806): Illuminate\\Routing\\Route->run()
+#8 C:\\Users\\waled\\Desktop\\chamwings\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php(144): Illuminate\\Routing\\Router->Illuminate\\Routing\\{closure}(Object(Illuminate\\Http\\Request))
+#9 C:\\Users\\waled\\Desktop\\chamwings\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\Middleware\\SubstituteBindings.php(50): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}(Object(Illuminate\\Http\\Request))
+#10 C:\\Users\\waled\\Desktop\\chamwings\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php(183): Illuminate\\Routing\\Middleware\\SubstituteBindings->handle(Object(Illuminate\\Http\\Request), Object(Closure))
+#11 C:\\Users\\waled\\Desktop\\chamwings\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\Middleware\\ThrottleRequests.php(159): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}(Object(Illuminate\\Http\\Request))
+#12 C:\\Users\\waled\\Desktop\\chamwings\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\Middleware\\ThrottleRequests.php(90): Illuminate\\Routing\\Middleware\\ThrottleRequests->handleRequest(Object(Illuminate\\Http\\Request), Object(Closure), Array)
+#13 C:\\Users\\waled\\Desktop\\chamwings\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php(183): Illuminate\\Routing\\Middleware\\ThrottleRequests->handle(Object(Illuminate\\Http\\Request), Object(Closure), '60', '1')
+#14 C:\\Users\\waled\\Desktop\\chamwings\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php(119): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}(Object(Illuminate\\Http\\Request))
+#15 C:\\Users\\waled\\Desktop\\chamwings\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\Router.php(805): Illuminate\\Pipeline\\Pipeline->then(Object(Closure))
+#16 C:\\Users\\waled\\Desktop\\chamwings\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\Router.php(784): Illuminate\\Routing\\Router->runRouteWithinStack(Object(Illuminate\\Routing\\Route), Object(Illuminate\\Http\\Request))
+#17 C:\\Users\\waled\\Desktop\\chamwings\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\Router.php(748): Illuminate\\Routing\\Router->runRoute(Object(Illuminate\\Http\\Request), Object(Illuminate\\Routing\\Route))
+#18 C:\\Users\\waled\\Desktop\\chamwings\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\Router.php(737): Illuminate\\Routing\\Router->dispatchToRoute(Object(Illuminate\\Http\\Request))
+#19 C:\\Users\\waled\\Desktop\\chamwings\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Http\\Kernel.php(200): Illuminate\\Routing\\Router->dispatch(Object(Illuminate\\Http\\Request))
+#20 C:\\Users\\waled\\Desktop\\chamwings\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php(144): Illuminate\\Foundation\\Http\\Kernel->Illuminate\\Foundation\\Http\\{closure}(Object(Illuminate\\Http\\Request))
+#21 C:\\Users\\waled\\Desktop\\chamwings\\app\\Http\\Middleware\\cors.php(18): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}(Object(Illuminate\\Http\\Request))
+#22 C:\\Users\\waled\\Desktop\\chamwings\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php(183): App\\Http\\Middleware\\Cors->handle(Object(Illuminate\\Http\\Request), Object(Closure))
+#23 C:\\Users\\waled\\Desktop\\chamwings\\vendor\\laravel\\framework\\src\\Illuminate\\Http\\Middleware\\TrustProxies.php(57): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}(Object(Illuminate\\Http\\Request))
+#24 C:\\Users\\waled\\Desktop\\chamwings\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php(183): Illuminate\\Http\\Middleware\\TrustProxies->handle(Object(Illuminate\\Http\\Request), Object(Closure))
+#25 C:\\Users\\waled\\Desktop\\chamwings\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Http\\Middleware\\TransformsRequest.php(21): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}(Object(Illuminate\\Http\\Request))
+#26 C:\\Users\\waled\\Desktop\\chamwings\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Http\\Middleware\\ConvertEmptyStringsToNull.php(31): Illuminate\\Foundation\\Http\\Middleware\\TransformsRequest->handle(Object(Illuminate\\Http\\Request), Object(Closure))
+#27 C:\\Users\\waled\\Desktop\\chamwings\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php(183): Illuminate\\Foundation\\Http\\Middleware\\ConvertEmptyStringsToNull->handle(Object(Illuminate\\Http\\Request), Object(Closure))
+#28 C:\\Users\\waled\\Desktop\\chamwings\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Http\\Middleware\\TransformsRequest.php(21): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}(Object(Illuminate\\Http\\Request))
+#29 C:\\Users\\waled\\Desktop\\chamwings\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Http\\Middleware\\TrimStrings.php(50): Illuminate\\Foundation\\Http\\Middleware\\TransformsRequest->handle(Object(Illuminate\\Http\\Request), Object(Closure))
+#30 C:\\Users\\waled\\Desktop\\chamwings\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php(183): Illuminate\\Foundation\\Http\\Middleware\\TrimStrings->handle(Object(Illuminate\\Http\\Request), Object(Closure))
+#31 C:\\Users\\waled\\Desktop\\chamwings\\vendor\\laravel\\framework\\src\\Illuminate\\Http\\Middleware\\ValidatePostSize.php(27): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}(Object(Illuminate\\Http\\Request))
+#32 C:\\Users\\waled\\Desktop\\chamwings\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php(183): Illuminate\\Http\\Middleware\\ValidatePostSize->handle(Object(Illuminate\\Http\\Request), Object(Closure))
+#33 C:\\Users\\waled\\Desktop\\chamwings\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Http\\Middleware\\PreventRequestsDuringMaintenance.php(103): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}(Object(Illuminate\\Http\\Request))
+#34 C:\\Users\\waled\\Desktop\\chamwings\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php(183): Illuminate\\Foundation\\Http\\Middleware\\PreventRequestsDuringMaintenance->handle(Object(Illuminate\\Http\\Request), Object(Closure))
+#35 C:\\Users\\waled\\Desktop\\chamwings\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php(119): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}(Object(Illuminate\\Http\\Request))
+#36 C:\\Users\\waled\\Desktop\\chamwings\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Http\\Kernel.php(175): Illuminate\\Pipeline\\Pipeline->then(Object(Closure))
+#37 C:\\Users\\waled\\Desktop\\chamwings\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Http\\Kernel.php(144): Illuminate\\Foundation\\Http\\Kernel->sendRequestThroughRouter(Object(Illuminate\\Http\\Request))
+#38 C:\\Users\\waled\\Desktop\\chamwings\\public\\index.php(54): Illuminate\\Foundation\\Http\\Kernel->handle(Object(Illuminate\\Http\\Request))
+#39 C:\\Users\\waled\\Desktop\\chamwings\\server.php(21): require_once('C:\\\\Users\\\\waled\\\\...')
+#40 {main}
+"} 
+[2024-08-02 18:04:59] local.INFO: Executing command: "C:/Users/waled/AppData/Local/Programs/Python/Python312/python.exe" "C:/Users/waled/Desktop/chamwings/EmployeeChatBot/Employee_ingest_pdf_script.py" "C:\Users\waled\Desktop\chamwings\storage\app/pdfs/wMvJVRDvVFK2I5muicbeRl9vPA9TFmsfqYyVNLc7.pdf"  
+[2024-08-02 18:05:20] local.INFO: PDF ingested successfully {"output":"C:\\Users\\waled\\AppData\\Local\\Programs\\Python\\Python312\\Lib\\site-packages\\langchain_core\\_api\\deprecation.py:139: LangChainDeprecationWarning: The class `HuggingFaceEmbeddings` was deprecated in LangChain 0.2.2 and will be removed in 0.3.0. An updated version of the class exists in the langchain-huggingface package and should be used instead. To use it run `pip install -U langchain-huggingface` and import as `from langchain_huggingface import HuggingFaceEmbeddings`.
+  warn_deprecated(
+Python version: 3.12.4 (tags/v3.12.4:8e8a4ba, Jun  6 2024, 19:30:16) [MSC v.1940 64 bit (AMD64)]
+Python path: C:\\Users\\waled\\AppData\\Local\\Programs\\Python\\Python312\\python.exe
+Working directory: C:\\Users\\waled\\Desktop\\chamwings\\public
+Script location: C:\\Users\\waled\\Desktop\\chamwings\\EmployeeChatBot\\Employee_ingest_pdf_script.py
+Arguments: ['C:/Users/waled/Desktop/chamwings/EmployeeChatBot/Employee_ingest_pdf_script.py', 'C:\\\\Users\\\\waled\\\\Desktop\\\\chamwings\\\\storage\\\\app/pdfs/wMvJVRDvVFK2I5muicbeRl9vPA9TFmsfqYyVNLc7.pdf']
+Processing file: C:\\Users\\waled\\Desktop\\chamwings\\storage\\app/pdfs/wMvJVRDvVFK2I5muicbeRl9vPA9TFmsfqYyVNLc7.pdf
+PDF ingested successfully
+"} 
