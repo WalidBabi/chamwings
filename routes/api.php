@@ -11,6 +11,10 @@ use App\Http\Controllers\ReservationController;
 use App\Http\Controllers\RoleController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\ChatController;
+use App\Http\Controllers\EmployeesPDFController;
+use App\Http\Controllers\CustomerSegmentationController;
+use App\Http\Controllers\EmployeesChatController;
 
 /*
 |--------------------------------------------------------------------------
@@ -111,6 +115,22 @@ Route::middleware('check-auth')->prefix('/')->group(function () {
         Route::get('/{role}', [RoleController::class, 'getRoleInformation']);
     });
 
+    
+    Route::get('/run-segmentation', [CustomerSegmentationController::class, 'runSegmentation']);
+    Route::get('/segmentation-results', [CustomerSegmentationController::class, 'getLatestResults']);
+
+
+    Route::post('/ingest-pdf', [EmployeesPDFController::class, 'employeeIngestPDF']);
+    Route::get('/pdfs', [EmployeesPDFController::class, 'getPDFs']);
+    Route::delete('/pdfs/{id}', [EmployeesPDFController::class, 'deletePDF']);
+
+    Route::post('/send-message', [ChatController::class, 'sendMessage']);
+    Route::get('/chathistory', [ChatController::class, 'getChatHistory']);
+
+    Route::post('/store-chat-history', [ChatController::class, 'storeChatHistory']);
+    Route::get('/chat-history/{userId}', [ChatController::class, 'getChatHistory']);
+
+
     /****************************** Need Editing ******************************/
     // Route::prefix('reservations')->group(function () {
     //     Route::middleware('manage-reservation')->prefix('/')->group(function () {
@@ -124,3 +144,6 @@ Route::middleware('check-auth')->prefix('/')->group(function () {
     // });
     /****************************** End ******************************/
 });
+
+
+

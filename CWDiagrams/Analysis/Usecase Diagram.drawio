@@ -1,0 +1,267 @@
+<mxfile host="Electron" modified="2024-07-17T20:07:30.958Z" agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) draw.io/23.1.5 Chrome/120.0.6099.109 Electron/28.1.0 Safari/537.36" etag="AtWMTuL0sqB-HGBPVmvc" version="23.1.5" type="device">
+  <diagram name="Page-1" id="4ED-qHsHgfN1nS1HDkuz">
+    <mxGraphModel dx="1885" dy="626" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="850" pageHeight="1100" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="3GRJ6OMULa_RcFJIBHs7-14" style="edgeStyle=entityRelationEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0;exitY=0.3333333333333333;exitDx=0;exitDy=0;exitPerimeter=0;entryX=1;entryY=0.5;entryDx=0;entryDy=0;" parent="1" source="-nzd27PI_YMHazHH2Rwm-105" target="3GRJ6OMULa_RcFJIBHs7-5" edge="1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="3GRJ6OMULa_RcFJIBHs7-16" style="edgeStyle=entityRelationEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0;exitY=0.3333333333333333;exitDx=0;exitDy=0;exitPerimeter=0;entryX=1;entryY=0.5;entryDx=0;entryDy=0;" parent="1" source="-nzd27PI_YMHazHH2Rwm-105" target="3GRJ6OMULa_RcFJIBHs7-15" edge="1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="3GRJ6OMULa_RcFJIBHs7-3" style="edgeStyle=entityRelationEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0;exitY=0.3333333333333333;exitDx=0;exitDy=0;exitPerimeter=0;entryX=1;entryY=1;entryDx=0;entryDy=0;fontSize=17;" parent="1" source="-nzd27PI_YMHazHH2Rwm-105" target="-nzd27PI_YMHazHH2Rwm-74" edge="1">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="779.1699999999914" y="1350" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="-nzd27PI_YMHazHH2Rwm-114" style="edgeStyle=entityRelationEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0;exitY=0.3333333333333333;exitDx=0;exitDy=0;exitPerimeter=0;entryX=1;entryY=0.5;entryDx=0;entryDy=0;fontSize=17;" parent="1" source="-nzd27PI_YMHazHH2Rwm-105" target="-nzd27PI_YMHazHH2Rwm-103" edge="1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="7QNIedhXuki6xl3S9GjM-10" style="edgeStyle=entityRelationEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=1;exitY=0.3333333333333333;exitDx=0;exitDy=0;exitPerimeter=0;entryX=0;entryY=1;entryDx=0;entryDy=0;fontSize=17;" parent="1" source="-nzd27PI_YMHazHH2Rwm-106" target="-nzd27PI_YMHazHH2Rwm-26" edge="1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="7QNIedhXuki6xl3S9GjM-9" style="edgeStyle=entityRelationEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0;exitY=0.3333333333333333;exitDx=0;exitDy=0;exitPerimeter=0;entryX=1;entryY=0.5;entryDx=0;entryDy=0;fontSize=17;" parent="1" source="-nzd27PI_YMHazHH2Rwm-105" target="-nzd27PI_YMHazHH2Rwm-26" edge="1">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="670" y="940" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="7QNIedhXuki6xl3S9GjM-12" style="edgeStyle=entityRelationEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0;exitY=0.3333333333333333;exitDx=0;exitDy=0;exitPerimeter=0;entryX=1;entryY=1;entryDx=0;entryDy=0;fontSize=17;" parent="1" source="-nzd27PI_YMHazHH2Rwm-105" target="-nzd27PI_YMHazHH2Rwm-31" edge="1">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="469.99535344548116" y="958.3680759424408" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="-nzd27PI_YMHazHH2Rwm-90" style="edgeStyle=entityRelationEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=1;exitY=0.3333333333333333;exitDx=0;exitDy=0;exitPerimeter=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;fontSize=17;" parent="1" source="-nzd27PI_YMHazHH2Rwm-24" target="-nzd27PI_YMHazHH2Rwm-74" edge="1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="-nzd27PI_YMHazHH2Rwm-81" style="edgeStyle=entityRelationEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=1;exitY=0.3333333333333333;exitDx=0;exitDy=0;exitPerimeter=0;entryX=0;entryY=0;entryDx=0;entryDy=0;fontSize=17;" parent="1" source="-nzd27PI_YMHazHH2Rwm-24" target="-nzd27PI_YMHazHH2Rwm-31" edge="1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="-nzd27PI_YMHazHH2Rwm-30" style="edgeStyle=entityRelationEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=1;exitY=0.3333333333333333;exitDx=0;exitDy=0;exitPerimeter=0;entryX=0;entryY=0;entryDx=0;entryDy=0;fontSize=17;" parent="1" source="-nzd27PI_YMHazHH2Rwm-24" target="-nzd27PI_YMHazHH2Rwm-26" edge="1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="-nzd27PI_YMHazHH2Rwm-108" style="edgeStyle=entityRelationEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0;exitY=0.3333333333333333;exitDx=0;exitDy=0;exitPerimeter=0;entryX=1;entryY=0.5;entryDx=0;entryDy=0;fontSize=17;" parent="1" source="-nzd27PI_YMHazHH2Rwm-105" target="-nzd27PI_YMHazHH2Rwm-21" edge="1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="-nzd27PI_YMHazHH2Rwm-109" style="edgeStyle=entityRelationEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0;exitY=0.3333333333333333;exitDx=0;exitDy=0;exitPerimeter=0;entryX=1;entryY=0.5;entryDx=0;entryDy=0;fontSize=17;" parent="1" source="-nzd27PI_YMHazHH2Rwm-105" target="-nzd27PI_YMHazHH2Rwm-22" edge="1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="-nzd27PI_YMHazHH2Rwm-110" style="edgeStyle=entityRelationEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0;exitY=0.3333333333333333;exitDx=0;exitDy=0;exitPerimeter=0;entryX=1;entryY=0.5;entryDx=0;entryDy=0;fontSize=17;" parent="1" source="-nzd27PI_YMHazHH2Rwm-105" target="-nzd27PI_YMHazHH2Rwm-23" edge="1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="-nzd27PI_YMHazHH2Rwm-111" style="edgeStyle=entityRelationEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0;exitY=0.3333333333333333;exitDx=0;exitDy=0;exitPerimeter=0;entryX=1;entryY=0.5;entryDx=0;entryDy=0;fontSize=17;" parent="1" source="-nzd27PI_YMHazHH2Rwm-105" target="-nzd27PI_YMHazHH2Rwm-100" edge="1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="-nzd27PI_YMHazHH2Rwm-112" style="edgeStyle=entityRelationEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0;exitY=0.3333333333333333;exitDx=0;exitDy=0;exitPerimeter=0;entryX=1;entryY=0.5;entryDx=0;entryDy=0;fontSize=17;" parent="1" source="-nzd27PI_YMHazHH2Rwm-105" target="-nzd27PI_YMHazHH2Rwm-101" edge="1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="-nzd27PI_YMHazHH2Rwm-113" style="edgeStyle=entityRelationEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0;exitY=0.3333333333333333;exitDx=0;exitDy=0;exitPerimeter=0;entryX=1;entryY=0.5;entryDx=0;entryDy=0;fontSize=17;" parent="1" source="-nzd27PI_YMHazHH2Rwm-105" target="-nzd27PI_YMHazHH2Rwm-102" edge="1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="-nzd27PI_YMHazHH2Rwm-115" style="edgeStyle=entityRelationEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0;exitY=0.3333333333333333;exitDx=0;exitDy=0;exitPerimeter=0;entryX=1;entryY=0.5;entryDx=0;entryDy=0;fontSize=17;" parent="1" source="-nzd27PI_YMHazHH2Rwm-105" target="-nzd27PI_YMHazHH2Rwm-104" edge="1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="-nzd27PI_YMHazHH2Rwm-16" style="edgeStyle=entityRelationEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=1;exitY=0.3333333333333333;exitDx=0;exitDy=0;exitPerimeter=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;fontSize=17;" parent="1" source="-nzd27PI_YMHazHH2Rwm-106" target="-nzd27PI_YMHazHH2Rwm-14" edge="1">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="80" y="1160" as="sourcePoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="-nzd27PI_YMHazHH2Rwm-95" style="edgeStyle=entityRelationEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=1;exitY=0.3333333333333333;exitDx=0;exitDy=0;exitPerimeter=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;fontSize=17;" parent="1" source="-nzd27PI_YMHazHH2Rwm-24" target="-nzd27PI_YMHazHH2Rwm-79" edge="1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="-nzd27PI_YMHazHH2Rwm-89" style="edgeStyle=entityRelationEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=1;exitY=0.3333333333333333;exitDx=0;exitDy=0;exitPerimeter=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;fontSize=17;" parent="1" source="-nzd27PI_YMHazHH2Rwm-24" target="-nzd27PI_YMHazHH2Rwm-46" edge="1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="-nzd27PI_YMHazHH2Rwm-86" style="edgeStyle=entityRelationEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=1;exitY=0.3333333333333333;exitDx=0;exitDy=0;exitPerimeter=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;movable=1;resizable=1;rotatable=1;deletable=1;editable=1;locked=0;connectable=1;fontSize=17;" parent="1" source="-nzd27PI_YMHazHH2Rwm-24" target="-nzd27PI_YMHazHH2Rwm-43" edge="1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="-nzd27PI_YMHazHH2Rwm-91" style="edgeStyle=entityRelationEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=1;exitY=0.3333333333333333;exitDx=0;exitDy=0;exitPerimeter=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;fontSize=17;" parent="1" source="-nzd27PI_YMHazHH2Rwm-24" target="-nzd27PI_YMHazHH2Rwm-75" edge="1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="-nzd27PI_YMHazHH2Rwm-94" style="edgeStyle=entityRelationEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=1;exitY=0.3333333333333333;exitDx=0;exitDy=0;exitPerimeter=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;fontSize=17;" parent="1" source="-nzd27PI_YMHazHH2Rwm-24" target="-nzd27PI_YMHazHH2Rwm-78" edge="1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="-nzd27PI_YMHazHH2Rwm-88" style="edgeStyle=entityRelationEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=1;exitY=0.3333333333333333;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;exitPerimeter=0;fontSize=17;" parent="1" source="-nzd27PI_YMHazHH2Rwm-24" target="-nzd27PI_YMHazHH2Rwm-45" edge="1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="-nzd27PI_YMHazHH2Rwm-87" style="edgeStyle=entityRelationEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=1;exitY=0.3333333333333333;exitDx=0;exitDy=0;exitPerimeter=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;fontSize=17;" parent="1" source="-nzd27PI_YMHazHH2Rwm-24" target="-nzd27PI_YMHazHH2Rwm-44" edge="1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="-nzd27PI_YMHazHH2Rwm-5" value="&lt;font style=&quot;font-size: 17px;&quot;&gt;أجنحة الشام&lt;/font&gt;" style="swimlane;whiteSpace=wrap;html=1;fontSize=17;" parent="1" vertex="1">
+          <mxGeometry x="120" y="80" width="880" height="1430" as="geometry" />
+        </mxCell>
+        <mxCell id="-nzd27PI_YMHazHH2Rwm-11" value="&lt;font style=&quot;font-size: 17px;&quot;&gt;&lt;font style=&quot;font-size: 17px;&quot;&gt;#16&lt;br style=&quot;font-size: 17px;&quot;&gt;&lt;/font&gt;&lt;font style=&quot;font-size: 17px;&quot;&gt;ادارة الموظفين&lt;/font&gt;&lt;/font&gt;&lt;br style=&quot;font-size: 17px;&quot;&gt;&lt;span dir=&quot;LTR&quot; style=&quot;font-size: 17px;&quot;&gt;&lt;/span&gt;&lt;p style=&quot;font-size: 17px;&quot;&gt;&lt;/p&gt;" style="ellipse;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;fontSize=17;" parent="-nzd27PI_YMHazHH2Rwm-5" vertex="1">
+          <mxGeometry x="85" y="1010" width="120" height="80" as="geometry" />
+        </mxCell>
+        <mxCell id="-nzd27PI_YMHazHH2Rwm-14" value="&lt;font style=&quot;font-size: 17px;&quot;&gt;#17&lt;br style=&quot;font-size: 17px;&quot;&gt;&lt;/font&gt;&lt;font style=&quot;font-size: 17px;&quot;&gt;ادارة صلاحيات و اذونات الموظفين&lt;/font&gt;&lt;br style=&quot;font-size: 17px;&quot;&gt;&lt;span dir=&quot;LTR&quot; style=&quot;font-size: 17px;&quot;&gt;&lt;/span&gt;&lt;p style=&quot;font-size: 17px;&quot;&gt;&lt;/p&gt;" style="ellipse;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;fontSize=17;" parent="-nzd27PI_YMHazHH2Rwm-5" vertex="1">
+          <mxGeometry x="85" y="1110" width="120" height="80" as="geometry" />
+        </mxCell>
+        <mxCell id="-nzd27PI_YMHazHH2Rwm-41" style="rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0;exitY=0.5;exitDx=0;exitDy=0;dashed=1;dashPattern=8 8;entryX=1;entryY=0.5;entryDx=0;entryDy=0;fontSize=17;" parent="-nzd27PI_YMHazHH2Rwm-5" target="-nzd27PI_YMHazHH2Rwm-33" edge="1">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="260.00000000000955" y="400" as="sourcePoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="-nzd27PI_YMHazHH2Rwm-39" value="&lt;font style=&quot;font-size: 17px;&quot;&gt;Include&lt;/font&gt;" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fillColor=none;fontSize=17;" parent="-nzd27PI_YMHazHH2Rwm-5" vertex="1">
+          <mxGeometry x="180" y="285" width="80" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="-nzd27PI_YMHazHH2Rwm-42" value="&lt;font style=&quot;font-size: 17px;&quot;&gt;Extends&lt;/font&gt;" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fillColor=none;fontSize=17;" parent="-nzd27PI_YMHazHH2Rwm-5" vertex="1">
+          <mxGeometry x="180" y="385" width="80" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="-nzd27PI_YMHazHH2Rwm-31" value="&lt;font style=&quot;font-size: 17px;&quot;&gt;#7&lt;/font&gt;&lt;br style=&quot;font-size: 17px;&quot;&gt;&lt;span style=&quot;font-size: 17px; background-color: initial; font-family: &amp;quot;Simplified Arabic&amp;quot;, serif; text-indent: -18.05pt;&quot;&gt;البحث عن الرحلات&lt;br style=&quot;font-size: 17px;&quot;&gt;&lt;/span&gt;&lt;span dir=&quot;LTR&quot; style=&quot;font-size: 17px;&quot;&gt;&lt;/span&gt;&lt;p style=&quot;font-size: 17px;&quot;&gt;&lt;/p&gt;" style="ellipse;whiteSpace=wrap;html=1;fillColor=#fff2cc;strokeColor=#d6b656;fontSize=17;" parent="-nzd27PI_YMHazHH2Rwm-5" vertex="1">
+          <mxGeometry x="435" y="720" width="130" height="80" as="geometry" />
+        </mxCell>
+        <mxCell id="-nzd27PI_YMHazHH2Rwm-32" value="&lt;span style=&quot;font-size: 17px; background-color: initial; font-family: &amp;quot;Simplified Arabic&amp;quot;, serif; text-indent: -18.05pt;&quot;&gt;#2&lt;br style=&quot;font-size: 17px;&quot;&gt;استعراض الرحلات&lt;br style=&quot;font-size: 17px;&quot;&gt;&lt;/span&gt;&lt;span dir=&quot;LTR&quot; style=&quot;font-size: 17px;&quot;&gt;&lt;/span&gt;&lt;p style=&quot;font-size: 17px;&quot;&gt;&lt;/p&gt;" style="ellipse;whiteSpace=wrap;html=1;fillColor=#fff2cc;strokeColor=#d6b656;fontSize=17;" parent="-nzd27PI_YMHazHH2Rwm-5" vertex="1">
+          <mxGeometry x="70" y="180" width="130" height="80" as="geometry" />
+        </mxCell>
+        <mxCell id="-nzd27PI_YMHazHH2Rwm-33" value="&lt;span style=&quot;font-size: 17px; background-color: initial; font-family: &amp;quot;Simplified Arabic&amp;quot;, serif; text-indent: -18.05pt;&quot;&gt;#3&lt;br style=&quot;font-size: 17px;&quot;&gt;حجز رحلة&lt;br style=&quot;font-size: 17px;&quot;&gt;&lt;/span&gt;&lt;span dir=&quot;LTR&quot; style=&quot;font-size: 17px;&quot;&gt;&lt;/span&gt;&lt;p style=&quot;font-size: 17px;&quot;&gt;&lt;/p&gt;" style="ellipse;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;fontSize=17;" parent="-nzd27PI_YMHazHH2Rwm-5" vertex="1">
+          <mxGeometry x="70" y="310" width="130" height="80" as="geometry" />
+        </mxCell>
+        <mxCell id="-nzd27PI_YMHazHH2Rwm-34" value="&lt;span style=&quot;font-size: 17px; background-color: initial; font-family: &amp;quot;Simplified Arabic&amp;quot;, serif; text-indent: -18.05pt;&quot;&gt;#4&lt;br style=&quot;font-size: 17px;&quot;&gt;تعديل حجز&lt;br style=&quot;font-size: 17px;&quot;&gt;&lt;/span&gt;&lt;span dir=&quot;LTR&quot; style=&quot;font-size: 17px;&quot;&gt;&lt;/span&gt;&lt;p style=&quot;font-size: 17px;&quot;&gt;&lt;/p&gt;" style="ellipse;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;fontSize=17;" parent="-nzd27PI_YMHazHH2Rwm-5" vertex="1">
+          <mxGeometry x="70" y="440" width="130" height="80" as="geometry" />
+        </mxCell>
+        <mxCell id="-nzd27PI_YMHazHH2Rwm-35" value="&lt;span style=&quot;font-size: 17px; background-color: initial; font-family: &amp;quot;Simplified Arabic&amp;quot;, serif; text-indent: -18.05pt;&quot;&gt;#5&lt;br style=&quot;font-size: 17px;&quot;&gt;الغاء حجز&lt;br style=&quot;font-size: 17px;&quot;&gt;&lt;/span&gt;&lt;span dir=&quot;LTR&quot; style=&quot;font-size: 17px;&quot;&gt;&lt;/span&gt;&lt;p style=&quot;font-size: 17px;&quot;&gt;&lt;/p&gt;" style="ellipse;whiteSpace=wrap;html=1;fillColor=#f8cecc;strokeColor=#b85450;fontSize=17;" parent="-nzd27PI_YMHazHH2Rwm-5" vertex="1">
+          <mxGeometry x="70" y="550" width="130" height="80" as="geometry" />
+        </mxCell>
+        <mxCell id="-nzd27PI_YMHazHH2Rwm-38" value="&lt;span style=&quot;font-size: 17px; background-color: initial; font-family: &amp;quot;Simplified Arabic&amp;quot;, serif; text-indent: -18.05pt;&quot;&gt;#3.1&lt;br style=&quot;font-size: 17px;&quot;&gt;اختيار نوع الحجز و المقعد&lt;br style=&quot;font-size: 17px;&quot;&gt;&lt;/span&gt;&lt;span dir=&quot;LTR&quot; style=&quot;font-size: 17px;&quot;&gt;&lt;/span&gt;&lt;p style=&quot;font-size: 17px;&quot;&gt;&lt;/p&gt;" style="ellipse;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;fontSize=17;" parent="-nzd27PI_YMHazHH2Rwm-5" vertex="1">
+          <mxGeometry x="260" y="260" width="130" height="80" as="geometry" />
+        </mxCell>
+        <mxCell id="-nzd27PI_YMHazHH2Rwm-40" value="&lt;span style=&quot;font-size: 17px; background-color: initial; font-family: &amp;quot;Simplified Arabic&amp;quot;, serif; text-indent: -18.05pt;&quot;&gt;#3.2&lt;br style=&quot;font-size: 17px;&quot;&gt;حجز للمرافقين&lt;br style=&quot;font-size: 17px;&quot;&gt;(مثال: عائلة)&lt;br style=&quot;font-size: 17px;&quot;&gt;&lt;/span&gt;&lt;span dir=&quot;LTR&quot; style=&quot;font-size: 17px;&quot;&gt;&lt;/span&gt;&lt;p style=&quot;font-size: 17px;&quot;&gt;&lt;/p&gt;" style="ellipse;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;fontSize=17;" parent="-nzd27PI_YMHazHH2Rwm-5" vertex="1">
+          <mxGeometry x="260" y="360" width="130" height="80" as="geometry" />
+        </mxCell>
+        <mxCell id="-nzd27PI_YMHazHH2Rwm-43" value="&lt;span style=&quot;font-size: 17px; background-color: initial; font-family: &amp;quot;Simplified Arabic&amp;quot;, serif; text-indent: -18.05pt;&quot;&gt;#8&lt;br style=&quot;font-size: 17px;&quot;&gt;استعراض المقاعد المتاحة&lt;br style=&quot;font-size: 17px;&quot;&gt;&lt;/span&gt;&lt;span dir=&quot;LTR&quot; style=&quot;font-size: 17px;&quot;&gt;&lt;/span&gt;&lt;p style=&quot;font-size: 17px;&quot;&gt;&lt;/p&gt;" style="ellipse;whiteSpace=wrap;html=1;fillColor=#fff2cc;strokeColor=#d6b656;fontSize=17;" parent="-nzd27PI_YMHazHH2Rwm-5" vertex="1">
+          <mxGeometry x="430" y="110" width="130" height="80" as="geometry" />
+        </mxCell>
+        <mxCell id="-nzd27PI_YMHazHH2Rwm-44" value="&lt;span style=&quot;font-size: 17px; background-color: initial; font-family: &amp;quot;Simplified Arabic&amp;quot;, serif; text-indent: -18.05pt;&quot;&gt;#9&lt;br style=&quot;font-size: 17px;&quot;&gt;استعراض العروض&lt;br style=&quot;font-size: 17px;&quot;&gt;&lt;/span&gt;&lt;span dir=&quot;LTR&quot; style=&quot;font-size: 17px;&quot;&gt;&lt;/span&gt;&lt;p style=&quot;font-size: 17px;&quot;&gt;&lt;/p&gt;" style="ellipse;whiteSpace=wrap;html=1;fillColor=#fff2cc;strokeColor=#d6b656;shadow=0;fillStyle=auto;fontSize=17;" parent="-nzd27PI_YMHazHH2Rwm-5" vertex="1">
+          <mxGeometry x="430" y="210" width="130" height="80" as="geometry" />
+        </mxCell>
+        <mxCell id="-nzd27PI_YMHazHH2Rwm-45" value="&lt;span style=&quot;font-size: 17px; background-color: initial; font-family: &amp;quot;Simplified Arabic&amp;quot;, serif; text-indent: -18.05pt;&quot;&gt;#10&lt;br style=&quot;font-size: 17px;&quot;&gt;استعراض الوجهات الاكثر سفرا&lt;br style=&quot;font-size: 17px;&quot;&gt;&lt;/span&gt;&lt;span dir=&quot;LTR&quot; style=&quot;font-size: 17px;&quot;&gt;&lt;/span&gt;&lt;p style=&quot;font-size: 17px;&quot;&gt;&lt;/p&gt;" style="ellipse;whiteSpace=wrap;html=1;fillColor=#fff2cc;strokeColor=#d6b656;fontSize=17;" parent="-nzd27PI_YMHazHH2Rwm-5" vertex="1">
+          <mxGeometry x="430" y="315" width="130" height="80" as="geometry" />
+        </mxCell>
+        <mxCell id="-nzd27PI_YMHazHH2Rwm-46" value="&lt;span style=&quot;font-size: 17px; background-color: initial; font-family: &amp;quot;Simplified Arabic&amp;quot;, serif; text-indent: -18.05pt;&quot;&gt;#11&lt;br style=&quot;font-size: 17px;&quot;&gt;اضافة تعليق او سؤال&lt;br style=&quot;font-size: 17px;&quot;&gt;&lt;/span&gt;&lt;span dir=&quot;LTR&quot; style=&quot;font-size: 17px;&quot;&gt;&lt;/span&gt;&lt;p style=&quot;font-size: 17px;&quot;&gt;&lt;/p&gt;" style="ellipse;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;fontSize=17;" parent="-nzd27PI_YMHazHH2Rwm-5" vertex="1">
+          <mxGeometry x="430" y="420" width="130" height="80" as="geometry" />
+        </mxCell>
+        <mxCell id="-nzd27PI_YMHazHH2Rwm-74" value="&lt;span style=&quot;font-size: 17px; background-color: initial; font-family: &amp;quot;Simplified Arabic&amp;quot;, serif; text-indent: -18.05pt;&quot;&gt;#12&lt;br style=&quot;font-size: 17px;&quot;&gt;استخدام المجيب الآلي&lt;br style=&quot;font-size: 17px;&quot;&gt;&lt;/span&gt;&lt;span dir=&quot;LTR&quot; style=&quot;font-size: 17px;&quot;&gt;&lt;/span&gt;&lt;p style=&quot;font-size: 17px;&quot;&gt;&lt;/p&gt;" style="ellipse;whiteSpace=wrap;html=1;fillColor=#e1d5e7;strokeColor=#9673a6;fontSize=17;" parent="-nzd27PI_YMHazHH2Rwm-5" vertex="1">
+          <mxGeometry x="430" y="540" width="130" height="80" as="geometry" />
+        </mxCell>
+        <mxCell id="-nzd27PI_YMHazHH2Rwm-75" value="&lt;span style=&quot;font-size: 17px; background-color: initial; font-family: &amp;quot;Simplified Arabic&amp;quot;, serif; text-indent: -18.05pt;&quot;&gt;#13&lt;br style=&quot;font-size: 17px;&quot;&gt;ادارة الملف الشخصي&lt;br style=&quot;font-size: 17px;&quot;&gt;&lt;/span&gt;&lt;span dir=&quot;LTR&quot; style=&quot;font-size: 17px;&quot;&gt;&lt;/span&gt;&lt;p style=&quot;font-size: 17px;&quot;&gt;&lt;/p&gt;" style="ellipse;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;fontSize=17;" parent="-nzd27PI_YMHazHH2Rwm-5" vertex="1">
+          <mxGeometry x="650" y="160" width="130" height="80" as="geometry" />
+        </mxCell>
+        <mxCell id="-nzd27PI_YMHazHH2Rwm-78" value="&lt;span style=&quot;font-size: 17px; background-color: initial; font-family: &amp;quot;Simplified Arabic&amp;quot;, serif; text-indent: -18.05pt;&quot;&gt;#14&lt;br style=&quot;font-size: 17px;&quot;&gt;استعراض الاسئلة الشائعة&lt;br style=&quot;font-size: 17px;&quot;&gt;&lt;/span&gt;&lt;span dir=&quot;LTR&quot; style=&quot;font-size: 17px;&quot;&gt;&lt;/span&gt;&lt;p style=&quot;font-size: 17px;&quot;&gt;&lt;/p&gt;" style="ellipse;whiteSpace=wrap;html=1;fillColor=#fff2cc;strokeColor=#d6b656;fontSize=17;" parent="-nzd27PI_YMHazHH2Rwm-5" vertex="1">
+          <mxGeometry x="650" y="280" width="130" height="80" as="geometry" />
+        </mxCell>
+        <mxCell id="-nzd27PI_YMHazHH2Rwm-79" value="&lt;span style=&quot;font-size: 17px; background-color: initial; font-family: &amp;quot;Simplified Arabic&amp;quot;, serif; text-indent: -18.05pt;&quot;&gt;#15&lt;br style=&quot;font-size: 17px;&quot;&gt;استعراض معلومات التأشيرة و أنظمة السفر&lt;br style=&quot;font-size: 17px;&quot;&gt;&lt;/span&gt;&lt;span dir=&quot;LTR&quot; style=&quot;font-size: 17px;&quot;&gt;&lt;/span&gt;&lt;p style=&quot;font-size: 17px;&quot;&gt;&lt;/p&gt;" style="ellipse;whiteSpace=wrap;html=1;fillColor=#fff2cc;strokeColor=#d6b656;fontSize=17;" parent="-nzd27PI_YMHazHH2Rwm-5" vertex="1">
+          <mxGeometry x="650" y="410" width="130" height="80" as="geometry" />
+        </mxCell>
+        <mxCell id="-nzd27PI_YMHazHH2Rwm-25" value="&lt;span style=&quot;font-size: 17px; background-color: initial; font-family: &amp;quot;Simplified Arabic&amp;quot;, serif; text-indent: -18.05pt;&quot;&gt;#1&lt;br style=&quot;font-size: 17px;&quot;&gt;تسجيل حساب في الموقع&lt;br style=&quot;font-size: 17px;&quot;&gt;&lt;/span&gt;&lt;span dir=&quot;LTR&quot; style=&quot;font-size: 17px;&quot;&gt;&lt;/span&gt;&lt;p style=&quot;font-size: 17px;&quot;&gt;&lt;/p&gt;" style="ellipse;whiteSpace=wrap;html=1;fillColor=#e1d5e7;strokeColor=#9673a6;fontSize=17;" parent="-nzd27PI_YMHazHH2Rwm-5" vertex="1">
+          <mxGeometry x="70" y="50" width="130" height="80" as="geometry" />
+        </mxCell>
+        <mxCell id="-nzd27PI_YMHazHH2Rwm-26" value="&lt;span style=&quot;font-size: 17px; background-color: initial; font-family: &amp;quot;Simplified Arabic&amp;quot;, serif; text-indent: -18.05pt;&quot;&gt;#6&lt;br style=&quot;font-size: 17px;&quot;&gt;تسجيل&lt;/span&gt;&lt;br style=&quot;font-size: 17px;&quot;&gt;&lt;span lang=&quot;AR-SA&quot; style=&quot;line-height: 103%; font-family: &amp;quot;Simplified Arabic&amp;quot;, serif; font-size: 17px;&quot;&gt;&lt;div style=&quot;font-size: 17px;&quot;&gt;&lt;span style=&quot;text-indent: -18.05pt; background-color: initial; font-size: 17px;&quot;&gt;&lt;font style=&quot;font-size: 17px;&quot;&gt;دخول في الموقع&lt;/font&gt;&lt;/span&gt;&lt;/div&gt;&lt;/span&gt;&lt;span dir=&quot;LTR&quot; style=&quot;font-size: 17px;&quot;&gt;&lt;/span&gt;&lt;p style=&quot;font-size: 17px;&quot;&gt;&lt;/p&gt;" style="ellipse;whiteSpace=wrap;html=1;fillColor=#e1d5e7;strokeColor=#9673a6;fontSize=17;" parent="-nzd27PI_YMHazHH2Rwm-5" vertex="1">
+          <mxGeometry x="240" y="720" width="130" height="80" as="geometry" />
+        </mxCell>
+        <mxCell id="-nzd27PI_YMHazHH2Rwm-37" style="rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=1;exitY=0.5;exitDx=0;exitDy=0;dashed=1;dashPattern=8 8;entryX=0;entryY=0.5;entryDx=0;entryDy=0;fontSize=17;" parent="-nzd27PI_YMHazHH2Rwm-5" source="-nzd27PI_YMHazHH2Rwm-33" edge="1">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="260.00000000000955" y="300" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="-nzd27PI_YMHazHH2Rwm-22" value="&lt;span style=&quot;font-size: 17px;&quot;&gt;#22&lt;br style=&quot;font-size: 17px;&quot;&gt;&lt;/span&gt;&lt;font style=&quot;font-size: 17px;&quot;&gt;تعديل رحلة&lt;/font&gt;&lt;br style=&quot;font-size: 17px;&quot;&gt;&lt;span dir=&quot;LTR&quot; style=&quot;font-size: 17px;&quot;&gt;&lt;/span&gt;&lt;p style=&quot;font-size: 17px;&quot;&gt;&lt;/p&gt;" style="ellipse;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;fontSize=17;" parent="-nzd27PI_YMHazHH2Rwm-5" vertex="1">
+          <mxGeometry x="689.17" y="1180" width="120" height="80" as="geometry" />
+        </mxCell>
+        <mxCell id="-nzd27PI_YMHazHH2Rwm-23" value="&lt;span style=&quot;font-size: 17px;&quot;&gt;#23&lt;br style=&quot;font-size: 17px;&quot;&gt;&lt;/span&gt;&lt;font style=&quot;font-size: 17px;&quot;&gt;الغاء رحلة&lt;/font&gt;&lt;br style=&quot;font-size: 17px;&quot;&gt;&lt;span dir=&quot;LTR&quot; style=&quot;font-size: 17px;&quot;&gt;&lt;/span&gt;&lt;p style=&quot;font-size: 17px;&quot;&gt;&lt;/p&gt;" style="ellipse;whiteSpace=wrap;html=1;fillColor=#f8cecc;strokeColor=#b85450;fontSize=17;" parent="-nzd27PI_YMHazHH2Rwm-5" vertex="1">
+          <mxGeometry x="689.17" y="1300" width="120" height="80" as="geometry" />
+        </mxCell>
+        <mxCell id="-nzd27PI_YMHazHH2Rwm-100" value="&lt;font style=&quot;font-size: 17px;&quot;&gt;#24&lt;br style=&quot;font-size: 17px;&quot;&gt;استعراض حجوزات&lt;/font&gt;&lt;br style=&quot;font-size: 17px;&quot;&gt;&lt;span dir=&quot;LTR&quot; style=&quot;font-size: 17px;&quot;&gt;&lt;/span&gt;&lt;p style=&quot;font-size: 17px;&quot;&gt;&lt;/p&gt;" style="ellipse;whiteSpace=wrap;html=1;fillColor=#fff2cc;strokeColor=#d6b656;fontSize=17;" parent="-nzd27PI_YMHazHH2Rwm-5" vertex="1">
+          <mxGeometry x="530" y="930" width="120" height="80" as="geometry" />
+        </mxCell>
+        <mxCell id="-nzd27PI_YMHazHH2Rwm-101" value="&lt;font style=&quot;font-size: 17px;&quot;&gt;#25&lt;br style=&quot;font-size: 17px;&quot;&gt;الغاء حجوزات&lt;/font&gt;&lt;br style=&quot;font-size: 17px;&quot;&gt;&lt;span dir=&quot;LTR&quot; style=&quot;font-size: 17px;&quot;&gt;&lt;/span&gt;&lt;p style=&quot;font-size: 17px;&quot;&gt;&lt;/p&gt;" style="ellipse;whiteSpace=wrap;html=1;fillColor=#f8cecc;strokeColor=#b85450;fontSize=17;" parent="-nzd27PI_YMHazHH2Rwm-5" vertex="1">
+          <mxGeometry x="530" y="1070" width="120" height="80" as="geometry" />
+        </mxCell>
+        <mxCell id="-nzd27PI_YMHazHH2Rwm-102" value="&lt;span style=&quot;font-size: 17px;&quot;&gt;#27&lt;br style=&quot;font-size: 17px;&quot;&gt;&lt;/span&gt;&lt;font style=&quot;font-size: 17px;&quot;&gt;اضافة عرض&lt;/font&gt;&lt;br style=&quot;font-size: 17px;&quot;&gt;&lt;span dir=&quot;LTR&quot; style=&quot;font-size: 17px;&quot;&gt;&lt;/span&gt;&lt;p style=&quot;font-size: 17px;&quot;&gt;&lt;/p&gt;" style="ellipse;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;fontSize=17;" parent="-nzd27PI_YMHazHH2Rwm-5" vertex="1">
+          <mxGeometry x="380" y="970" width="120" height="80" as="geometry" />
+        </mxCell>
+        <mxCell id="-nzd27PI_YMHazHH2Rwm-103" value="&lt;span style=&quot;font-size: 17px;&quot;&gt;#28&lt;br style=&quot;font-size: 17px;&quot;&gt;&lt;/span&gt;&lt;font style=&quot;font-size: 17px;&quot;&gt;تعديل عرض&lt;/font&gt;&lt;br style=&quot;font-size: 17px;&quot;&gt;&lt;span dir=&quot;LTR&quot; style=&quot;font-size: 17px;&quot;&gt;&lt;/span&gt;&lt;p style=&quot;font-size: 17px;&quot;&gt;&lt;/p&gt;" style="ellipse;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;fontSize=17;" parent="-nzd27PI_YMHazHH2Rwm-5" vertex="1">
+          <mxGeometry x="380" y="1080" width="120" height="80" as="geometry" />
+        </mxCell>
+        <mxCell id="-nzd27PI_YMHazHH2Rwm-104" value="&lt;span style=&quot;font-size: 17px;&quot;&gt;#29&lt;br style=&quot;font-size: 17px;&quot;&gt;&lt;/span&gt;&lt;font style=&quot;font-size: 17px;&quot;&gt;الغاء عرض&lt;/font&gt;&lt;br style=&quot;font-size: 17px;&quot;&gt;&lt;span dir=&quot;LTR&quot; style=&quot;font-size: 17px;&quot;&gt;&lt;/span&gt;&lt;p style=&quot;font-size: 17px;&quot;&gt;&lt;/p&gt;" style="ellipse;whiteSpace=wrap;html=1;fillColor=#f8cecc;strokeColor=#b85450;fontSize=17;" parent="-nzd27PI_YMHazHH2Rwm-5" vertex="1">
+          <mxGeometry x="380" y="1190" width="120" height="80" as="geometry" />
+        </mxCell>
+        <mxCell id="7QNIedhXuki6xl3S9GjM-13" value="&lt;span style=&quot;font-size: 17px;&quot;&gt;#19&lt;br style=&quot;font-size: 17px;&quot;&gt;&lt;/span&gt;&lt;font style=&quot;font-size: 17px;&quot;&gt;اضافة معلومات التأشيرة والسفر&lt;/font&gt;&lt;br style=&quot;font-size: 17px;&quot;&gt;&lt;span dir=&quot;LTR&quot; style=&quot;font-size: 17px;&quot;&gt;&lt;/span&gt;&lt;p style=&quot;font-size: 17px;&quot;&gt;&lt;/p&gt;" style="ellipse;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;fontSize=17;" parent="-nzd27PI_YMHazHH2Rwm-5" vertex="1">
+          <mxGeometry x="689.17" y="860" width="120" height="80" as="geometry" />
+        </mxCell>
+        <mxCell id="7QNIedhXuki6xl3S9GjM-16" value="&lt;span style=&quot;font-size: 17px;&quot;&gt;#20&lt;br style=&quot;font-size: 17px;&quot;&gt;&lt;/span&gt;&lt;font style=&quot;font-size: 17px;&quot;&gt;تعديل معلومات التأشيرة والسفر&lt;/font&gt;&lt;br style=&quot;font-size: 17px;&quot;&gt;&lt;span dir=&quot;LTR&quot; style=&quot;font-size: 17px;&quot;&gt;&lt;/span&gt;&lt;p style=&quot;font-size: 17px;&quot;&gt;&lt;/p&gt;" style="ellipse;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;fontSize=17;" parent="-nzd27PI_YMHazHH2Rwm-5" vertex="1">
+          <mxGeometry x="689.17" y="960" width="120" height="80" as="geometry" />
+        </mxCell>
+        <mxCell id="3GRJ6OMULa_RcFJIBHs7-5" value="&lt;span style=&quot;font-size: 17px;&quot;&gt;#26&lt;br&gt;الاجابة على الاسئلة الشائعة&lt;/span&gt;&lt;br style=&quot;font-size: 17px;&quot;&gt;&lt;span dir=&quot;LTR&quot; style=&quot;font-size: 17px;&quot;&gt;&lt;/span&gt;&lt;p style=&quot;font-size: 17px;&quot;&gt;&lt;/p&gt;" style="ellipse;whiteSpace=wrap;html=1;fillColor=#fff2cc;strokeColor=#d6b656;fontSize=17;" parent="-nzd27PI_YMHazHH2Rwm-5" vertex="1">
+          <mxGeometry x="530" y="1200" width="120" height="80" as="geometry" />
+        </mxCell>
+        <mxCell id="3GRJ6OMULa_RcFJIBHs7-10" value="&lt;span style=&quot;font-size: 17px; background-color: initial; font-family: &amp;quot;Simplified Arabic&amp;quot;, serif; text-indent: -18.05pt;&quot;&gt;#12.1&lt;br style=&quot;font-size: 17px;&quot;&gt;الاستفسار عن السياسات&lt;br style=&quot;font-size: 17px;&quot;&gt;&lt;/span&gt;&lt;span dir=&quot;LTR&quot; style=&quot;font-size: 17px;&quot;&gt;&lt;/span&gt;&lt;p style=&quot;font-size: 17px;&quot;&gt;&lt;/p&gt;" style="ellipse;whiteSpace=wrap;html=1;fillColor=#e1d5e7;strokeColor=#9673a6;fontSize=17;" parent="-nzd27PI_YMHazHH2Rwm-5" vertex="1">
+          <mxGeometry x="650" y="530" width="130" height="80" as="geometry" />
+        </mxCell>
+        <mxCell id="3GRJ6OMULa_RcFJIBHs7-11" style="rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0;exitY=0.5;exitDx=0;exitDy=0;dashed=1;dashPattern=8 8;entryX=1;entryY=0.5;entryDx=0;entryDy=0;fontSize=17;" parent="-nzd27PI_YMHazHH2Rwm-5" source="3GRJ6OMULa_RcFJIBHs7-10" target="-nzd27PI_YMHazHH2Rwm-74" edge="1">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="270.00000000000955" y="410" as="sourcePoint" />
+            <mxPoint x="210" y="360" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="3GRJ6OMULa_RcFJIBHs7-12" value="&lt;font style=&quot;font-size: 17px;&quot;&gt;Extends&lt;/font&gt;" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fillColor=none;fontSize=17;" parent="-nzd27PI_YMHazHH2Rwm-5" vertex="1">
+          <mxGeometry x="565.0000000000001" y="540" width="80" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="3GRJ6OMULa_RcFJIBHs7-15" value="&lt;span style=&quot;font-size: 17px;&quot;&gt;#30&lt;br&gt;&lt;/span&gt;استعراض سجل التعديلات&lt;br style=&quot;font-size: 17px;&quot;&gt;&lt;span dir=&quot;LTR&quot; style=&quot;font-size: 17px;&quot;&gt;&lt;/span&gt;&lt;p style=&quot;font-size: 17px;&quot;&gt;&lt;/p&gt;" style="ellipse;whiteSpace=wrap;html=1;fillColor=#fff2cc;strokeColor=#d6b656;fontSize=17;" parent="-nzd27PI_YMHazHH2Rwm-5" vertex="1">
+          <mxGeometry x="380" y="1300" width="120" height="80" as="geometry" />
+        </mxCell>
+        <mxCell id="lJmwVQB2wOlKWDqgV40e-1" value="#18&lt;br&gt;ادارة السياسات&lt;br style=&quot;font-size: 17px;&quot;&gt;&lt;span dir=&quot;LTR&quot; style=&quot;font-size: 17px;&quot;&gt;&lt;/span&gt;&lt;p style=&quot;font-size: 17px;&quot;&gt;&lt;/p&gt;" style="ellipse;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;fontSize=17;" parent="-nzd27PI_YMHazHH2Rwm-5" vertex="1">
+          <mxGeometry x="85" y="1210" width="120" height="80" as="geometry" />
+        </mxCell>
+        <mxCell id="-nzd27PI_YMHazHH2Rwm-17" style="edgeStyle=entityRelationEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=1;exitY=0.3333333333333333;exitDx=0;exitDy=0;exitPerimeter=0;entryX=-0.025;entryY=0.413;entryDx=0;entryDy=0;entryPerimeter=0;fontSize=17;" parent="1" source="-nzd27PI_YMHazHH2Rwm-106" target="-nzd27PI_YMHazHH2Rwm-11" edge="1">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="80" y="1160" as="sourcePoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="-nzd27PI_YMHazHH2Rwm-29" style="edgeStyle=entityRelationEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=1;exitY=0.3333333333333333;exitDx=0;exitDy=0;exitPerimeter=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;fontSize=17;" parent="1" source="-nzd27PI_YMHazHH2Rwm-24" target="-nzd27PI_YMHazHH2Rwm-25" edge="1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="-nzd27PI_YMHazHH2Rwm-82" style="edgeStyle=entityRelationEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=1;exitY=0.3333333333333333;exitDx=0;exitDy=0;exitPerimeter=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;fontSize=17;" parent="1" source="-nzd27PI_YMHazHH2Rwm-24" target="-nzd27PI_YMHazHH2Rwm-32" edge="1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="-nzd27PI_YMHazHH2Rwm-83" style="edgeStyle=entityRelationEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=1;exitY=0.3333333333333333;exitDx=0;exitDy=0;exitPerimeter=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;fontSize=17;" parent="1" source="-nzd27PI_YMHazHH2Rwm-24" target="-nzd27PI_YMHazHH2Rwm-33" edge="1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="-nzd27PI_YMHazHH2Rwm-84" style="edgeStyle=entityRelationEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=1;exitY=0.3333333333333333;exitDx=0;exitDy=0;exitPerimeter=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;fontSize=17;" parent="1" source="-nzd27PI_YMHazHH2Rwm-24" target="-nzd27PI_YMHazHH2Rwm-34" edge="1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="-nzd27PI_YMHazHH2Rwm-85" style="edgeStyle=entityRelationEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=1;exitY=0.3333333333333333;exitDx=0;exitDy=0;exitPerimeter=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;fontSize=17;" parent="1" source="-nzd27PI_YMHazHH2Rwm-24" target="-nzd27PI_YMHazHH2Rwm-35" edge="1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="-nzd27PI_YMHazHH2Rwm-24" value="&lt;span style=&quot;font-size: 17px;&quot;&gt;المستخدم(المسافر)&lt;/span&gt;" style="shape=umlActor;verticalLabelPosition=bottom;verticalAlign=top;html=1;outlineConnect=0;fontSize=17;" parent="1" vertex="1">
+          <mxGeometry x="10" y="160" width="60" height="110" as="geometry" />
+        </mxCell>
+        <mxCell id="7QNIedhXuki6xl3S9GjM-14" style="edgeStyle=entityRelationEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0;exitY=0.3333333333333333;exitDx=0;exitDy=0;exitPerimeter=0;entryX=1;entryY=0.5;entryDx=0;entryDy=0;fontSize=17;" parent="1" source="-nzd27PI_YMHazHH2Rwm-105" target="7QNIedhXuki6xl3S9GjM-13" edge="1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="-nzd27PI_YMHazHH2Rwm-105" value="موظفي شركة الطيران" style="shape=umlActor;verticalLabelPosition=bottom;verticalAlign=top;html=1;outlineConnect=0;fontSize=17;" parent="1" vertex="1">
+          <mxGeometry x="1039.17" y="1100" width="60" height="110" as="geometry" />
+        </mxCell>
+        <mxCell id="lJmwVQB2wOlKWDqgV40e-3" style="edgeStyle=entityRelationEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=1;exitY=0.3333333333333333;exitDx=0;exitDy=0;exitPerimeter=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" parent="1" source="-nzd27PI_YMHazHH2Rwm-106" target="lJmwVQB2wOlKWDqgV40e-1" edge="1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="-nzd27PI_YMHazHH2Rwm-106" value="&lt;span style=&quot;font-size: 17px;&quot;&gt;مدير النظام&lt;/span&gt;" style="shape=umlActor;verticalLabelPosition=bottom;verticalAlign=top;html=1;outlineConnect=0;fontSize=17;" parent="1" vertex="1">
+          <mxGeometry x="20" y="1100" width="60" height="110" as="geometry" />
+        </mxCell>
+        <mxCell id="7QNIedhXuki6xl3S9GjM-15" value="" style="edgeStyle=entityRelationEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0;exitY=0.3333333333333333;exitDx=0;exitDy=0;exitPerimeter=0;entryX=1;entryY=0.5;entryDx=0;entryDy=0;fontSize=17;" parent="1" source="-nzd27PI_YMHazHH2Rwm-105" target="7QNIedhXuki6xl3S9GjM-13" edge="1">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="1039.17" y="1137" as="sourcePoint" />
+            <mxPoint x="659.17" y="930" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="7QNIedhXuki6xl3S9GjM-17" value="" style="edgeStyle=entityRelationEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0;exitY=0.3333333333333333;exitDx=0;exitDy=0;exitPerimeter=0;entryX=1;entryY=0.5;entryDx=0;entryDy=0;fontSize=17;" parent="1" source="-nzd27PI_YMHazHH2Rwm-105" target="7QNIedhXuki6xl3S9GjM-16" edge="1">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="1039.17" y="1137" as="sourcePoint" />
+            <mxPoint x="639.17" y="1180" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="-nzd27PI_YMHazHH2Rwm-21" value="&lt;span style=&quot;font-size: 17px;&quot;&gt;#21&lt;br style=&quot;font-size: 17px;&quot;&gt;&lt;/span&gt;&lt;font style=&quot;font-size: 17px;&quot;&gt;اضافة رحلة&lt;/font&gt;&lt;br style=&quot;font-size: 17px;&quot;&gt;&lt;span dir=&quot;LTR&quot; style=&quot;font-size: 17px;&quot;&gt;&lt;/span&gt;&lt;p style=&quot;font-size: 17px;&quot;&gt;&lt;/p&gt;" style="ellipse;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;fontSize=17;" parent="1" vertex="1">
+          <mxGeometry x="809.17" y="1140" width="120" height="80" as="geometry" />
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>

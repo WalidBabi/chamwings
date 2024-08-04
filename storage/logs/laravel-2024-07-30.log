@@ -1,0 +1,109 @@
+[2024-07-30 13:08:06] local.INFO: Executing command: "C:/Users/waled/AppData/Local/Programs/Python/Python312/python.exe" "C:/Users/waled/Desktop/chamwings/EmployeeChatBot/Employee_ingest_pdf_script.py" "C:\Users\waled\Desktop\chamwings\storage\app/pdfs/kI8r7glXpxWT1udBch2IGPFqy3vBnaiB3jw54T1q.pdf"  
+[2024-07-30 13:08:25] local.ERROR: PDF ingestion failed {"output":"C:\\Users\\waled\\AppData\\Local\\Programs\\Python\\Python312\\Lib\\site-packages\\langchain_core\\_api\\deprecation.py:139: LangChainDeprecationWarning: The class `HuggingFaceEmbeddings` was deprecated in LangChain 0.2.2 and will be removed in 0.3.0. An updated version of the class exists in the langchain-huggingface package and should be used instead. To use it run `pip install -U langchain-huggingface` and import as `from langchain_huggingface import HuggingFaceEmbeddings`.
+  warn_deprecated(
+Python version: 3.12.4 (tags/v3.12.4:8e8a4ba, Jun  6 2024, 19:30:16) [MSC v.1940 64 bit (AMD64)]
+Python path: C:\\Users\\waled\\AppData\\Local\\Programs\\Python\\Python312\\python.exe
+Working directory: C:\\Users\\waled\\Desktop\\chamwings\\public
+Script location: C:\\Users\\waled\\Desktop\\chamwings\\EmployeeChatBot\\Employee_ingest_pdf_script.py
+Arguments: ['C:/Users/waled/Desktop/chamwings/EmployeeChatBot/Employee_ingest_pdf_script.py', 'C:\\\\Users\\\\waled\\\\Desktop\\\\chamwings\\\\storage\\\\app/pdfs/kI8r7glXpxWT1udBch2IGPFqy3vBnaiB3jw54T1q.pdf']
+Processing file: C:\\Users\\waled\\Desktop\\chamwings\\storage\\app/pdfs/kI8r7glXpxWT1udBch2IGPFqy3vBnaiB3jw54T1q.pdf
+Error creating vectorstore: Could not import sentence_transformers python package. Please install it with `pip install sentence-transformers`.
+Traceback:
+Traceback (most recent call last):
+  File \"C:\\Users\\waled\\AppData\\Local\\Programs\\Python\\Python312\\Lib\\site-packages\\langchain_community\\embeddings\\huggingface.py\", line 71, in __init__
+    import sentence_transformers
+  File \"C:\\Users\\waled\\AppData\\Local\\Programs\\Python\\Python312\\Lib\\site-packages\\sentence_transformers\\__init__.py\", line 7, in <module>
+    from sentence_transformers.cross_encoder.CrossEncoder import CrossEncoder
+  File \"C:\\Users\\waled\\AppData\\Local\\Programs\\Python\\Python312\\Lib\\site-packages\\sentence_transformers\\cross_encoder\\__init__.py\", line 1, in <module>
+    from .CrossEncoder import CrossEncoder
+  File \"C:\\Users\\waled\\AppData\\Local\\Programs\\Python\\Python312\\Lib\\site-packages\\sentence_transformers\\cross_encoder\\CrossEncoder.py\", line 12, in <module>
+    from transformers import AutoConfig, AutoModelForSequenceClassification, AutoTokenizer, is_torch_npu_available
+  File \"C:\\Users\\waled\\AppData\\Local\\Programs\\Python\\Python312\\Lib\\site-packages\\transformers\\__init__.py\", line 26, in <module>
+    from . import dependency_versions_check
+  File \"C:\\Users\\waled\\AppData\\Local\\Programs\\Python\\Python312\\Lib\\site-packages\\transformers\\dependency_versions_check.py\", line 57, in <module>
+    require_version_core(deps[pkg])
+  File \"C:\\Users\\waled\\AppData\\Local\\Programs\\Python\\Python312\\Lib\\site-packages\\transformers\\utils\\versions.py\", line 117, in require_version_core
+    return require_version(requirement, hint)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File \"C:\\Users\\waled\\AppData\\Local\\Programs\\Python\\Python312\\Lib\\site-packages\\transformers\\utils\\versions.py\", line 111, in require_version
+    _compare_versions(op, got_ver, want_ver, requirement, pkg, hint)
+  File \"C:\\Users\\waled\\AppData\\Local\\Programs\\Python\\Python312\\Lib\\site-packages\\transformers\\utils\\versions.py\", line 44, in _compare_versions
+    raise ImportError(
+ImportError: numpy>=1.17,<2.0 is required for a normal functioning of this module, but found numpy==2.0.1.
+Try: `pip install transformers -U` or `pip install -e '.[dev]'` if you're working with git main
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File \"C:\\Users\\waled\\Desktop\\chamwings\\EmployeeChatBot\\Employee_ingest_pdf_script.py\", line 46, in ingest_pdf
+    embedding_function = SentenceTransformerEmbeddings(model_name=\"all-MiniLM-L6-v2\")
+                         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File \"C:\\Users\\waled\\AppData\\Local\\Programs\\Python\\Python312\\Lib\\site-packages\\langchain_core\\_api\\deprecation.py\", line 203, in warn_if_direct_instance
+    return wrapped(self, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File \"C:\\Users\\waled\\AppData\\Local\\Programs\\Python\\Python312\\Lib\\site-packages\\langchain_community\\embeddings\\huggingface.py\", line 74, in __init__
+    raise ImportError(
+ImportError: Could not import sentence_transformers python package. Please install it with `pip install sentence-transformers`.
+
+"} 
+[2024-07-30 13:09:52] local.INFO: Executing command: "C:/Users/waled/AppData/Local/Programs/Python/Python312/python.exe" "C:/Users/waled/Desktop/chamwings/EmployeeChatBot/Employee_ingest_pdf_script.py" "C:\Users\waled\Desktop\chamwings\storage\app/pdfs/2rKQ1CxCkbF3dIKkwzmnrHieyzY35sJOWUyeoXaL.pdf"  
+[2024-07-30 13:10:06] local.ERROR: PDF ingestion failed {"output":"C:\\Users\\waled\\AppData\\Local\\Programs\\Python\\Python312\\Lib\\site-packages\\langchain_core\\_api\\deprecation.py:139: LangChainDeprecationWarning: The class `HuggingFaceEmbeddings` was deprecated in LangChain 0.2.2 and will be removed in 0.3.0. An updated version of the class exists in the langchain-huggingface package and should be used instead. To use it run `pip install -U langchain-huggingface` and import as `from langchain_huggingface import HuggingFaceEmbeddings`.
+  warn_deprecated(
+Python version: 3.12.4 (tags/v3.12.4:8e8a4ba, Jun  6 2024, 19:30:16) [MSC v.1940 64 bit (AMD64)]
+Python path: C:\\Users\\waled\\AppData\\Local\\Programs\\Python\\Python312\\python.exe
+Working directory: C:\\Users\\waled\\Desktop\\chamwings\\public
+Script location: C:\\Users\\waled\\Desktop\\chamwings\\EmployeeChatBot\\Employee_ingest_pdf_script.py
+Arguments: ['C:/Users/waled/Desktop/chamwings/EmployeeChatBot/Employee_ingest_pdf_script.py', 'C:\\\\Users\\\\waled\\\\Desktop\\\\chamwings\\\\storage\\\\app/pdfs/2rKQ1CxCkbF3dIKkwzmnrHieyzY35sJOWUyeoXaL.pdf']
+Processing file: C:\\Users\\waled\\Desktop\\chamwings\\storage\\app/pdfs/2rKQ1CxCkbF3dIKkwzmnrHieyzY35sJOWUyeoXaL.pdf
+Error creating vectorstore: Could not import sentence_transformers python package. Please install it with `pip install sentence-transformers`.
+Traceback:
+Traceback (most recent call last):
+  File \"C:\\Users\\waled\\AppData\\Local\\Programs\\Python\\Python312\\Lib\\site-packages\\langchain_community\\embeddings\\huggingface.py\", line 71, in __init__
+    import sentence_transformers
+  File \"C:\\Users\\waled\\AppData\\Local\\Programs\\Python\\Python312\\Lib\\site-packages\\sentence_transformers\\__init__.py\", line 7, in <module>
+    from sentence_transformers.cross_encoder.CrossEncoder import CrossEncoder
+  File \"C:\\Users\\waled\\AppData\\Local\\Programs\\Python\\Python312\\Lib\\site-packages\\sentence_transformers\\cross_encoder\\__init__.py\", line 1, in <module>
+    from .CrossEncoder import CrossEncoder
+  File \"C:\\Users\\waled\\AppData\\Local\\Programs\\Python\\Python312\\Lib\\site-packages\\sentence_transformers\\cross_encoder\\CrossEncoder.py\", line 12, in <module>
+    from transformers import AutoConfig, AutoModelForSequenceClassification, AutoTokenizer, is_torch_npu_available
+  File \"C:\\Users\\waled\\AppData\\Local\\Programs\\Python\\Python312\\Lib\\site-packages\\transformers\\__init__.py\", line 26, in <module>
+    from . import dependency_versions_check
+  File \"C:\\Users\\waled\\AppData\\Local\\Programs\\Python\\Python312\\Lib\\site-packages\\transformers\\dependency_versions_check.py\", line 57, in <module>
+    require_version_core(deps[pkg])
+  File \"C:\\Users\\waled\\AppData\\Local\\Programs\\Python\\Python312\\Lib\\site-packages\\transformers\\utils\\versions.py\", line 117, in require_version_core
+    return require_version(requirement, hint)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File \"C:\\Users\\waled\\AppData\\Local\\Programs\\Python\\Python312\\Lib\\site-packages\\transformers\\utils\\versions.py\", line 111, in require_version
+    _compare_versions(op, got_ver, want_ver, requirement, pkg, hint)
+  File \"C:\\Users\\waled\\AppData\\Local\\Programs\\Python\\Python312\\Lib\\site-packages\\transformers\\utils\\versions.py\", line 44, in _compare_versions
+    raise ImportError(
+ImportError: numpy>=1.17,<2.0 is required for a normal functioning of this module, but found numpy==2.0.1.
+Try: `pip install transformers -U` or `pip install -e '.[dev]'` if you're working with git main
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File \"C:\\Users\\waled\\Desktop\\chamwings\\EmployeeChatBot\\Employee_ingest_pdf_script.py\", line 46, in ingest_pdf
+    embedding_function = SentenceTransformerEmbeddings(model_name=\"all-MiniLM-L6-v2\")
+                         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File \"C:\\Users\\waled\\AppData\\Local\\Programs\\Python\\Python312\\Lib\\site-packages\\langchain_core\\_api\\deprecation.py\", line 203, in warn_if_direct_instance
+    return wrapped(self, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File \"C:\\Users\\waled\\AppData\\Local\\Programs\\Python\\Python312\\Lib\\site-packages\\langchain_community\\embeddings\\huggingface.py\", line 74, in __init__
+    raise ImportError(
+ImportError: Could not import sentence_transformers python package. Please install it with `pip install sentence-transformers`.
+
+"} 
+[2024-07-30 13:11:48] local.INFO: Executing command: "C:/Users/waled/AppData/Local/Programs/Python/Python312/python.exe" "C:/Users/waled/Desktop/chamwings/EmployeeChatBot/Employee_ingest_pdf_script.py" "C:\Users\waled\Desktop\chamwings\storage\app/pdfs/ler9SA8OtCsW9Eky0pGfnB6sJ8kVhjMbCXwHSDG1.pdf"  
+[2024-07-30 13:13:03] local.INFO: PDF ingested successfully {"output":"C:\\Users\\waled\\AppData\\Local\\Programs\\Python\\Python312\\Lib\\site-packages\\langchain_core\\_api\\deprecation.py:139: LangChainDeprecationWarning: The class `HuggingFaceEmbeddings` was deprecated in LangChain 0.2.2 and will be removed in 0.3.0. An updated version of the class exists in the langchain-huggingface package and should be used instead. To use it run `pip install -U langchain-huggingface` and import as `from langchain_huggingface import HuggingFaceEmbeddings`.
+  warn_deprecated(
+C:\\Users\\waled\\AppData\\Local\\Programs\\Python\\Python312\\Lib\\site-packages\\langchain_core\\_api\\deprecation.py:139: LangChainDeprecationWarning: Since Chroma 0.4.x the manual persistence method is no longer supported as docs are automatically persisted.
+  warn_deprecated(
+Python version: 3.12.4 (tags/v3.12.4:8e8a4ba, Jun  6 2024, 19:30:16) [MSC v.1940 64 bit (AMD64)]
+Python path: C:\\Users\\waled\\AppData\\Local\\Programs\\Python\\Python312\\python.exe
+Working directory: C:\\Users\\waled\\Desktop\\chamwings\\public
+Script location: C:\\Users\\waled\\Desktop\\chamwings\\EmployeeChatBot\\Employee_ingest_pdf_script.py
+Arguments: ['C:/Users/waled/Desktop/chamwings/EmployeeChatBot/Employee_ingest_pdf_script.py', 'C:\\\\Users\\\\waled\\\\Desktop\\\\chamwings\\\\storage\\\\app/pdfs/ler9SA8OtCsW9Eky0pGfnB6sJ8kVhjMbCXwHSDG1.pdf']
+Processing file: C:\\Users\\waled\\Desktop\\chamwings\\storage\\app/pdfs/ler9SA8OtCsW9Eky0pGfnB6sJ8kVhjMbCXwHSDG1.pdf
+PDF ingested successfully
+"} 

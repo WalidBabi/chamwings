@@ -29,4 +29,9 @@ class User extends Authenticatable
     {
         return $this->hasOne(Employee::class, 'user_id', 'user_id');
     }
+
+    public function chatHistories()
+    {
+        return $this->hasMany(ChatHistory::class, 'user_id');
+    }
 }

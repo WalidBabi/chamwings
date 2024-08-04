@@ -1,0 +1,31 @@
+<mxfile host="Electron" modified="2024-06-27T17:12:18.993Z" agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) draw.io/23.1.5 Chrome/120.0.6099.109 Electron/28.1.0 Safari/537.36" etag="XQ_KqKV8NDPBq8xOhmTZ" version="23.1.5" type="device">
+  <diagram name="Page-1" id="4ED-qHsHgfN1nS1HDkuz">
+    <mxGraphModel dx="1714" dy="516" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="850" pageHeight="1100" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="-nzd27PI_YMHazHH2Rwm-5" value="&lt;font style=&quot;font-size: 18px;&quot;&gt;أجنحة الشام&lt;/font&gt;" style="swimlane;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="120" y="80" width="610" height="520" as="geometry" />
+        </mxCell>
+        <mxCell id="-nzd27PI_YMHazHH2Rwm-11" value="&lt;font style=&quot;font-size: 17px;&quot;&gt;#2&lt;br&gt;&lt;font style=&quot;font-size: 17px;&quot;&gt;اضافة موظف&lt;/font&gt;&lt;/font&gt;&lt;br&gt;&lt;span dir=&quot;LTR&quot;&gt;&lt;/span&gt;&lt;p&gt;&lt;/p&gt;" style="ellipse;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;" vertex="1" parent="-nzd27PI_YMHazHH2Rwm-5">
+          <mxGeometry x="40" y="140" width="120" height="80" as="geometry" />
+        </mxCell>
+        <mxCell id="-nzd27PI_YMHazHH2Rwm-12" value="&lt;font style=&quot;font-size: 17px;&quot;&gt;&lt;font style=&quot;font-size: 17px;&quot;&gt;&lt;font style=&quot;font-size: 17px;&quot;&gt;#4&lt;/font&gt;&lt;br&gt;&lt;/font&gt;&lt;font style=&quot;font-size: 17px;&quot;&gt;حذف موظف&lt;/font&gt;&lt;/font&gt;&lt;br&gt;&lt;span dir=&quot;LTR&quot;&gt;&lt;/span&gt;&lt;p&gt;&lt;/p&gt;" style="ellipse;whiteSpace=wrap;html=1;fillColor=#f8cecc;strokeColor=#b85450;" vertex="1" parent="-nzd27PI_YMHazHH2Rwm-5">
+          <mxGeometry x="40" y="340" width="120" height="80" as="geometry" />
+        </mxCell>
+        <mxCell id="-nzd27PI_YMHazHH2Rwm-13" value="&lt;font style=&quot;font-size: 17px;&quot;&gt;#3&lt;br&gt;&lt;font style=&quot;font-size: 17px;&quot;&gt;تعديل موظف&lt;/font&gt;&lt;/font&gt;&lt;br&gt;&lt;span dir=&quot;LTR&quot;&gt;&lt;/span&gt;&lt;p&gt;&lt;/p&gt;" style="ellipse;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;" vertex="1" parent="-nzd27PI_YMHazHH2Rwm-5">
+          <mxGeometry x="40" y="240" width="120" height="80" as="geometry" />
+        </mxCell>
+        <mxCell id="-nzd27PI_YMHazHH2Rwm-4" value="&lt;span style=&quot;font-size: 17px; background-color: initial; font-family: &amp;quot;Simplified Arabic&amp;quot;, serif; text-indent: -18.05pt;&quot;&gt;#1&lt;br&gt;تسجيل&lt;/span&gt;&lt;br&gt;&lt;span style=&quot;line-height: 103%; font-family: &amp;quot;Simplified Arabic&amp;quot;, serif; font-size: 17px;&quot; lang=&quot;AR-SA&quot;&gt;&lt;div style=&quot;&quot;&gt;&lt;span style=&quot;text-indent: -18.05pt; background-color: initial;&quot;&gt;&lt;font style=&quot;font-size: 17px;&quot;&gt;دخول في الموقع&lt;/font&gt;&lt;/span&gt;&lt;/div&gt;&lt;/span&gt;&lt;span dir=&quot;LTR&quot;&gt;&lt;/span&gt;&lt;p&gt;&lt;/p&gt;" style="ellipse;whiteSpace=wrap;html=1;fillColor=#e1d5e7;strokeColor=#9673a6;" vertex="1" parent="-nzd27PI_YMHazHH2Rwm-5">
+          <mxGeometry x="40" y="40" width="120" height="80" as="geometry" />
+        </mxCell>
+        <mxCell id="-nzd27PI_YMHazHH2Rwm-14" value="&lt;font style=&quot;font-size: 17px;&quot;&gt;#5&lt;br&gt;&lt;/font&gt;&lt;font style=&quot;font-size: 17px;&quot;&gt;ادارة صلاحيات الموظفين&lt;/font&gt;&lt;br&gt;&lt;span dir=&quot;LTR&quot;&gt;&lt;/span&gt;&lt;p&gt;&lt;/p&gt;" style="ellipse;whiteSpace=wrap;html=1;fillColor=#e1d5e7;strokeColor=#9673a6;" vertex="1" parent="-nzd27PI_YMHazHH2Rwm-5">
+          <mxGeometry x="200" y="90" width="120" height="80" as="geometry" />
+        </mxCell>
+        <mxCell id="-nzd27PI_YMHazHH2Rwm-9" value="&lt;font style=&quot;font-size: 18px;&quot;&gt;مدير النظام&lt;/font&gt;&lt;div style=&quot;font-size: 18px;&quot;&gt;&lt;br&gt;&lt;/div&gt;" style="shape=umlActor;verticalLabelPosition=bottom;verticalAlign=top;html=1;outlineConnect=0;" vertex="1" parent="1">
+          <mxGeometry x="10" y="160" width="30" height="60" as="geometry" />
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>

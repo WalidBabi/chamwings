@@ -1,0 +1,103 @@
+<mxfile host="Electron" modified="2024-04-01T13:39:32.800Z" agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) draw.io/23.1.5 Chrome/120.0.6099.109 Electron/28.1.0 Safari/537.36" etag="uffQQHg6IQ6SOEU2sK9y" version="23.1.5" type="device">
+  <diagram id="6a731a19-8d31-9384-78a2-239565b7b9f0" name="Page-1">
+    <mxGraphModel dx="1600" dy="967" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1169" pageHeight="827" background="none" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="LA6DOsZuc4dvnCNFZ-Pz-1781" value="" style="edgeStyle=none;rounded=0;jumpStyle=none;html=1;shadow=0;labelBackgroundColor=none;startArrow=none;startFill=0;endArrow=classic;endFill=1;jettySize=auto;orthogonalLoop=1;strokeColor=#2F5B7C;strokeWidth=3;fontFamily=Helvetica;fontSize=18;fontColor=#23445D;spacing=5;spacingTop=0;" parent="1" source="LA6DOsZuc4dvnCNFZ-Pz-1785" target="LA6DOsZuc4dvnCNFZ-Pz-1798" edge="1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="LA6DOsZuc4dvnCNFZ-Pz-1782" value="" style="edgeStyle=none;rounded=0;jumpStyle=none;html=1;shadow=0;labelBackgroundColor=none;startArrow=none;startFill=0;endArrow=classic;endFill=1;jettySize=auto;orthogonalLoop=1;strokeColor=#2F5B7C;strokeWidth=3;fontFamily=Helvetica;fontSize=18;fontColor=#23445D;spacing=5;spacingTop=0;" parent="1" source="LA6DOsZuc4dvnCNFZ-Pz-1785" target="LA6DOsZuc4dvnCNFZ-Pz-1803" edge="1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="LA6DOsZuc4dvnCNFZ-Pz-1783" value="" style="edgeStyle=none;rounded=0;jumpStyle=none;html=1;shadow=0;labelBackgroundColor=none;startArrow=none;startFill=0;endArrow=classic;endFill=1;jettySize=auto;orthogonalLoop=1;strokeColor=#2F5B7C;strokeWidth=3;fontFamily=Helvetica;fontSize=18;fontColor=#23445D;spacing=5;spacingTop=0;" parent="1" source="LA6DOsZuc4dvnCNFZ-Pz-1785" target="LA6DOsZuc4dvnCNFZ-Pz-1794" edge="1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="LA6DOsZuc4dvnCNFZ-Pz-1784" value="" style="edgeStyle=none;rounded=0;jumpStyle=none;html=1;shadow=0;labelBackgroundColor=none;startArrow=none;startFill=0;endArrow=classic;endFill=1;jettySize=auto;orthogonalLoop=1;strokeColor=#2F5B7C;strokeWidth=3;fontFamily=Helvetica;fontSize=18;fontColor=#23445D;spacing=5;spacingTop=0;" parent="1" source="LA6DOsZuc4dvnCNFZ-Pz-1785" target="LA6DOsZuc4dvnCNFZ-Pz-1788" edge="1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="LA6DOsZuc4dvnCNFZ-Pz-1785" value="الخريطة الذهنية للدراسة المرجعية - الحلول" style="rounded=1;whiteSpace=wrap;html=1;shadow=0;labelBackgroundColor=none;strokeColor=none;strokeWidth=3;fillColor=#2F5B7C;fontFamily=Helvetica;fontSize=18;fontColor=#FFFFFF;align=center;fontStyle=1;spacing=5;arcSize=7;perimeterSpacing=2;spacingTop=0;" parent="1" vertex="1">
+          <mxGeometry x="495" y="380.5" width="150" height="70" as="geometry" />
+        </mxCell>
+        <mxCell id="LA6DOsZuc4dvnCNFZ-Pz-1786" value="" style="edgeStyle=none;rounded=1;jumpStyle=none;html=1;shadow=0;labelBackgroundColor=none;startArrow=none;startFill=0;jettySize=auto;orthogonalLoop=1;strokeColor=#E85642;strokeWidth=3;fontFamily=Helvetica;fontSize=18;fontColor=#FFFFFF;spacing=5;fontStyle=1;fillColor=#b0e3e6;spacingTop=0;" parent="1" source="LA6DOsZuc4dvnCNFZ-Pz-1788" target="LA6DOsZuc4dvnCNFZ-Pz-1790" edge="1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="LA6DOsZuc4dvnCNFZ-Pz-1787" value="" style="edgeStyle=none;rounded=1;jumpStyle=none;html=1;shadow=0;labelBackgroundColor=none;startArrow=none;startFill=0;jettySize=auto;orthogonalLoop=1;strokeColor=#E85642;strokeWidth=3;fontFamily=Helvetica;fontSize=18;fontColor=#FFFFFF;spacing=5;fontStyle=1;fillColor=#b0e3e6;spacingTop=0;" parent="1" source="LA6DOsZuc4dvnCNFZ-Pz-1788" target="LA6DOsZuc4dvnCNFZ-Pz-1789" edge="1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="LA6DOsZuc4dvnCNFZ-Pz-1788" value="مصادقة المستخدم وإدارة الملف الشخصي" style="rounded=1;whiteSpace=wrap;html=1;shadow=0;labelBackgroundColor=none;strokeColor=none;strokeWidth=3;fillColor=#e85642;fontFamily=Helvetica;fontSize=18;fontColor=#FFFFFF;align=center;spacing=5;fontStyle=1;arcSize=7;perimeterSpacing=2;spacingTop=0;" parent="1" vertex="1">
+          <mxGeometry x="260" y="380.5" width="150" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="LA6DOsZuc4dvnCNFZ-Pz-1789" value=" إنشاء الملف الشخصي وإدارته" style="rounded=1;whiteSpace=wrap;html=1;shadow=0;labelBackgroundColor=none;strokeColor=none;strokeWidth=3;fillColor=#f08e81;fontFamily=Helvetica;fontSize=18;fontColor=#FFFFFF;align=center;spacing=5;fontStyle=0;arcSize=7;perimeterSpacing=2;spacingTop=0;" parent="1" vertex="1">
+          <mxGeometry x="20" y="290" width="150" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="LA6DOsZuc4dvnCNFZ-Pz-1790" value=" عملية تسجيل الدخول الآمنة" style="rounded=1;whiteSpace=wrap;html=1;shadow=0;labelBackgroundColor=none;strokeColor=none;strokeWidth=3;fillColor=#f08e81;fontFamily=Helvetica;fontSize=18;fontColor=#FFFFFF;align=center;spacing=5;fontStyle=0;arcSize=7;perimeterSpacing=2;spacingTop=0;" parent="1" vertex="1">
+          <mxGeometry x="20" y="445.5" width="150" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="LA6DOsZuc4dvnCNFZ-Pz-1792" value="" style="edgeStyle=none;rounded=0;jumpStyle=none;html=1;shadow=0;labelBackgroundColor=none;startArrow=none;startFill=0;endArrow=classic;endFill=1;jettySize=auto;orthogonalLoop=1;strokeColor=#1699D3;strokeWidth=3;fontFamily=Helvetica;fontSize=18;fontColor=#FFFFFF;spacing=5;spacingTop=0;" parent="1" source="LA6DOsZuc4dvnCNFZ-Pz-1794" target="LA6DOsZuc4dvnCNFZ-Pz-1796" edge="1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="LA6DOsZuc4dvnCNFZ-Pz-1794" value="مميزات الموقع الحديث" style="rounded=1;whiteSpace=wrap;html=1;shadow=0;labelBackgroundColor=none;strokeColor=none;strokeWidth=3;fillColor=#1699d3;fontFamily=Helvetica;fontSize=18;fontColor=#FFFFFF;align=center;spacing=5;fontStyle=1;arcSize=7;perimeterSpacing=2;spacingTop=0;" parent="1" vertex="1">
+          <mxGeometry x="495" y="570.5" width="150" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="LA6DOsZuc4dvnCNFZ-Pz-1796" value="RAG (Retrieval Augmented Generation )" style="rounded=1;whiteSpace=wrap;html=1;shadow=0;labelBackgroundColor=none;strokeColor=none;strokeWidth=3;fillColor=#64bbe2;fontFamily=Helvetica;fontSize=18;fontColor=#FFFFFF;align=center;spacing=5;arcSize=7;perimeterSpacing=2;spacingTop=0;" parent="1" vertex="1">
+          <mxGeometry x="660" y="670" width="150" height="73.5" as="geometry" />
+        </mxCell>
+        <mxCell id="LA6DOsZuc4dvnCNFZ-Pz-1798" value="حجز وإدارة الرحلات" style="rounded=1;whiteSpace=wrap;html=1;shadow=0;labelBackgroundColor=none;strokeColor=none;strokeWidth=3;fillColor=#F08705;fontFamily=Helvetica;fontSize=18;fontColor=#FFFFFF;align=center;spacing=5;fontStyle=1;arcSize=7;perimeterSpacing=2;spacingTop=0;" parent="1" vertex="1">
+          <mxGeometry x="495" y="200.5" width="150" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="LA6DOsZuc4dvnCNFZ-Pz-1799" value=" تبسيط عملية البحث عن الرحلات والحجز" style="rounded=1;whiteSpace=wrap;html=1;shadow=0;labelBackgroundColor=none;strokeColor=none;strokeWidth=3;fillColor=#f5af58;fontFamily=Helvetica;fontSize=18;fontColor=#FFFFFF;align=center;spacing=5;arcSize=7;perimeterSpacing=2;spacingTop=0;" parent="1" vertex="1">
+          <mxGeometry x="690" y="60" width="150" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="LA6DOsZuc4dvnCNFZ-Pz-1800" value="" style="edgeStyle=none;rounded=0;jumpStyle=none;html=1;shadow=0;labelBackgroundColor=none;startArrow=none;startFill=0;endArrow=classic;endFill=1;jettySize=auto;orthogonalLoop=1;strokeColor=#F08705;strokeWidth=3;fontFamily=Helvetica;fontSize=18;fontColor=#FFFFFF;spacing=5;spacingTop=0;exitX=1;exitY=0.25;exitDx=0;exitDy=0;" parent="1" source="LA6DOsZuc4dvnCNFZ-Pz-1798" target="LA6DOsZuc4dvnCNFZ-Pz-1799" edge="1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="LA6DOsZuc4dvnCNFZ-Pz-1801" value="سهولة الوصول إلى تفاصيل الحجز" style="rounded=1;whiteSpace=wrap;html=1;shadow=0;labelBackgroundColor=none;strokeColor=none;strokeWidth=3;fillColor=#f5af58;fontFamily=Helvetica;fontSize=18;fontColor=#FFFFFF;align=center;spacing=5;arcSize=7;perimeterSpacing=2;spacingTop=0;" parent="1" vertex="1">
+          <mxGeometry x="345" y="60" width="150" height="70" as="geometry" />
+        </mxCell>
+        <mxCell id="LA6DOsZuc4dvnCNFZ-Pz-1802" value="" style="edgeStyle=none;rounded=0;jumpStyle=none;html=1;shadow=0;labelBackgroundColor=none;startArrow=none;startFill=0;endArrow=classic;endFill=1;jettySize=auto;orthogonalLoop=1;strokeColor=#F08705;strokeWidth=3;fontFamily=Helvetica;fontSize=18;fontColor=#FFFFFF;spacing=5;spacingTop=0;" parent="1" source="LA6DOsZuc4dvnCNFZ-Pz-1798" target="LA6DOsZuc4dvnCNFZ-Pz-1801" edge="1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="LA6DOsZuc4dvnCNFZ-Pz-1803" value="خدمات دعم العملاء" style="rounded=1;whiteSpace=wrap;html=1;shadow=0;labelBackgroundColor=none;strokeColor=none;strokeWidth=3;fillColor=#12aab5;fontFamily=Helvetica;fontSize=18;fontColor=#FFFFFF;align=center;spacing=5;fontStyle=1;arcSize=7;perimeterSpacing=2;spacingTop=0;" parent="1" vertex="1">
+          <mxGeometry x="795" y="385.4999999999999" width="150" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="LA6DOsZuc4dvnCNFZ-Pz-1806" value="دمج تكنولوجيا فهم اللغة لتعزيز الدعم" style="rounded=1;whiteSpace=wrap;html=1;shadow=0;labelBackgroundColor=none;strokeColor=none;strokeWidth=3;fillColor=#61c6ce;fontFamily=Helvetica;fontSize=18;fontColor=#FFFFFF;align=center;spacing=5;fontStyle=0;arcSize=7;perimeterSpacing=2;spacingTop=0;" parent="1" vertex="1">
+          <mxGeometry x="1019" y="520" width="150" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="LA6DOsZuc4dvnCNFZ-Pz-1807" value="" style="edgeStyle=none;rounded=1;jumpStyle=none;html=1;shadow=0;labelBackgroundColor=none;startArrow=none;startFill=0;jettySize=auto;orthogonalLoop=1;strokeColor=#12AAB5;strokeWidth=3;fontFamily=Helvetica;fontSize=18;fontColor=#FFFFFF;spacing=5;fontStyle=1;fillColor=#b0e3e6;spacingTop=0;entryX=0;entryY=0;entryDx=0;entryDy=0;" parent="1" source="LA6DOsZuc4dvnCNFZ-Pz-1803" target="LA6DOsZuc4dvnCNFZ-Pz-1806" edge="1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="LA6DOsZuc4dvnCNFZ-Pz-1808" value="نموذج الملاحظات لاقتراحات وشكاوى المستخدمين" style="rounded=1;whiteSpace=wrap;html=1;shadow=0;labelBackgroundColor=none;strokeColor=none;strokeWidth=3;fillColor=#61c6ce;fontFamily=Helvetica;fontSize=18;fontColor=#FFFFFF;align=center;spacing=5;fontStyle=0;arcSize=7;perimeterSpacing=2;spacingTop=0;" parent="1" vertex="1">
+          <mxGeometry x="1020" y="376" width="150" height="74.5" as="geometry" />
+        </mxCell>
+        <mxCell id="LA6DOsZuc4dvnCNFZ-Pz-1809" value="" style="edgeStyle=none;rounded=1;jumpStyle=none;html=1;shadow=0;labelBackgroundColor=none;startArrow=none;startFill=0;jettySize=auto;orthogonalLoop=1;strokeColor=#12AAB5;strokeWidth=3;fontFamily=Helvetica;fontSize=18;fontColor=#FFFFFF;spacing=5;fontStyle=1;fillColor=#b0e3e6;spacingTop=0;" parent="1" source="LA6DOsZuc4dvnCNFZ-Pz-1803" target="LA6DOsZuc4dvnCNFZ-Pz-1808" edge="1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="LA6DOsZuc4dvnCNFZ-Pz-1810" value=" قسم الأسئلة الشائعة مع إجابات شاملة" style="rounded=1;whiteSpace=wrap;html=1;shadow=0;labelBackgroundColor=none;strokeColor=none;strokeWidth=3;fillColor=#61c6ce;fontFamily=Helvetica;fontSize=18;fontColor=#FFFFFF;align=center;spacing=5;fontStyle=0;arcSize=7;perimeterSpacing=2;spacingTop=0;" parent="1" vertex="1">
+          <mxGeometry x="1019" y="244.5" width="150" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="LA6DOsZuc4dvnCNFZ-Pz-1811" value="" style="edgeStyle=none;rounded=1;jumpStyle=none;html=1;shadow=0;labelBackgroundColor=none;startArrow=none;startFill=0;jettySize=auto;orthogonalLoop=1;strokeColor=#12AAB5;strokeWidth=3;fontFamily=Helvetica;fontSize=18;fontColor=#FFFFFF;spacing=5;fontStyle=1;fillColor=#b0e3e6;spacingTop=0;entryX=0;entryY=1;entryDx=0;entryDy=0;" parent="1" source="LA6DOsZuc4dvnCNFZ-Pz-1803" target="LA6DOsZuc4dvnCNFZ-Pz-1810" edge="1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="LA6DOsZuc4dvnCNFZ-Pz-1816" value="" style="edgeStyle=none;rounded=0;jumpStyle=none;html=1;shadow=0;labelBackgroundColor=none;startArrow=none;startFill=0;endArrow=classic;endFill=1;jettySize=auto;orthogonalLoop=1;strokeColor=#1699D3;strokeWidth=3;fontFamily=Helvetica;fontSize=18;fontColor=#FFFFFF;spacing=5;spacingTop=0;exitX=0.5;exitY=1;exitDx=0;exitDy=0;" parent="1" source="LA6DOsZuc4dvnCNFZ-Pz-1796" edge="1">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="780" y="860" as="sourcePoint" />
+            <mxPoint x="790" y="820" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="LA6DOsZuc4dvnCNFZ-Pz-1817" value="معالجة اللغة الطبيعية لتحسين التفاعل" style="rounded=1;whiteSpace=wrap;html=1;shadow=0;labelBackgroundColor=none;strokeColor=none;strokeWidth=3;fillColor=#64bbe2;fontFamily=Helvetica;fontSize=18;fontColor=#FFFFFF;align=center;spacing=5;arcSize=7;perimeterSpacing=2;spacingTop=0;" parent="1" vertex="1">
+          <mxGeometry x="710" y="820" width="150" height="73.5" as="geometry" />
+        </mxCell>
+        <mxCell id="LA6DOsZuc4dvnCNFZ-Pz-1818" value="" style="edgeStyle=none;rounded=0;jumpStyle=none;html=1;shadow=0;labelBackgroundColor=none;startArrow=none;startFill=0;endArrow=classic;endFill=1;jettySize=auto;orthogonalLoop=1;strokeColor=#1699D3;strokeWidth=3;fontFamily=Helvetica;fontSize=18;fontColor=#FFFFFF;spacing=5;spacingTop=0;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" parent="1" source="LA6DOsZuc4dvnCNFZ-Pz-1794" target="LA6DOsZuc4dvnCNFZ-Pz-1819" edge="1">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="527" y="643" as="sourcePoint" />
+            <mxPoint x="570" y="700" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="LA6DOsZuc4dvnCNFZ-Pz-1819" value="(Online Check In) عملية تسجيل الوصول عبر الإنترنت مريحة" style="rounded=1;whiteSpace=wrap;html=1;shadow=0;labelBackgroundColor=none;strokeColor=none;strokeWidth=3;fillColor=#64bbe2;fontFamily=Helvetica;fontSize=18;fontColor=#FFFFFF;align=center;spacing=5;arcSize=7;perimeterSpacing=2;spacingTop=0;" parent="1" vertex="1">
+          <mxGeometry x="330" y="676.75" width="150" height="60" as="geometry" />
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>
