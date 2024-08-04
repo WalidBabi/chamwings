@@ -43,4 +43,4 @@ return new class extends Migration
         DB::statement("DROP VIEW IF EXISTS customer_segmentation");
     }
 };
-//JOIN users_profiles up ON p.user_profile_id = up.user_profile_id
+//JOIN users up ON p.user_profile_id = up.user_profile_id
