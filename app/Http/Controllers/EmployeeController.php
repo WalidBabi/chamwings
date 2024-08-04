@@ -23,6 +23,7 @@ class EmployeeController extends Controller
     public function addEmployee(EmployeeRequest $employeeRequest)
     {
         $roles = explode(',', $employeeRequest->roles);
+        // dd($roles);
         $user = User::create([
             'email' => $employeeRequest->email,
             'password' => Hash::make($employeeRequest->password),

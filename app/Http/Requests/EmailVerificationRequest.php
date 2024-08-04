@@ -24,7 +24,7 @@ class EmailVerificationRequest extends FormRequest
     public function rules()
     {
         return [
-            'email' => 'required|email|exists:users_profiles,email',
+            'email' => 'required|email|exists:users,email',
         ];
     }
 }

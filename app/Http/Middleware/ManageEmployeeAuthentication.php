@@ -18,12 +18,13 @@ class ManageEmployeeAuthentication
     public function handle(Request $request, Closure $next)
     {
         $user = Auth::guard('user')->user();
+        // dd($user);
+        // dd($user->employee->roles);
         foreach ($user->employee->roles as $role) {
             if ($role->name == 'admin' || $role->name == 'manage employee') {
                 return $next($request);
             }
         }
-
         return error('some thing went wrong', 'you dont have authentication', 502);
     }
 }

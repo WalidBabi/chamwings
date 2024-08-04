@@ -89,10 +89,10 @@ class AuthenticationController extends Controller
     public function login(LoginRequest $loginRequest)
     {
         $user = User::where('email', $loginRequest->email)->first();
+        // dd($user);
         if (!$user || !Hash::check($loginRequest->password, $user->password)) {
             return error('some thing went wrong', 'incorrect email or password', 422);
         }
-
         $token = $user->createToken('user')->plainTextToken;
 
         return success($token, null);
