@@ -12,17 +12,14 @@ return new class extends Migration
     public function up(): void
     {
         Schema::create('chat_histories', function (Blueprint $table) {
-            $table->id(); // Auto-incrementing ID
-            $table->unsignedBigInteger('user_id'); // Foreign key for users
-            $table->text('message'); // Column for chat messages
-            $table->boolean('is_user_message'); // Flag to identify if the message is from the user
-            $table->timestamps(); // Created_at and updated_at timestamps
-
-            // Foreign key constraint
-            $table->foreign('user_id')
-                ->references('user_id')
-                ->on('users')
-                ->onDelete('cascade'); // Optional: Delete chat histories if the user is deleted
+            $table->id();
+            $table->unsignedBigInteger('user_id');
+            $table->text('input_text');
+            $table->text('response_text')->nullable();
+            $table->string('thread_id');
+            $table->foreign('user_id')->references('user_id')->on('users')->onDelete('cascade');
+            $table->json('chat_history')->nullable(); // Adding JSON column for chat history
+            $table->timestamps();
         });
     }
 

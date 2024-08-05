@@ -11,8 +11,14 @@ class ChatHistory extends Model
 
     protected $fillable = [
         'user_id',
-        'message',
-        'is_user_message',
+        'thread_id', // Add thread_id to fillable fields
+        'input_text',
+        'response_text',
+        'chat_history'
+    ];
+
+    protected $casts = [
+        'chat_history' => 'array', // Cast chat_history to array
     ];
 
     public function user()
