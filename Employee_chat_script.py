@@ -8,21 +8,20 @@ from langchain_core.prompts import ChatPromptTemplate
 from langchain_openai import ChatOpenAI
 from langchain.retrievers import EnsembleRetriever
 from langchain_core.messages import AIMessage, HumanMessage, SystemMessage
+import logging
 
 # Load environment variables
 load_dotenv()
 
 app = FastAPI()
 
+# Configure logging
+logging.basicConfig(level=logging.INFO)
+logger = logging.getLogger(__name__)
+
 # Global variables
 global_retriever = None
 chat_histories = {}
-
-
-class ChatRequest(BaseModel):
-    input_text: str
-    user_id: str  # Use user_id to track which employee is making the request
-    
 
 def initialize_retriever():
     global global_retriever
@@ -44,18 +43,22 @@ def initialize_retriever():
 @app.on_event("startup")
 async def startup_event():
     initialize_retriever()
-chat_histories = {}
 
-def get_chat_history(user_id: str):
+def get_chat_history(user_id: str, thread_id: str):
     if user_id not in chat_histories:
-        chat_histories[user_id] = []
-    return chat_histories[user_id]
+        chat_histories[user_id] = {}
+    if thread_id not in chat_histories[user_id]:
+        chat_histories[user_id][thread_id] = []
+    return chat_histories[user_id][thread_id]
 
-def chat(input_text: str, user_id: str) -> str:
+def chat(input_text: str, user_id: str, thread_id: str) -> str:
     try:
         llm = ChatOpenAI(base_url="http://localhost:1234/v1", api_key="not-needed")
         
-        chat_history = get_chat_history(user_id)
+        chat_history = get_chat_history(user_id, thread_id)
+
+        # Log chat history for debugging
+        logger.info(f"Chat history for user_id={user_id}, thread_id={thread_id}: {chat_history}")
 
         # Contextualize question
         contextualize_q_system_prompt = (
@@ -71,6 +74,9 @@ def chat(input_text: str, user_id: str) -> str:
         ]
         
         contextualized_question = llm.invoke(contextualize_messages).content
+
+        # Log contextualized question for debugging
+        logger.info(f"Contextualized question: {contextualized_question}")
 
         # Retrieve relevant documents
         docs = global_retriever.invoke(contextualized_question)
@@ -98,18 +104,27 @@ def chat(input_text: str, user_id: str) -> str:
         return response.content
 
     except Exception as e:
+        logger.error(f"Error processing chat: {e}")
         raise HTTPException(status_code=500, detail=str(e))
         
+class ChatRequest(BaseModel):
+    input_text: str
+    user_id: str
+    thread_id: str  # Add thread_id to track different threads
+
 @app.post("/chat")
 async def chat_endpoint(request: ChatRequest):
-    response = chat(request.input_text, request.user_id)
+    response = chat(request.input_text, request.user_id, request.thread_id)
     return {"answer": response}
 
-@app.get("/chathistory/{user_id}")
-async def get_chat_history_endpoint(user_id: str):
-    history = get_chat_history(user_id)
-    return {"user_id": user_id, "chat_history": [msg.content for msg in history]}
+@app.get("/chathistory/{user_id}/{thread_id}")
+async def get_chat_history_endpoint(user_id: str, thread_id: str):
+    history = get_chat_history(user_id, thread_id)
+    return {"user_id": user_id, "thread_id": thread_id, "chat_history": [msg.content for msg in history]}
 
 if __name__ == "__main__":
     import uvicorn
-    uvicorn.run(app, host="0.0.0.0", port=8000)
+    uvicorn.run("Employee_chat_script:app", host="0.0.0.0", port=8001, reload=True)
+
+
+#uvicorn Employee_chat_script:app --host 0.0.0.0 --port 8001 --reload

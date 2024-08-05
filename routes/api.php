@@ -115,7 +115,7 @@ Route::middleware('check-auth')->prefix('/')->group(function () {
         Route::get('/{role}', [RoleController::class, 'getRoleInformation']);
     });
 
-    
+
     Route::get('/run-segmentation', [CustomerSegmentationController::class, 'runSegmentation']);
     Route::get('/segmentation-results', [CustomerSegmentationController::class, 'getLatestResults']);
 
@@ -125,11 +125,13 @@ Route::middleware('check-auth')->prefix('/')->group(function () {
     Route::delete('/pdfs/{id}', [EmployeesPDFController::class, 'deletePDF']);
 
     Route::post('/send-message', [ChatController::class, 'sendMessage']);
-    Route::get('/chathistory', [ChatController::class, 'getChatHistory']);
+    Route::get('chat-history/{thread_id}', [ChatController::class, 'getChatHistory']);
 
-    Route::post('/store-chat-history', [ChatController::class, 'storeChatHistory']);
-    Route::get('/chat-history/{userId}', [ChatController::class, 'getChatHistory']);
+    // Route to list all threads
+    Route::get('/threads', [ChatController::class, 'listThreads']);
 
+    // Route to create a new thread
+    Route::post('/create-thread', [ChatController::class, 'createThread']);
 
     /****************************** Need Editing ******************************/
     // Route::prefix('reservations')->group(function () {
@@ -144,6 +146,3 @@ Route::middleware('check-auth')->prefix('/')->group(function () {
     // });
     /****************************** End ******************************/
 });
-
-
-
