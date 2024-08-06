@@ -115,6 +115,12 @@ Route::middleware('check-auth')->prefix('/')->group(function () {
         Route::get('/{role}', [RoleController::class, 'getRoleInformation']);
     });
 
+    Route::middleware('manage-airplane')->prefix('classes')->group(function () {
+        Route::post('/{airplane}', [ClassController::class, 'addClass']);
+        Route::put('/{classM}', [ClassController::class, 'editClass']);
+        Route::delete('/{classM}', [ClassController::class, 'deleteClass']);
+    });
+
 
     Route::get('/run-segmentation', [CustomerSegmentationController::class, 'runSegmentation']);
     Route::get('/segmentation-results', [CustomerSegmentationController::class, 'getLatestResults']);

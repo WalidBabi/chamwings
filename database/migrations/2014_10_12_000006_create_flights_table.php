@@ -19,10 +19,9 @@ return new class extends Migration
             $table->unsignedBigInteger('departure_airport');
             $table->unsignedBigInteger('arrival_airport');
             $table->integer('flight_number');
-            $table->integer('number_of_reserved_seats');
             $table->integer('price');
-            $table->date('departure_terminal');
-            $table->date('arrival_terminal');
+            $table->string('departure_terminal');
+            $table->string('arrival_terminal');
 
             $table->foreign('departure_airport')->references('airport_id')->on('airports')->onDelete('cascade');
             $table->foreign('arrival_airport')->references('airport_id')->on('airports')->onDelete('cascade');

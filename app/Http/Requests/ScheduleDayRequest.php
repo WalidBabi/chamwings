@@ -4,7 +4,7 @@ namespace App\Http\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
 
-class EmailVerificationRequest extends FormRequest
+class ScheduleDayRequest extends FormRequest
 {
     /**
      * Determine if the user is authorized to make this request.
@@ -24,7 +24,8 @@ class EmailVerificationRequest extends FormRequest
     public function rules()
     {
         return [
-            'email' => 'required|email|exists:users_profiles,email',
+            'departure_date' => 'required|date',
+            'arrival_date' => 'required|date',
         ];
     }
 }

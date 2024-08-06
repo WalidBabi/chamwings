@@ -6,7 +6,7 @@ use Closure;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
-class ManageEmployeeAuthentication
+class ReadReservationAuthentication
 {
     /**
      * Handle an incoming request.
@@ -19,7 +19,7 @@ class ManageEmployeeAuthentication
     {
         $user = Auth::guard('user')->user();
         foreach ($user->employee->roles as $role) {
-            if ($role->name == 'admin' || $role->name == 'manage employee') {
+            if ($role->name == 'admin' || $role->name == 'manage reservation' || $role->name == 'read reservation') {
                 return $next($request);
             }
         }

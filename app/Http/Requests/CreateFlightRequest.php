@@ -28,14 +28,9 @@ class CreateFlightRequest extends FormRequest
             'arrival_airport' => 'required|exists:airports,airport_id',
             'airplane_id' => 'required|exists:airplanes,airplane_id',
             'flight_number' => 'required|numeric',
-            'departure_date' => 'required|date',
-            'arrival_date' => 'required|date',
-            'departure_time' => 'required',
-            'arrival_time' => 'required',
-            'duration' => 'required',
-            'number_of_reserved_seats' => 'required|numeric',
             'price' => 'required|integer',
-            'terminal' => 'required',
+            'departure_terminal' => 'required',
+            'arrival_terminal' => 'required',
         ];
     }
 }
