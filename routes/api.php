@@ -4,6 +4,7 @@ use App\Http\Controllers\AirplaneController;
 use App\Http\Controllers\AirportController;
 use App\Http\Controllers\AuthenticationController;
 use App\Http\Controllers\CityController;
+use App\Http\Controllers\ClassController;
 use App\Http\Controllers\EmployeeController;
 use App\Http\Controllers\FlightController;
 use App\Http\Controllers\PassportController;
@@ -89,6 +90,12 @@ Route::middleware('check-auth')->prefix('/')->group(function () {
         });
     });
 
+    Route::middleware('manage-flight')->prefix('schedules')->group(function (){
+        Route::prefix('days')->group(function (){
+            
+        });
+    });
+
     Route::prefix('employees')->group(function () {
         Route::middleware('manage-employee')->group(function () {
             Route::post('/', [EmployeeController::class, 'addEmployee']);
@@ -109,6 +116,12 @@ Route::middleware('check-auth')->prefix('/')->group(function () {
     Route::middleware('manage-employee')->prefix('roles')->group(function () {
         Route::get('/', [RoleController::class, 'getRoles']);
         Route::get('/{role}', [RoleController::class, 'getRoleInformation']);
+    });
+
+    Route::middleware('manage-airplane')->prefix('classes')->group(function () {
+        Route::post('/{airplane}', [ClassController::class, 'addClass']);
+        Route::put('/{classM}', [ClassController::class, 'editClass']);
+        Route::delete('/{classM}', [ClassController::class, 'deleteClass']);
     });
 
     /****************************** Need Editing ******************************/
