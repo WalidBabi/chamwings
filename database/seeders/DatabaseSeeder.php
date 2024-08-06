@@ -33,7 +33,7 @@ class DatabaseSeeder extends Seeder
             ]);
 
         $user = User::create([
-            'email' => 'admin@gmail.com',
+            'email' => 'admin@chamwings.com',
             'password' => Hash::make('123456789'),
             'phone' => '097784444',
         ]);
@@ -54,8 +54,8 @@ class DatabaseSeeder extends Seeder
             break;
         }
 
-        Airport::factory(5)->create();
-        Airplane::factory(10)->create();
-        ClassM::factory(5)->create();
+        // Airport::factory(5)->create();
+        // Airplane::factory(10)->create();
+        // ClassM::factory(5)->create();
     }
 }
