@@ -6,7 +6,7 @@ use Closure;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
-class ManageEmployeeAuthentication
+class ManageFlightAuthentication
 {
     /**
      * Handle an incoming request.
@@ -18,8 +18,9 @@ class ManageEmployeeAuthentication
     public function handle(Request $request, Closure $next)
     {
         $user = Auth::guard('user')->user();
+        
         foreach ($user->employee->roles as $role) {
-            if ($role->name == 'admin' || $role->name == 'manage employee') {
+            if ($role->name == 'admin' || $role->name == 'manage flight') {
                 return $next($request);
             }
         }

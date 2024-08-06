@@ -72,8 +72,8 @@ class AuthenticationController extends Controller
                 'age' => $verify->age,
             ]);
             Passenger::create([
-                'user_id'=>$user->user_id,
-                'travel_requirement_id'=>$travel_requirement->travel_requirement_id,
+                'user_id' => $user->user_id,
+                'travel_requirement_id' => $travel_requirement->travel_requirement_id,
             ]);
             $verify->delete();
 
@@ -89,13 +89,21 @@ class AuthenticationController extends Controller
     public function login(LoginRequest $loginRequest)
     {
         $user = User::where('email', $loginRequest->email)->first();
-        // dd($user);
         if (!$user || !Hash::check($loginRequest->password, $user->password)) {
             return error('some thing went wrong', 'incorrect email or password', 422);
         }
-        $token = $user->createToken('user')->plainTextToken;
 
-        return success($token, null);
+        $token = $user->createToken('user')->plainTextToken;
+        if ($user->passenger) {
+            $user->passenger->travelRequirement;
+        } else {
+            $user->employee->roles;
+        }
+        $data = [
+            'token' => $token,
+            'user' => $user
+        ];
+        return success($data, null);
     }
 
     //Profile Function
