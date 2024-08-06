@@ -60,7 +60,7 @@ class AuthenticationController extends Controller
         if ($verify && $verify->created_at > Carbon::now() && $verify->code == $verificationCodeRequest->code) {
             $user = User::create([
                 'email' => $verify->email,
-                'password' => Hash::make($verify->password),
+                'password' => $verify->password,
                 'phone' => $verify->phone,
             ]);
             $travel_requirement = TravelRequirement::create([
@@ -77,9 +77,9 @@ class AuthenticationController extends Controller
             ]);
             $verify->delete();
 
-            $token = $user->createToken('user')->plainTextToken;
+            // $token = $user->createToken('user')->plainTextToken;
 
-            return success($token, 'your account created successfully', 201);
+            return success('your account created successfully', 201);
         }
 
         return error('some thing went wrong', 'incorrect code please try again later', 422);
@@ -91,8 +91,8 @@ class AuthenticationController extends Controller
         $user = User::where('email', $loginRequest->email)->first();
 
         // dd(!Hash::check($loginRequest->password, $user->password));
-        // || !Hash::check($loginRequest->password, $user->password)
-        if (!$user) {
+   
+        if (!$user || !Hash::check($loginRequest->password, $user->password)) {
             return error('some thing went wrong', 'incorrect email or password', 422);
         }
 
