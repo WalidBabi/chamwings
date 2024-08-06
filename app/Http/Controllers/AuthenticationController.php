@@ -60,7 +60,7 @@ class AuthenticationController extends Controller
         if ($verify && $verify->created_at > Carbon::now() && $verify->code == $verificationCodeRequest->code) {
             $user = User::create([
                 'email' => $verify->email,
-                'password' => Hash::make($verify->password),
+                'password' =>$verify->password,
                 'phone' => $verify->phone,
             ]);
             $travel_requirement = TravelRequirement::create([
@@ -72,8 +72,8 @@ class AuthenticationController extends Controller
                 'age' => $verify->age,
             ]);
             Passenger::create([
-                'user_id'=>$user->user_id,
-                'travel_requirement_id'=>$travel_requirement->travel_requirement_id,
+                'user_id' => $user->user_id,
+                'travel_requirement_id' => $travel_requirement->travel_requirement_id,
             ]);
             $verify->delete();
 
@@ -94,8 +94,16 @@ class AuthenticationController extends Controller
         }
 
         $token = $user->createToken('user')->plainTextToken;
-
-        return success($token, null);
+        if ($user->passenger) {
+            $user->passenger->travelRequirement;
+        } else {
+            $user->employee->roles;
+        }
+        $data = [
+            'token' => $token,
+            'user' => $user
+        ];
+        return success($data, null);
     }
 
     //Profile Function
