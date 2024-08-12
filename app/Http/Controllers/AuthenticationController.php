@@ -111,7 +111,7 @@ class AuthenticationController extends Controller
     {
         $user = Auth::guard('user')->user();
         if ($user->passenger) {
-            $user->passenger->travelRequirement;
+            $user->passenger->travelRequirement->passports;;
         } else {
             $user->employee->roles;
         }
