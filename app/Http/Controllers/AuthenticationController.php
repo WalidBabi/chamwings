@@ -60,7 +60,7 @@ class AuthenticationController extends Controller
         if ($verify && $verify->created_at > Carbon::now() && $verify->code == $verificationCodeRequest->code) {
             $user = User::create([
                 'email' => $verify->email,
-                'password' => Hash::make($verify->password),
+                'password' =>$verify->password,
                 'phone' => $verify->phone,
             ]);
             $travel_requirement = TravelRequirement::create([
@@ -110,7 +110,12 @@ class AuthenticationController extends Controller
     public function profile()
     {
         $user = Auth::guard('user')->user();
-
+        if ($user->passenger) {
+            $user->passenger->travelRequirement;
+        } else {
+            $user->employee->roles;
+        }
+        
         return success($user, null);
     }
 
@@ -122,7 +127,7 @@ class AuthenticationController extends Controller
             'phone' => $updateProfileRequest->phone,
         ]);
         $year = explode('-', $updateProfileRequest->date_of_birth);
-        $user->travelRequirement->update([
+        $user->passenger->travelRequirement->update([
             'title' => $updateProfileRequest->title,
             'first_name' => $updateProfileRequest->first_name,
             'last_name' => $updateProfileRequest->last_name,
@@ -136,7 +141,7 @@ class AuthenticationController extends Controller
             'country_of_residence' => $updateProfileRequest->country_of_residence,
         ]);
 
-        return success(null, 'your profile updated successfully');
+        return success($user, 'your profile updated successfully');
     }
 
     //Logout Function
