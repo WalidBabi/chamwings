@@ -111,7 +111,7 @@ class AuthenticationController extends Controller
     {
         $user = Auth::guard('user')->user();
         if ($user->passenger) {
-            $user->passenger->travelRequirement;
+            $user->passenger->travelRequirement->passports;;
         } else {
             $user->employee->roles;
         }
@@ -140,7 +140,7 @@ class AuthenticationController extends Controller
             'nationality' => $updateProfileRequest->nationality,
             'country_of_residence' => $updateProfileRequest->country_of_residence,
         ]);
-
+        $user->passenger->travelRequirement->passports;
         return success($user, 'your profile updated successfully');
     }
 
