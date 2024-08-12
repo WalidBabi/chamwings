@@ -77,9 +77,9 @@ class AuthenticationController extends Controller
             ]);
             $verify->delete();
 
-            // $token = $user->createToken('user')->plainTextToken;
+            $token = $user->createToken('user')->plainTextToken;
 
-            return success('your account created successfully', 201);
+            return success($token, 'your account created successfully', 201);
         }
 
         return error('some thing went wrong', 'incorrect code please try again later', 422);
@@ -89,9 +89,6 @@ class AuthenticationController extends Controller
     public function login(LoginRequest $loginRequest)
     {
         $user = User::where('email', $loginRequest->email)->first();
-
-        // dd(!Hash::check($loginRequest->password, $user->password));
-   
         if (!$user || !Hash::check($loginRequest->password, $user->password)) {
             return error('some thing went wrong', 'incorrect email or password', 422);
         }
@@ -113,7 +110,12 @@ class AuthenticationController extends Controller
     public function profile()
     {
         $user = Auth::guard('user')->user();
-
+        if ($user->passenger) {
+            $user->passenger->travelRequirement;
+        } else {
+            $user->employee->roles;
+        }
+        
         return success($user, null);
     }
 
@@ -125,7 +127,7 @@ class AuthenticationController extends Controller
             'phone' => $updateProfileRequest->phone,
         ]);
         $year = explode('-', $updateProfileRequest->date_of_birth);
-        $user->travelRequirement->update([
+        $user->passenger->travelRequirement->update([
             'title' => $updateProfileRequest->title,
             'first_name' => $updateProfileRequest->first_name,
             'last_name' => $updateProfileRequest->last_name,
@@ -139,7 +141,7 @@ class AuthenticationController extends Controller
             'country_of_residence' => $updateProfileRequest->country_of_residence,
         ]);
 
-        return success(null, 'your profile updated successfully');
+        return success($user, 'your profile updated successfully');
     }
 
     //Logout Function
