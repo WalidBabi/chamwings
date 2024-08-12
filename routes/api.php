@@ -4,6 +4,7 @@ use App\Http\Controllers\AirplaneController;
 use App\Http\Controllers\AirportController;
 use App\Http\Controllers\AuthenticationController;
 use App\Http\Controllers\CityController;
+use App\Http\Controllers\ClassController;
 use App\Http\Controllers\EmployeeController;
 use App\Http\Controllers\FlightController;
 use App\Http\Controllers\PassportController;
@@ -93,6 +94,12 @@ Route::middleware('check-auth')->prefix('/')->group(function () {
         });
     });
 
+    Route::middleware('manage-flight')->prefix('schedules')->group(function (){
+        Route::prefix('days')->group(function (){
+            
+        });
+    });
+
     Route::prefix('employees')->group(function () {
         Route::middleware('manage-employee')->group(function () {
             Route::post('/', [EmployeeController::class, 'addEmployee']);
@@ -120,7 +127,6 @@ Route::middleware('check-auth')->prefix('/')->group(function () {
         Route::put('/{classM}', [ClassController::class, 'editClass']);
         Route::delete('/{classM}', [ClassController::class, 'deleteClass']);
     });
-
 
     Route::get('/run-segmentation', [CustomerSegmentationController::class, 'runSegmentation']);
     Route::get('/segmentation-results', [CustomerSegmentationController::class, 'getLatestResults']);
