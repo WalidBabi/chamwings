@@ -10,6 +10,7 @@ use App\Http\Controllers\FlightController;
 use App\Http\Controllers\PassportController;
 use App\Http\Controllers\ReservationController;
 use App\Http\Controllers\RoleController;
+use App\Http\Controllers\ScheduleController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
@@ -90,10 +91,12 @@ Route::middleware('check-auth')->prefix('/')->group(function () {
         });
     });
 
-    Route::middleware('manage-flight')->prefix('schedules')->group(function (){
-        Route::prefix('days')->group(function (){
-            
-        });
+    Route::middleware('manage-flight')->prefix('schedules')->group(function () {
+        Route::post('/{flight}', [ScheduleController::class, 'addSchedule']);
+        Route::delete('/{scheduleDay}', [ScheduleController::class, 'deleteScheduleDay']);
+        Route::delete('/time/{scheduleTime}', [ScheduleController::class, 'deleteScheduleTime']);
+        Route::get('/{flight}', [ScheduleController::class, 'getFlightSchedules']);
+        Route::get('/day/{scheduleDay}', [ScheduleController::class, 'getScheduleDayInformation']);
     });
 
     Route::prefix('employees')->group(function () {

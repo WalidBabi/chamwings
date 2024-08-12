@@ -16,8 +16,8 @@ return new class extends Migration
         Schema::create('schedule_days', function (Blueprint $table) {
             $table->id('schedule_day_id');
             $table->unsignedBigInteger('flight_id');
-            $table->time('departure_date');
-            $table->time('arrival_date');
+            $table->date('departure_date');
+            $table->date('arrival_date');
 
             $table->foreign('flight_id')->references('flight_id')->on('flights')->onDelete('cascade');
             $table->timestamps();

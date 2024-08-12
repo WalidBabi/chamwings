@@ -4,7 +4,7 @@ namespace App\Http\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
 
-class ScheduleDayRequest extends FormRequest
+class ScheduleRequest extends FormRequest
 {
     /**
      * Determine if the user is authorized to make this request.
@@ -24,8 +24,7 @@ class ScheduleDayRequest extends FormRequest
     public function rules()
     {
         return [
-            'departure_date' => 'required|date',
-            'arrival_date' => 'required|date',
+            
         ];
     }
 }
