@@ -49,7 +49,7 @@ class ScheduleController extends Controller
     //Get Flight Schedules Function
     public function getFlightSchedules(Flight $flight)
     {
-        $schedules = $flight->days->times;
+        $schedules = $flight->days()->with('times')->get();
 
         return success($schedules, null);
     }
