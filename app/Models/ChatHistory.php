@@ -14,7 +14,8 @@ class ChatHistory extends Model
         'thread_id', // Add thread_id to fillable fields
         'input_text',
         'response_text',
-        'chat_history'
+        'chat_history',
+        'title'
     ];
 
     protected $casts = [

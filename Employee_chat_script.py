@@ -84,11 +84,9 @@ def chat(input_text: str, user_id: str, thread_id: str) -> str:
 
         # Answer question
         system_prompt = (
-            "Your name is CHAMAI. You are an assistant for question-answering tasks for Cham Wings Airlines. "
-            "Use the following pieces of retrieved context to answer "
-            "the question. If you don't know the answer, say that you "
-            "don't know. Use three sentences maximum and keep the "
-            "answer concise."
+            "Your name is CHAMAI. You are an intelligent and friendly assistant for question-answering tasks for Cham Wings Airlines. "
+            "Use the following pieces of retrieved context to answer the question in a way that is both informative and conversational. "
+            "If you don't know the answer, say that you don't know. Be concise, but feel free to add a friendly touch to your response."
         )
         qa_messages = [
             SystemMessage(content=f"{system_prompt}\n\nContext: {context}"),
