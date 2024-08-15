@@ -166,11 +166,11 @@ class EmployeeController extends Controller
     {
         if ($request->search) {
             $search = $request->search;
-            $employees = Employee::whereHas('user', function ($query) use ($search) {
-                $query->where('email', 'LIKE', '%' . $search . '%');
-            })->orWhere('name', 'LIKE', '%' . $search . '%')->withTrashed()->with('user')->paginate(15);
+            $employees = Employee::whereHas('user', function($query) use ($search){
+                $query->where('email','LIKE','%'.$search.'%');
+            })->orWhere('name','LIKE','%'.$search.'%')->with('user')->paginate(15);
         } else {
-            $employees = Employee::with('user', 'roles')->withTrashed()->paginate(15);
+            $employees = Employee::with('user', 'roles')->paginate(15);
         }
 
         return success($employees, null);
@@ -180,21 +180,5 @@ class EmployeeController extends Controller
     public function getEmployeeInformation(Employee $employee)
     {
         return success($employee->with('user', 'roles')->find($employee->employee_id), null);
-    }
-
-    //Activate Employee Function
-    public function activateEmployee($employee)
-    {
-        $employee = Employee::withTrashed()->find($employee);
-        $user = User::withTrashed()->find($employee->user_id);
-        if(!$employee){
-            return error(null, null, 404);
-        }
-        $employee->deleted_at = null;
-        $user->deleted_at = null;
-        $employee->update();
-        $user->update();
-
-        return success(null, 'this employee activated successfully');
     }
 }
