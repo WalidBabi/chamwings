@@ -103,7 +103,7 @@ Route::middleware('check-auth')->prefix('/')->group(function () {
     Route::prefix('employees')->group(function () {
         Route::middleware('manage-employee')->group(function () {
             Route::post('/', [EmployeeController::class, 'addEmployee']);
-            Route::put('/{employee}', [EmployeeController::class, 'updateEmployee']);
+            Route::post('/{employee}', [EmployeeController::class, 'updateEmployee']);
             Route::delete('/{employee}', [EmployeeController::class, 'deleteEmployee']);
             Route::post('/update-email/{employee}/{email}', [EmployeeController::class, 'updateEmail']);
         });
