@@ -14,6 +14,7 @@ use App\Models\VerifyAccount;
 use Exception;
 use Illuminate\Http\Request;
 use Illuminate\Support\Carbon;
+use Illuminate\Support\Facades\File;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Mail;
 
@@ -27,6 +28,15 @@ class EmployeeController extends Controller
             'email' => $employeeRequest->email,
             'password' => Hash::make($employeeRequest->password),
             'phone' => $employeeRequest->phone,
+        ]);
+        if($employeeRequest->file('image')){
+            if(File::exists($user->image)){
+                File::delete($user->image);
+                
+            }
+        }
+        $user->update([
+            'image'=>
         ]);
         $employee = Employee::create([
             'user_id' => $user->user_id,
@@ -148,7 +158,7 @@ class EmployeeController extends Controller
     //Get Employees Function
     public function getEmployees()
     {
-        $employees = Employee::with('user', 'roles')->get();
+        $employees = Employee::with('user', 'roles')->paginate(15);
 
         return success($employees, null);
     }

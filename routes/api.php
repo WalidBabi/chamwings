@@ -7,6 +7,7 @@ use App\Http\Controllers\CityController;
 use App\Http\Controllers\ClassController;
 use App\Http\Controllers\EmployeeController;
 use App\Http\Controllers\FlightController;
+use App\Http\Controllers\OfferController;
 use App\Http\Controllers\PassportController;
 use App\Http\Controllers\ReservationController;
 use App\Http\Controllers\RoleController;
@@ -125,6 +126,14 @@ Route::middleware('check-auth')->prefix('/')->group(function () {
         Route::post('/{airplane}', [ClassController::class, 'addClass']);
         Route::put('/{classM}', [ClassController::class, 'editClass']);
         Route::delete('/{classM}', [ClassController::class, 'deleteClass']);
+    });
+
+    Route::middleware('manage-offer')->prefix('offers')->group(function (){
+        Route::post('/',[OfferController::class, 'createOffer']);
+        Route::post('/{offer}',[OfferController::class, 'updateOffer']);
+        Route::delete('/{offer}',[OfferController::class, 'deleteOffer']);
+        Route::get('/',[OfferController::class, 'getOffers']);
+        Route::get('/{offer}',[OfferController::class, 'getOfferInformation']);
     });
 
     /****************************** Need Editing ******************************/

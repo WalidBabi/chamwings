@@ -23,6 +23,7 @@ class PassportController extends Controller
             'number' => encrypt($addPassportRequest->number),
             'status' => $addPassportRequest->status,
             'passport_expiry_date' => $addPassportRequest->passport_expiry_date,
+            'passport_issued_date' => $addPassportRequest->passport_issued_date,
             'passport_issued_country' => $addPassportRequest->passport_issued_country,
             'passport_image' => 'storage/' . $path,
         ]);
@@ -38,6 +39,7 @@ class PassportController extends Controller
             'number' => encrypt($updatePassportRequest->number),
             'status' => $updatePassportRequest->status,
             'passport_expiry_date' => $updatePassportRequest->passport_expiry_date,
+            'passport_issued_date' => $updatePassportRequest->passport_issued_date,
             'passport_issued_country' => $updatePassportRequest->passport_issued_country,
         ]);
         if ($updatePassportRequest->file('passport_image')) {
@@ -82,7 +84,7 @@ class PassportController extends Controller
     //Get All Passengers Passports Function
     public function getAllPassports()
     {
-        $passports = Passport::with(['travelRequirement.passenger.user'])->get();
+        $passports = Passport::with(['travelRequirement.passenger.user'])->paginate(15);
         $result = [];
         foreach ($passports as $passport) {
             $merge = [];

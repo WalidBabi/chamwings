@@ -60,7 +60,7 @@ class AuthenticationController extends Controller
         if ($verify && $verify->created_at > Carbon::now() && $verify->code == $verificationCodeRequest->code) {
             $user = User::create([
                 'email' => $verify->email,
-                'password' =>$verify->password,
+                'password' => $verify->password,
                 'phone' => $verify->phone,
             ]);
             $travel_requirement = TravelRequirement::create([
@@ -115,7 +115,7 @@ class AuthenticationController extends Controller
         } else {
             $user->employee->roles;
         }
-        
+
         return success($user, null);
     }
 
@@ -126,6 +126,12 @@ class AuthenticationController extends Controller
         $user->update([
             'phone' => $updateProfileRequest->phone,
         ]);
+        if ($updateProfileRequest->file('image')) {
+            $path = $updateProfileRequest->file('image')->storePublicly('ProfileImage');
+            $user->update([
+                'image' => 'storage/' . $path,
+            ]);
+        }
         $year = explode('-', $updateProfileRequest->date_of_birth);
         $user->passenger->travelRequirement->update([
             'title' => $updateProfileRequest->title,
