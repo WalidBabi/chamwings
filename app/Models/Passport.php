@@ -16,6 +16,7 @@ class Passport extends Model
         'number',
         'status',
         'passport_expiry_date',
+        'passport_issued_date',
         'passport_issued_country',
         'passport_image',
     ];

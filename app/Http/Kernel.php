@@ -75,5 +75,7 @@ class Kernel extends HttpKernel
         'read-flight' => \App\Http\Middleware\ReadFlightAuthentication::class,
         'manage-employee' => \App\Http\Middleware\ManageEmployeeAuthentication::class,
         'read-employee' => \App\Http\Middleware\ReadEmployeeAuthentication::class,
+        'manage-offer' => \App\Http\Middleware\ManageOfferAuthentication::class,
+        'read-offer' => \App\Http\Middleware\ReadOfferAuthentication::class,
     ];
 }

@@ -19,6 +19,7 @@ return new class extends Migration
             $table->text('number');
             $table->enum('status', ['Active', 'Cancelled']);
             $table->date('passport_expiry_date');
+            $table->date('passport_issued_date');
             $table->string('passport_issued_country');
             $table->string('passport_image');
 

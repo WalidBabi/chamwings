@@ -10,7 +10,7 @@ class RoleController extends Controller
     //Get Roles Function
     public function getRoles()
     {
-        $roles = Role::all();
+        $roles = Role::paginate(15);
         return success($roles, null);
     }
 

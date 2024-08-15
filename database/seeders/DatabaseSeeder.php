@@ -25,7 +25,7 @@ class DatabaseSeeder extends Seeder
      */
     public function run()
     {
-        $roles = ['admin', 'manage reservation', 'read reservation', 'manage airplane', 'read airplane', 'manage flight', 'read flight', 'read airport', 'manage airport', 'manage employee', 'read employee'];
+        $roles = ['admin', 'manage reservation', 'read reservation', 'manage airplane', 'read airplane', 'manage flight', 'read flight', 'read airport', 'manage airport', 'manage employee', 'read employee', 'manage offer', 'read offer'];
 
         foreach ($roles as $role)
             Role::create([

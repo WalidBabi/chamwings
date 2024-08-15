@@ -27,6 +27,7 @@ class UpdatePassportRequest extends FormRequest
             'number' => 'required|integer',
             'status' => 'required',
             'passport_expiry_date' => 'required|date',
+            'passport_issued_date' => 'required|date',
             'passport_issued_country' => 'required',
         ];
     }

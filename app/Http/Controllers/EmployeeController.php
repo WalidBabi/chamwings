@@ -14,6 +14,7 @@ use App\Models\VerifyAccount;
 use Exception;
 use Illuminate\Http\Request;
 use Illuminate\Support\Carbon;
+use Illuminate\Support\Facades\File;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Mail;
 
@@ -28,6 +29,12 @@ class EmployeeController extends Controller
             'password' => Hash::make($employeeRequest->password),
             'phone' => $employeeRequest->phone,
         ]);
+        if ($employeeRequest->file('image')) {
+            $path = $employeeRequest->file('image')->storePublicly('ProfileImage', 'public');
+            $user->update([
+                'image' => 'storage/' . $path,
+            ]);
+        }
         $employee = Employee::create([
             'user_id' => $user->user_id,
             'name' => $employeeRequest->name,
@@ -50,6 +57,15 @@ class EmployeeController extends Controller
         if ($employee->user->email != $updateEmployeeRequest->email) {
             $updateEmployeeRequest->validate([
                 'email' => 'unique:users,email',
+            ]);
+        }
+        if ($updateEmployeeRequest->file('image')) {
+            if (File::exists($employee->user->image)) {
+                File::delete($employee->user->image);
+            }
+            $path = $updateEmployeeRequest->file('image')->storePublicly('ProfileImage', 'public');
+            $employee->user->update([
+                'image' => 'storage/' . $path,
             ]);
         }
         $employee->user->update([
@@ -146,9 +162,16 @@ class EmployeeController extends Controller
     }
 
     //Get Employees Function
-    public function getEmployees()
+    public function getEmployees(Request $request)
     {
-        $employees = Employee::with('user', 'roles')->get();
+        if ($request->search) {
+            $search = $request->search;
+            $employees = Employee::whereHas('user', function($query) use ($search){
+                $query->where('email','LIKE','%'.$search.'%');
+            })->orWhere('name','LIKE','%'.$search.'%')->with('user')->paginate(15);
+        } else {
+            $employees = Employee::with('user', 'roles')->paginate(15);
+        }
 
         return success($employees, null);
     }

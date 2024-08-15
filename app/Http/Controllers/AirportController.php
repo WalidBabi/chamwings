@@ -43,7 +43,7 @@ class AirportController extends Controller
     //Get Airports Function
     public function getAirports()
     {
-        $airports = Airport::all();
+        $airports = Airport::pagiante(15);
 
         return success($airports, null);
     }
