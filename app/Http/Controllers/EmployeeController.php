@@ -48,7 +48,7 @@ class EmployeeController extends Controller
             ]);
         }
 
-        return success(null, 'this employee added successfully', 201);
+        return success($employee->with('user')->find($employee->employee_id), 'this employee added successfully', 201);
     }
 
     //Update Employee Function
@@ -84,9 +84,7 @@ class EmployeeController extends Controller
             'job_title' => $updateEmployeeRequest->job_title,
             'department' => $updateEmployeeRequest->department,
         ]);
-        foreach ($employee->rolesEmployee as $role) {
-            $role->delete();
-        }
+
 
         if ($employee->user->email != $updateEmployeeRequest->email) {
             $verify = VerifyAccount::create([
@@ -104,7 +102,7 @@ class EmployeeController extends Controller
             return success($verify->email, 'your profile updated and we sent verification code to your new email');
         }
 
-        return success(null, 'this employee updated successfully');
+        return success($employee, 'this employee updated successfully');
     }
 
     //Update Email Function
@@ -170,7 +168,7 @@ class EmployeeController extends Controller
                 $query->where('email', 'LIKE', '%' . $search . '%');
             })->orWhere('name', 'LIKE', '%' . $search . '%')->withTrashed()->with('user')->paginate(15);
         } else {
-            $employees = Employee::with('user', 'roles')->withTrashed()->paginate(15);
+            $employees = Employee::with('user', 'roles')->withTrashed()->orderby('employee_id','desc')->paginate(15);
         }
 
         return success($employees, null);
@@ -187,7 +185,7 @@ class EmployeeController extends Controller
     {
         $employee = Employee::withTrashed()->find($employee);
         $user = User::withTrashed()->find($employee->user_id);
-        if(!$employee){
+        if (!$employee) {
             return error(null, null, 404);
         }
         $employee->deleted_at = null;

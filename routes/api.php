@@ -130,12 +130,16 @@ Route::middleware('check-auth')->prefix('/')->group(function () {
         Route::delete('/{classM}', [ClassController::class, 'deleteClass']);
     });
 
-    Route::middleware('manage-offer')->prefix('offers')->group(function (){
-        Route::post('/',[OfferController::class, 'createOffer']);
-        Route::post('/{offer}',[OfferController::class, 'updateOffer']);
-        Route::delete('/{offer}',[OfferController::class, 'deleteOffer']);
-        Route::get('/',[OfferController::class, 'getOffers']);
-        Route::get('/{offer}',[OfferController::class, 'getOfferInformation']);
+    Route::prefix('offers')->group(function () {
+        Route::middleware('manage-offer')->group(function () {
+            Route::post('/', [OfferController::class, 'createOffer']);
+            Route::post('/{offer}', [OfferController::class, 'updateOffer']);
+            Route::delete('/{offer}', [OfferController::class, 'deleteOffer']);
+        });
+        Route::middleware('read-offer')->group(function () {
+            Route::get('/', [OfferController::class, 'getOffers']);
+            Route::get('/{offer}', [OfferController::class, 'getOfferInformation']);
+        });
     });
 
     Route::get('/run-segmentation', [CustomerSegmentationController::class, 'runSegmentation']);
