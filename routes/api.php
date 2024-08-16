@@ -106,6 +106,7 @@ Route::middleware('check-auth')->prefix('/')->group(function () {
             Route::post('/{employee}', [EmployeeController::class, 'updateEmployee']);
             Route::delete('/{employee}', [EmployeeController::class, 'deleteEmployee']);
             Route::post('/update-email/{employee}/{email}', [EmployeeController::class, 'updateEmail']);
+            Route::post('/activate/{employee}', [EmployeeController::class, 'activateEmployee']);
         });
         Route::middleware('read-employee')->group(function () {
             Route::get('/', [EmployeeController::class, 'getEmployees']);
