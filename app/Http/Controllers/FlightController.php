@@ -52,7 +52,7 @@ class FlightController extends Controller
     //Get Flights Function
     public function getFlights()
     {
-        $flights = Flight::with(['departureAirport', 'arrivalAirport', 'airplane'])->paginate(15);
+        $flights = Flight::with(['departureAirport', 'arrivalAirport', 'airplane'])->get();
 
         return success($flights, null);
     }

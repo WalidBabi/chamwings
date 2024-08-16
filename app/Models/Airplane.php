@@ -13,6 +13,9 @@ class Airplane extends Model
     protected $table = 'airplanes';
     protected $fillable = [
         'model',
+        'capacity',
+        'business_seats_number',
+        'economy_seats_number',
         'manufacturer',
         'range',
     ];
