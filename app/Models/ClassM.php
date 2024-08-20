@@ -16,6 +16,7 @@ class ClassM extends Model
         'class_name',
         'price_rate',
         'weight_allowed',
+        'cabin_weight',
         'number_of_meals',
         'number_of_seats',
     ];
