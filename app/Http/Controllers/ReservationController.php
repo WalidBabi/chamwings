@@ -3,12 +3,73 @@
 namespace App\Http\Controllers;
 
 use App\Http\Requests\CreateReservationRequest;
+use App\Models\Flight;
 use App\Models\Reservation;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
 class ReservationController extends Controller
 {
+
+    public function search(Request $request)
+    {
+        
+        $request->validate([
+            'trip_type' => 'required|in:0,1',
+            'booking_preference' => 'required|in:a,b,c',
+            'class' => 'required|in:economy,business',
+            'adults' => 'required|integer|min:0|max:9',
+            'infants' => 'required|integer|min:0|max:8',
+            'departure_airport' => 'required|exists:airports,airport_id',
+            'arrival_airport' => 'required|exists:airports,airport_id|different:departure_airport',
+            'departure_date' => 'required|date',
+            'arrival_date' => 'nullable|date|after_or_equal:departure_date',
+        ]);
+        // dd($request);
+        $query = Flight::query()
+        ->where('flights.departure_airport',$request->departure_airport)
+        ->where('flights.arrival_airport', $request->arrival_airport)
+        ->join('schedule_days', 'flights.flight_id', '=', 'schedule_days.flight_id')
+        ->where('schedule_days.departure_date', $request->departure_date)
+        ->where('schedule_days.arrival_date', $request->arrival_date)
+        ->join('schedule_times', 'flights.flight_id', '=', 'schedule_times.flight_id');
+        // dd($query->get());
+        
+    
+        $flights = $query->get();
+
+        // Handle round trip
+        // if ($request->trip_type == '1' && $request->arrival_date) {
+        //     $returnQuery = Flight::query()
+        //         ->where('departure_airport', $request->arrival_airport)
+        //         ->where('arrival_airport', $request->departure_airport)
+        //         ->whereDate('departure_date', $request->arrival_date)
+        //         ->where('class', $request->class);
+    
+        //     $query = $query->union($returnQuery);
+        // }
+        
+        // Apply booking preference logic
+        // if ($request->booking_preference == 'b') {
+        //     $seatsQuery = Seat::query()
+        //     ->where('flights.departure_airport',$request->departure_airport)
+        //     // For me: Limit to 1 adult, no infants
+        //     $flights = $flights->where('available_seats', '>=', 1);
+        // } else {
+        //     // For me and companions or For others only
+        //     $totalPassengers = $request->adults + $request->infants;
+        //     $flights = $flights->where('available_seats', '>=', $totalPassengers);
+        // }
+    
+        return response()->json([
+            'adults' => $request->adults,
+            'infants' => $request->infants,
+            'booking_preference' => $request->booking_preference,
+            'flights' => $flights,
+            
+        ]);
+    }
+    
     /*********************************** Need Editing ***********************************/
     
     // //Create Reservation Function
