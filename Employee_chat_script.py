@@ -9,7 +9,8 @@ from langchain_openai import ChatOpenAI
 from langchain.retrievers import EnsembleRetriever
 from langchain_core.messages import AIMessage, HumanMessage, SystemMessage
 import logging
-
+from deep_translator import GoogleTranslator
+from langdetect import detect 
 # Load environment variables
 load_dotenv()
 
@@ -22,6 +23,7 @@ logger = logging.getLogger(__name__)
 # Global variables
 global_retriever = None
 chat_histories = {}
+translator = GoogleTranslator()  # Initialize the translator
 
 def initialize_retriever():
     global global_retriever
@@ -51,16 +53,29 @@ def get_chat_history(user_id: str, thread_id: str):
         chat_histories[user_id][thread_id] = []
     return chat_histories[user_id][thread_id]
 
+def translate_text(text: str, src_lang: str, dest_lang: str) -> str:
+    translation = GoogleTranslator(source=src_lang, target=dest_lang).translate(text)
+    return translation
+
+def detect_language(text: str) -> str:
+    detected_lang = detect(text)
+    return detected_lang
 def chat(input_text: str, user_id: str, thread_id: str) -> str:
     try:
         llm = ChatOpenAI(base_url="http://localhost:1234/v1", api_key="not-needed")
         
         chat_history = get_chat_history(user_id, thread_id)
+        detected_lang = detect_language(input_text)
+        logger.info(f"Detected input language: {detected_lang}")
 
-        # Log chat history for debugging
+        if detected_lang == "ar":
+            input_text_english = translate_text(input_text, src_lang="ar", dest_lang="en")
+        else:
+            input_text_english = input_text
+
+        logger.info(f"Translated input: {input_text_english}")
         logger.info(f"Chat history for user_id={user_id}, thread_id={thread_id}: {chat_history}")
 
-        # Contextualize question
         contextualize_q_system_prompt = (
             "Given a chat history and the latest user question "
             "which might reference context in the chat history, "
@@ -74,15 +89,11 @@ def chat(input_text: str, user_id: str, thread_id: str) -> str:
         ]
         
         contextualized_question = llm.invoke(contextualize_messages).content
-
-        # Log contextualized question for debugging
         logger.info(f"Contextualized question: {contextualized_question}")
 
-        # Retrieve relevant documents
         docs = global_retriever.invoke(contextualized_question)
         context = "\n".join([doc.page_content for doc in docs])
 
-        # Answer question
         system_prompt = (
             "Your name is CHAMAI. You are an intelligent and friendly assistant for question-answering tasks for Cham Wings Airlines. "
             "Use the following pieces of retrieved context to answer the question in a way that is both informative and conversational. "
@@ -95,15 +106,22 @@ def chat(input_text: str, user_id: str, thread_id: str) -> str:
 
         response = llm.invoke(qa_messages)
 
+        # Translate the response back to Arabic if the input was in Arabic
+        if detected_lang == "ar":
+            response_translated = translate_text(response.content, src_lang="en", dest_lang="ar")
+        else:
+            response_translated = response.content
+
         # Update chat history
         chat_history.append(HumanMessage(content=input_text))
-        chat_history.append(AIMessage(content=response.content))
+        chat_history.append(AIMessage(content=response_translated))  # Store translated response in history
 
-        return response.content
+        return response_translated  # Return translated response
 
     except Exception as e:
         logger.error(f"Error processing chat: {e}")
         raise HTTPException(status_code=500, detail=str(e))
+
         
 class ChatRequest(BaseModel):
     input_text: str
