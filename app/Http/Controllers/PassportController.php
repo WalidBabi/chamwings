@@ -68,11 +68,12 @@ class PassportController extends Controller
     {
         $user = Auth::guard('user')->user();
         $passports = $user->passenger->travelRequirement->passports;
+        // dd($passports);
         $result = [];
         foreach ($passports as $passport) {
             $merge = [];
             $data = [
-                'number' => decrypt($passport->number),
+                'number' => $passport->number,
             ];
             $merge = array_merge($passport->toArray(), $data);
             $result = $merge;
