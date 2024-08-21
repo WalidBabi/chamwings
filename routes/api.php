@@ -41,6 +41,7 @@ Route::post('password-verification/{email}', [AuthenticationController::class, '
 Route::post('/reset-password', [AuthenticationController::class, 'resetPassword'])->middleware('reset-password');
 Route::post('/login', [AuthenticationController::class, 'login']);
 Route::get('/flight-search', [ReservationController::class, 'search']);
+Route::get('/airports', [AirportController::class, 'getAirports']);
 Route::middleware('check-auth')->prefix('/')->group(function () {
     Route::get('/', [AuthenticationController::class, 'profile']);
     Route::post('/', [AuthenticationController::class, 'updateProfile']);
@@ -79,7 +80,7 @@ Route::middleware('check-auth')->prefix('/')->group(function () {
             Route::delete('/{airport}', [AirportController::class, 'deleteAirport']);
         });
         Route::middleware('read-airport')->group(function () {
-            Route::get('/', [AirportController::class, 'getAirports']);
+            
             Route::get('/{airport}', [AirportController::class, 'getAirportInformation']);
         });
     });
