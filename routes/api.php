@@ -40,7 +40,7 @@ Route::post('/forget-password', [AuthenticationController::class, 'forgetPasswor
 Route::post('password-verification/{email}', [AuthenticationController::class, 'checkVerification']);
 Route::post('/reset-password', [AuthenticationController::class, 'resetPassword'])->middleware('reset-password');
 Route::post('/login', [AuthenticationController::class, 'login']);
-
+Route::get('/flight-search', [ReservationController::class, 'search']);
 Route::middleware('check-auth')->prefix('/')->group(function () {
     Route::get('/', [AuthenticationController::class, 'profile']);
     Route::post('/', [AuthenticationController::class, 'updateProfile']);
@@ -161,7 +161,7 @@ Route::middleware('check-auth')->prefix('/')->group(function () {
 
     // Route to create a new thread
     Route::post('/create-thread', [ChatController::class, 'createThread']);
-    Route::get('/flight-search', [ReservationController::class, 'search']);
+  
     /****************************** Need Editing ******************************/
     // Route::prefix('reservations')->group(function () {
     //     Route::middleware('manage-reservation')->prefix('/')->group(function () {
