@@ -161,7 +161,7 @@ Route::middleware('check-auth')->prefix('/')->group(function () {
 
     // Route to create a new thread
     Route::post('/create-thread', [ChatController::class, 'createThread']);
-  
+    Route::get('/passenger_companions_details', [ReservationController::class, 'getPassengerCompanionsDetails']);
     /****************************** Need Editing ******************************/
     // Route::prefix('reservations')->group(function () {
     //     Route::middleware('manage-reservation')->prefix('/')->group(function () {
