@@ -26,4 +26,11 @@ class Passenger extends Model
     {
         return $this->belongsTo(User::class, 'user_id', 'user_id');
     }
+    public function companions()
+    {
+        return $this->hasMany(Companion::class, 'passenger_id', 'passenger_id');
+    }
+    
+    
+
 }

@@ -35,4 +35,10 @@ class TravelRequirement extends Model
     {
         return $this->hasOne(Passenger::class, 'travel_requirement_id', 'travel_requirement_id');
     }
+
+    public function companion()
+    {
+        return $this->hasOne(Companion::class, 'travel_requirement_id', 'travel_requirement_id');
+    }
+
 }

@@ -129,6 +129,26 @@ class ReservationController extends Controller
         ]);
     }
 
+    public function getPassengerCompanionsDetails(Request $request){
+        $user = Auth::guard('user')->user();
+    
+        // Get the passenger along with their travel requirements and passports, if they exist
+        $passenger = $user->passenger()->with(['travelRequirement.passports'])->first();
+    
+        // Get the companions along with their travel requirements and passports, if they exist
+        $companions = $passenger->companions()->with(['travelRequirement.passports'])->get();
+        // dd($passenger->companions());
+        // Prepare the data
+        $data = [
+            'passenger' =>  $passenger,
+            'companions' => $companions
+        ];
+    
+        return success($data, 'Passenger details with companions retrieved successfully');
+    }
+    
+    
+
     /*********************************** Need Editing ***********************************/
 
     // //Create Reservation Function
