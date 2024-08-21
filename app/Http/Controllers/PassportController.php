@@ -36,7 +36,7 @@ class PassportController extends Controller
     {
         $user = Auth::guard('user')->user();
         $passport->update([
-            'number' => encrypt($updatePassportRequest->number),
+            'number' => $updatePassportRequest->number,
             'status' => $updatePassportRequest->status,
             'passport_expiry_date' => $updatePassportRequest->passport_expiry_date,
             'passport_issued_date' => $updatePassportRequest->passport_issued_date,
