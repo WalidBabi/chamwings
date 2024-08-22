@@ -7,6 +7,8 @@ use App\Http\Controllers\CityController;
 use App\Http\Controllers\ClassController;
 use App\Http\Controllers\EmployeeController;
 use App\Http\Controllers\FlightController;
+use App\Http\Controllers\OfferController;
+use App\Http\Controllers\OfferDetailController;
 use App\Http\Controllers\PassportController;
 use App\Http\Controllers\ReservationController;
 use App\Http\Controllers\RoleController;
@@ -102,9 +104,10 @@ Route::middleware('check-auth')->prefix('/')->group(function () {
     Route::prefix('employees')->group(function () {
         Route::middleware('manage-employee')->group(function () {
             Route::post('/', [EmployeeController::class, 'addEmployee']);
-            Route::put('/{employee}', [EmployeeController::class, 'updateEmployee']);
+            Route::post('/{employee}', [EmployeeController::class, 'updateEmployee']);
             Route::delete('/{employee}', [EmployeeController::class, 'deleteEmployee']);
             Route::post('/update-email/{employee}/{email}', [EmployeeController::class, 'updateEmail']);
+            Route::post('/activate/{employee}', [EmployeeController::class, 'activateEmployee']);
         });
         Route::middleware('read-employee')->group(function () {
             Route::get('/', [EmployeeController::class, 'getEmployees']);
@@ -126,6 +129,22 @@ Route::middleware('check-auth')->prefix('/')->group(function () {
         Route::put('/{classM}', [ClassController::class, 'editClass']);
         Route::delete('/{classM}', [ClassController::class, 'deleteClass']);
     });
+
+    Route::prefix('offers')->group(function () {
+        Route::middleware('manage-offer')->group(function () {
+            Route::post('/', [OfferController::class, 'createOffer']);
+            Route::post('/{offer}', [OfferController::class, 'updateOffer']);
+            Route::delete('/{offer}', [OfferController::class, 'deleteOffer']);
+        });
+        Route::middleware('read-offer')->group(function () {
+            Route::get('/', [OfferController::class, 'getOffers']);
+            Route::get('/{offer}', [OfferController::class, 'getOfferInformation']);
+        });
+        Route::middleware('manage-offer')->prefix('details')->group(function (){
+            Route::post('/{offer}',[OfferDetailController::class, 'addDetail']);
+        });
+    });
+
 
     /****************************** Need Editing ******************************/
     // Route::prefix('reservations')->group(function () {

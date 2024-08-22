@@ -27,6 +27,7 @@ class AddPassportRequest extends FormRequest
             'number' => 'required|integer',
             'status' => 'required',
             'passport_expiry_date' => 'required|date',
+            'passport_issued_date' => 'required|date',
             'passport_issued_country' => 'required',
             'passport_image' => 'required|file',
         ];

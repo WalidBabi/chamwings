@@ -18,7 +18,7 @@ return new class extends Migration
             $table->unsignedBigInteger('schedule_day_id');
             $table->time('departure_time');
             $table->time('arrival_time');
-            $table->string('duration');
+            $table->date('duration');
 
             $table->foreign('schedule_day_id')->references('schedule_day_id')->on('schedule_days')->onDelete('cascade');
             $table->timestamps();

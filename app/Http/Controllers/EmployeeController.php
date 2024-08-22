@@ -14,6 +14,7 @@ use App\Models\VerifyAccount;
 use Exception;
 use Illuminate\Http\Request;
 use Illuminate\Support\Carbon;
+use Illuminate\Support\Facades\File;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Mail;
 
@@ -28,6 +29,12 @@ class EmployeeController extends Controller
             'password' => Hash::make($employeeRequest->password),
             'phone' => $employeeRequest->phone,
         ]);
+        if ($employeeRequest->file('image')) {
+            $path = $employeeRequest->file('image')->storePublicly('ProfileImage', 'public');
+            $user->update([
+                'image' => 'storage/' . $path,
+            ]);
+        }
         $employee = Employee::create([
             'user_id' => $user->user_id,
             'name' => $employeeRequest->name,
@@ -41,7 +48,7 @@ class EmployeeController extends Controller
             ]);
         }
 
-        return success(null, 'this employee added successfully', 201);
+        return success($employee->with('user')->find($employee->employee_id), 'this employee added successfully', 201);
     }
 
     //Update Employee Function
@@ -50,6 +57,15 @@ class EmployeeController extends Controller
         if ($employee->user->email != $updateEmployeeRequest->email) {
             $updateEmployeeRequest->validate([
                 'email' => 'unique:users,email',
+            ]);
+        }
+        if ($updateEmployeeRequest->file('image')) {
+            if (File::exists($employee->user->image)) {
+                File::delete($employee->user->image);
+            }
+            $path = $updateEmployeeRequest->file('image')->storePublicly('ProfileImage', 'public');
+            $employee->user->update([
+                'image' => 'storage/' . $path,
             ]);
         }
         $employee->user->update([
@@ -68,9 +84,7 @@ class EmployeeController extends Controller
             'job_title' => $updateEmployeeRequest->job_title,
             'department' => $updateEmployeeRequest->department,
         ]);
-        foreach ($employee->rolesEmployee as $role) {
-            $role->delete();
-        }
+
 
         if ($employee->user->email != $updateEmployeeRequest->email) {
             $verify = VerifyAccount::create([
@@ -88,7 +102,7 @@ class EmployeeController extends Controller
             return success($verify->email, 'your profile updated and we sent verification code to your new email');
         }
 
-        return success(null, 'this employee updated successfully');
+        return success($employee, 'this employee updated successfully');
     }
 
     //Update Email Function
@@ -125,13 +139,12 @@ class EmployeeController extends Controller
         $roles = explode(',', $request->roles);
 
         foreach ($roles as $role) {
-            // $employeeRoles = UserRole::where('employee_id',$employee->employee_id)->whereIn('role_id',$roles);
             if ($employee->rolesEmployee->where('role_id', $role)->first())
                 break;
             UserRole::create([
                 'employee_id' => $employee->employee_id,
                 'role_id' => $role,
-            ]);
+            ]); 
         }
         return success(null, 'this roles added successfully', 201);
     }
@@ -146,9 +159,16 @@ class EmployeeController extends Controller
     }
 
     //Get Employees Function
-    public function getEmployees()
+    public function getEmployees(Request $request)
     {
-        $employees = Employee::with('user', 'roles')->get();
+        if ($request->search) {
+            $search = $request->search;
+            $employees = Employee::whereHas('user', function ($query) use ($search) {
+                $query->where('email', 'LIKE', '%' . $search . '%');
+            })->orWhere('name', 'LIKE', '%' . $search . '%')->withTrashed()->with('user', 'roles')->paginate(15);
+        } else {
+            $employees = Employee::with('user', 'roles')->withTrashed()->orderby('employee_id','desc')->paginate(15);
+        }
 
         return success($employees, null);
     }
@@ -157,5 +177,21 @@ class EmployeeController extends Controller
     public function getEmployeeInformation(Employee $employee)
     {
         return success($employee->with('user', 'roles')->find($employee->employee_id), null);
+    }
+
+    //Activate Employee Function
+    public function activateEmployee($employee)
+    {
+        $employee = Employee::withTrashed()->find($employee);
+        $user = User::withTrashed()->find($employee->user_id);
+        if (!$employee) {
+            return error(null, null, 404);
+        }
+        $employee->deleted_at = null;
+        $user->deleted_at = null;
+        $employee->update();
+        $user->update();
+
+        return success(null, 'this employee activated successfully');
     }
 }
