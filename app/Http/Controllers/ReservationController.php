@@ -99,19 +99,11 @@ class ReservationController extends Controller
 
         //     $query = $query->union($returnQuery);
         // }
-
+        $adults = $request->adults;
         // Apply booking preference logic
-        // if ($request->booking_preference == 'b') {
-        //     $seatsQuery = Seat::query()
-        //     ->where('flights.departure_airport',$request->departure_airport)
-        //     // For me: Limit to 1 adult, no infants
-        //     $flights = $flights->where('available_seats', '>=', 1);
-        // } else {
-        //     // For me and companions or For others only
-        //     $totalPassengers = $request->adults + $request->infants;
-        //     $flights = $flights->where('available_seats', '>=', $totalPassengers);
-        // }
-
+        if ($request->booking_preference == 'a') {
+            $adults = $request->adults - 1;
+        }
         if ($request->trip_type == 0) {
             $triptype = 'inbound';
         } else {
@@ -120,7 +112,7 @@ class ReservationController extends Controller
 
         return response()->json([
             'trip_type' => $triptype,
-            'adults' => $request->adults,
+            'adults' => $adults,
             'infants' => $request->infants,
             'booking_preference' => $request->booking_preference,
             // 'class'=>$class,
