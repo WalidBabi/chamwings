@@ -50,9 +50,20 @@ class FlightController extends Controller
     }
 
     //Get Flights Function
-    public function getFlights()
+    public function getFlights(Request $request)
     {
-        $flights = Flight::with(['departureAirport', 'arrivalAirport', 'airplane'])->paginate(15);
+        if ($request->search) {
+            $search = $request->search;
+            $flights = Flight::whereHas('departureAirport', function ($query) use ($search) {
+                $query->where('airport_name', 'LIKE', '%' . $search . '%');
+            })->orWhereHas('arrivalAirport', function ($query) use ($search) {
+                $query->where('airport_name', 'LIKE', '%' . $search . '%');
+            })->orWhere('price', $search)->orWhere('departure_terminal', 'LIKE', '%' . $search . '%')
+                ->orWhere('arrival_terminal', 'LIKE', '%' . $search . '%')
+                ->with(['departureAirport', 'arrivalAirport', 'airplane'])->paginate(15);
+        } else {
+            $flights = Flight::with(['departureAirport', 'arrivalAirport', 'airplane'])->paginate(15);
+        }
 
         return success($flights, null);
     }
