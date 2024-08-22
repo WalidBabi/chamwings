@@ -19,9 +19,8 @@ return new class extends Migration
             $table->unsignedBigInteger('flight_id');  // Add flight_id column
             $table->time('departure_time');
             $table->time('arrival_time');
-            $table->string('duration');  // Updated to string for duration in HH:MM:SS format
-            
-            // Foreign key constraints
+            $table->string('duration');
+
             $table->foreign('schedule_day_id')->references('schedule_day_id')->on('schedule_days')->onDelete('cascade');
             $table->foreign('flight_id')->references('flight_id')->on('flights')->onDelete('cascade');  // Add foreign key constraint
         

@@ -139,13 +139,12 @@ class EmployeeController extends Controller
         $roles = explode(',', $request->roles);
 
         foreach ($roles as $role) {
-            // $employeeRoles = UserRole::where('employee_id',$employee->employee_id)->whereIn('role_id',$roles);
             if ($employee->rolesEmployee->where('role_id', $role)->first())
                 break;
             UserRole::create([
                 'employee_id' => $employee->employee_id,
                 'role_id' => $role,
-            ]);
+            ]); 
         }
         return success(null, 'this roles added successfully', 201);
     }
@@ -166,7 +165,7 @@ class EmployeeController extends Controller
             $search = $request->search;
             $employees = Employee::whereHas('user', function ($query) use ($search) {
                 $query->where('email', 'LIKE', '%' . $search . '%');
-            })->orWhere('name', 'LIKE', '%' . $search . '%')->withTrashed()->with('user')->paginate(15);
+            })->orWhere('name', 'LIKE', '%' . $search . '%')->withTrashed()->with('user', 'roles')->paginate(15);
         } else {
             $employees = Employee::with('user', 'roles')->withTrashed()->orderby('employee_id','desc')->paginate(15);
         }
