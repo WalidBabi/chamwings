@@ -20,6 +20,8 @@ class FlightController extends Controller
             'price' => $createFlightRequest->price,
             'departure_terminal' => $createFlightRequest->departure_terminal,
             'arrival_terminal' => $createFlightRequest->arrival_terminal,
+            'duration' => $createFlightRequest->duration,
+            'miles' => $createFlightRequest->miles,
         ]);
 
         return success(null, 'this flight created successfully', 201);
@@ -36,6 +38,8 @@ class FlightController extends Controller
             'price' => $createFlightRequest->price,
             'departure_terminal' => $createFlightRequest->departure_terminal,
             'arrival_terminal' => $createFlightRequest->arrival_terminal,
+            'duration' => $createFlightRequest->duration,
+            'miles' => $createFlightRequest->miles,
         ]);
 
         return success(null, 'this flight updated successfully');

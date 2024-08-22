@@ -22,6 +22,8 @@ return new class extends Migration
             $table->integer('price');
             $table->string('departure_terminal');
             $table->string('arrival_terminal');
+            $table->string('duration');
+            $table->double('miles');
 
             $table->foreign('departure_airport')->references('airport_id')->on('airports')->onDelete('cascade');
             $table->foreign('arrival_airport')->references('airport_id')->on('airports')->onDelete('cascade');

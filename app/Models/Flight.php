@@ -19,6 +19,8 @@ class Flight extends Model
         'price',
         'departure_terminal',
         'arrival_terminal',
+        'duration',
+        'miles'
     ];
 
     public function departureAirport()
@@ -36,7 +38,8 @@ class Flight extends Model
         return $this->belongsTo(Airplane::class, 'airplane_id', 'airplane_id');
     }
 
-    public function days(){
-        return $this->hasMany(ScheduleDay::class, 'flight_id','flight_id');
+    public function days()
+    {
+        return $this->hasMany(ScheduleDay::class, 'flight_id', 'flight_id');
     }
 }
