@@ -68,8 +68,13 @@ class FlightController extends Controller
         } else {
             $flights = Flight::with(['departureAirport', 'arrivalAirport', 'airplane'])->paginate(15);
         }
+        
+        $data = [
+            'data'=>$flights->items(),
+            'total'=>$flights->total(),
+        ];
 
-        return success($flights, null);
+        return success($data, null);
     }
 
     //Get Flight Information Function

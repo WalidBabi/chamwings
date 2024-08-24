@@ -43,9 +43,14 @@ class AirplaneController extends Controller
     //Get Airplanes Function
     public function getAirplanes()
     {
-        $airplanes = Airplane::all();
+        $airplanes = Airplane::paginate(15);
 
-        return success($airplanes, null);
+        $data = [
+            'data'=>$airplanes->items(),
+            'total'=>$airplanes->total(),
+        ];
+
+        return success($data, null);
     }
 
     //Get Airplane Information Function
