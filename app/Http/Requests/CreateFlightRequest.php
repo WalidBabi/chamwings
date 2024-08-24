@@ -31,6 +31,8 @@ class CreateFlightRequest extends FormRequest
             'price' => 'required|integer',
             'departure_terminal' => 'required',
             'arrival_terminal' => 'required',
+            'duration' => 'required',
+            'miles' => 'required|numeric',
         ];
     }
 }

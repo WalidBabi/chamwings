@@ -144,7 +144,7 @@ class EmployeeController extends Controller
             UserRole::create([
                 'employee_id' => $employee->employee_id,
                 'role_id' => $role,
-            ]); 
+            ]);
         }
         return success(null, 'this roles added successfully', 201);
     }
@@ -167,10 +167,15 @@ class EmployeeController extends Controller
                 $query->where('email', 'LIKE', '%' . $search . '%');
             })->orWhere('name', 'LIKE', '%' . $search . '%')->withTrashed()->with('user', 'roles')->paginate(15);
         } else {
-            $employees = Employee::with('user', 'roles')->withTrashed()->orderby('employee_id','desc')->paginate(15);
+            $employees = Employee::with('user', 'roles')->withTrashed()->orderby('employee_id', 'desc')->paginate(15);
         }
 
-        return success($employees, null);
+        $data = [
+            'data' => $employees->items(),
+            'total' => $employees->total()
+        ];
+
+        return success($data, null);
     }
 
     //Get Employee Information Function

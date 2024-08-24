@@ -20,6 +20,8 @@ class FlightController extends Controller
             'price' => $createFlightRequest->price,
             'departure_terminal' => $createFlightRequest->departure_terminal,
             'arrival_terminal' => $createFlightRequest->arrival_terminal,
+            'duration' => $createFlightRequest->duration,
+            'miles' => $createFlightRequest->miles,
         ]);
 
         return success(null, 'this flight created successfully', 201);
@@ -36,6 +38,8 @@ class FlightController extends Controller
             'price' => $createFlightRequest->price,
             'departure_terminal' => $createFlightRequest->departure_terminal,
             'arrival_terminal' => $createFlightRequest->arrival_terminal,
+            'duration' => $createFlightRequest->duration,
+            'miles' => $createFlightRequest->miles,
         ]);
 
         return success(null, 'this flight updated successfully');
@@ -50,11 +54,27 @@ class FlightController extends Controller
     }
 
     //Get Flights Function
-    public function getFlights()
+    public function getFlights(Request $request)
     {
-        $flights = Flight::with(['departureAirport', 'arrivalAirport', 'airplane'])->paginate(15);
+        if ($request->search) {
+            $search = $request->search;
+            $flights = Flight::whereHas('departureAirport', function ($query) use ($search) {
+                $query->where('airport_name', 'LIKE', '%' . $search . '%');
+            })->orWhereHas('arrivalAirport', function ($query) use ($search) {
+                $query->where('airport_name', 'LIKE', '%' . $search . '%');
+            })->orWhere('price', $search)->orWhere('departure_terminal', 'LIKE', '%' . $search . '%')
+                ->orWhere('arrival_terminal', 'LIKE', '%' . $search . '%')
+                ->with(['departureAirport', 'arrivalAirport', 'airplane'])->paginate(15);
+        } else {
+            $flights = Flight::with(['departureAirport', 'arrivalAirport', 'airplane'])->paginate(15);
+        }
+        
+        $data = [
+            'data'=>$flights->items(),
+            'total'=>$flights->total(),
+        ];
 
-        return success($flights, null);
+        return success($data, null);
     }
 
     //Get Flight Information Function
