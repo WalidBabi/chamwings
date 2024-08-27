@@ -8,21 +8,22 @@ use Illuminate\Database\Eloquent\Model;
 class Companion extends Model
 {
     use HasFactory;
+
+    protected $primaryKey = 'companion_id';
+    protected $table = 'companions';
     protected $fillable = [
-        'companion_id',
         'passenger_id',
         'travel_requirement_id',
-        'infant'
+        'infant',
     ];
-
-    public function passenger()
-    {
-        return $this->belongsTo(Passenger::class);
-    }
 
     public function travelRequirement()
     {
         return $this->belongsTo(TravelRequirement::class, 'travel_requirement_id', 'travel_requirement_id');
     }
 
+    public function passenger()
+    {
+        return $this->belongsTo(Passenger::class);
+    }
 }
