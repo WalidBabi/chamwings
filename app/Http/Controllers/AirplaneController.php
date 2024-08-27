@@ -46,8 +46,8 @@ class AirplaneController extends Controller
         $airplanes = Airplane::paginate(15);
 
         $data = [
-            'data'=>$airplanes->items(),
-            'total'=>$airplanes->total(),
+            'data' => $airplanes->items(),
+            'total' => $airplanes->total(),
         ];
 
         return success($data, null);
