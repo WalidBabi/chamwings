@@ -21,6 +21,7 @@ use App\Http\Controllers\ChatController;
 use App\Http\Controllers\EmployeesPDFController;
 use App\Http\Controllers\CustomerSegmentationController;
 use App\Http\Controllers\EmployeesChatController;
+use App\Http\Controllers\FlightDataController;
 
 /*
 |--------------------------------------------------------------------------
@@ -44,7 +45,7 @@ Route::post('password-verification/{email}', [AuthenticationController::class, '
 Route::post('/reset-password', [AuthenticationController::class, 'resetPassword'])->middleware('reset-password');
 Route::post('/login', [AuthenticationController::class, 'login']);
 
-Route::get('/flight-search', [ReservationController::class, 'search']);
+Route::post('/flight-search', [ReservationController::class, 'search']);
 Route::get('/airports', [AirportController::class, 'getAirports']);
 
 Route::get('/passenger_companions_details', [ReservationController::class, 'getPassengerCompanionsDetails']);
@@ -179,7 +180,9 @@ Route::middleware('check-auth')->prefix('/')->group(function () {
     });
 
 
-
+    Route::get('/flight-data', [FlightDataController::class, 'getFlightData']);
+    Route::get('/user/{passenger_id}/recommendations', [FlightDataController::class, 'getUserRecommendations']);
+    
     Route::get('/run-segmentation', [CustomerSegmentationController::class, 'runSegmentation']);
     Route::get('/segmentation-results', [CustomerSegmentationController::class, 'getLatestResults']);
 
