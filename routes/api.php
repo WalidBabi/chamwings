@@ -174,17 +174,14 @@ Route::middleware('check-auth')->prefix('/')->group(function () {
         });
     });
 
-
-    /****************************** Need Editing ******************************/
-    // Route::prefix('reservations')->group(function () {
-    //     Route::middleware('manage-reservation')->prefix('/')->group(function () {
-    //         Route::post('/', [ReservationController::class, 'createReservation']);
-    //         Route::put('/{reservation}', [ReservationController::class, 'updateReservation']);
-    //     });
-    //     Route::middleware('read-reservation')->prefix('/')->group(function () {
-    //         Route::get('/', [ReservationController::class, 'getReservations']);
-    //         Route::get('/{reservation}', [ReservationController::class, 'getReservationInformation']);
-    //     });
-    // });
-    /****************************** End ******************************/
+    Route::prefix('reservations')->group(function () {
+        Route::post('/', [ReservationController::class, 'createReservation']);
+        Route::put('/{reservation}', [ReservationController::class, 'updateReservation']);
+        Route::get('/', [ReservationController::class, 'getUserReservations']);
+        Route::get('/{reservation}', [ReservationController::class, 'getReservationInformation']);
+        Route::get('/passengers/{reservation}', [ReservationController::class, 'getUserPassengers']);
+        Route::middleware('read-reservation')->group(function () {
+            Route::get('/all', [ReservationController::class, 'getReservations']);
+        });
+    });
 });

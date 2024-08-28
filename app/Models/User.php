@@ -18,6 +18,7 @@ class User extends Authenticatable
         'email',
         'password',
         'phone',
+        'image',
     ];
 
     public function passenger()
@@ -28,5 +29,10 @@ class User extends Authenticatable
     public function employee()
     {
         return $this->hasOne(Employee::class, 'user_id', 'user_id');
+    }
+
+    public function point()
+    {
+        return $this->hasOne(Point::class, 'user_id', 'user_id');
     }
 }
