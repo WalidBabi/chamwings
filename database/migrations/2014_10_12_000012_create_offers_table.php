@@ -16,6 +16,7 @@ return new class extends Migration
         Schema::create('offers', function (Blueprint $table) {
             $table->id('offer_id');
             $table->unsignedBigInteger('employee_id');
+            $table->unsignedBigInteger('flight_id');
             $table->string('description');
             $table->date('start_date');
             $table->date('end_date');
@@ -23,6 +24,7 @@ return new class extends Migration
             $table->string('title');
 
             $table->foreign('employee_id')->references('employee_id')->on('employees')->onDelete('cascade');
+            $table->foreign('flight_id')->references('flight_id')->on('flights')->onDelete('cascade');
             $table->timestamps();
         });
     }

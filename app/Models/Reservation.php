@@ -19,6 +19,7 @@ class Reservation extends Model
         'is_traveling',
         'have_companions',
         'reservation_date',
+        'infants'
     ];
 
     public function passenger()
@@ -26,8 +27,18 @@ class Reservation extends Model
         return $this->belongsTo(Passenger::class, 'passenger_id', 'passenger_id');
     }
 
-    public function flights()
+    public function flight()
     {
         return $this->hasOne(Flight::class, 'flight_id', 'reservation_id');
+    }
+
+    public function seats()
+    {
+        return $this->belongsToMany(Seat::class, 'flight_seats', 'reservation_id', 'seat_id');
+    }
+
+    public function flightSeats()
+    {
+        return $this->hasMany(FlightSeat::class, 'reservation_id', 'reservation_id');
     }
 }

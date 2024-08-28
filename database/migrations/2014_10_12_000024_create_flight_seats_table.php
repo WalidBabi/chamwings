@@ -16,11 +16,10 @@ return new class extends Migration
         Schema::create('flight_seats', function (Blueprint $table) {
             $table->id('flight_seat_id');
             $table->unsignedBigInteger('seat_id');
-            $table->unsignedBigInteger('flight_id');
-            $table->enum('status', ['Occupied', 'Available', 'Selected']);
+            $table->unsignedBigInteger('reservation_id');
 
             $table->foreign('seat_id')->references('seat_id')->on('seats')->onDelete('cascade');
-            $table->foreign('flight_id')->references('flight_id')->on('flights')->onDelete('cascade');
+            $table->foreign('reservation_id')->references('reservation_id')->on('reservations')->onDelete('cascade');
             $table->timestamps();
         });
     }

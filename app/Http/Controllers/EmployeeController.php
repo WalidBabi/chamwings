@@ -14,6 +14,7 @@ use App\Models\VerifyAccount;
 use Exception;
 use Illuminate\Http\Request;
 use Illuminate\Support\Carbon;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\File;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Mail;
@@ -113,9 +114,13 @@ class EmployeeController extends Controller
             $employee->user->update([
                 'email' => $email,
             ]);
+            if ($verify->password)
+                $employee->user->update([
+                    'password' => $verify->password
+                ]);
             $verify->delete();
 
-            return success(null, 'your email updated successfully');
+            return success(null, 'your profile updated successfully');
         }
 
         return error('some thing went wrong', 'incorrect verification code', 422);
@@ -198,5 +203,86 @@ class EmployeeController extends Controller
         $user->update();
 
         return success(null, 'this employee activated successfully');
+    }
+
+    //Update Profile Function
+    public function updateProfile(UpdateEmployeeRequest $updateEmployeeRequest)
+    {
+        $employee = Auth::guard('user')->user();
+        // return $employee->employee;
+
+        if ($employee->email != $updateEmployeeRequest->email) {
+            $updateEmployeeRequest->validate([
+                'email' => 'unique:users,email',
+            ]);
+        }
+        if ($updateEmployeeRequest->password) {
+            $updateEmployeeRequest->validated([
+                'old_password' => 'required',
+            ]);
+        }
+        if ($updateEmployeeRequest->file('image')) {
+            if (File::exists($employee->user->image)) {
+                File::delete($employee->user->image);
+            }
+            $path = $updateEmployeeRequest->file('image')->storePublicly('ProfileImage', 'public');
+            $employee->user->update([
+                'image' => 'storage/' . $path,
+            ]);
+        }
+        $employee->update([
+            'phone' => $updateEmployeeRequest->phone,
+        ]);
+        if ($updateEmployeeRequest->password) {
+            if (Hash::check($updateEmployeeRequest->old_password, $employee->password)) {
+                if ($updateEmployeeRequest->password != $updateEmployeeRequest->confirm_password) {
+                    return error('some thing went wrong', 'incorrect confirming password', 422);
+                }
+                // $employee->update([
+                //     'password' => Hash::make($updateEmployeeRequest->password),
+                // ]);
+            } else {
+                return error('some thing went wrong', 'incorrect password', 422);
+            }
+        }
+        $employee->employee->update([
+            'name' => $updateEmployeeRequest->name,
+            'job_title' => $updateEmployeeRequest->job_title,
+            'department' => $updateEmployeeRequest->department,
+        ]);
+
+
+        if ($employee->email != $updateEmployeeRequest->email || !Hash::check($updateEmployeeRequest->password, $employee->password)) {
+
+            if ($updateEmployeeRequest->email) {
+                $verify = VerifyAccount::create([
+                    'email' => $updateEmployeeRequest->email,
+                    'code' => rand(1000, 9999),
+                    'created_at' => Carbon::now()->addMinutes(15),
+                ]);
+            } else {
+                $verify = VerifyAccount::create([
+                    'email' => $employee->email,
+                    'code' => rand(1000, 9999),
+                    'created_at' => Carbon::now()->addMinutes(15),
+                ]);
+            }
+
+            if ($updateEmployeeRequest->password) {
+                $verify->update([
+                    'password' => Hash::make($updateEmployeeRequest->password),
+                ]);
+            }
+            try {
+                Mail::to($updateEmployeeRequest->email)->send(new Verification($verify->code));
+            } catch (Exception $e) {
+                $verify->delete();
+                return error('some thing went wrong', 'cannot send verification code, try again later....', 422);
+            }
+
+            return success($verify->email, 'your profile updated and we sent verification code to your new email');
+        }
+
+        return success($employee, 'this employee updated successfully');
     }
 }

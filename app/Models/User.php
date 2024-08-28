@@ -35,4 +35,9 @@ class User extends Authenticatable
     {
         return $this->hasMany(ChatHistory::class, 'user_id');
     }
+
+    public function point()
+    {
+        return $this->hasOne(Point::class, 'user_id', 'user_id');
+    }
 }

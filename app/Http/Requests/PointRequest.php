@@ -4,7 +4,7 @@ namespace App\Http\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
 
-class CreateReservationRequest extends FormRequest
+class PointRequest extends FormRequest
 {
     /**
      * Determine if the user is authorized to make this request.
@@ -24,7 +24,7 @@ class CreateReservationRequest extends FormRequest
     public function rules()
     {
         return [
-            'flight_id'=>'required|exists:flights,flight_id|integer',
+            'points' => 'required|numeric',
         ];
     }
 }
