@@ -53,6 +53,14 @@ class AirportController extends Controller
         return success($data, null);
     }
 
+    public function getAirportsForReservation()
+    {
+        $airports = Airport::all();
+        // dd($airports);
+        return success($airports, null);
+        
+    }
+
     //Get Airport Information Function
     public function getAirportInformation(Airport $airport)
     {

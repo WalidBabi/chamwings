@@ -47,6 +47,7 @@ Route::post('/login', [AuthenticationController::class, 'login']);
 
 Route::post('/flight-search', [ReservationController::class, 'search']);
 Route::get('/airports', [AirportController::class, 'getAirports']);
+Route::get('/airportsforreservation', [AirportController::class, 'getAirportsForReservation']);
 
 Route::get('/passenger_companions_details', [ReservationController::class, 'getPassengerCompanionsDetails']);
 
