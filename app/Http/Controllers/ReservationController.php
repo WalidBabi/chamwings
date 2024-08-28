@@ -16,17 +16,17 @@ class ReservationController extends Controller
     public function search(Request $request)
     {
 
-        $request->validate([
-            'trip_type' => 'required|in:0,1',
-            'booking_preference' => 'required|in:a,b,c',
-            'class' => 'required|in:economy,business',
-            'adults' => 'required|integer|min:0|max:9',
-            'infants' => 'required|integer|min:0|max:8',
-            'departure_airport' => 'required|exists:airports,airport_id',
-            'arrival_airport' => 'required|exists:airports,airport_id|different:departure_airport',
-            'departure_date' => 'required|date',
-            'arrival_date' => 'nullable|date|after_or_equal:departure_date',
-        ]);
+        // $request->validate([
+        //     'trip_type' => 'required|in:0,1',
+        //     'booking_preference' => 'required|in:a,b,c',
+        //     'class' => 'required|in:economy,business',
+        //     'adults' => 'required|integer|min:0|max:9',
+        //     'infants' => 'required|integer|min:0|max:8',
+        //     'departure_airport' => 'required|exists:airports,airport_id',
+        //     'arrival_airport' => 'required|exists:airports,airport_id|different:departure_airport',
+        //     'departure_date' => 'required|date',
+        //     'arrival_date' => 'nullable|date|after_or_equal:departure_date',
+        // ]);
         // dd($request);
         $query = Flight::query()
         ->where('flights.departure_airport', $request->departure_airport)
