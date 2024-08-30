@@ -66,7 +66,14 @@ class FlightController extends Controller
                 ->orWhere('arrival_terminal', 'LIKE', '%' . $search . '%')
                 ->with(['departureAirport', 'arrivalAirport', 'airplane'])->paginate(15);
         } else {
-            $flights = Flight::with(['departureAirport', 'arrivalAirport', 'airplane'])->paginate(15);
+            $flights = Flight::with(['departureAirport', 'arrivalAirport', 'airplane'])
+                ->addSelect(['duration' => function($query) {
+                    $query->select('duration')
+                        ->from('schedule_times')
+                        ->whereColumn('flight_id', 'flights.flight_id')
+                        ->limit(1);
+                }])
+                ->paginate(15);
         }
         
         $data = [
