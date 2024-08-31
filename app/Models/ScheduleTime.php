@@ -17,4 +17,14 @@ class ScheduleTime extends Model
         'arrival_time',
         'duration',
     ];
+
+    public function flight()
+    {
+        return $this->belongsTo(Flight::class, 'flight_id', 'flight_id');
+    }
+
+    public function scheduleDay()
+    {
+        return $this->belongsTo(ScheduleDay::class, 'schedule_day_id', 'schedule_day_id');
+    }
 }

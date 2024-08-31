@@ -12,6 +12,7 @@ class FlightController extends Controller
     //Create Flight Function
     public function createFlight(CreateFlightRequest $createFlightRequest)
     {
+        // dd($createFlightRequest);
         Flight::create([
             'airplane_id' => $createFlightRequest->airplane_id,
             'departure_airport' => $createFlightRequest->departure_airport,
@@ -20,7 +21,7 @@ class FlightController extends Controller
             'price' => $createFlightRequest->price,
             'departure_terminal' => $createFlightRequest->departure_terminal,
             'arrival_terminal' => $createFlightRequest->arrival_terminal,
-            'duration' => $createFlightRequest->duration,
+            // 'duration' => $createFlightRequest->duration,
             'miles' => $createFlightRequest->miles,
         ]);
 
