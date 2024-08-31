@@ -28,6 +28,7 @@ return new class extends Migration
             $table->string('nationality')->nullable();
             $table->string('country_of_residence');
             $table->timestamps();
+            $table->softDeletes();
         });
     }
 

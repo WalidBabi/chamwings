@@ -21,6 +21,7 @@ return new class extends Migration
             $table->foreign('companion_id')->references('companion_id')->on('companions')->onDelete('cascade');
             $table->foreign('reservation_id')->references('reservation_id')->on('reservations')->onDelete('cascade');
             $table->timestamps();
+            $table->softDeletes();
         });
     }
 

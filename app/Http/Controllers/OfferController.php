@@ -19,6 +19,7 @@ class OfferController extends Controller
 
         Offer::create([
             'employee_id' => Auth::guard('user')->user()->employee->employee_id,
+            'flight_id' => $offerRequest->flight_id,
             'description' => $offerRequest->description,
             'start_date' => $offerRequest->start_date,
             'end_date' => $offerRequest->end_date,
@@ -44,6 +45,7 @@ class OfferController extends Controller
         }
 
         $offer->update([
+            'flight_id' => $offerRequest->flight_id,
             'description' => $offerRequest->description,
             'start_date' => $offerRequest->start_date,
             'end_date' => $offerRequest->end_date,
@@ -67,7 +69,7 @@ class OfferController extends Controller
     //Get Offers Function
     public function getOffers()
     {
-        $offers = Offer::pagiante(15);
+        $offers = Offer::with('flight')->pagiante(15);
 
         return success($offers, null);
     }
@@ -75,6 +77,6 @@ class OfferController extends Controller
     //Get Offer Information Fucntion
     public function getOfferInformation(Offer $offer)
     {
-        return success($offer->with('details')->find($offer->offer_id), null);
+        return success($offer->with('details', 'flight')->find($offer->offer_id), null);
     }
 }

@@ -19,6 +19,7 @@ return new class extends Migration
             $table->string('description');
             $table->integer('cost_in_miles');
             $table->timestamps();
+            $table->softDeletes();
         });
     }
 

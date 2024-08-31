@@ -4,16 +4,18 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\SoftDeletes;
 
 class Reservation extends Model
 {
-    use HasFactory;
+    use HasFactory, SoftDeletes;
 
     protected $primaryKey = 'reservation_id';
     protected $table = 'reservations';
     protected $fillable = [
         'passenger_id',
         'flight_id',
+        'schedule_time_id',
         'round_trip',
         'status',
         'is_traveling',
@@ -40,5 +42,10 @@ class Reservation extends Model
     public function flightSeats()
     {
         return $this->hasMany(FlightSeat::class, 'reservation_id', 'reservation_id');
+    }
+
+    public function time()
+    {
+        return $this->belongsTo(ScheduleTime::class, 'schedule_time_id', 'schedule_time_id');
     }
 }

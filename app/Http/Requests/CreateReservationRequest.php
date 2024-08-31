@@ -24,7 +24,8 @@ class CreateReservationRequest extends FormRequest
     public function rules()
     {
         return [
-            'flight_id'=>'required|exists:flights,flight_id|integer',
+            'flight_id' => 'required|exists:flights,flight_id|integer',
+            'schedule_time_id' => 'required|exists:schedule_times,schedule_time_id|integer',
         ];
     }
 }

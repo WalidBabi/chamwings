@@ -4,10 +4,11 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\SoftDeletes;
 
 class ScheduleTime extends Model
 {
-    use HasFactory;
+    use HasFactory, SoftDeletes;
 
     protected $primaryKey = 'schedule_time_id';
     protected $table = 'schedule_times';
@@ -23,7 +24,7 @@ class ScheduleTime extends Model
         return $this->belongsTo(Flight::class, 'flight_id', 'flight_id');
     }
 
-    public function scheduleDay()
+    public function day()
     {
         return $this->belongsTo(ScheduleDay::class, 'schedule_day_id', 'schedule_day_id');
     }

@@ -24,6 +24,7 @@ return new class extends Migration
 
             $table->foreign('airplane_id')->references('airplane_id')->on('airplanes')->onDelete('cascade');
             $table->timestamps();
+            $table->softDeletes();
         });
     }
 

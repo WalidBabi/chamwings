@@ -2,8 +2,10 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\AddPassportRequest;
 use App\Http\Requests\PassengerRequest;
 use App\Models\Companion;
+use App\Models\Passport;
 use App\Models\TravelRequirement;
 use Carbon\Carbon;
 use Illuminate\Http\Request;
@@ -12,7 +14,7 @@ use Illuminate\Support\Facades\Auth;
 class PassengerController extends Controller
 {
     //Add Passenger Function
-    public function addPassenger(PassengerRequest $passengerRequest)
+    public function addPassenger(PassengerRequest $passengerRequest, AddPassportRequest $addPassportRequest)
     {
         $year = explode('-', $passengerRequest->date_of_birth);
         $travel_requirement = TravelRequirement::create([
@@ -35,8 +37,21 @@ class PassengerController extends Controller
             'travel_requirement_id' => $travel_requirement->travel_requirement_id,
             'infant' => $passengerRequest->infant,
         ]);
+        if ($addPassportRequest->file('passport_image')) {
+            $path = $addPassportRequest->file('passport_image')->storePublicly('PassportImage', 'public');
+        }
 
-        return success($travel_requirement->with('companion')->find($travel_requirement->travel_requirement_id), 'this passenger added successfully', 201);
+        Passport::create([
+            'travel_requirement_id' => $travel_requirement->travel_requirement_id,
+            'number' => encrypt($addPassportRequest->number),
+            'status' => $addPassportRequest->status,
+            'passport_expiry_date' => $addPassportRequest->passport_expiry_date,
+            'passport_issued_date' => $addPassportRequest->passport_issued_date,
+            'passport_issued_country' => $addPassportRequest->passport_issued_country,
+            'passport_image' => 'storage/' . $path,
+        ]);
+
+        return success($travel_requirement->with('companion', 'passports')->find($travel_requirement->travel_requirement_id), 'this passenger added successfully', 201);
     }
 
     //Update Passenger Function

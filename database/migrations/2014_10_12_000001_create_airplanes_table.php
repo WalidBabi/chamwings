@@ -19,6 +19,7 @@ return new class extends Migration
             $table->string('manufacturer');
             $table->string('range');
             $table->timestamps();
+            $table->softDeletes();
         });
     }
 

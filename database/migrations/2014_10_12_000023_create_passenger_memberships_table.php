@@ -24,6 +24,7 @@ return new class extends Migration
             $table->foreign('passenger_id')->references('passenger_id')->on('passengers')->onDelete('cascade');
             $table->foreign('program_id')->references('loyalty_program_id')->on('loyalty_programs')->onDelete('cascade');
             $table->timestamps();
+            $table->softDeletes();
         });
     }
 
