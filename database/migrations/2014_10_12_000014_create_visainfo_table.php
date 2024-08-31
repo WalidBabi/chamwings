@@ -22,6 +22,7 @@ return new class extends Migration
 
             $table->foreign('airport_id')->references('airport_id')->on('airports')->onDelete('cascade');
             $table->timestamps();
+            $table->softDeletes();
         });
     }
 

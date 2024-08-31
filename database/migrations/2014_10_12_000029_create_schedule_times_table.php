@@ -22,6 +22,7 @@ return new class extends Migration
 
             $table->foreign('schedule_day_id')->references('schedule_day_id')->on('schedule_days')->onDelete('cascade');
             $table->timestamps();
+            $table->softDeletes();
         });
     }
 

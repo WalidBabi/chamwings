@@ -6,14 +6,15 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
 
-class UserRole extends Model
+class Airport extends Model
 {
     use HasFactory, SoftDeletes;
 
-    protected $primaryKey = 'role_user_id';
-    protected $table = 'roles_users';
+    protected $primaryKey = 'airport_id';
+    protected $table = 'airports';
     protected $fillable = [
-        'employee_id',
-        'role_id',
+        'airport_name',
+        'city',
+        'country',
     ];
 }

@@ -4,10 +4,11 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\SoftDeletes;
 
 class TravelRequirement extends Model
 {
-    use HasFactory;
+    use HasFactory, SoftDeletes;
 
     protected $primaryKey = 'travel_requirement_id';
     protected $table = 'travel_requirements';
@@ -34,5 +35,10 @@ class TravelRequirement extends Model
     public function passenger()
     {
         return $this->hasOne(Passenger::class, 'travel_requirement_id', 'travel_requirement_id');
+    }
+
+    public function companion()
+    {
+        return $this->hasOne(Companion::class, 'travel_requirement_id', 'travel_requirement_id');
     }
 }

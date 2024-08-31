@@ -19,6 +19,7 @@ return new class extends Migration
             $table->enum('earning_type', ['e.g', 'Per Mile Flown', 'Based On Fare Class']);
             $table->enum('earning_rate', ['e.g', '1 Mile kilometer', '2x Miles for Business Class']);
             $table->timestamps();
+            $table->softDeletes();
         });
     }
 

@@ -18,27 +18,15 @@ class PassportController extends Controller
         if ($addPassportRequest->file('passport_image')) {
             $path = $addPassportRequest->file('passport_image')->storePublicly('PassportImage', 'public');
         }
-        if ($addPassportRequest->member) {
-            Passport::create([
-                'travel_requirement_id' => $addPassportRequest->member,
-                'number' => encrypt($addPassportRequest->number),
-                'status' => $addPassportRequest->status,
-                'passport_expiry_date' => $addPassportRequest->passport_expiry_date,
-                'passport_issued_date' => $addPassportRequest->passport_issued_date,
-                'passport_issued_country' => $addPassportRequest->passport_issued_country,
-                'passport_image' => 'storage/' . $path,
-            ]);
-        } else {
-            Passport::create([
-                'travel_requirement_id' => $user->passenger->travelRequirement->travel_requirement_id,
-                'number' => encrypt($addPassportRequest->number),
-                'status' => $addPassportRequest->status,
-                'passport_expiry_date' => $addPassportRequest->passport_expiry_date,
-                'passport_issued_date' => $addPassportRequest->passport_issued_date,
-                'passport_issued_country' => $addPassportRequest->passport_issued_country,
-                'passport_image' => 'storage/' . $path,
-            ]);
-        }
+        Passport::create([
+            'travel_requirement_id' => $user->passenger->travelRequirement->travel_requirement_id,
+            'number' => encrypt($addPassportRequest->number),
+            'status' => $addPassportRequest->status,
+            'passport_expiry_date' => $addPassportRequest->passport_expiry_date,
+            'passport_issued_date' => $addPassportRequest->passport_issued_date,
+            'passport_issued_country' => $addPassportRequest->passport_issued_country,
+            'passport_image' => 'storage/' . $path,
+        ]);
 
         return success(null, 'this passport added successfully', 201);
     }

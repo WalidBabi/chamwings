@@ -15,6 +15,7 @@ use App\Http\Controllers\ReservationController;
 use App\Http\Controllers\PointController;
 use App\Http\Controllers\RoleController;
 use App\Http\Controllers\ScheduleController;
+use App\Http\Controllers\StripeController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
@@ -176,6 +177,9 @@ Route::middleware('check-auth')->prefix('/')->group(function () {
 
     Route::prefix('reservations')->group(function () {
         Route::post('/', [ReservationController::class, 'createReservation']);
+        Route::post('/{reservation}/seats', [ReservationController::class, 'addSeats']);
+        Route::put('/{reservation}/seats', [ReservationController::class, 'updateSeats']);
+        Route::put('/{reservation}/companions', [ReservationController::class, 'updateCompanions']);
         Route::put('/{reservation}', [ReservationController::class, 'updateReservation']);
         Route::get('/', [ReservationController::class, 'getUserReservations']);
         Route::get('/{reservation}', [ReservationController::class, 'getReservationInformation']);
@@ -185,3 +189,6 @@ Route::middleware('check-auth')->prefix('/')->group(function () {
         });
     });
 });
+Route::get('/index', [StripeController::class, 'index'])->name('index');
+Route::post('/checkout', [StripeController::class, 'checkout']);
+Route::get('/success', [StripeController::class, 'success'])->name('success');

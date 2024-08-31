@@ -6,14 +6,15 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
 
-class UserRole extends Model
+class OfferDetail extends Model
 {
     use HasFactory, SoftDeletes;
 
-    protected $primaryKey = 'role_user_id';
-    protected $table = 'roles_users';
+    protected $primaryKey = 'offer_detail_id';
+    protected $table = 'offer_details';
     protected $fillable = [
-        'employee_id',
-        'role_id',
+        'offer_id',
+        'days',
+        'price',
     ];
 }

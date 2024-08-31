@@ -17,16 +17,18 @@ return new class extends Migration
             $table->id('reservation_id');
             $table->unsignedBigInteger('passenger_id');
             $table->unsignedBigInteger('flight_id');
+            $table->unsignedBigInteger('schedule_time_id');
             $table->boolean('round_trip')->default(0);
             $table->enum('status', ['Confirmed', 'Pending', 'Cancelled']);
             $table->boolean('is_traveling')->default(0);
             $table->string('have_companions')->nullable();
             $table->string('infants')->nullable();
-            $table->date('reservation_date');
 
             $table->foreign('passenger_id')->references('passenger_id')->on('passengers')->onDelete('cascade');
             $table->foreign('flight_id')->references('flight_id')->on('flights')->onDelete('cascade');
+            $table->foreign('schedule_time_id')->references('schedule_time_id')->on('schedule_times')->onDelete('cascade');
             $table->timestamps();
+            $table->softDeletes();
         });
     }
 
