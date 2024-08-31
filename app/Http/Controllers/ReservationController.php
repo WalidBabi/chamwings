@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Http\Requests\CreateReservationRequest;
+use App\Http\Requests\UpdateReservationRequest;
 use App\Models\Airplane;
 use App\Models\ClassM;
 use App\Models\Companion;
@@ -207,13 +208,22 @@ class ReservationController extends Controller
     }
 
     //Update Reservation Function
-    public function updateReservation(Reservation $reservation, CreateReservationRequest $createReservationRequest)
+    public function updateReservation(Reservation $reservation, UpdateReservationRequest $updateReservationRequest)
     {
         $reservation->update([
-            'flight_id' => $createReservationRequest->flight_id,
-            'round_trip' => $createReservationRequest->round_trip,
-            'status' => 'Pending',
-            'is_traveling' => $createReservationRequest->is_traveling,
+            'round_trip' => $updateReservationRequest->round_trip,
+            'is_traveling' => $updateReservationRequest->is_traveling,
+        ]);
+
+        return success(null, 'this reservation updated successfully');
+    }
+
+    //Update Reservation From Employee Function
+    public function employeeUpdateReservation(Reservation $reservation, UpdateReservationRequest $updateReservationRequest){
+        $reservation->update([
+            'round_trip' => $updateReservationRequest->round_trip,
+            'status' => $updateReservationRequest->status,
+            'is_traveling' => $updateReservationRequest->is_traveling,
         ]);
 
         return success(null, 'this reservation updated successfully');

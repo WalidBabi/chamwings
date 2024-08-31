@@ -187,6 +187,9 @@ Route::middleware('check-auth')->prefix('/')->group(function () {
         Route::middleware('read-reservation')->group(function () {
             Route::get('/all', [ReservationController::class, 'getReservations']);
         });
+        Route::middleware('manage-reservation')->group(function () {
+            Route::put('/{reservation}', [ReservationController::class, 'employeeUpdateReservation']);
+        });
     });
 });
 Route::get('/index', [StripeController::class, 'index'])->name('index');
