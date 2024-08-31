@@ -39,7 +39,7 @@ class FlightController extends Controller
             'price' => $createFlightRequest->price,
             'departure_terminal' => $createFlightRequest->departure_terminal,
             'arrival_terminal' => $createFlightRequest->arrival_terminal,
-            'duration' => $createFlightRequest->duration,
+            // 'duration' => $createFlightRequest->duration,
             'miles' => $createFlightRequest->miles,
         ]);
 
@@ -65,7 +65,7 @@ class FlightController extends Controller
                 $query->where('airport_name', 'LIKE', '%' . $search . '%');
             })->orWhere('price', $search)->orWhere('departure_terminal', 'LIKE', '%' . $search . '%')
                 ->orWhere('arrival_terminal', 'LIKE', '%' . $search . '%')
-                ->with(['departureAirport', 'arrivalAirport', 'airplane'])->paginate(15);
+                ->with(['departureAirport', 'arrivalAirport', 'airplane'])->orderBy('id', 'desc')->paginate(15);
         } else {
             $flights = Flight::with(['departureAirport', 'arrivalAirport', 'airplane'])
                 ->addSelect(['duration' => function($query) {
@@ -74,6 +74,7 @@ class FlightController extends Controller
                         ->whereColumn('flight_id', 'flights.flight_id')
                         ->limit(1);
                 }])
+                ->orderBy('flight_id', 'desc')
                 ->paginate(15);
         }
         
@@ -84,7 +85,6 @@ class FlightController extends Controller
 
         return success($data, null);
     }
-
     //Get Flight Information Function
     public function getFlightInformation(Flight $flight)
     {
