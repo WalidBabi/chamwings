@@ -33,15 +33,17 @@ class ScheduleController extends Controller
     //Delete Schedule Day Function
     public function deleteScheduleDay(ScheduleDay $scheduleDay)
     {
-        $scheduleDay->delete();
+        // dd($scheduleDay->times());
+        $scheduleDay->times()->forceDelete();
+        $scheduleDay->forceDelete();
 
-        return success(null, 'this schedule day deleted successfully');
+        return success(null, 'this schedule day and its times deleted successfully');
     }
 
     //Delete Schedule Time Function
     public function deleteScheduleTime(ScheduleTime $scheduleTime)
     {
-        $scheduleTime->delete();
+        $scheduleTime->forceDelete();
 
         return success(null, 'this schedule time deleted successfully');
     }

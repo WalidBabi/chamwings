@@ -66,4 +66,15 @@ class AirportController extends Controller
     {
         return success($airport, null);
     }
+    public function activateAirport($airport)
+    {
+        $airport = Airport::withTrashed()->find($airport);
+        if (!$airport) {
+            return error(null, null, 404);
+        }
+        $airport->deleted_at = null;
+        $airport->update();
+
+        return success(null, 'this airport activated successfully');
+    }
 }

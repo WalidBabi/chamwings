@@ -23,6 +23,7 @@ use App\Http\Controllers\EmployeesPDFController;
 use App\Http\Controllers\CustomerSegmentationController;
 use App\Http\Controllers\EmployeesChatController;
 use App\Http\Controllers\FlightDataController;
+use App\Http\Controllers\FlightRecommendationController;
 
 /*
 |--------------------------------------------------------------------------
@@ -98,6 +99,7 @@ Route::middleware('check-auth')->prefix('/')->group(function () {
             Route::post('/', [AirplaneController::class, 'addAirplane']);
             Route::put('/{airplane}', [AirplaneController::class, 'editAirplane']);
             Route::delete('/{airplane}', [AirplaneController::class, 'deleteAirplane']);
+            Route::post('/activate/{airplane}', [AirplaneController::class, 'activateAirplane']);
         });
         Route::middleware('read-airplane')->group(function () {
             Route::get('/', [AirplaneController::class, 'getAirplanes']);
@@ -110,9 +112,10 @@ Route::middleware('check-auth')->prefix('/')->group(function () {
             Route::post('/', [AirportController::class, 'addAirport']);
             Route::put('/{airport}', [AirportController::class, 'editAirport']);
             Route::delete('/{airport}', [AirportController::class, 'deleteAirport']);
+            Route::post('/activate/{airport}', [AirportController::class, 'activateAirport']);
         });
         Route::middleware('read-airport')->group(function () {
-            
+
             Route::get('/{airport}', [AirportController::class, 'getAirportInformation']);
         });
     });
@@ -126,6 +129,7 @@ Route::middleware('check-auth')->prefix('/')->group(function () {
         Route::middleware('read-flight')->group(function () {
             Route::get('/', [FlightController::class, 'getFlights']);
             Route::get('/{flight}', [FlightController::class, 'getFlightInformation']);
+            Route::post('/activate/{flight}', [FlightController::class, 'activateFlight']);
         });
     });
 
@@ -184,7 +188,7 @@ Route::middleware('check-auth')->prefix('/')->group(function () {
 
     Route::get('/flight-data', [FlightDataController::class, 'getFlightData']);
     Route::get('/user/{passenger_id}/recommendations', [FlightDataController::class, 'getUserRecommendations']);
-    
+
     Route::get('/run-segmentation', [CustomerSegmentationController::class, 'runSegmentation']);
     Route::get('/segmentation-results', [CustomerSegmentationController::class, 'getLatestResults']);
 
@@ -201,7 +205,10 @@ Route::middleware('check-auth')->prefix('/')->group(function () {
 
     // Route to create a new thread
     Route::post('/create-thread', [ChatController::class, 'createThread']);
-       Route::prefix('reservations')->group(function () {
+
+    Route::get('/recommendations/{userId}', [FlightRecommendationController::class, 'getRecommendations']);
+
+    Route::prefix('reservations')->group(function () {
         Route::post('/', [ReservationController::class, 'createReservation']);
         Route::post('/{reservation}/seats', [ReservationController::class, 'addSeats']);
         Route::put('/{reservation}/seats', [ReservationController::class, 'updateSeats']);

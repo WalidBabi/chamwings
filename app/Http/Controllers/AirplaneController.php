@@ -58,4 +58,16 @@ class AirplaneController extends Controller
     {
         return success($airplane->with(['classes.seats'])->find($airplane->airplane_id), null);
     }
+
+    public function activateAirplane($airplane)
+    {
+        $airplane = Airplane::withTrashed()->find($airplane);
+        if (!$airplane) {
+            return error(null, null, 404);
+        }
+        $airplane->deleted_at = null;
+        $airplane->update();
+
+        return success(null, 'this airplane activated successfully');
+    }
 }

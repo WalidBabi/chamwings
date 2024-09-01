@@ -90,4 +90,17 @@ class FlightController extends Controller
     {
         return success($flight->with(['departureAirport', 'arrivalAirport', 'airplane'])->find($flight->flight_id), null);
     }
+
+    public function activateFlight($flight)
+    {
+        $flight = Flight::withTrashed()->find($flight);
+        if (!$flight) {
+            return error(null, null, 404);
+        }
+        $flight->deleted_at = null;
+        $flight->update();
+
+        return success(null, 'this flight activated successfully');
+    }
+
 }
