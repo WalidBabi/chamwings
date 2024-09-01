@@ -4,6 +4,7 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Relations\HasManyThrough;
 use Illuminate\Database\Eloquent\SoftDeletes;
 
 class Companion extends Model
@@ -26,5 +27,10 @@ class Companion extends Model
     public function passenger()
     {
         return $this->belongsTo(Passenger::class);
+    }
+
+    public function passports(): HasManyThrough
+    {
+        return $this->hasManyThrough(Passport::class, TravelRequirement::class,'travel_requirement_id','travel_requirement_id');
     }
 }

@@ -16,6 +16,7 @@ class PassengerController extends Controller
     //Add Passenger Function
     public function addPassenger(PassengerRequest $passengerRequest, AddPassportRequest $addPassportRequest)
     {
+        // dd($passengerRequest);
         $year = explode('-', $passengerRequest->date_of_birth);
         $travel_requirement = TravelRequirement::create([
             'first_name' => $passengerRequest->first_name,
@@ -94,7 +95,7 @@ class PassengerController extends Controller
     {
         $user = Auth::guard('user')->user();
 
-        return success($user->passenger->companions()->with('travelRequirement')->get(), null);
+        return success($user->passenger->companions()->with('passports', 'travelRequirement')->get(), null);
     }
 
     //Get Passenger Information Function
