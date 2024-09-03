@@ -29,7 +29,6 @@ class AddPassportRequest extends FormRequest
             'passport_expiry_date' => 'required|date',
             'passport_issued_date' => 'required|date',
             'passport_issued_country' => 'required',
-            'passport_image' => 'file',
         ];
     }
 }
