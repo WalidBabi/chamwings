@@ -30,6 +30,39 @@ class ScheduleController extends Controller
         return success(null, 'this schedule added successfully', 201);
     }
 
+    //Edit Day Function
+    public function editDay(ScheduleDay $scheduleDay, Request $request)
+    {
+        $request->validate([
+            'departure_date' => 'required|date',
+            'arrival_date' => 'required|date',
+        ]);
+        $scheduleDay->update([
+            'departure_date' => $request->departure_date,
+            'arrival_date' => $request->arrival_date,
+        ]);
+
+        return success($scheduleDay->with('times')->find($scheduleDay->schedule_day_id), 'this day updated successfully');
+    }
+
+    //Add Schedule Time To Specific Day Function
+    public function addTime(ScheduleDay $scheduleDay, Request $request)
+    {
+        $request->validate([
+            'departure_time' => 'required',
+            'arrival_time' => 'required',
+            'duration' => 'required',
+        ]);
+        $time = ScheduleTime::create([
+            'schedule_day_id' => $scheduleDay->schedule_day_id,
+            'departure_time' => $request->departure_time,
+            'arrival_time' => $request->arrival_time,
+            'duration' => $request->duration,
+        ]);
+
+        return success($time, 'this time updated successfully');
+    }
+
     //Delete Schedule Day Function
     public function deleteScheduleDay(ScheduleDay $scheduleDay)
     {

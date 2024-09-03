@@ -129,6 +129,8 @@ Route::middleware('check-auth')->prefix('/')->group(function () {
         Route::delete('/time/{scheduleTime}', [ScheduleController::class, 'deleteScheduleTime']);
         Route::get('/{flight}', [ScheduleController::class, 'getFlightSchedules']);
         Route::get('/day/{scheduleDay}', [ScheduleController::class, 'getScheduleDayInformation']);
+        Route::post('/day/{scheduleDay}', [ScheduleController::class, 'addTime']);
+        Route::put('/{scheduleDay}', [ScheduleController::class, 'editDay']);
     });
 
     Route::prefix('employees')->group(function () {
