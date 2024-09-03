@@ -51,7 +51,7 @@ class ScheduleController extends Controller
     //Get Flight Schedules Function
     public function getFlightSchedules(Flight $flight)
     {
-        $schedules = $flight->days()->with('times')->get();
+        $schedules = $flight->days()->with('times')->orderBy('schedule_day_id', 'desc')->get();
 
         return success($schedules, null);
     }

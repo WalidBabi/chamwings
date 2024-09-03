@@ -16,6 +16,7 @@ class ClassController extends Controller
         $seats_number = ['a', 'b', 'c', 'd', 'e', 'f'];
         $classRequest->validated([
             'class_name' => 'required',
+            'cabin_weight' => 'required',
         ]);
         foreach ($airplane->classes as $class) {
             if ($class->class_name === $classRequest->class_name) {
@@ -29,6 +30,7 @@ class ClassController extends Controller
             'weight_allowed' => $classRequest->weight_allowed,
             'number_of_meals' => $classRequest->number_of_meals,
             'number_of_seats' => $classRequest->class_name == 'Business' ? 18 : 150,
+            'cabin_weight' => $classRequest->cabin_weight,
         ]);
 
         if ($classRequest->class_name === 'Business') {
@@ -63,6 +65,7 @@ class ClassController extends Controller
             'price_rate' => $classRequest->price_rate,
             'weight_allowed' => $classRequest->weight_allowed,
             'number_of_meals' => $classRequest->number_of_meals,
+            'cabin_weight' => $classRequest->cabin_weight,
         ]);
 
         return success(null, 'this class updated successfully');

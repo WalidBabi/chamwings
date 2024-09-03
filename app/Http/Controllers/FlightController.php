@@ -57,30 +57,33 @@ class FlightController extends Controller
     //Get Flights Function
     public function getFlights(Request $request)
     {
+        $query = Flight::withTrashed()->with(['departureAirport', 'arrivalAirport', 'airplane']);
+
         if ($request->search) {
             $search = $request->search;
-            $flights = Flight::whereHas('departureAirport', function ($query) use ($search) {
-                $query->where('airport_name', 'LIKE', '%' . $search . '%');
-            })->orWhereHas('arrivalAirport', function ($query) use ($search) {
-                $query->where('airport_name', 'LIKE', '%' . $search . '%');
-            })->orWhere('price', $search)->orWhere('departure_terminal', 'LIKE', '%' . $search . '%')
-                ->orWhere('arrival_terminal', 'LIKE', '%' . $search . '%')
-                ->with(['departureAirport', 'arrivalAirport', 'airplane'])->orderBy('flight_id', 'desc')->paginate(15);
+            $query->where(function ($q) use ($search) {
+                $q->whereHas('departureAirport', function ($query) use ($search) {
+                    $query->where('airport_name', 'LIKE', '%' . $search . '%');
+                })->orWhereHas('arrivalAirport', function ($query) use ($search) {
+                    $query->where('airport_name', 'LIKE', '%' . $search . '%');
+                })->orWhere('price', $search)
+                  ->orWhere('departure_terminal', 'LIKE', '%' . $search . '%')
+                  ->orWhere('arrival_terminal', 'LIKE', '%' . $search . '%');
+            });
         } else {
-            $flights = Flight::with(['departureAirport', 'arrivalAirport', 'airplane'])
-                ->addSelect(['duration' => function($query) {
-                    $query->select('duration')
-                        ->from('schedule_times')
-                        ->whereColumn('flight_id', 'flights.flight_id')
-                        ->limit(1);
-                }])
-                ->orderBy('flight_id', 'desc')
-                ->paginate(15);
+            $query->addSelect(['duration' => function($subquery) {
+                $subquery->select('duration')
+                    ->from('schedule_times')
+                    ->whereColumn('flight_id', 'flights.flight_id')
+                    ->limit(1);
+            }]);
         }
+
+        $flights = $query->orderBy('flight_id', 'desc')->paginate(15);
         
         $data = [
-            'data'=>$flights->items(),
-            'total'=>$flights->total(),
+            'data' => $flights->items(),
+            'total' => $flights->total(),
         ];
 
         return success($data, null);

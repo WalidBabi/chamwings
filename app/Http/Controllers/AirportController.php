@@ -15,6 +15,7 @@ class AirportController extends Controller
             'airport_name' => $airportRequest->airport_name,
             'city' => $airportRequest->city,
             'country' => $airportRequest->country,
+            'airport_code' => $airportRequest->airport_code,
         ]);
 
         return success(null, 'this airport added successfully', 201);
@@ -27,6 +28,7 @@ class AirportController extends Controller
             'airport_name' => $airportRequest->airport_name,
             'city' => $airportRequest->city,
             'country' => $airportRequest->country,
+            'airport_code' => $airportRequest->airport_code,
         ]);
 
         return success(null, 'this airport updated successfully');
@@ -43,7 +45,7 @@ class AirportController extends Controller
     //Get Airports Function
     public function getAirports()
     {
-        $airports = Airport::paginate(15);
+        $airports = Airport::withTrashed()->orderBy('airport_id', 'desc')->paginate(15);
 
         $data = [
             'data' => $airports->items(),

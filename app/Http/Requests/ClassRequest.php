@@ -27,6 +27,7 @@ class ClassRequest extends FormRequest
             'price_rate' => 'required|numeric',
             'weight_allowed' => 'required|numeric',
             'number_of_meals' => 'required|integer',
+            'cabin_weight' => 'required',
         ];
     }
 }

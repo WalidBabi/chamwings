@@ -43,7 +43,7 @@ class AirplaneController extends Controller
     //Get Airplanes Function
     public function getAirplanes()
     {
-        $airplanes = Airplane::paginate(15);
+        $airplanes = Airplane::withTrashed()->orderBy('airplane_id', 'desc')->paginate(15);
 
         $data = [
             'data' => $airplanes->items(),
