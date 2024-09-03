@@ -39,10 +39,10 @@ class PassengerController extends Controller
             'infant' => $passengerRequest->infant,
         ]);
         $path = null;
-        if ($addPassportRequest->file('passport_image')) {
+        if ($addPassportRequest->hasFile('passport_image')) {
             $path = $addPassportRequest->file('passport_image')->storePublicly('PassportImage', 'public');
         }
-
+    
         Passport::create([
             'travel_requirement_id' => $travel_requirement->travel_requirement_id,
             'number' => encrypt($addPassportRequest->number),
