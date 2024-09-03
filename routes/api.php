@@ -191,7 +191,11 @@ Route::middleware('check-auth')->prefix('/')->group(function () {
             Route::put('/{reservation}', [ReservationController::class, 'employeeUpdateReservation']);
         });
     });
+    Route::get('/check-expiry-reservation', [ReservationController::class, 'checkExpiry']);
+    Route::get('/seats-status/{scheduleTime}', [ReservationController::class, 'SeatsStatus']);
+    Route::prefix('payment')->group(function () {
+        Route::get('/index', [StripeController::class, 'index'])->name('index');
+        Route::post('/checkout/{reservation}', [StripeController::class, 'checkout']);
+        Route::get('/success/{reservation}', [StripeController::class, 'success'])->name('success');
+    });
 });
-Route::get('/index', [StripeController::class, 'index'])->name('index');
-Route::post('/checkout', [StripeController::class, 'checkout']);
-Route::get('/success', [StripeController::class, 'success'])->name('success');

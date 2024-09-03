@@ -22,4 +22,8 @@ class ScheduleDay extends Model
     {
         return $this->hasMany(ScheduleTime::class, 'schedule_day_id', 'schedule_day_id');
     }
+
+    public function flight(){
+        return $this->belongsTo(Flight::class, 'flight_id', 'flight_id');
+    }
 }

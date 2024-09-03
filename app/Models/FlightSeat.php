@@ -21,4 +21,9 @@ class FlightSeat extends Model
     {
         return $this->belongsTo(Reservation::class, 'reservation_id', 'reservation_id');
     }
+
+    public function seat()
+    {
+        return $this->belongsTo(Seat::class, 'seat_id', 'seat_id');
+    }
 }
