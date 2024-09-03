@@ -38,6 +38,7 @@ class PassengerController extends Controller
             'travel_requirement_id' => $travel_requirement->travel_requirement_id,
             'infant' => $passengerRequest->infant,
         ]);
+        $path = null;
         if ($addPassportRequest->file('passport_image')) {
             $path = $addPassportRequest->file('passport_image')->storePublicly('PassportImage', 'public');
         }
@@ -49,9 +50,9 @@ class PassengerController extends Controller
             'passport_expiry_date' => $addPassportRequest->passport_expiry_date,
             'passport_issued_date' => $addPassportRequest->passport_issued_date,
             'passport_issued_country' => $addPassportRequest->passport_issued_country,
-            'passport_image' => 'storage/' . $path,
+            'passport_image' => $path ? 'storage/' . $path : null,
         ]);
-
+        
         return success($travel_requirement->with('companion', 'passports')->find($travel_requirement->travel_requirement_id), 'this passenger added successfully', 201);
     }
 
