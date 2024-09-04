@@ -6,7 +6,7 @@ use Closure;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
-class ManagePointAuthentication
+class AnswerQuestionAuthentication
 {
     /**
      * Handle an incoming request.
@@ -20,7 +20,7 @@ class ManagePointAuthentication
         $user = Auth::guard('user')->user();
 
         foreach ($user->employee->roles as $role) {
-            if ($role->name == 'admin' || $role->name == 'manage point') {
+            if ($role->name == 'admin' || $role->name == 'answer question') {
                 return $next($request);
             }
         }
