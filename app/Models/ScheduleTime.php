@@ -28,4 +28,9 @@ class ScheduleTime extends Model
     {
         return $this->belongsTo(ScheduleDay::class, 'schedule_day_id', 'schedule_day_id');
     }
+
+    public function reservations()
+    {
+        return $this->hasMany(Reservation::class, 'schedule_time_id', 'schedule_time_id');
+    }
 }

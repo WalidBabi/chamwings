@@ -357,7 +357,8 @@ class ReservationController extends Controller
     }
 
     //Update Reservation From Employee Function
-    public function employeeUpdateReservation(Reservation $reservation, UpdateReservationRequest $updateReservationRequest){
+    public function employeeUpdateReservation(Reservation $reservation, UpdateReservationRequest $updateReservationRequest)
+    {
         $reservation->update([
             'round_trip' => $updateReservationRequest->round_trip,
             'status' => $updateReservationRequest->status,
@@ -470,5 +471,38 @@ class ReservationController extends Controller
         ];
 
         return success($data, null);
+    }
+
+    //Check Reservation Expiry Date Function
+    public function checkExpiry()
+    {
+        $reservations = Reservation::all();
+
+        foreach ($reservations as $reservation) {
+            $date = $reservation->created_at;
+            $expiry_date = $date->addDays(3);
+
+            if (Carbon::now() > $expiry_date && $reservation->status != 'Confirmed') {
+                foreach ($reservation->flightSeats as $seat) {
+                    $seat->delete();
+                }
+                $reservation->delete();
+            }
+        }
+    }
+
+    //Get Seats Status In Specific Time
+    public function SeatsStatus(ScheduleTime $scheduleTime)
+    {
+        $reserved_seats = [];
+        $reservations = $scheduleTime->reservations;
+
+        foreach ($reservations as $reservation) {
+            foreach ($reservation->flightSeats as $flightSeat) {
+                array_push($reserved_seats, $flightSeat->seat);
+            }
+        }
+
+        return success($reserved_seats, null);
     }
 }

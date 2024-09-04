@@ -139,6 +139,8 @@ Route::middleware('check-auth')->prefix('/')->group(function () {
         Route::delete('/time/{scheduleTime}', [ScheduleController::class, 'deleteScheduleTime']);
         Route::get('/{flight}', [ScheduleController::class, 'getFlightSchedules']);
         Route::get('/day/{scheduleDay}', [ScheduleController::class, 'getScheduleDayInformation']);
+        Route::post('/day/{scheduleDay}', [ScheduleController::class, 'addTime']);
+        Route::put('/{scheduleDay}', [ScheduleController::class, 'editDay']);
     });
 
     Route::prefix('employees')->group(function () {
@@ -224,7 +226,11 @@ Route::middleware('check-auth')->prefix('/')->group(function () {
             Route::put('/{reservation}', [ReservationController::class, 'employeeUpdateReservation']);
         });
     });
+    Route::get('/check-expiry-reservation', [ReservationController::class, 'checkExpiry']);
+    Route::get('/seats-status/{scheduleTime}', [ReservationController::class, 'SeatsStatus']);
+    Route::prefix('payment')->group(function () {
+        Route::get('/index', [StripeController::class, 'index'])->name('index');
+        Route::post('/checkout/{reservation}', [StripeController::class, 'checkout']);
+        Route::get('/success/{reservation}', [StripeController::class, 'success'])->name('success');
+    });
 });
-Route::get('/index', [StripeController::class, 'index'])->name('index');
-Route::post('/checkout', [StripeController::class, 'checkout']);
-Route::get('/success', [StripeController::class, 'success'])->name('success');

@@ -11,6 +11,7 @@
         "laravel/framework": "^9.19",
         "laravel/sanctum": "^3.0",
         "laravel/tinker": "^2.7",
+        "stripe/stripe-php": "^15.7",
         "yajra/laravel-datatables": "9.0"
     },
     "require-dev": {
