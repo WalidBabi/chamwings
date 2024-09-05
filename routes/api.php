@@ -22,7 +22,7 @@ use App\Http\Controllers\ChatController;
 use App\Http\Controllers\EmployeesPDFController;
 use App\Http\Controllers\CustomerSegmentationController;
 use App\Http\Controllers\EmployeesChatController;
-use App\Http\Controllers\FlightDataController;
+
 use App\Http\Controllers\FlightRecommendationController;
 
 /*
@@ -188,8 +188,8 @@ Route::middleware('check-auth')->prefix('/')->group(function () {
     });
 
 
-    Route::get('/flight-data', [FlightDataController::class, 'getFlightData']);
-    Route::get('/user/{passenger_id}/recommendations', [FlightDataController::class, 'getUserRecommendations']);
+
+
 
     Route::get('/run-segmentation', [CustomerSegmentationController::class, 'runSegmentation']);
     Route::get('/segmentation-results', [CustomerSegmentationController::class, 'getLatestResults']);
@@ -211,7 +211,8 @@ Route::middleware('check-auth')->prefix('/')->group(function () {
     Route::get('/recommendations/{userId}', [FlightRecommendationController::class, 'getRecommendations']);
 
     Route::get('/reservation/all', [ReservationController::class, 'getReservations']);
-
+    Route::post('/{res}', [ReservationController::class, 'reactivateReservationByEmployee']);
+    
     Route::prefix('reservations')->group(function () {
         Route::post('/', [ReservationController::class, 'createReservation']);
         Route::post('/{reservation}/seats', [ReservationController::class, 'addSeats']);
@@ -225,8 +226,12 @@ Route::middleware('check-auth')->prefix('/')->group(function () {
         Route::middleware('read-reservation')->group(function () {
             
         });
+       
         Route::middleware('manage-reservation')->group(function () {
             Route::put('/{reservation}', [ReservationController::class, 'employeeUpdateReservation']);
+            Route::post('/{reservation}', [ReservationController::class, 'cancelReservationByEmployee']);
+            
+           
         });
     });
     Route::get('/check-expiry-reservation', [ReservationController::class, 'checkExpiry']);

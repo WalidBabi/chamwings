@@ -442,11 +442,24 @@ class ReservationController extends Controller
     }
 
     //Get Reservations Function
-    public function getReservations()
+    public function getReservations(Request $request)
     {
-        // dd();
-        $reservations = Reservation::with('flight', 'seats')->get();
-        // dd($reservations);
+        $query = Reservation::with('flight', 'seats', 'passenger')->orderBy('reservation_id', 'desc');
+        // dd($request->has('search'));
+        // Search functionality
+        if ($request->has('search')) {
+            $searchTerm = $request->input('search');
+            $query->where(function ($q) use ($searchTerm) {
+                $q->whereHas('passenger.travelRequirement', function ($subQuery) use ($searchTerm) {
+                    $subQuery->where('first_name', 'LIKE', "%{$searchTerm}%");
+                })
+                ->orWhereHas('flight.scheduleTime', function ($subQuery) use ($searchTerm) {
+                    $subQuery->where('departure_time', 'LIKE', "%{$searchTerm}%");
+                });
+            });
+        }
+
+        $reservations = $query->paginate(15);
         return success($reservations, null);
     }
 
@@ -503,4 +516,81 @@ class ReservationController extends Controller
 
         return success($reserved_seats, null);
     }
+
+    // Cancel Reservation by Employee Function
+    public function cancelReservationByEmployee(Reservation $reservation)
+    {
+        // Check if the reservation exists
+        if (!$reservation) {
+            return error('Reservation not found', 404);
+        }
+
+        // Check if the reservation is already cancelled
+        if ($reservation->status === 'Cancelled') {
+            return error('Reservation is already cancelled', 400);
+        }
+
+        // Begin a database transaction
+        \DB::beginTransaction();
+
+        try {
+            // Update reservation status and soft delete
+            $reservation->status = 'Cancelled';
+            $reservation->deleted_at = now();
+            $reservation->save();
+
+            // Soft delete associated flight seats
+            foreach ($reservation->flightSeats as $seat) {
+                $seat->deleted_at = now();
+                $seat->save();
+            }
+
+            // Commit the transaction
+            \DB::commit();
+
+            return success(['message' => 'Reservation cancelled and seats soft deleted successfully'],['reservation' => $reservation], 200);
+        } catch (\Exception $e) {
+            // If an error occurs, rollback the transaction
+            \DB::rollBack();
+            return error('An error occurred while cancelling the reservation: ' . $e->getMessage(), 500);
+        }
+    }
+    // Reactivate Reservation by Employee Function
+    public function reactivateReservationByEmployee($reservationId)
+    {
+        $reservation = Reservation::withTrashed()->find($reservationId);
+
+        if (!$reservation) {
+            return error('Reservation not found', 404);
+        }
+
+        if ($reservation->status !== 'Cancelled') {
+            return error('Reservation is already active', 400);
+        }
+
+        // Begin a database transaction
+        \DB::beginTransaction();
+
+        try {
+            $reservation->status = 'Confirmed';
+            $reservation->deleted_at = null;
+            $reservation->save();
+     
+            // Reactivate associated flight seats
+            foreach ($reservation->flightSeats()->withTrashed()->get() as $seat) {
+                $seat->restore();
+            }
+
+            // Commit the transaction
+            \DB::commit();
+
+            return success(['reservation' => $reservation], 200);
+        } catch (\Exception $e) {
+            // If an error occurs, rollback the transaction
+            \DB::rollBack();
+            return error('An error occurred while reactivating the reservation: ' . $e->getMessage(), 500);
+        }
+    }
+
+  
 }
