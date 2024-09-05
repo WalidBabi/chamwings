@@ -16,6 +16,7 @@ use Carbon\Carbon;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Date;
+use Illuminate\Support\Facades\DB;
 
 class ReservationController extends Controller
 {
@@ -531,7 +532,7 @@ class ReservationController extends Controller
         }
 
         // Begin a database transaction
-        \DB::beginTransaction();
+        DB::beginTransaction();
 
         try {
             // Update reservation status and soft delete
@@ -539,19 +540,24 @@ class ReservationController extends Controller
             $reservation->deleted_at = now();
             $reservation->save();
 
-            // Soft delete associated flight seats
-            foreach ($reservation->flightSeats as $seat) {
-                $seat->deleted_at = now();
+            // Soft delete associated flight seats and update seat checked status
+            foreach ($reservation->flightSeats as $flightSeat) {
+                $flightSeat->deleted_at = now();
+                $flightSeat->save();
+
+                // Update the checked attribute of the associated seat
+                $seat = $flightSeat->seat;
+                $seat->checked = 0;
                 $seat->save();
             }
 
             // Commit the transaction
-            \DB::commit();
+            DB::commit();
 
-            return success(['message' => 'Reservation cancelled and seats soft deleted successfully'],['reservation' => $reservation], 200);
+            return success(['message' => 'Reservation cancelled and seats updated successfully'], ['reservation' => $reservation], 200);
         } catch (\Exception $e) {
             // If an error occurs, rollback the transaction
-            \DB::rollBack();
+            DB::rollBack();
             return error('An error occurred while cancelling the reservation: ' . $e->getMessage(), 500);
         }
     }
@@ -569,25 +575,30 @@ class ReservationController extends Controller
         }
 
         // Begin a database transaction
-        \DB::beginTransaction();
+        DB::beginTransaction();
 
         try {
             $reservation->status = 'Confirmed';
             $reservation->deleted_at = null;
             $reservation->save();
      
-            // Reactivate associated flight seats
-            foreach ($reservation->flightSeats()->withTrashed()->get() as $seat) {
-                $seat->restore();
+            // Reactivate associated flight seats and update seat status
+            foreach ($reservation->flightSeats()->withTrashed()->get() as $flightSeat) {
+                $flightSeat->restore();
+                
+                // Update the associated seat's checked status
+                $seat = $flightSeat->seat;
+                $seat->checked = 1;
+                $seat->save();
             }
 
             // Commit the transaction
-            \DB::commit();
+            DB::commit();
 
             return success(['reservation' => $reservation], 200);
         } catch (\Exception $e) {
             // If an error occurs, rollback the transaction
-            \DB::rollBack();
+            DB::rollBack();
             return error('An error occurred while reactivating the reservation: ' . $e->getMessage(), 500);
         }
     }
