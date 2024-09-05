@@ -61,7 +61,6 @@ class ReservationController extends Controller
                     'flights.departure_airport',
                     'flights.arrival_airport',
                     'flights.flight_number',
-                    'flights.number_of_reserved_seats',
                     'flights.price',
                     'flights.departure_terminal',
                     'flights.arrival_terminal',
@@ -121,7 +120,6 @@ class ReservationController extends Controller
                     'flights.departure_airport',
                     'flights.arrival_airport',
                     'flights.flight_number',
-                    'flights.number_of_reserved_seats',
                     'flights.price',
                     'flights.departure_terminal',
                     'flights.arrival_terminal',
@@ -210,7 +208,6 @@ class ReservationController extends Controller
                     'flights.departure_airport',
                     'flights.arrival_airport',
                     'flights.flight_number',
-                    'flights.number_of_reserved_seats',
                     'flights.price',
                     'flights.departure_terminal',
                     'flights.arrival_terminal',
@@ -447,8 +444,9 @@ class ReservationController extends Controller
     //Get Reservations Function
     public function getReservations()
     {
+        // dd();
         $reservations = Reservation::with('flight', 'seats')->get();
-
+        // dd($reservations);
         return success($reservations, null);
     }
 
