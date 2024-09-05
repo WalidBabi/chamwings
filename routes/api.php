@@ -156,7 +156,7 @@ Route::middleware('check-auth')->prefix('/')->group(function () {
             Route::get('/{employee}', [EmployeeController::class, 'getEmployeeInformation']);
         });
         Route::middleware('manage-employee')->prefix('roles')->group(function () {
-            Route::delete('/{employee}', [EmployeeController::class, 'deleteRoles']);
+            Route::post('/{employee}', [EmployeeController::class, 'deleteRoles']);
             Route::post('/{employee}', [EmployeeController::class, 'addRoles']);
         });
     });
@@ -210,6 +210,8 @@ Route::middleware('check-auth')->prefix('/')->group(function () {
 
     Route::get('/recommendations/{userId}', [FlightRecommendationController::class, 'getRecommendations']);
 
+    Route::get('/reservation/all', [ReservationController::class, 'getReservations']);
+
     Route::prefix('reservations')->group(function () {
         Route::post('/', [ReservationController::class, 'createReservation']);
         Route::post('/{reservation}/seats', [ReservationController::class, 'addSeats']);
@@ -219,8 +221,9 @@ Route::middleware('check-auth')->prefix('/')->group(function () {
         Route::get('/', [ReservationController::class, 'getUserReservations']);
         Route::get('/{reservation}', [ReservationController::class, 'getReservationInformation']);
         Route::get('/passengers/{reservation}', [ReservationController::class, 'getUserPassengers']);
+        
         Route::middleware('read-reservation')->group(function () {
-            Route::get('/all', [ReservationController::class, 'getReservations']);
+            
         });
         Route::middleware('manage-reservation')->group(function () {
             Route::put('/{reservation}', [ReservationController::class, 'employeeUpdateReservation']);
