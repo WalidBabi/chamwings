@@ -609,7 +609,7 @@ class ReservationController extends Controller
             // Commit the transaction
             DB::commit();
 
-            return success(['message' => 'Reservation cancelled and seats updated successfully'], ['reservation' => $reservation], 200);
+            return success(['success' => 'Reservation cancelled and seats updated successfully'], 200);
         } catch (\Exception $e) {
             // If an error occurs, rollback the transaction
             DB::rollBack();
