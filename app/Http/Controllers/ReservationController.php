@@ -455,21 +455,29 @@ class ReservationController extends Controller
             $query->where(function ($q) use ($searchTerm) {
                 $q->whereHas('passenger.travelRequirement', function ($subQuery) use ($searchTerm) {
                     $subQuery->where('first_name', 'LIKE', "%{$searchTerm}%");
-                })
-                ->orWhereHas('flight.scheduleTime', function ($subQuery) use ($searchTerm) {
-                    $subQuery->where('departure_time', 'LIKE', "%{$searchTerm}%");
                 });
             });
         }
 
-        $reservations = $query->paginate(15);
+        $perPage = $request->input('per_page', 15); // Default to 15 items per page
+        $reservations = $query->paginate($perPage);
 
         $reservationsWithFirstName = $reservations->map(function ($reservation) {
             $firstName = $reservation->passenger->travelRequirement->first_name ?? null;
             return array_merge($reservation->toArray(), ['passenger_first_name' => $firstName]);
         });
 
-        return success($reservationsWithFirstName, null);
+        return success([
+            'data' => $reservationsWithFirstName,
+            'pagination' => [
+                'total' => $reservations->total(),
+                'per_page' => $reservations->perPage(),
+                'current_page' => $reservations->currentPage(),
+                'last_page' => $reservations->lastPage(),
+                'from' => $reservations->firstItem(),
+                'to' => $reservations->lastItem(),
+            ]
+        ], null);
     }
 
     //Get Reservation Information Function
