@@ -650,7 +650,7 @@ class ReservationController extends Controller
             // Commit the transaction
             DB::commit();
 
-            return success(['reservation' => $reservation], 200);
+            return success(['message' => 'Reservation reactivated successfully', 'reservation' => $reservation], 200);
         } catch (\Exception $e) {
             // If an error occurs, rollback the transaction
             DB::rollBack();
