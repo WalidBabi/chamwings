@@ -68,6 +68,9 @@ class StripeController extends Controller
         if ($reservation->status === 'Cancelled') {
             return error('some thing went wrong', 'this reservation already cancelled', 422);
         } else if ($reservation->status === 'Pending') {
+            foreach ($reservation->flightSeats as $flightSeat) {
+                $flightSeat->delete();
+            }
             $reservation->update([
                 'status' => 'Cancelled'
             ]);
@@ -100,6 +103,9 @@ class StripeController extends Controller
             $reservation->update([
                 'status' => 'Cancelled'
             ]);
+            foreach ($reservation->flightSeats as $flightSeat) {
+                $flightSeat->delete();
+            }
             return success(null, 'this reservation cancelled successfully and return to you ' . $cost . '$');
         } else {
             return error('some thing went wrong', 'cancel faild', 422);
