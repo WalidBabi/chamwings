@@ -445,8 +445,10 @@ class ReservationController extends Controller
     //Get Reservations Function
     public function getReservations(Request $request)
     {
-        $query = Reservation::with('flight', 'seats', 'passenger')->orderBy('reservation_id', 'desc');
-        // dd($request->has('search'));
+        $query = Reservation::with(['flight', 'seats', 'passenger.travelRequirement'])
+            ->withTrashed()  // Include soft deleted records
+            ->orderBy('reservation_id', 'desc');
+
         // Search functionality
         if ($request->has('search')) {
             $searchTerm = $request->input('search');
@@ -461,7 +463,13 @@ class ReservationController extends Controller
         }
 
         $reservations = $query->paginate(15);
-        return success($reservations, null);
+
+        $reservationsWithFirstName = $reservations->map(function ($reservation) {
+            $firstName = $reservation->passenger->travelRequirement->first_name ?? null;
+            return array_merge($reservation->toArray(), ['passenger_first_name' => $firstName]);
+        });
+
+        return success($reservationsWithFirstName, null);
     }
 
     //Get Reservation Information Function
