@@ -17,6 +17,7 @@ return new class extends Migration
             $table->id('flight_seat_id');
             $table->unsignedBigInteger('seat_id');
             $table->unsignedBigInteger('reservation_id');
+            $table->boolean('is_round_flight')->default(0);
 
             $table->foreign('seat_id')->references('seat_id')->on('seats')->onDelete('cascade');
             $table->foreign('reservation_id')->references('reservation_id')->on('reservations')->onDelete('cascade');
