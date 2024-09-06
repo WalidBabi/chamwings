@@ -61,15 +61,21 @@ class OfferController extends Controller
         if (File::exists($offer->image)) {
             File::delete($offer->image);
         }
-        $offer->delete();
+        $offer->forceDelete();
 
-        return success(null, 'this offer deleted successfully');
+        return success(null, 'this offer has been permanently deleted');
     }
 
     //Get Offers Function
-    public function getOffers()
+    public function getOffers(Request $request)
     {
-        $offers = Offer::with('flight')->paginate(15);
+        $query = Offer::with('flight')->orderBy('offer_id', 'desc');
+
+        if ($request->has('title')) {
+            $query->where('title', 'like', '%' . $request->input('title') . '%');
+        }
+
+        $offers = $query->paginate(15);
 
         return success($offers, null);
     }
