@@ -174,13 +174,15 @@ Route::middleware('check-auth')->prefix('/')->group(function () {
         Route::get('/', [ReservationController::class, 'getUserReservations']);
         Route::get('/{reservation}', [ReservationController::class, 'getReservationInformation']);
         Route::get('/passengers/{reservation}', [ReservationController::class, 'getUserPassengers']);
-        Route::middleware('read-reservation')->group(function () {
-            Route::get('/all', [ReservationController::class, 'getReservations']);
-        });
         Route::middleware('manage-reservation')->group(function () {
             Route::put('/{reservation}', [ReservationController::class, 'employeeUpdateReservation']);
         });
     });
+    Route::middleware('read-reservation')->group(function () {
+        Route::get('reservate/all', [ReservationController::class, 'getReservations']);
+    });
+    Route::post('/cancel-reservation/{reservation}', [StripeController::class, 'cancelReservation']);
+
 
     Route::get('/check-expiry-reservation', [ReservationController::class, 'checkExpiry']);
     Route::get('/seats-status/{scheduleTime}', [ReservationController::class, 'SeatsStatus']);
@@ -200,3 +202,6 @@ Route::middleware('check-auth')->prefix('/')->group(function () {
         Route::put('/{fAQ}/answer', [QuestionController::class, 'answerQuestion'])->middleware('answer-question');
     });
 });
+
+Route::post('/checkout/{reservation}', [StripeController::class, 'checkout']);
+Route::post('/cancel/{reservation}', [ReservationController::class, 'cancelReservation']);
