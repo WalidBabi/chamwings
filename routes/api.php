@@ -199,7 +199,7 @@ Route::middleware('check-auth')->prefix('/')->group(function () {
     Route::get('/recommendations/{userId}', [FlightRecommendationController::class, 'getRecommendations']);
 
     Route::get('/reservation/all', [ReservationController::class, 'getReservations']);
-    Route::post('/{res}', [ReservationController::class, 'reactivateReservationByEmployee']);
+    // Route::post('/{res}', [ReservationController::class, 'reactivateReservationByEmployee']);
     
     Route::prefix('reservations')->group(function () {
         Route::post('/', [ReservationController::class, 'createReservation']);
