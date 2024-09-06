@@ -69,7 +69,7 @@ class OfferController extends Controller
     //Get Offers Function
     public function getOffers()
     {
-        $offers = Offer::with('flight')->pagiante(15);
+        $offers = Offer::with('flight')->paginate(15);
 
         return success($offers, null);
     }
