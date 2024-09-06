@@ -15,7 +15,9 @@ class Reservation extends Model
     protected $fillable = [
         'passenger_id',
         'flight_id',
+        'round_flight_id',
         'schedule_time_id',
+        'round_schedule_time_id',
         'round_trip',
         'status',
         'is_traveling',
@@ -31,7 +33,12 @@ class Reservation extends Model
 
     public function flight()
     {
-        return $this->hasOne(Flight::class, 'flight_id', 'reservation_id');
+        return $this->hasOne(Flight::class, 'flight_id', 'flight_id');
+    }
+
+    public function roundFlight()
+    {
+        return $this->hasOne(Flight::class, 'flight_id', 'round_flight_id');
     }
 
     public function seats()
@@ -47,5 +54,10 @@ class Reservation extends Model
     public function time()
     {
         return $this->belongsTo(ScheduleTime::class, 'schedule_time_id', 'schedule_time_id');
+    }
+
+    public function roundTime()
+    {
+        return $this->belongsTo(ScheduleTime::class, 'round_schedule_time_id', 'schedule_time_id');
     }
 }

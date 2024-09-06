@@ -14,7 +14,7 @@ return new class extends Migration
     public function up()
     {
         Schema::create('faq', function (Blueprint $table) {
-            $table->id();
+            $table->id('faq_id');
             $table->unsignedBigInteger('employee_id')->nullable();
             $table->unsignedBigInteger('passenger_id');
             $table->string('question');

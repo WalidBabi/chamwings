@@ -11,8 +11,8 @@ use App\Http\Controllers\OfferController;
 use App\Http\Controllers\OfferDetailController;
 use App\Http\Controllers\PassengerController;
 use App\Http\Controllers\PassportController;
+use App\Http\Controllers\QuestionController;
 use App\Http\Controllers\ReservationController;
-use App\Http\Controllers\PointController;
 use App\Http\Controllers\RoleController;
 use App\Http\Controllers\ScheduleController;
 use App\Http\Controllers\StripeController;
@@ -80,18 +80,6 @@ Route::middleware('check-auth')->prefix('/')->group(function () {
     Route::prefix('cities')->group(function () {
         Route::get('/', [CityController::class, 'getCities']);
         Route::get('/{city}', [CityController::class, 'getCityInformation']);
-    });
-
-    Route::prefix('points')->group(function () {
-        Route::middleware('manage-point')->group(function () {
-            Route::post('/{user}', [PointController::class, 'addPoint']);
-            Route::put('/{point}', [PointController::class, 'editPoint']);
-            Route::delete('/{point}', [PointController::class, 'deletePoint']);
-        });
-        Route::middleware('read-point')->group(function () {
-            Route::get('/', [PointController::class, 'getPoints']);
-            Route::get('/{point}', [PointController::class, 'getPointInformation']);
-        });
     });
 
     Route::prefix('airplanes')->group(function () {
@@ -234,11 +222,22 @@ Route::middleware('check-auth')->prefix('/')->group(function () {
            
         });
     });
+
     Route::get('/check-expiry-reservation', [ReservationController::class, 'checkExpiry']);
     Route::get('/seats-status/{scheduleTime}', [ReservationController::class, 'SeatsStatus']);
+
     Route::prefix('payment')->group(function () {
         Route::get('/index', [StripeController::class, 'index'])->name('index');
         Route::post('/checkout/{reservation}', [StripeController::class, 'checkout']);
         Route::get('/success/{reservation}', [StripeController::class, 'success'])->name('success');
+    });
+
+    Route::prefix('questions')->group(function () {
+        Route::post('/', [QuestionController::class, 'addQuestion']);
+        Route::put('/{fAQ}', [QuestionController::class, 'editQuestion']);
+        Route::delete('/{fAQ}', [QuestionController::class, 'deleteQuestion']);
+        Route::get('/', [QuestionController::class, 'getQuestions']);
+        Route::get('/{fAQ}', [QuestionController::class, 'getQuestionInformation']);
+        Route::put('/{fAQ}/answer', [QuestionController::class, 'answerQuestion'])->middleware('answer-question');
     });
 });

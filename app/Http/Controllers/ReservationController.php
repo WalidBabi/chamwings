@@ -292,10 +292,23 @@ class ReservationController extends Controller
             return error('some thing went wrong', 'you cannot reserve in this day', 422);
         }
 
+        if ($createReservationRequest->round_trip) {
+            $createReservationRequest->validated([
+                'round_flight_id' => 'required|exists:flights,flight_id|integer',
+                'round_schedule_time_id' => 'required|exists:schedule_times,schedule_time_id|integer',
+            ]);
+            $round_time = ScheduleTime::find($createReservationRequest->round_schedule_time_id);
+            if ($round_time->day->departure_date <= Carbon::now()) {
+                return error('some thing went wrong', 'you cannot reserve in this day', 422);
+            }
+        }
+
         $reservation = Reservation::create([
             'passenger_id' => Auth::guard('user')->user()->passenger->passenger_id,
             'flight_id' => $createReservationRequest->flight_id,
+            'round_flight_id' => $createReservationRequest->round_flight_id,
             'schedule_time_id' => $createReservationRequest->schedule_time_id,
+            'round_schedule_time_id' => $createReservationRequest->round_schedule_time_id,
             'round_trip' => $createReservationRequest->round_trip,
             'status' => 'Pending',
             'is_traveling' => $createReservationRequest->is_traveling,
@@ -309,6 +322,9 @@ class ReservationController extends Controller
     //Add Seats To Reservation Function
     public function addSeats(Reservation $reservation, Request $request)
     {
+        if ($reservation->status === 'Confirmed') {
+            return error('some thing went wrong', 'you cannot add seats to this reservation now', 422);
+        }
         $seats = explode(',', $request->seats);
         $request->validate([
             'seats' => 'required',
@@ -318,9 +334,15 @@ class ReservationController extends Controller
         foreach ($seats as $seat) {
             $seat = Seat::find($seat);
             $time_id = $request->schedule_time_id;
-            $check_seat = $seat->flightSeat()->whereHas('reservation', function ($query) use ($time_id) {
-                $query->where('schedule_time_id', $time_id);
-            })->get();
+            if ($request->round_trip) {
+                $check_seat = $seat->flightSeat()->whereHas('reservation', function ($query) use ($time_id) {
+                    $query->where('round_schedule_time_id', $time_id);
+                })->get();
+            } else {
+                $check_seat = $seat->flightSeat()->whereHas('reservation', function ($query) use ($time_id) {
+                    $query->where('schedule_time_id', $time_id);
+                })->get();
+            }
             if ($check_seat != '[]') {
                 $checked .= '(' . $seat->seat_number . $seat->row_number . ') ';
             }
@@ -333,7 +355,8 @@ class ReservationController extends Controller
         foreach ($seats as $seat) {
             FlightSeat::create([
                 'seat_id' => $seat,
-                'reservation_id' => $reservation->reservation_id
+                'reservation_id' => $reservation->reservation_id,
+                'is_round_flight' => $request->round_trip,
             ]);
             $seat = Seat::find($seat);
             $seat->update([
@@ -346,6 +369,9 @@ class ReservationController extends Controller
     //Update Reservation Function
     public function updateReservation(Reservation $reservation, UpdateReservationRequest $updateReservationRequest)
     {
+        if ($reservation->status === 'Confirmed') {
+            return error('some thing went wrong', 'you cannot update this reservation now', 422);
+        }
         $reservation->update([
             'round_trip' => $updateReservationRequest->round_trip,
             'is_traveling' => $updateReservationRequest->is_traveling,
@@ -369,6 +395,9 @@ class ReservationController extends Controller
     //Update Seat Reservation Function
     public function updateSeats(Reservation $reservation, Request $request)
     {
+        if ($reservation->status === 'Confirmed') {
+            return error('some thing went wrong', 'you cannot update seats of this reservation now', 422);
+        }
         $seats = explode(',', $request->seats);
         $request->validate([
             'seats' => 'required',
@@ -380,9 +409,15 @@ class ReservationController extends Controller
             $seat = Seat::find($seat);
             $reserved_seats = $reservation->flightSeats->where('seat_id', $seats)->first();
             $time_id = $request->schedule_time_id;
-            $check_seat = $seat->flightSeat()->whereHas('reservation', function ($query) use ($time_id) {
-                $query->where('schedule_time_id', $time_id);
-            })->get();
+            if ($request->round_trip) {
+                $check_seat = $seat->flightSeat()->whereHas('reservation', function ($query) use ($time_id) {
+                    $query->where('round_schedule_time_id', $time_id);
+                })->get();
+            } else {
+                $check_seat = $seat->flightSeat()->whereHas('reservation', function ($query) use ($time_id) {
+                    $query->where('schedule_time_id', $time_id);
+                })->get();
+            }
             if ($check_seat != '[]' && !$reserved_seats) {
                 $checked .= '(' . $seat->seat_number . $seat->row_number . ') ';
             }
@@ -397,7 +432,8 @@ class ReservationController extends Controller
             }
             FlightSeat::create([
                 'seat_id' => $seat,
-                'reservation_id' => $reservation->reservation_id
+                'reservation_id' => $reservation->reservation_id,
+                'is_round_flight' => $request->round_trip,
             ]);
             return 1;
             $seat = Seat::find($seat);
@@ -413,6 +449,9 @@ class ReservationController extends Controller
     //Update Companions Reservation Function
     public function updateCompanions(Reservation $reservation, Request $request)
     {
+        if ($reservation->status === 'Confirmed') {
+            return error('some thing went wrong', 'you cannot update companions of this reservation now', 422);
+        }
         $request->validate([
             'have_companions' => 'required',
             'infants' => 'required',
@@ -483,7 +522,7 @@ class ReservationController extends Controller
     //Get Reservation Information Function
     public function getReservationInformation(Reservation $reservation)
     {
-        return success($reservation->with(['flight', 'seats'])->find($reservation->reservation_id), null);
+        return success($reservation->with(['flight', 'seats', 'roundFlight', 'time.day', 'roundTime.day'])->find($reservation->reservation_id), null);
     }
 
     //Get Passengers Function

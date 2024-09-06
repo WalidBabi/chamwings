@@ -14,6 +14,7 @@ class FlightSeat extends Model
     protected $table = 'flight_seats';
     protected $fillable = [
         'seat_id',
+        'is_round_flight',
         'reservation_id',
     ];
 
