@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Http\Requests\OfferRequest;
+use App\Models\Flight;
 use App\Models\Offer;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
@@ -78,6 +79,11 @@ class OfferController extends Controller
         $offers = $query->paginate(15);
 
         return success($offers, null);
+    }
+
+    public function getFlightsForOffers(){
+        $flights = Flight::all();
+        return success($flights, null);
     }
 
     //Get Offer Information Fucntion

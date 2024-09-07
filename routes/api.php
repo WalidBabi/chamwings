@@ -168,6 +168,7 @@ Route::middleware('check-auth')->prefix('/')->group(function () {
         });
         Route::middleware('read-offer')->group(function () {
             Route::get('/', [OfferController::class, 'getOffers']);
+            Route::get('/getflights',[OfferController::class, 'getFlightsForOffers']);
             Route::get('/{offer}', [OfferController::class, 'getOfferInformation']);
         });
         Route::middleware('manage-offer')->prefix('details')->group(function () {
