@@ -22,11 +22,6 @@ class Offer extends Model
         'title',
     ];
 
-    public function details()
-    {
-        return $this->hasMany(OfferDetail::class, 'offer_id', 'offer_id');
-    }
-
     public function flight()
     {
         return $this->belongsTo(Flight::class, 'flight_id', 'flight_id');

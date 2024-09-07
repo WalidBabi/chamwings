@@ -178,7 +178,6 @@ class ReservationController extends Controller
             'is_traveling' => $createReservationRequest->is_traveling,
             'have_companions' => $createReservationRequest->have_companions,
             'infants' => $createReservationRequest->infants,
-            'reservation_date' => Date::now(),
         ]);
         return success($reservation->with('time')->find($reservation->reservation_id), 'this reservation created successfully', 201);
     }
@@ -341,16 +340,23 @@ class ReservationController extends Controller
     //Get User Reservations Function
     public function getUserReservations()
     {
-        $reservations = Auth::guard('user')->user()->passenger->reservations()->with('flight', 'seats')->get();
-        return success($reservations, null);
+        $reservations = Auth::guard('user')->user()->passenger->reservations()->with('flight', 'seats')->paginate(15);
+        $data = [
+            'data' => $reservations->items(),
+            'total' => $reservations->total(),
+        ];
+        return success($data, null);
     }
 
     //Get Reservations Function
     public function getReservations()
     {
-        $reservations = Reservation::with('flight', 'seats', 'roundFlight', 'time.day', 'roundTime.day')->get();
-
-        return success($reservations, null);
+        $reservations = Reservation::with('flight', 'seats', 'roundFlight', 'time.day', 'roundTime.day')->paginate(15);
+        $data = [
+            'data' => $reservations->items(),
+            'total' => $reservations->total(),
+        ];
+        return success($data, null);
     }
 
     //Get Reservation Information Function

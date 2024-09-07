@@ -77,6 +77,6 @@ class OfferController extends Controller
     //Get Offer Information Fucntion
     public function getOfferInformation(Offer $offer)
     {
-        return success($offer->with('details', 'flight')->find($offer->offer_id), null);
+        return success($offer->with('flight')->find($offer->offer_id), null);
     }
 }

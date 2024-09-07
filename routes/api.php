@@ -160,9 +160,6 @@ Route::middleware('check-auth')->prefix('/')->group(function () {
             Route::get('/', [OfferController::class, 'getOffers']);
             Route::get('/{offer}', [OfferController::class, 'getOfferInformation']);
         });
-        Route::middleware('manage-offer')->prefix('details')->group(function () {
-            Route::post('/{offer}', [OfferDetailController::class, 'addDetail']);
-        });
     });
 
     Route::prefix('reservations')->group(function () {
