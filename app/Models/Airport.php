@@ -16,5 +16,7 @@ class Airport extends Model
         'airport_name',
         'city',
         'country',
+        'airport_code',
+        'image',
     ];
 }

@@ -19,6 +19,7 @@ class User extends Authenticatable
         'password',
         'phone',
         'image',
+        'flight_recommendations'
     ];
 
     public function passenger()
@@ -39,5 +40,9 @@ class User extends Authenticatable
     public function point()
     {
         return $this->hasOne(Point::class, 'user_id', 'user_id');
+    }
+
+    public function flightRecommendations(){
+        return $this->hasMany(FlightRecommendation::class, 'user_id', 'user_id');
     }
 }

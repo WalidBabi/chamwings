@@ -28,6 +28,7 @@ class AirportRequest extends FormRequest
             'city' => 'required',
             'country' => 'required',
             'airport_code' => 'required',
+            'image' => 'required',
         ];
     }
 }

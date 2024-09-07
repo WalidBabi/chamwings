@@ -98,7 +98,7 @@ Route::middleware('check-auth')->prefix('/')->group(function () {
     Route::prefix('airports')->group(function () {
         Route::middleware('manage-airport')->group(function () {
             Route::post('/', [AirportController::class, 'addAirport']);
-            Route::put('/{airport}', [AirportController::class, 'editAirport']);
+            Route::post('/{airport}', [AirportController::class, 'editAirport']);
             Route::delete('/{airport}', [AirportController::class, 'deleteAirport']);
             Route::post('/activate/{airport}', [AirportController::class, 'activateAirport']);
         });

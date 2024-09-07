@@ -11,24 +11,47 @@ class AirportController extends Controller
     //Add Airport Function
     public function addAirport(AirportRequest $airportRequest)
     {
+        // dd($airportRequest);
+        // Handle image upload
+        if ($airportRequest->hasFile('image')) {
+            $image = $airportRequest->file('image');
+            $imageName = time() . '.' . $image->getClientOriginalExtension();
+            $image->move(public_path('CountriesImages'), $imageName);
+        }
+
         Airport::create([
             'airport_name' => $airportRequest->airport_name,
+            'airport_code' => strtoupper($airportRequest->airport_code),
             'city' => $airportRequest->city,
             'country' => $airportRequest->country,
-            'airport_code' => $airportRequest->airport_code,
+            'image' => $imageName ?? null,
         ]);
 
-        return success(null, 'this airport added successfully', 201);
+        return success(null, 'This airport added successfully', 201);
     }
 
     //Edit Airport Function
     public function editAirport(Airport $airport, AirportRequest $airportRequest)
     {
+        $oldImage = $airport->image;
+
+        if ($airportRequest->hasFile('image')) {
+            $image = $airportRequest->file('image');
+            $imageName = time() . '.' . $image->getClientOriginalExtension();
+            $image->move(public_path('CountriesImages'), $imageName);
+
+            // Delete old image if it exists
+            if ($oldImage && file_exists(public_path('CountriesImages/' . $oldImage))) {
+                unlink(public_path('CountriesImages/' . $oldImage));
+            }
+        }
+
         $airport->update([
             'airport_name' => $airportRequest->airport_name,
             'city' => $airportRequest->city,
             'country' => $airportRequest->country,
             'airport_code' => $airportRequest->airport_code,
+            'image' => $imageName ?? $airport->image,
         ]);
 
         return success(null, 'this airport updated successfully');
@@ -37,6 +60,13 @@ class AirportController extends Controller
     //Delete Airport Function
     public function deleteAirport(Airport $airport)
     {
+        if ($airport->image) {
+            $imagePath = public_path('CountriesImages/' . $airport->image);
+            if (file_exists($imagePath)) {
+                unlink($imagePath);
+            }
+        }
+
         $airport->delete();
 
         return success(null, 'this airport deleted successfully');

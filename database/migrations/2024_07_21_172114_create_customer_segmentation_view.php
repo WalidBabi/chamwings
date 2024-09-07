@@ -19,7 +19,7 @@ return new class extends Migration
             tr.age,
             tr.gender,
             tr.country_of_residence,
-            COUNT(r.reservation_id) AS total_reservations,
+            COUNT(DISTINCT r.reservation_id) AS total_reservations,
             AVG(f.price) AS avg_ticket_price,
             SUM(CASE WHEN c.class_name = 'Economy' THEN 1 ELSE 0 END) AS economy_flights,
             SUM(CASE WHEN c.class_name = 'Business' THEN 1 ELSE 0 END) AS business_flights,
