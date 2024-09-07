@@ -129,15 +129,29 @@ class EmployeeController extends Controller
     //Delete Employee Roles Function
     public function deleteRoles(Employee $employee, Request $request)
     {
-        $roles = explode(',', $request->roles);
+        // dd($request);
+        $rolesInput = $request->input('roles');
+        // dd($rolesInput);
+        // Remove surrounding single quotes if present
+        $rolesInput = trim($rolesInput, "'");
 
-        foreach ($roles as $role) {
-            UserRole::where(['employee_id' => $employee->employee_id, 'role_id' => $role])->first()->delete();
+        // Split the string into an array
+        $roles = explode(',', $rolesInput);
+
+        foreach ($roles as $roleId) {
+            $roleId = trim($roleId); // Remove any whitespace
+            if (!is_numeric($roleId)) {
+                continue; // Skip non-numeric values
+            }
+
+            UserRole::where([
+                'employee_id' => $employee->employee_id,
+                'role_id' => $roleId
+            ])->delete();
         }
 
-        return success(null, 'this roles deleted successfully');
+        return success(null, 'These roles were deleted successfully');
     }
-
     //Add Roles To Employee Function
     public function addRoles(Employee $employee, Request $request)
     {

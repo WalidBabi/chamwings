@@ -144,7 +144,7 @@ Route::middleware('check-auth')->prefix('/')->group(function () {
             Route::get('/{employee}', [EmployeeController::class, 'getEmployeeInformation']);
         });
         Route::middleware('manage-employee')->prefix('roles')->group(function () {
-            Route::post('/{employee}', [EmployeeController::class, 'deleteRoles']);
+            Route::post('/del/{employee}', [EmployeeController::class, 'deleteRoles']);
             Route::post('/{employee}', [EmployeeController::class, 'addRoles']);
         });
     });
