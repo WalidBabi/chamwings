@@ -61,10 +61,10 @@ class AirportController extends Controller
     public function deleteAirport(Airport $airport)
     {
         
-        if ($airport->image && Storage::disk('public')->exists(str_replace('/storage/', '', $airport->image))) {
-            Storage::disk('public')->delete(str_replace('/storage/', '', $airport->image));
-        }
-        $airport->delete();
+        // if ($airport->image && Storage::disk('public')->exists(str_replace('/storage/', '', $airport->image))) {
+        //     Storage::disk('public')->delete(str_replace('/storage/', '', $airport->image));
+        // }
+        // $airport->delete();
 
         $airport->delete();
 
