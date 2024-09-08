@@ -147,7 +147,7 @@ class EmployeeController extends Controller
             UserRole::where([
                 'employee_id' => $employee->employee_id,
                 'role_id' => $roleId
-            ])->delete();
+            ])->forcedelete();
         }
 
         return success(null, 'These roles were deleted successfully');
