@@ -8,7 +8,6 @@ use App\Http\Controllers\ClassController;
 use App\Http\Controllers\EmployeeController;
 use App\Http\Controllers\FlightController;
 use App\Http\Controllers\OfferController;
-use App\Http\Controllers\OfferDetailController;
 use App\Http\Controllers\PassengerController;
 use App\Http\Controllers\PassportController;
 use App\Http\Controllers\QuestionController;
@@ -168,12 +167,10 @@ Route::middleware('check-auth')->prefix('/')->group(function () {
         });
         Route::middleware('read-offer')->group(function () {
             Route::get('/', [OfferController::class, 'getOffers']);
-            Route::get('/getflights',[OfferController::class, 'getFlightsForOffers']);
+            Route::get('/getflights', [OfferController::class, 'getFlightsForOffers']);
             Route::get('/{offer}', [OfferController::class, 'getOfferInformation']);
         });
-        Route::middleware('manage-offer')->prefix('details')->group(function () {
-            Route::post('/{offer}', [OfferDetailController::class, 'addDetail']);
-        });
+        Route::middleware('manage-offer')->prefix('details')->group(function () {});
     });
 
 
@@ -201,7 +198,7 @@ Route::middleware('check-auth')->prefix('/')->group(function () {
 
     Route::get('/reservation/all', [ReservationController::class, 'getReservations']);
     Route::post('/activatereservation/{res}', [ReservationController::class, 'reactivateReservationByEmployee']);
-    
+
     Route::prefix('reservations')->group(function () {
         Route::post('/', [ReservationController::class, 'createReservation']);
         Route::post('/{reservation}/seats', [ReservationController::class, 'addSeats']);
@@ -211,16 +208,12 @@ Route::middleware('check-auth')->prefix('/')->group(function () {
         Route::get('/', [ReservationController::class, 'getUserReservations']);
         Route::get('/{reservation}', [ReservationController::class, 'getReservationInformation']);
         Route::get('/passengers/{reservation}', [ReservationController::class, 'getUserPassengers']);
-        
-        Route::middleware('read-reservation')->group(function () {
-            
-        });
-       
+
+        Route::middleware('read-reservation')->group(function () {});
+
         Route::middleware('manage-reservation')->group(function () {
             Route::put('/{reservation}', [ReservationController::class, 'employeeUpdateReservation']);
             Route::post('/{reservation}', [ReservationController::class, 'cancelReservationByEmployee']);
-            
-           
         });
     });
 
