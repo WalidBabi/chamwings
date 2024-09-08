@@ -5,18 +5,18 @@ namespace App\Http\Controllers;
 use App\Http\Requests\AirportRequest;
 use App\Models\Airport;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Storage;
 
 class AirportController extends Controller
 {
     //Add Airport Function
     public function addAirport(AirportRequest $airportRequest)
     {
-        // dd($airportRequest);
         // Handle image upload
         if ($airportRequest->hasFile('image')) {
             $image = $airportRequest->file('image');
-            $imageName = time() . '.' . $image->getClientOriginalExtension();
-            $image->move(public_path('CountriesImages'), $imageName);
+            $imagePath = $image->storePublicly('CountriesImages', 'public');
+            $imageUrl = '/storage/' . $imagePath;
         }
 
         Airport::create([
@@ -24,7 +24,7 @@ class AirportController extends Controller
             'airport_code' => strtoupper($airportRequest->airport_code),
             'city' => $airportRequest->city,
             'country' => $airportRequest->country,
-            'image' => $imageName ?? null,
+            'image' => $imageUrl ?? null,
         ]);
 
         return success(null, 'This airport added successfully', 201);
@@ -37,12 +37,12 @@ class AirportController extends Controller
 
         if ($airportRequest->hasFile('image')) {
             $image = $airportRequest->file('image');
-            $imageName = time() . '.' . $image->getClientOriginalExtension();
-            $image->move(public_path('CountriesImages'), $imageName);
+            $imagePath = $image->storePublicly('CountriesImages', 'public');
+            $imageUrl = '/storage/' . $imagePath;
 
             // Delete old image if it exists
-            if ($oldImage && file_exists(public_path('CountriesImages/' . $oldImage))) {
-                unlink(public_path('CountriesImages/' . $oldImage));
+            if ($oldImage && Storage::disk('public')->exists(str_replace('/storage/', '', $oldImage))) {
+                Storage::disk('public')->delete(str_replace('/storage/', '', $oldImage));
             }
         }
 
@@ -51,7 +51,7 @@ class AirportController extends Controller
             'city' => $airportRequest->city,
             'country' => $airportRequest->country,
             'airport_code' => $airportRequest->airport_code,
-            'image' => $imageName ?? $airport->image,
+            'image' => $imageUrl ?? $oldImage,
         ]);
 
         return success(null, 'this airport updated successfully');
@@ -60,12 +60,11 @@ class AirportController extends Controller
     //Delete Airport Function
     public function deleteAirport(Airport $airport)
     {
-        if ($airport->image) {
-            $imagePath = public_path('CountriesImages/' . $airport->image);
-            if (file_exists($imagePath)) {
-                unlink($imagePath);
-            }
+        
+        if ($airport->image && Storage::disk('public')->exists(str_replace('/storage/', '', $airport->image))) {
+            Storage::disk('public')->delete(str_replace('/storage/', '', $airport->image));
         }
+        $airport->delete();
 
         $airport->delete();
 
@@ -90,7 +89,6 @@ class AirportController extends Controller
         $airports = Airport::all();
         // dd($airports);
         return success($airports, null);
-        
     }
 
     //Get Airport Information Function
