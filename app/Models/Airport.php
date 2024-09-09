@@ -17,4 +17,9 @@ class Airport extends Model
         'city',
         'country',
     ];
+
+    public function visa()
+    {
+        return $this->hasMany(Visa::class, 'airport_id', 'airport_id');
+    }
 }

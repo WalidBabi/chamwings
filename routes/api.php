@@ -17,6 +17,7 @@ use App\Http\Controllers\ReservationController;
 use App\Http\Controllers\RoleController;
 use App\Http\Controllers\ScheduleController;
 use App\Http\Controllers\StripeController;
+use App\Http\Controllers\VisaController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
@@ -198,6 +199,18 @@ Route::middleware('check-auth')->prefix('/')->group(function () {
         Route::get('/', [QuestionController::class, 'getQuestions']);
         Route::get('/{fAQ}', [QuestionController::class, 'getQuestionInformation']);
         Route::put('/{fAQ}/answer', [QuestionController::class, 'answerQuestion'])->middleware('answer-question');
+    });
+
+    Route::prefix('visa')->group(function () {
+        Route::middleware('manage-airport')->group(function () {
+            Route::post('/airport/{airport}', [VisaController::class, 'addVisa']);
+            Route::put('/{visa}', [VisaController::class, 'updateVisa']);
+            Route::delete('/{visa}', [VisaController::class, 'deleteVisa']);
+        });
+        Route::middleware('read-airport')->group(function () {
+            Route::get('/airport/{airport}', [VisaController::class, 'getVisa']);
+            Route::get('/{visa}', [VisaController::class, 'getVisaInformation']);
+        });
     });
 
     Route::middleware('admin-auth')->prefix('logs')->group(function () {
