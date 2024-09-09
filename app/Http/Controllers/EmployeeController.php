@@ -7,6 +7,7 @@ use App\Http\Requests\UpdateEmployeeRequest;
 use App\Http\Requests\VerificationCodeRequest;
 use App\Mail\Verification;
 use App\Models\Employee;
+use App\Models\Log;
 use App\Models\Role;
 use App\Models\User;
 use App\Models\UserRole;
@@ -24,6 +25,7 @@ class EmployeeController extends Controller
     //Add Employee Function
     public function addEmployee(EmployeeRequest $employeeRequest)
     {
+        $user = Auth::guard('user')->user();
         $roles = explode(',', $employeeRequest->roles);
         $user = User::create([
             'email' => $employeeRequest->email,
@@ -49,12 +51,18 @@ class EmployeeController extends Controller
             ]);
         }
 
+        Log::create([
+            'message' => 'Employee ' . $user->employee->name . ' added new employee to system his name ' . $employee->name,
+            'type' => 'insert',
+        ]);
+
         return success($employee->with('user')->find($employee->employee_id), 'this employee added successfully', 201);
     }
 
     //Update Employee Function
     public function updateEmployee(Employee $employee, UpdateEmployeeRequest $updateEmployeeRequest)
     {
+        $user = Auth::guard('user')->user();
         if ($employee->user->email != $updateEmployeeRequest->email) {
             $updateEmployeeRequest->validate([
                 'email' => 'unique:users,email',
@@ -104,11 +112,16 @@ class EmployeeController extends Controller
         }
 
         return success($employee, 'this employee updated successfully');
+        Log::create([
+            'message' => 'Employee ' . $user->employee->name . ' updated employee ' . $employee->name . ' Information',
+            'type' => 'update',
+        ]);
     }
 
     //Update Email Function
     public function updateEmail(Employee $employee, $email, VerificationCodeRequest $verificationCodeRequest)
     {
+        $user = Auth::guard('user')->user();
         $verify = VerifyAccount::where('email', $email)->latest()->first();
         if ($verify && $verify->created_at > Carbon::now() && $verify->code == $verificationCodeRequest->code) {
             $employee->user->update([
@@ -119,7 +132,10 @@ class EmployeeController extends Controller
                     'password' => $verify->password
                 ]);
             $verify->delete();
-
+            Log::create([
+                'message' => 'Employee ' . $user->employee->name . ' updated employee ' . $employee->name . ' email',
+                'type' => 'update',
+            ]);
             return success(null, 'your profile updated successfully');
         }
 
@@ -129,11 +145,17 @@ class EmployeeController extends Controller
     //Delete Employee Roles Function
     public function deleteRoles(Employee $employee, Request $request)
     {
+        $user = Auth::guard('user')->user();
         $roles = explode(',', $request->roles);
 
         foreach ($roles as $role) {
             UserRole::where(['employee_id' => $employee->employee_id, 'role_id' => $role])->first()->delete();
         }
+
+        Log::create([
+            'message' => 'Employee ' . $user->employee->name . ' delete roles from employee ' . $employee->name,
+            'type' => 'delete',
+        ]);
 
         return success(null, 'this roles deleted successfully');
     }
@@ -141,6 +163,7 @@ class EmployeeController extends Controller
     //Add Roles To Employee Function
     public function addRoles(Employee $employee, Request $request)
     {
+        $user = Auth::guard('user')->user();
         $roles = explode(',', $request->roles);
 
         foreach ($roles as $role) {
@@ -151,12 +174,22 @@ class EmployeeController extends Controller
                 'role_id' => $role,
             ]);
         }
+
+        Log::create([
+            'message' => 'Employee ' . $user->employee->name . ' added roles to employee ' . $employee->name,
+            'type' => 'insert',
+        ]);
         return success(null, 'this roles added successfully', 201);
     }
 
     //Delete Employee Function
     public function deleteEmployee(Employee $employee)
     {
+        $user = Auth::guard('user')->user();
+        Log::create([
+            'message' => 'Employee ' . $user->employee->name . ' deleted employee ' . $employee->name,
+            'type' => 'delete',
+        ]);
         $employee->user->delete();
         $employee->delete();
 
@@ -192,6 +225,7 @@ class EmployeeController extends Controller
     //Activate Employee Function
     public function activateEmployee($employee)
     {
+        $user = Auth::guard('user')->user();
         $employee = Employee::withTrashed()->find($employee);
         $user = User::withTrashed()->find($employee->user_id);
         if (!$employee) {
@@ -202,6 +236,11 @@ class EmployeeController extends Controller
         $employee->update();
         $user->update();
 
+        Log::create([
+            'message' => 'Employee ' . $user->employee->name . ' activated employee ' . $employee->name,
+            'type' => 'update',
+        ]);
+
         return success(null, 'this employee activated successfully');
     }
 
@@ -209,7 +248,6 @@ class EmployeeController extends Controller
     public function updateProfile(UpdateEmployeeRequest $updateEmployeeRequest)
     {
         $employee = Auth::guard('user')->user();
-        // return $employee->employee;
 
         if ($employee->email != $updateEmployeeRequest->email) {
             $updateEmployeeRequest->validate([
@@ -238,9 +276,6 @@ class EmployeeController extends Controller
                 if ($updateEmployeeRequest->password != $updateEmployeeRequest->confirm_password) {
                     return error('some thing went wrong', 'incorrect confirming password', 422);
                 }
-                // $employee->update([
-                //     'password' => Hash::make($updateEmployeeRequest->password),
-                // ]);
             } else {
                 return error('some thing went wrong', 'incorrect password', 422);
             }
@@ -282,7 +317,10 @@ class EmployeeController extends Controller
 
             return success($verify->email, 'your profile updated and we sent verification code to your new email');
         }
-
+        Log::create([
+            'message' => 'Employee ' . $employee->employee->name . ' updated his profile information',
+            'type' => 'update',
+        ]);
         return success($employee, 'this employee updated successfully');
     }
 }

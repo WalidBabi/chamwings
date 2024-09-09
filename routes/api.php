@@ -7,6 +7,7 @@ use App\Http\Controllers\CityController;
 use App\Http\Controllers\ClassController;
 use App\Http\Controllers\EmployeeController;
 use App\Http\Controllers\FlightController;
+use App\Http\Controllers\LogController;
 use App\Http\Controllers\OfferController;
 use App\Http\Controllers\OfferDetailController;
 use App\Http\Controllers\PassengerController;
@@ -198,7 +199,9 @@ Route::middleware('check-auth')->prefix('/')->group(function () {
         Route::get('/{fAQ}', [QuestionController::class, 'getQuestionInformation']);
         Route::put('/{fAQ}/answer', [QuestionController::class, 'answerQuestion'])->middleware('answer-question');
     });
-});
 
-Route::post('/checkout/{reservation}', [StripeController::class, 'checkout']);
-Route::post('/cancel/{reservation}', [ReservationController::class, 'cancelReservation']);
+    Route::middleware('admin-auth')->prefix('logs')->group(function () {
+        Route::get('/', [LogController::class, 'getLogs']);
+        Route::get('/{log}', [LogController::class, 'getLogInformation']);
+    });
+});

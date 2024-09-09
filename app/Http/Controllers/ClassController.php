@@ -5,14 +5,17 @@ namespace App\Http\Controllers;
 use App\Http\Requests\ClassRequest;
 use App\Models\Airplane;
 use App\Models\ClassM;
+use App\Models\Log;
 use App\Models\Seat;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class ClassController extends Controller
 {
     //Add Class Function
     public function addClass(Airplane $airplane, ClassRequest $classRequest)
     {
+        $user = Auth::guard('user')->user();
         $seats_number = ['a', 'b', 'c', 'd', 'e', 'f'];
         $classRequest->validated([
             'class_name' => 'required',
@@ -52,17 +55,26 @@ class ClassController extends Controller
                 }
             }
         }
-
+        Log::create([
+            'message' => 'Employee ' . $user->employee->name . ' added class ' . $class->class_name,
+            'type' => 'insert',
+        ]);
         return success(null, 'this class created successfully', 201);
     }
 
     //Edit Class Function
     public function editClass(ClassM $classM, ClassRequest $classRequest)
     {
+        $user = Auth::guard('user')->user();
         $classM->update([
             'price_rate' => $classRequest->price_rate,
             'weight_allowed' => $classRequest->weight_allowed,
             'number_of_meals' => $classRequest->number_of_meals,
+        ]);
+
+        Log::create([
+            'message' => 'Employee ' . $user->employee->name . ' updated class ' . $classM->class_name,
+            'type' => 'update',
         ]);
 
         return success(null, 'this class updated successfully');
@@ -71,8 +83,12 @@ class ClassController extends Controller
     //Delete Class Function
     public function deleteClass(ClassM $classM)
     {
+        $user = Auth::guard('user')->user();
+        Log::create([
+            'message' => 'Employee ' . $user->employee->name . ' delete class ' . $classM->class_name,
+            'type' => 'delete',
+        ]);
         $classM->delete();
-
         return success(null, 'this class deleted successfully');
     }
 }

@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Http\Requests\AddPassportRequest;
 use App\Http\Requests\PassengerRequest;
 use App\Models\Companion;
+use App\Models\Log;
 use App\Models\Passport;
 use App\Models\TravelRequirement;
 use Carbon\Carbon;
@@ -16,6 +17,7 @@ class PassengerController extends Controller
     //Add Passenger Function
     public function addPassenger(PassengerRequest $passengerRequest, AddPassportRequest $addPassportRequest)
     {
+        $user = Auth::guard('user')->user();
         $year = explode('-', $passengerRequest->date_of_birth);
         $travel_requirement = TravelRequirement::create([
             'first_name' => $passengerRequest->first_name,
@@ -50,13 +52,17 @@ class PassengerController extends Controller
             'passport_issued_country' => $addPassportRequest->passport_issued_country,
             'passport_image' => 'storage/' . $path,
         ]);
-
+        Log::create([
+            'message' => 'Passenger ' . $user->passenger->travelRequirement->first_name . ' ' . $user->passenger->travelRequirement->last_name . ' added a new passenger',
+            'type' => 'insert',
+        ]);
         return success($travel_requirement->with('companion', 'passports')->find($travel_requirement->travel_requirement_id), 'this passenger added successfully', 201);
     }
 
     //Update Passenger Function
     public function updatePassenger(TravelRequirement $travelRequirement, PassengerRequest $passengerRequest)
     {
+        $user = Auth::guard('user')->user();
         $year = explode('-', $passengerRequest->date_of_birth);
 
         $travelRequirement->update([
@@ -78,12 +84,22 @@ class PassengerController extends Controller
             'infant' => $passengerRequest->infant,
         ]);
 
+        Log::create([
+            'message' => 'Passenger ' . $user->passenger->travelRequirement->first_name . ' ' . $user->passenger->travelRequirement->last_name . ' updated passenger',
+            'type' => 'update',
+        ]);
+
         return success(null, 'this passenger updated successfully');
     }
 
     //Delete Passenger Function
     public function deletePassenger(TravelRequirement $travelRequirement)
     {
+        $user = Auth::guard('user')->user();
+        Log::create([
+            'message' => 'Passenger ' . $user->passenger->travelRequirement->first_name . ' ' . $user->passenger->travelRequirement->last_name . ' deleted a passenger',
+            'type' => 'delete',
+        ]);
         $travelRequirement->delete();
 
         return success(null, 'this passenger deleted successfully');

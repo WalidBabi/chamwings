@@ -9,6 +9,7 @@ use App\Http\Requests\ResetPasswordRequest;
 use App\Http\Requests\UpdateProfileRequest;
 use App\Http\Requests\VerificationCodeRequest;
 use App\Mail\Verification;
+use App\Models\Log;
 use App\Models\Passenger;
 use App\Models\TravelRequirement;
 use App\Models\User;
@@ -60,7 +61,7 @@ class AuthenticationController extends Controller
         if ($verify && $verify->created_at > Carbon::now() && $verify->code == $verificationCodeRequest->code) {
             $user = User::create([
                 'email' => $verify->email,
-                'password' =>$verify->password,
+                'password' => $verify->password,
                 'phone' => $verify->phone,
             ]);
             $travel_requirement = TravelRequirement::create([
@@ -74,6 +75,11 @@ class AuthenticationController extends Controller
             Passenger::create([
                 'user_id' => $user->user_id,
                 'travel_requirement_id' => $travel_requirement->travel_requirement_id,
+            ]);
+
+            Log::create([
+                'message' => 'Passenger ' . $travel_requirement->first_name . ' ' . $travel_requirement->last_name . ' create an account',
+                'type' => 'insert',
             ]);
             $verify->delete();
 
@@ -110,6 +116,11 @@ class AuthenticationController extends Controller
     public function profile()
     {
         $user = Auth::guard('user')->user();
+        if ($user->passenger) {
+            $user->passenger->travelRequirement->passports;
+        } else {
+            $user->employee->roles;
+        }
 
         return success($user, null);
     }
@@ -121,8 +132,14 @@ class AuthenticationController extends Controller
         $user->update([
             'phone' => $updateProfileRequest->phone,
         ]);
+        if ($updateProfileRequest->file('image')) {
+            $path = $updateProfileRequest->file('image')->storePublicly('ProfileImage');
+            $user->update([
+                'image' => 'storage/' . $path,
+            ]);
+        }
         $year = explode('-', $updateProfileRequest->date_of_birth);
-        $user->travelRequirement->update([
+        $user->passenger->travelRequirement->update([
             'title' => $updateProfileRequest->title,
             'first_name' => $updateProfileRequest->first_name,
             'last_name' => $updateProfileRequest->last_name,
@@ -136,7 +153,14 @@ class AuthenticationController extends Controller
             'country_of_residence' => $updateProfileRequest->country_of_residence,
         ]);
 
-        return success(null, 'your profile updated successfully');
+        $user->passenger->travelRequirement->passports;
+
+        Log::create([
+            'message' => 'Passenger ' . $user->passenger->travelRequirement->first_name . ' ' . $user->passenger->travelRequirement->last_name . ' update his profile',
+            'type' => 'update',
+        ]);
+
+        return success($user, 'your profile updated successfully');
     }
 
     //Logout Function
@@ -186,6 +210,10 @@ class AuthenticationController extends Controller
                 'password' => Hash::make($resetPasswordRequest->new_password),
             ]);
             $verify->delete();
+            Log::create([
+                'message' => 'Passenger ' . $user->passenger->travelRequirement->first_name . ' ' . $user->passenger->travelRequirement->last_name . ' change his password',
+                'type' => 'update',
+            ]);
             return success(null, 'your password reset successfully');
         }
     }

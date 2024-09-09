@@ -9,6 +9,7 @@ use App\Models\ClassM;
 use App\Models\Companion;
 use App\Models\Flight;
 use App\Models\FlightSeat;
+use App\Models\Log;
 use App\Models\Reservation;
 use App\Models\ScheduleTime;
 use App\Models\Seat;
@@ -22,7 +23,6 @@ class ReservationController extends Controller
 
     public function search(Request $request)
     {
-
         $request->validate([
             'trip_type' => 'required|in:0,1',
             'booking_preference' => 'required|in:a,b,c',
@@ -150,6 +150,7 @@ class ReservationController extends Controller
     //Create Reservation Function
     public function createReservation(CreateReservationRequest $createReservationRequest)
     {
+        $user = Auth::guard('user')->user();
         $time = ScheduleTime::find($createReservationRequest->schedule_time_id);
 
         if ($time->day->departure_date <= Carbon::now()) {
@@ -179,12 +180,18 @@ class ReservationController extends Controller
             'have_companions' => $createReservationRequest->have_companions,
             'infants' => $createReservationRequest->infants,
         ]);
+
+        Log::create([
+            'message' => 'Passenger ' . $user->passenger->travelRequirement->first_name . ' ' . $user->passenger->travelRequirement->last_name . ' reserved in a flight',
+            'type' => 'insert',
+        ]);
         return success($reservation->with('time')->find($reservation->reservation_id), 'this reservation created successfully', 201);
     }
 
     //Add Seats To Reservation Function
     public function addSeats(Reservation $reservation, Request $request)
     {
+        $user = Auth::guard('user')->user();
         if ($reservation->status === 'Confirmed') {
             return error('some thing went wrong', 'you cannot add seats to this reservation now', 422);
         }
@@ -226,12 +233,17 @@ class ReservationController extends Controller
                 'checked' => 1,
             ]);
         }
+        Log::create([
+            'message' => 'Passenger ' . $user->passenger->travelRequirement->first_name . ' ' . $user->passenger->travelRequirement->last_name . ' reserved seats',
+            'type' => 'insert',
+        ]);
         return success($reservation->seats, 'this seats added to this reservation successfully', 201);
     }
 
     //Update Reservation Function
     public function updateReservation(Reservation $reservation, UpdateReservationRequest $updateReservationRequest)
     {
+        $user = Auth::guard('user')->user();
         if ($reservation->status === 'Confirmed') {
             return error('some thing went wrong', 'you cannot update this reservation now', 422);
         }
@@ -246,18 +258,23 @@ class ReservationController extends Controller
     //Update Reservation From Employee Function
     public function employeeUpdateReservation(Reservation $reservation, UpdateReservationRequest $updateReservationRequest)
     {
+        $user = Auth::guard('user')->user();
         $reservation->update([
             'round_trip' => $updateReservationRequest->round_trip,
             'status' => $updateReservationRequest->status,
             'is_traveling' => $updateReservationRequest->is_traveling,
         ]);
-
+        Log::create([
+            'message' => 'Employee ' . $user->employee->name . ' updated a reservation',
+            'type' => 'update',
+        ]);
         return success(null, 'this reservation updated successfully');
     }
 
     //Update Seat Reservation Function
     public function updateSeats(Reservation $reservation, Request $request)
     {
+        $user = Auth::guard('user')->user();
         if ($reservation->status === 'Confirmed') {
             return error('some thing went wrong', 'you cannot update seats of this reservation now', 422);
         }
@@ -305,13 +322,17 @@ class ReservationController extends Controller
             ]);
             $reservation->flightSeats->where('seat_id', $seat)->first()->delete();
         }
-
+        Log::create([
+            'message' => 'Passenger ' . $user->passenger->travelRequirement->first_name . ' ' . $user->passenger->travelRequirement->last_name . ' updated its reserved seats',
+            'type' => 'update',
+        ]);
         return success(null, 'this reservation seats updated successfully');
     }
 
     //Update Companions Reservation Function
     public function updateCompanions(Reservation $reservation, Request $request)
     {
+        $user = Auth::guard('user')->user();
         if ($reservation->status === 'Confirmed') {
             return error('some thing went wrong', 'you cannot update companions of this reservation now', 422);
         }
@@ -333,7 +354,10 @@ class ReservationController extends Controller
             'adults' => $adults,
             'infants' => $infants,
         ];
-
+        Log::create([
+            'message' => 'Passenger ' . $user->passenger->travelRequirement->first_name . ' ' . $user->passenger->travelRequirement->last_name . ' updated his companions reservation',
+            'type' => 'update',
+        ]);
         return success($data, 'those companions updated successfully');
     }
 
