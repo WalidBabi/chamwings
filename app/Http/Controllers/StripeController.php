@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Log;
 use App\Models\Reservation;
+use Carbon\Carbon;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Stripe\Charge;
@@ -21,18 +22,20 @@ class StripeController extends Controller
     {
         $count = 0;
         $price = 0;
-        if ($reservation->is_traveling) {
-            $count++;
-        }
-        if ($reservation->have_companions) {
-            $comanions = explode(',', $reservation->have_companions);
-            $count += count($comanions);
-        }
+
+        $count = count($reservation->flightSeats);
 
         $price += $reservation->flight->price * $count;
 
         if ($reservation->round_trip) {
             $price += $reservation->roundFlight->price * $count;
+        }
+
+        foreach ($reservation->flight->offers as $offer) {
+            if ($offer->start_date <= $reservation->time->day->departure_date && $offer->end_date >= $reservation->time->day->departure_date) {
+                $price = $price - $price * $offer->discount / 100;
+                break;
+            }
         }
         \Stripe\Stripe::setApiKey(config('stripe.sk'));
         $session = \Stripe\Checkout\Session::create([
@@ -96,6 +99,12 @@ class StripeController extends Controller
         $cost += $reservation->flight->price * $companions_count;
         if ($reservation->round_trip) {
             $cost += $reservation->roundFlight->price * $companions_count;
+        }
+        foreach ($reservation->flight->offers as $offer) {
+            if ($offer->start_date <= $reservation->time->day->departure_date && $offer->end_date >= $reservation->time->day->departure_date) {
+                $cost = $cost - $cost * $offer->discount / 100;
+                break;
+            }
         }
         $cost = $cost - $cost * 5 / 100;
         Stripe::setApiKey(config('stripe.sk'));

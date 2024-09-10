@@ -109,6 +109,7 @@ Route::middleware('check-auth')->prefix('/')->group(function () {
         });
         Route::middleware('read-flight')->group(function () {
             Route::get('/', [FlightController::class, 'getFlights']);
+            Route::get('/all', [FlightController::class, 'getAllFlights']);
             Route::get('/{flight}', [FlightController::class, 'getFlightInformation']);
         });
     });

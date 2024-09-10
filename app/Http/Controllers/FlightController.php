@@ -95,6 +95,12 @@ class FlightController extends Controller
         return success($data, null);
     }
 
+    //Get All Flights Function
+    public function getAllFlights(){
+        $flights= Flight::with(['departureAirport', 'arrivalAirport', 'airplane'])->get();
+        return success($flights, null);
+    }
+
     //Get Flight Information Function
     public function getFlightInformation(Flight $flight)
     {

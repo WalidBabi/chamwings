@@ -20,6 +20,7 @@ class Offer extends Model
         'end_date',
         'image',
         'title',
+        'discount',
     ];
 
     public function flight()

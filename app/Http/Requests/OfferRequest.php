@@ -29,6 +29,7 @@ class OfferRequest extends FormRequest
             'end_date' => 'required',
             'image' => 'file',
             'title' => 'required',
+            'discount' => 'required|integer',
             'flight_id' => 'required|exists:flights,flight_id'
         ];
     }
