@@ -2,8 +2,11 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Log;
 use App\Models\Reservation;
+use Carbon\Carbon;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 use Stripe\Charge;
 use Stripe\Refund;
 use Stripe\Stripe;
@@ -19,18 +22,20 @@ class StripeController extends Controller
     {
         $count = 0;
         $price = 0;
-        if ($reservation->is_traveling) {
-            $count++;
-        }
-        if ($reservation->have_companions) {
-            $comanions = explode(',', $reservation->have_companions);
-            $count += count($comanions);
-        }
+
+        $count = count($reservation->flightSeats);
 
         $price += $reservation->flight->price * $count;
 
         if ($reservation->round_trip) {
             $price += $reservation->roundFlight->price * $count;
+        }
+
+        foreach ($reservation->flight->offers as $offer) {
+            if ($offer->start_date <= $reservation->time->day->departure_date && $offer->end_date >= $reservation->time->day->departure_date) {
+                $price = $price - $price * $offer->discount / 100;
+                break;
+            }
         }
         \Stripe\Stripe::setApiKey(config('stripe.sk'));
         $session = \Stripe\Checkout\Session::create([
@@ -56,8 +61,13 @@ class StripeController extends Controller
 
     public function success(Reservation $reservation)
     {
+        $user = Auth::guard('user')->user();
         $reservation->update([
             'status' => 'Confirmed'
+        ]);
+        Log::create([
+            'message' => 'Passenger ' . $user->passenger->travelRequirement->first_name . ' ' . $user->passenger->travelRequirement->last_name . ' confirmed his reservation',
+            'type' => 'insert',
         ]);
         return success($reservation, 'Payment Completed Successfully');
     }
@@ -65,6 +75,7 @@ class StripeController extends Controller
     //Cancel Reservation Function
     public function cancelReservation(Reservation $reservation)
     {
+        $user = Auth::guard('user')->user();
         if ($reservation->status === 'Cancelled') {
             return error('some thing went wrong', 'this reservation already cancelled', 422);
         } else if ($reservation->status === 'Pending') {
@@ -73,6 +84,10 @@ class StripeController extends Controller
             }
             $reservation->update([
                 'status' => 'Cancelled'
+            ]);
+            Log::create([
+                'message' => 'Passenger ' . $user->passenger->travelRequirement->first_name . ' ' . $user->passenger->travelRequirement->last_name . ' cancelled his reservation',
+                'type' => 'insert',
             ]);
             return success(null, 'this reservation cancelled successfully');
         }
@@ -84,6 +99,12 @@ class StripeController extends Controller
         $cost += $reservation->flight->price * $companions_count;
         if ($reservation->round_trip) {
             $cost += $reservation->roundFlight->price * $companions_count;
+        }
+        foreach ($reservation->flight->offers as $offer) {
+            if ($offer->start_date <= $reservation->time->day->departure_date && $offer->end_date >= $reservation->time->day->departure_date) {
+                $cost = $cost - $cost * $offer->discount / 100;
+                break;
+            }
         }
         $cost = $cost - $cost * 5 / 100;
         Stripe::setApiKey(config('stripe.sk'));
@@ -106,6 +127,10 @@ class StripeController extends Controller
             foreach ($reservation->flightSeats as $flightSeat) {
                 $flightSeat->delete();
             }
+            Log::create([
+                'message' => 'Passenger ' . $user->passenger->travelRequirement->first_name . ' ' . $user->passenger->travelRequirement->last_name . ' cancelled his reservation and return to him ' . $cost . '$',
+                'type' => 'insert',
+            ]);
             return success(null, 'this reservation cancelled successfully and return to you ' . $cost . '$');
         } else {
             return error('some thing went wrong', 'cancel faild', 422);

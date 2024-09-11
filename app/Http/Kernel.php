@@ -78,5 +78,6 @@ class Kernel extends HttpKernel
         'manage-offer' => \App\Http\Middleware\ManageOfferAuthentication::class,
         'read-offer' => \App\Http\Middleware\ReadOfferAuthentication::class,
         'answer-question' => \App\Http\Middleware\AnswerQuestionAuthentication::class,
+        'admin-auth' => \App\Http\Middleware\AdminAuthentication::class,
     ];
 }

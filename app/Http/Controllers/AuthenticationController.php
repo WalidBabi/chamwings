@@ -9,6 +9,7 @@ use App\Http\Requests\ResetPasswordRequest;
 use App\Http\Requests\UpdateProfileRequest;
 use App\Http\Requests\VerificationCodeRequest;
 use App\Mail\Verification;
+use App\Models\Log;
 use App\Models\Passenger;
 use App\Models\TravelRequirement;
 use App\Models\User;
@@ -60,7 +61,7 @@ class AuthenticationController extends Controller
         if ($verify && $verify->created_at > Carbon::now() && $verify->code == $verificationCodeRequest->code) {
             $user = User::create([
                 'email' => $verify->email,
-                'password' =>$verify->password,
+                'password' => $verify->password,
                 'phone' => $verify->phone,
             ]);
             $travel_requirement = TravelRequirement::create([
@@ -74,6 +75,11 @@ class AuthenticationController extends Controller
             Passenger::create([
                 'user_id' => $user->user_id,
                 'travel_requirement_id' => $travel_requirement->travel_requirement_id,
+            ]);
+
+            Log::create([
+                'message' => 'Passenger ' . $travel_requirement->first_name . ' ' . $travel_requirement->last_name . ' create an account',
+                'type' => 'insert',
             ]);
             $verify->delete();
 
@@ -149,6 +155,11 @@ class AuthenticationController extends Controller
 
         $user->passenger->travelRequirement->passports;
 
+        Log::create([
+            'message' => 'Passenger ' . $user->passenger->travelRequirement->first_name . ' ' . $user->passenger->travelRequirement->last_name . ' update his profile',
+            'type' => 'update',
+        ]);
+
         return success($user, 'your profile updated successfully');
     }
 
@@ -199,6 +210,10 @@ class AuthenticationController extends Controller
                 'password' => Hash::make($resetPasswordRequest->new_password),
             ]);
             $verify->delete();
+            Log::create([
+                'message' => 'Passenger ' . $user->passenger->travelRequirement->first_name . ' ' . $user->passenger->travelRequirement->last_name . ' change his password',
+                'type' => 'update',
+            ]);
             return success(null, 'your password reset successfully');
         }
     }

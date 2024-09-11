@@ -13,15 +13,11 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('offer_details', function (Blueprint $table) {
-            $table->id('offer_detail_id');
-            $table->unsignedBigInteger('offer_id');
-            $table->json('days');
-            $table->integer('price');
-
-            $table->foreign('offer_id')->references('offer_id')->on('offers')->onDelete('cascade');
+        Schema::create('logs', function (Blueprint $table) {
+            $table->id('log_id');
+            $table->text('message');
+            $table->enum('type', ['insert', 'update', 'delete']);
             $table->timestamps();
-            $table->softDeletes();
         });
     }
 
@@ -32,6 +28,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('offers_details');
+        Schema::dropIfExists('logs');
     }
 };

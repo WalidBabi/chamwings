@@ -22,7 +22,6 @@ class Reservation extends Model
         'status',
         'is_traveling',
         'have_companions',
-        'reservation_date',
         'infants'
     ];
 

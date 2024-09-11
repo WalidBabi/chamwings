@@ -4,7 +4,7 @@ namespace App\Http\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
 
-class OfferRequest extends FormRequest
+class VisaRequest extends FormRequest
 {
     /**
      * Determine if the user is authorized to make this request.
@@ -24,13 +24,9 @@ class OfferRequest extends FormRequest
     public function rules()
     {
         return [
-            'description' => 'required',
-            'start_date' => 'required|date',
-            'end_date' => 'required',
-            'image' => 'file',
-            'title' => 'required',
-            'discount' => 'required|integer',
-            'flight_id' => 'required|exists:flights,flight_id'
+            'visa_and_residence' => 'required',
+            'origin' => 'required',
+            'destination' => 'required',
         ];
     }
 }

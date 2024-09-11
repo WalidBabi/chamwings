@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Http\Requests\AddPassportRequest;
 use App\Http\Requests\UpdatePassportRequest;
+use App\Models\Log;
 use App\Models\Passport;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
@@ -28,12 +29,18 @@ class PassportController extends Controller
             'passport_image' => 'storage/' . $path,
         ]);
 
+        Log::create([
+            'message' => 'Passenger ' . $user->passenger->travelRequirement->first_name . ' ' . $user->passenger->travelRequirement->last_name . ' added a passport',
+            'type' => 'insert',
+        ]);
+
         return success(null, 'this passport added successfully', 201);
     }
 
     //Update Passport Function
     public function updatePassport(Passport $passport, UpdatePassportRequest $updatePassportRequest)
     {
+        $user = Auth::guard('user')->user();
         $passport->update([
             'number' => $updatePassportRequest->number,
             'status' => $updatePassportRequest->status,
@@ -51,12 +58,22 @@ class PassportController extends Controller
             ]);
         }
 
+        Log::create([
+            'message' => 'Passenger ' . $user->passenger->travelRequirement->first_name . ' ' . $user->passenger->travelRequirement->last_name . ' updated his passenger',
+            'type' => 'update',
+        ]);
+
         return success(null, 'this passport updated successfully');
     }
 
     //Delete Passport Function
     public function deletePassport(Passport $passport)
     {
+        $user = Auth::guard('user')->user();
+        Log::create([
+            'message' => 'Passenger ' . $user->passenger->travelRequirement->first_name . ' ' . $user->passenger->travelRequirement->last_name . ' deleted a passport',
+            'type' => 'delete',
+        ]);
         $passport->delete();
 
         return success(null, 'this passport deleted successfully');

@@ -7,6 +7,7 @@ use App\Http\Controllers\CityController;
 use App\Http\Controllers\ClassController;
 use App\Http\Controllers\EmployeeController;
 use App\Http\Controllers\FlightController;
+use App\Http\Controllers\LogController;
 use App\Http\Controllers\OfferController;
 use App\Http\Controllers\PassengerController;
 use App\Http\Controllers\PassportController;
@@ -15,6 +16,7 @@ use App\Http\Controllers\ReservationController;
 use App\Http\Controllers\RoleController;
 use App\Http\Controllers\ScheduleController;
 use App\Http\Controllers\StripeController;
+use App\Http\Controllers\VisaController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\ChatController;
@@ -115,6 +117,7 @@ Route::middleware('check-auth')->prefix('/')->group(function () {
         });
         Route::middleware('read-flight')->group(function () {
             Route::get('/', [FlightController::class, 'getFlights']);
+            Route::get('/all', [FlightController::class, 'getAllFlights']);
             Route::get('/{flight}', [FlightController::class, 'getFlightInformation']);
             Route::post('/activate/{flight}', [FlightController::class, 'activateFlight']);
         });
@@ -216,6 +219,11 @@ Route::middleware('check-auth')->prefix('/')->group(function () {
             Route::post('/{reservation}', [ReservationController::class, 'cancelReservationByEmployee']);
         });
     });
+    Route::middleware('read-reservation')->group(function () {
+        Route::get('reservate/all', [ReservationController::class, 'getReservations']);
+    });
+    Route::post('/cancel-reservation/{reservation}', [StripeController::class, 'cancelReservation']);
+
 
     Route::get('/check-expiry-reservation', [ReservationController::class, 'checkExpiry']);
     Route::get('/seats-status/{scheduleTime}', [ReservationController::class, 'SeatsStatus']);
@@ -233,5 +241,22 @@ Route::middleware('check-auth')->prefix('/')->group(function () {
         Route::get('/', [QuestionController::class, 'getQuestions']);
         Route::get('/{fAQ}', [QuestionController::class, 'getQuestionInformation']);
         Route::put('/{fAQ}/answer', [QuestionController::class, 'answerQuestion'])->middleware('answer-question');
+    });
+
+    Route::prefix('visa')->group(function () {
+        Route::middleware('manage-airport')->group(function () {
+            Route::post('/airport/{airport}', [VisaController::class, 'addVisa']);
+            Route::put('/{visa}', [VisaController::class, 'updateVisa']);
+            Route::delete('/{visa}', [VisaController::class, 'deleteVisa']);
+        });
+        Route::middleware('read-airport')->group(function () {
+            Route::get('/airport/{airport}', [VisaController::class, 'getVisa']);
+            Route::get('/{visa}', [VisaController::class, 'getVisaInformation']);
+        });
+    });
+
+    Route::middleware('admin-auth')->prefix('logs')->group(function () {
+        Route::get('/', [LogController::class, 'getLogs']);
+        Route::get('/{log}', [LogController::class, 'getLogInformation']);
     });
 });

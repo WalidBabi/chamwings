@@ -4,15 +4,18 @@ namespace App\Http\Controllers;
 
 use App\Http\Requests\ScheduleRequest;
 use App\Models\Flight;
+use App\Models\Log;
 use App\Models\ScheduleDay;
 use App\Models\ScheduleTime;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class ScheduleController extends Controller
 {
     //Add Schedule Fucntion
     public function addSchedule(Flight $flight, ScheduleRequest $scheduleRequest)
     {
+        $user = Auth::guard('user')->user();
         $scheduleDay = ScheduleDay::create([
             'flight_id' => $flight->flight_id,
             'departure_date' => $scheduleRequest->schedule['departure_date'],
@@ -27,12 +30,17 @@ class ScheduleController extends Controller
                 'duration' => $scheduleRequest->schedule['duration'],
             ]);
         }
+        Log::create([
+            'message' => 'Employee ' . $user->employee->name . ' added  schedule to a flight',
+            'type' => 'insert',
+        ]);
         return success(null, 'this schedule added successfully', 201);
     }
 
     //Edit Day Function
     public function editDay(ScheduleDay $scheduleDay, Request $request)
     {
+        $user = Auth::guard('user')->user();
         $request->validate([
             'departure_date' => 'required|date',
             'arrival_date' => 'required|date',
@@ -42,12 +50,22 @@ class ScheduleController extends Controller
             'arrival_date' => $request->arrival_date,
         ]);
 
+        Log::create([
+            'message' => 'Employee ' . $user->employee->name . ' updated  schedule day of a flight',
+            'type' => 'update',
+        ]);
+
         return success($scheduleDay->with('times')->find($scheduleDay->schedule_day_id), 'this day updated successfully');
     }
 
     //Add Schedule Time To Specific Day Function
     public function addTime(ScheduleDay $scheduleDay, Request $request)
     {
+        $user = Auth::guard('user')->user();
+        Log::create([
+            'message' => 'Employee ' . $user->employee->name . ' added  schedule time to a flight',
+            'type' => 'insert',
+        ]);
         $request->validate([
             'departure_time' => 'required',
             'arrival_time' => 'required',
@@ -66,6 +84,11 @@ class ScheduleController extends Controller
     //Delete Schedule Day Function
     public function deleteScheduleDay(ScheduleDay $scheduleDay)
     {
+        $user = Auth::guard('user')->user();
+        Log::create([
+            'message' => 'Employee ' . $user->employee->name . ' deleted  schedule day of a flight',
+            'type' => 'delete',
+        ]);
         // dd($scheduleDay->times());
         $scheduleDay->times()->forceDelete();
         $scheduleDay->forceDelete();
@@ -76,6 +99,11 @@ class ScheduleController extends Controller
     //Delete Schedule Time Function
     public function deleteScheduleTime(ScheduleTime $scheduleTime)
     {
+        $user = Auth::guard('user')->user();
+        Log::create([
+            'message' => 'Employee ' . $user->employee->name . ' deleted  schedule time of a flight',
+            'type' => 'delete',
+        ]);
         $scheduleTime->forceDelete();
 
         return success(null, 'this schedule time deleted successfully');

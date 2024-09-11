@@ -4,7 +4,9 @@ namespace App\Http\Controllers;
 
 use App\Http\Requests\AirportRequest;
 use App\Models\Airport;
+use App\Models\Log;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Storage;
 
 class AirportController extends Controller
@@ -19,6 +21,7 @@ class AirportController extends Controller
             $imageUrl = '/storage/' . $imagePath;
         }
 
+        $user = Auth::guard('user')->user();
         Airport::create([
             'airport_name' => $airportRequest->airport_name,
             'airport_code' => strtoupper($airportRequest->airport_code),
@@ -27,12 +30,19 @@ class AirportController extends Controller
             'image' => $imageUrl ?? null,
         ]);
 
+        Log::create([
+            'message' => 'Employee ' . $user->employee->name . ' added new airport to system its name ' . $airportRequest->airport_name,
+            'type' => 'insert',
+        ]);
+
         return success(null, 'This airport added successfully', 201);
     }
 
     //Edit Airport Function
     public function editAirport(Airport $airport, AirportRequest $airportRequest)
     {
+        $user = Auth::guard('user')->user();
+
         $oldImage = $airport->image;
 
         if ($airportRequest->hasFile('image')) {
@@ -53,13 +63,21 @@ class AirportController extends Controller
             'airport_code' => $airportRequest->airport_code,
             'image' => $imageUrl ?? $oldImage,
         ]);
-
+        Log::create([
+            'message' => 'Employee ' . $user->employee->name . ' updated airport its name ' . $airportRequest->airport_name,
+            'type' => 'update',
+        ]);
         return success(null, 'this airport updated successfully');
     }
 
     //Delete Airport Function
     public function deleteAirport(Airport $airport)
     {
+        $user = Auth::guard('user')->user();
+        Log::create([
+            'message' => 'Employee ' . $user->employee->name . ' deleted airport from system its name ' . $airport->airport_name,
+            'type' => 'delete',
+        ]);
         
         // if ($airport->image && Storage::disk('public')->exists(str_replace('/storage/', '', $airport->image))) {
         //     Storage::disk('public')->delete(str_replace('/storage/', '', $airport->image));

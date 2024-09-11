@@ -20,12 +20,8 @@ class Offer extends Model
         'end_date',
         'image',
         'title',
+        'discount',
     ];
-
-    public function details()
-    {
-        return $this->hasMany(OfferDetail::class, 'offer_id', 'offer_id');
-    }
 
     public function flight()
     {

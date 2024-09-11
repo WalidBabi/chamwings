@@ -4,15 +4,17 @@ namespace App\Http\Controllers;
 
 use App\Http\Requests\CreateFlightRequest;
 use App\Models\Flight;
+use App\Models\Log;
 use App\Models\Reservation;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class FlightController extends Controller
 {
     //Create Flight Function
     public function createFlight(CreateFlightRequest $createFlightRequest)
     {
-        // dd($createFlightRequest);
+        $user = Auth::guard('user')->user();
         Flight::create([
             'airplane_id' => $createFlightRequest->airplane_id,
             'departure_airport' => $createFlightRequest->departure_airport,
@@ -25,12 +27,18 @@ class FlightController extends Controller
             'miles' => $createFlightRequest->miles,
         ]);
 
+        Log::create([
+            'message' => 'Employee ' . $user->employee->name . ' create new flight from ' . $flight->departureAirport->airport_name . ' to ' . $flight->arrivalAirport->airport_name,
+            'type' => 'insert',
+        ]);
+
         return success(null, 'this flight created successfully', 201);
     }
 
     //Update Flight Function
     public function updateFlight(Flight $flight, CreateFlightRequest $createFlightRequest)
     {
+        $user = Auth::guard('user')->user();
         $flight->update([
             'airplane_id' => $createFlightRequest->airplane_id,
             'departure_airport' => $createFlightRequest->departure_airport,
@@ -43,14 +51,23 @@ class FlightController extends Controller
             'miles' => $createFlightRequest->miles,
         ]);
 
+        Log::create([
+            'message' => 'Employee ' . $user->employee->name . ' updated flight witch from ' . $flight->departureAirport->airport_name . ' to ' . $flight->arrivalAirport->airport_name,
+            'type' => 'update',
+        ]);
+
         return success(null, 'this flight updated successfully');
     }
 
     //Delete Flight Function
     public function deleteFlight(Flight $flight)
     {
+        $user = Auth::guard('user')->user();
+        Log::create([
+            'message' => 'Employee ' . $user->employee->name . ' deleted flight from ' . $flight->departureAirport->airport_name . ' to ' . $flight->arrivalAirport->airport_name,
+            'type' => 'delete',
+        ]);
         $flight->delete();
-
         return success(null, 'this flight deleted successfully');
     }
 
@@ -88,6 +105,13 @@ class FlightController extends Controller
 
         return success($data, null);
     }
+
+    //Get All Flights Function
+    public function getAllFlights(){
+        $flights= Flight::with(['departureAirport', 'arrivalAirport', 'airplane'])->get();
+        return success($flights, null);
+    }
+
     //Get Flight Information Function
     public function getFlightInformation(Flight $flight)
     {
