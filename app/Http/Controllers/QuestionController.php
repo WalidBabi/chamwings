@@ -70,7 +70,9 @@ class QuestionController extends Controller
     //Get Questions Function
     public function getQuestions()
     {
-        $questions = FAQ::with('passenger.travelRequirement', 'employee')->paginate();
+        $questions = FAQ::with('passenger.travelRequirement', 'employee')
+            ->orderByDesc('faq_id')
+            ->paginate();
         $data = [
             'data' => $questions->items(),
             'total' => $questions->total(),
