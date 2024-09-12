@@ -12,6 +12,7 @@ use App\Http\Controllers\OfferController;
 use App\Http\Controllers\OfferDetailController;
 use App\Http\Controllers\PassengerController;
 use App\Http\Controllers\PassportController;
+use App\Http\Controllers\PolicyController;
 use App\Http\Controllers\QuestionController;
 use App\Http\Controllers\ReservationController;
 use App\Http\Controllers\RoleController;
@@ -217,5 +218,11 @@ Route::middleware('check-auth')->prefix('/')->group(function () {
     Route::middleware('admin-auth')->prefix('logs')->group(function () {
         Route::get('/', [LogController::class, 'getLogs']);
         Route::get('/{log}', [LogController::class, 'getLogInformation']);
+    });
+
+    Route::prefix('policies')->group(function () {
+        Route::put('/{policy}', [PolicyController::class, 'editPolicy'])->middleware('admin-auth');
+        Route::get('/', [PolicyController::class, 'getPolicies']);
+        Route::get('/{policy}', [PolicyController::class, 'getPolicyInformation']);
     });
 });
