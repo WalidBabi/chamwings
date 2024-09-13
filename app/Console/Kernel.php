@@ -2,8 +2,10 @@
 
 namespace App\Console;
 
+use App\Http\Controllers\ReservationController;
 use Illuminate\Console\Scheduling\Schedule;
 use Illuminate\Foundation\Console\Kernel as ConsoleKernel;
+use Illuminate\Support\Facades\Cache;
 
 class Kernel extends ConsoleKernel
 {
@@ -15,7 +17,13 @@ class Kernel extends ConsoleKernel
      */
     protected function schedule(Schedule $schedule)
     {
-        $schedule->command('delete:code')->everyFifteenMinutes();
+        $schedule->call(function () {
+            Cache::remember('check', 10, function () {
+                return ReservationController::checkExpiry();
+            });
+        })->everyMinute();
+
+        // $schedule->command('delete:code')->everyFifteenMinutes();
     }
 
     /**
