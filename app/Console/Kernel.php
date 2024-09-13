@@ -2,6 +2,7 @@
 
 namespace App\Console;
 
+use App\Http\Controllers\FlightController;
 use App\Http\Controllers\ReservationController;
 use Illuminate\Console\Scheduling\Schedule;
 use Illuminate\Foundation\Console\Kernel as ConsoleKernel;
@@ -17,13 +18,8 @@ class Kernel extends ConsoleKernel
      */
     protected function schedule(Schedule $schedule)
     {
-        $schedule->call(function () {
-            Cache::remember('check', 10, function () {
-                return ReservationController::checkExpiry();
-            });
-        })->everyMinute();
-
-        // $schedule->command('delete:code')->everyFifteenMinutes();
+        $schedule->command('check:expiry')->everyMinute();
+        $schedule->command('add:days')->cron('0 0 */14 * *');
     }
 
     /**

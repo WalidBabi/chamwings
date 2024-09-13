@@ -21,6 +21,11 @@ class StripeController extends Controller
 
     public function checkout(Reservation $reservation)
     {
+        if ($reservation->status === 'Cancelled') {
+            return error('some thing went wrong', 'this reservation cancelled before', 422);
+        } else if ($reservation->status === 'Ended') {
+            return error('some thing went wrong', 'this reservation ended', 422);
+        }
         $count = 0;
         $price = 0;
         $discount = 0;
