@@ -133,10 +133,18 @@ class StripeController extends Controller
                 break;
             }
         }
-        $cost = $cost - $cost * Policy::where('policy_name', 'cancelation amount')->fist()->value / 100;
+
         $reservation_date = $reservation->created_at;
         $departure_date = $reservation->time->day->departure_date;
         $days = $reservation_date->diffInDays($departure_date);
+        $days_before_cancel = Carbon::parse($departure_date)->diffInDays(Carbon::now());
+        if ($days_before_cancel == 1) {
+            $cost = $cost - $cost * Policy::where('policy_name', 'cancelation before a day')->fist()->value / 100;
+        } else if ($days_before_cancel > 1 && $days_before_cancel <= 7) {
+            $cost = $cost - $cost * Policy::where('policy_name', 'cancelation before a week')->fist()->value / 100;
+        } else if ($days_before_cancel > 7) {
+            $cost = $cost - $cost * Policy::where('policy_name', 'cancelation before more than a week')->fist()->value / 100;
+        }
         if ($days >= 14 && $days < 30)
             while ($days >= 14) {
                 $discount = Policy::where('after two weeks')->first()->value;

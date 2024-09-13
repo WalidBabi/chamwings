@@ -64,8 +64,16 @@ class DatabaseSeeder extends Seeder
             'value' => 0,
         ]);
         Policy::create([
-            'policy_name' => 'cancelation amount',
-            'value' => 0,
+            'policy_name' => 'cancelation before a day',
+            'value' => 75,
+        ]);
+        Policy::create([
+            'policy_name' => 'cancelation before a week',
+            'value' => 25,
+        ]);
+        Policy::create([
+            'policy_name' => 'cancelation before more than a week',
+            'value' => 5,
         ]);
 
         Airport::factory(5)->create();
