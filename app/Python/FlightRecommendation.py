@@ -186,7 +186,9 @@ def get_recommended_flights(user_id):
 
         # Get additional flight information from the database
         flight_info_query = """
-        SELECT a1.airport_name AS departure_airport, a1.airport_id AS departure_airport_id, a2.airport_name AS arrival_airport, a2.airport_id AS arrival_airport_id, f.flight_number, f.departure_terminal, f.arrival_terminal
+        SELECT a1.airport_name AS departure_airport, a1.airport_id AS departure_airport_id, a1.airport_code AS departure_airport_code,
+                a2.airport_name AS arrival_airport, a2.airport_id AS arrival_airport_id, a2.airport_code AS arrival_airport_code,
+                f.flight_number, f.departure_terminal, f.arrival_terminal
         FROM flights f
         JOIN airports a1 ON f.departure_airport = a1.airport_id
         JOIN airports a2 ON f.arrival_airport = a2.airport_id
@@ -198,11 +200,13 @@ def get_recommended_flights(user_id):
             flight_data.update({
                 "departure_airport": str(flight_info[0]),
                 "departure_airport_id": str(flight_info[1]),
-                "arrival_airport": str(flight_info[2]),
-                "arrival_airport_id": str(flight_info[3]),
-                "flight_number": str(flight_info[4]),
-                "departure_terminal": str(flight_info[5]),
-                "arrival_terminal": str(flight_info[6])
+                "departure_airport_code": str(flight_info[2]),
+                "arrival_airport": str(flight_info[3]),
+                "arrival_airport_id": str(flight_info[4]),
+                "arrival_airport_code": str(flight_info[5]),
+                "flight_number": str(flight_info[6]),
+                "departure_terminal": str(flight_info[7]),
+                "arrival_terminal": str(flight_info[8])
             })
 
         # Get schedule information

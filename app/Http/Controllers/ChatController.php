@@ -2,9 +2,11 @@
 
 namespace App\Http\Controllers;
 
+use App\Helper\BannedWordsHelper;
 use Illuminate\Support\Str;
 
 use App\Models\ChatHistory;
+use App\Models\Employee;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Http;
@@ -14,94 +16,115 @@ class ChatController extends Controller
 {
     public function sendMessage(Request $request)
     {
-        $userId = (string) Auth::guard('user')->id();
-        $inputText = $request->input('input_text');
-        $threadId = $request->input('thread_id');
+        // dd(Employee::where('employee_id', Auth::guard('user')->id())->exists());
+        if (!Employee::where('employee_id', Auth::guard('user')->id())->exists()) {
+            $userId = (string) Auth::guard('user')->id();
 
-        // If no thread_id is provided, generate a new one
-        $isNewThread = false;
-        if (!$threadId) {
-            $threadId = $this->generateNewThreadId($userId);
-            $isNewThread = true;
-        }
-        $threadId = (string) $threadId;
+            $inputText = str_replace(BannedWordsHelper::getBannedWords(), '***', $request->input('input_text'));
+            $threadId = $request->input('thread_id');
 
-        ini_set('max_execution_time', 1000);
-        $response = Http::timeout(1000)->post('http://localhost:8001/chat', [
-            'input_text' => $inputText,
-            'user_id' => $userId,
-            'thread_id' => $threadId
-        ]);
+            // If no thread_id is provided, generate a new one
+            $isNewThread = false;
+            if (!$threadId) {
+                $threadId = $this->generateNewThreadId($userId);
+                $isNewThread = true;
+            }
+            $threadId = (string) $threadId;
 
-        $responseData = $response->json();
+            ini_set('max_execution_time', 1000);
+            $response = Http::timeout(1000)->post('http://localhost:8001/chat', [
+                'input_text' => $inputText,
+                'user_id' => $userId,
+                'thread_id' => $threadId
+            ]);
 
-        // Generate the summary title for the new thread
-        $summaryTitle = null;
-        if ($isNewThread) {
-            $summaryTitle = $this->generateSummaryTitle($inputText, $responseData['answer'] ?? '');
-            \Log::info('Generated Summary Title: ', ['title' => $summaryTitle]); // Log the generated title
-        }
+            $responseData = $response->json();
 
-        // Retrieve the existing chat history for this thread
-        $existingHistory = ChatHistory::where('user_id', $userId)
-            ->where('thread_id', $threadId)
-            ->first();
-
-        // Prepare new chat history entry
-        $newChatHistory = [
-            'input_text' => $inputText,
-            'response_text' => $responseData['answer'] ?? null,
-            'created_at' => now(),
-            'updated_at' => now()
-        ];
-
-        if ($existingHistory) {
-            // Append the new chat history
-            $currentHistory = is_array($existingHistory->chat_history)
-                ? $existingHistory->chat_history
-                : json_decode($existingHistory->chat_history, true);
-
-            $existingHistory->chat_history = array_merge(
-                $currentHistory ?? [],
-                [$newChatHistory]
-            );
-
-            // Update title for both new and existing threads
-            if ($summaryTitle) {
-                $existingHistory->title = $summaryTitle;
+            // Generate the summary title for the new thread
+            $summaryTitle = null;
+            if ($isNewThread) {
+                $summaryTitle = $this->generateSummaryTitle($inputText, $responseData['answer'] ?? '');
+                \Log::info('Generated Summary Title: ', ['title' => $summaryTitle]); // Log the generated title
             }
 
-            // Save the updated chat history
-            $existingHistory->save();
-        } else {
-            // Create a new chat history entry
-            ChatHistory::create([
-                'user_id' => $userId,
-                'thread_id' => $threadId,
+            // Retrieve the existing chat history for this thread
+            $existingHistory = ChatHistory::where('user_id', $userId)
+                ->where('thread_id', $threadId)
+                ->first();
+
+            // Prepare new chat history entry
+            $newChatHistory = [
                 'input_text' => $inputText,
                 'response_text' => $responseData['answer'] ?? null,
-                'chat_history' => json_encode([$newChatHistory]),
-                'title' => $summaryTitle // Save the title for the new thread
+                'created_at' => now(),
+                'updated_at' => now()
+            ];
+
+            if ($existingHistory) {
+                // Append the new chat history
+                $currentHistory = is_array($existingHistory->chat_history)
+                    ? $existingHistory->chat_history
+                    : json_decode($existingHistory->chat_history, true);
+
+                $existingHistory->chat_history = array_merge(
+                    $currentHistory ?? [],
+                    [$newChatHistory]
+                );
+
+                // Update title for both new and existing threads
+                if ($summaryTitle) {
+                    $existingHistory->title = $summaryTitle;
+                }
+
+                // Save the updated chat history
+                $existingHistory->save();
+            } else {
+                // Create a new chat history entry
+                ChatHistory::create([
+                    'user_id' => $userId,
+                    'thread_id' => $threadId,
+                    'input_text' => $inputText,
+                    'response_text' => $responseData['answer'] ?? null,
+                    'chat_history' => json_encode([$newChatHistory]),
+                    'title' => $summaryTitle // Save the title for the new thread
+                ]);
+            }
+
+            // Prepare the response
+            $responsePayload = [
+                'thread_id' => $threadId,
+                'answer' => $responseData['answer'] ?? null
+            ];
+
+            // Add summary information for new threads
+            if ($isNewThread) {
+                $responsePayload['title'] = $summaryTitle;
+            }
+
+            return response()->json($responsePayload);
+        } else {
+            $userId = (string) Auth::guard('user')->id();
+            $inputText = $request->input('input_text');
+
+            ini_set('max_execution_time', 1000);
+            $response = Http::timeout(1000)->post('http://localhost:8001/userchat', [
+                'input_text' => $inputText,
+                'user_id' => $userId,
             ]);
+
+            $responseData = $response->json();
+            ChatHistory::create([
+                'user_id' => $userId,
+                'input_text' => $inputText,
+                'response_text' => $responseData['answer'] ?? null
+            ]);
+            // Prepare the response
+            $responsePayload = [
+                'answer' => $responseData['answer'] ?? null
+            ];
+            return response()->json($responsePayload);
         }
-
-        // Prepare the response
-        $responsePayload = [
-            'thread_id' => $threadId,
-            'answer' => $responseData['answer'] ?? null
-        ];
-
-        // Add summary information for new threads
-        if ($isNewThread) {
-            $responsePayload['title'] = $summaryTitle;
-        }
-
-        return response()->json($responsePayload);
     }
-
-
-
-
 
     private function generateSummaryTitle($inputText, $responseText)
     {
@@ -128,8 +151,6 @@ class ChatController extends Controller
         return $summaryTitle;
     }
 
-
-
     private function generateNewThreadId($userId)
     {
         // Get the highest existing thread_id for the user and cast it to an integer
@@ -143,9 +164,6 @@ class ChatController extends Controller
 
         return (string) $newThreadId;
     }
-
-
-
 
     public function getChatHistory(Request $request, $threadId)
     {
@@ -170,7 +188,6 @@ class ChatController extends Controller
 
         return response()->json($chatHistoryData);
     }
-
 
     public function listThreads(Request $request)
     {
