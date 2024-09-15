@@ -114,6 +114,20 @@ class OfferController extends Controller
     //Get Offers Function
     public function getOffers(Request $request)
     {
+        $query = Offer::withTrashed()->with('flight')->orderBy('offer_id', 'desc');
+
+        if ($request->has('title')) {
+            $query->where('title', 'like', '%' . $request->input('title') . '%');
+        }
+
+        $offers = $query->paginate(15);
+
+        return success($offers, null);
+    }
+
+
+    public function getuserOffers(Request $request)
+    {
         $query = Offer::with('flight')->orderBy('offer_id', 'desc');
 
         if ($request->has('title')) {
@@ -134,5 +148,17 @@ class OfferController extends Controller
     public function getOfferInformation(Offer $offer)
     {
         return success($offer->with('flight')->find($offer->offer_id), null);
+    }
+
+    public function activateOffer($offer)
+    {
+        $offer = Offer::withTrashed()->find($offer);
+        if (!$offer) {
+            return error(null, null, 404);
+        }
+        $offer->deleted_at = null;
+        $offer->update();
+
+        return success(null, 'This offer activated successfully');
     }
 }
