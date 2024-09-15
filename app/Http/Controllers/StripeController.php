@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Log;
+use App\Models\Policy;
 use App\Models\Reservation;
 use Carbon\Carbon;
 use Illuminate\Http\Request;
@@ -20,8 +21,14 @@ class StripeController extends Controller
 
     public function checkout(Reservation $reservation)
     {
+        if ($reservation->status === 'Cancelled') {
+            return error('some thing went wrong', 'this reservation cancelled before', 422);
+        } else if ($reservation->status === 'Ended') {
+            return error('some thing went wrong', 'this reservation ended', 422);
+        }
         $count = 0;
         $price = 0;
+        $discount = 0;
 
         $count = count($reservation->flightSeats);
 
@@ -37,6 +44,22 @@ class StripeController extends Controller
                 break;
             }
         }
+        $reservation_date = $reservation->created_at;
+        $departure_date = $reservation->time->day->departure_date;
+
+        $days = $reservation_date->diffInDays($departure_date);
+        if ($days >= 14 && $days < 30)
+            while ($days >= 14) {
+                $discount = Policy::where('after two weeks')->first()->value;
+                $days -= 14;
+            }
+        if ($days >= 30) {
+            while ($days >= 30) {
+                $discount += Policy::where('after month')->first()->value;
+                $days -= 30;
+            }
+        }
+        $price = $price - $price * $discount / 100;
         \Stripe\Stripe::setApiKey(config('stripe.sk'));
         $session = \Stripe\Checkout\Session::create([
             'line_items' => [
@@ -75,6 +98,7 @@ class StripeController extends Controller
     //Cancel Reservation Function
     public function cancelReservation(Reservation $reservation)
     {
+        $discount = 0;
         $user = Auth::guard('user')->user();
         if ($reservation->status === 'Cancelled') {
             return error('some thing went wrong', 'this reservation already cancelled', 422);
@@ -91,6 +115,9 @@ class StripeController extends Controller
             ]);
             return success(null, 'this reservation cancelled successfully');
         }
+        if (Carbon::now() > $reservation->time->day->departure_date) {
+            return error('some thing went wrong', 'you cannot cancel this reservation now');
+        }
         $cost = 0;
         $companions_count = count(explode(',', $reservation->have_companions));
         if ($reservation->is_traveling) {
@@ -106,7 +133,30 @@ class StripeController extends Controller
                 break;
             }
         }
-        $cost = $cost - $cost * 5 / 100;
+
+        $reservation_date = $reservation->created_at;
+        $departure_date = $reservation->time->day->departure_date;
+        $days = $reservation_date->diffInDays($departure_date);
+        $days_before_cancel = Carbon::parse($departure_date)->diffInDays(Carbon::now());
+        if ($days_before_cancel == 1) {
+            $cost = $cost - $cost * Policy::where('policy_name', 'cancelation before a day')->fist()->value / 100;
+        } else if ($days_before_cancel > 1 && $days_before_cancel <= 7) {
+            $cost = $cost - $cost * Policy::where('policy_name', 'cancelation before a week')->fist()->value / 100;
+        } else if ($days_before_cancel > 7) {
+            $cost = $cost - $cost * Policy::where('policy_name', 'cancelation before more than a week')->fist()->value / 100;
+        }
+        if ($days >= 14 && $days < 30)
+            while ($days >= 14) {
+                $discount = Policy::where('after two weeks')->first()->value;
+                $days -= 14;
+            }
+        if ($days >= 30) {
+            while ($days >= 30) {
+                $discount += Policy::where('after month')->first()->value;
+                $days -= 30;
+            }
+        }
+        $cost = $cost - $cost * $discount / 100;
         Stripe::setApiKey(config('stripe.sk'));
         $charge = Charge::create([
             'amount' => $cost,

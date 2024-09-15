@@ -10,6 +10,7 @@ use App\Models\City;
 use App\Models\ClassM;
 use App\Models\Employee;
 use App\Models\Flight;
+use App\Models\Policy;
 use App\Models\Role;
 use App\Models\User;
 use App\Models\UserRole;
@@ -54,8 +55,28 @@ class DatabaseSeeder extends Seeder
             break;
         }
 
+        Policy::create([
+            'policy_name' => 'after two weeks',
+            'value' => 0,
+        ]);
+        Policy::create([
+            'policy_name' => 'after month',
+            'value' => 0,
+        ]);
+        Policy::create([
+            'policy_name' => 'cancelation before a day',
+            'value' => 75,
+        ]);
+        Policy::create([
+            'policy_name' => 'cancelation before a week',
+            'value' => 25,
+        ]);
+        Policy::create([
+            'policy_name' => 'cancelation before more than a week',
+            'value' => 5,
+        ]);
+
         Airport::factory(5)->create();
         Airplane::factory(10)->create();
-        ClassM::factory(5)->create();
     }
 }

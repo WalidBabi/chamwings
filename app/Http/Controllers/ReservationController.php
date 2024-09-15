@@ -293,7 +293,6 @@ class ReservationController extends Controller
         if ($time->day->departure_date <= Carbon::now()) {
             return error('some thing went wrong', 'you cannot reserve in this day', 422);
         }
-
         if ($createReservationRequest->round_trip) {
             $createReservationRequest->validated([
                 'round_flight_id' => 'required|exists:flights,flight_id|integer',
@@ -577,7 +576,7 @@ class ReservationController extends Controller
             $date = $reservation->created_at;
             $expiry_date = $date->addDays(3);
 
-            if (Carbon::now() > $expiry_date && $reservation->status != 'Confirmed') {
+            if (Carbon::now() > $expiry_date && $reservation->status != 'Confirmed' && Carbon::now() < $reservation->time->day->departure_date) {
                 foreach ($reservation->flightSeats as $seat) {
                     $seat->delete();
                 }

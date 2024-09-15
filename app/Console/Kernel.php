@@ -2,8 +2,11 @@
 
 namespace App\Console;
 
+use App\Http\Controllers\FlightController;
+use App\Http\Controllers\ReservationController;
 use Illuminate\Console\Scheduling\Schedule;
 use Illuminate\Foundation\Console\Kernel as ConsoleKernel;
+use Illuminate\Support\Facades\Cache;
 
 class Kernel extends ConsoleKernel
 {
@@ -12,15 +15,12 @@ class Kernel extends ConsoleKernel
      *
      * @param  \Illuminate\Console\Scheduling\Schedule  $schedule
      * @return void
-     * @var array
      */
-
-    protected $commands = [
-        \App\Console\Commands\RunSegmentation::class,
-    ];
-    
     protected function schedule(Schedule $schedule)
     {
+        $schedule->command('check:expiry')->everyMinute();
+        $schedule->command('add:days')->cron('0 0 */14 * *');
+
         $schedule->command('delete:code')->everyFifteenMinutes();
         $schedule->command('segmentation:run')
         ->daily()

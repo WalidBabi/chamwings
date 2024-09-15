@@ -15,13 +15,8 @@ return new class extends Migration
     {
         Schema::create('policies', function (Blueprint $table) {
             $table->id('policy_id');
-            $table->unsignedBigInteger('employee_id');
             $table->string('policy_name');
-            $table->boolean('exchangable');
-            $table->date('cancellation_period');
-            $table->boolean('refundable');
-
-            $table->foreign('employee_id')->references('employee_id')->on('employees')->onDelete('cascade');
+            $table->string('value');
             $table->timestamps();
             $table->softDeletes();
         });

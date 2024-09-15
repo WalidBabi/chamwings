@@ -6,6 +6,9 @@ use App\Http\Requests\CreateFlightRequest;
 use App\Models\Flight;
 use App\Models\Log;
 use App\Models\Reservation;
+use App\Models\ScheduleDay;
+use App\Models\ScheduleTime;
+use Carbon\Carbon;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
@@ -107,8 +110,9 @@ class FlightController extends Controller
     }
 
     //Get All Flights Function
-    public function getAllFlights(){
-        $flights= Flight::with(['departureAirport', 'arrivalAirport', 'airplane'])->get();
+    public function getAllFlights()
+    {
+        $flights = Flight::with(['departureAirport', 'arrivalAirport', 'airplane'])->get();
         return success($flights, null);
     }
 
@@ -130,4 +134,34 @@ class FlightController extends Controller
         return success(null, 'this flight activated successfully');
     }
 
+
+    //Add 7 Days To Departure And Arrival Date Function
+    public static function addDays()
+    {
+        $flights = Flight::whereBetween('flight_id', [1, 10])->get();
+
+        foreach ($flights as $flight) {
+            foreach ($flight->days as $day) {
+                $departure_date = Carbon::parse($day->departure_date)->addDays(7)->format('Y-m-d');
+                $arrival_date = Carbon::parse($day->arrival_date)->addDays(7)->format('Y-m-d');
+                $check = $flight->days()->where('departure_date', $departure_date)->first();
+                if (!$check) {
+                    $schedule_day = ScheduleDay::create([
+                        'flight_id' => $flight->flight_id,
+                        'departure_date' => $departure_date,
+                        'arrival_date' => $arrival_date,
+                    ]);
+                    foreach ($day->times as $time) {
+                        $duration = Carbon::parse($time->duration)->addDays(7)->format('Y-m-d');
+                        ScheduleTime::create([
+                            'schedule_day_id' => $schedule_day->schedule_day_id,
+                            'departure_time' => $time->departure_time,
+                            'arrival_time' => $time->arrival_time,
+                            'duration' => $duration,
+                        ]);
+                    }
+                }
+            }
+        }
+    }
 }

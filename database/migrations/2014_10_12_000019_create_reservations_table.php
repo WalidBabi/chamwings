@@ -21,7 +21,7 @@ return new class extends Migration
             $table->unsignedBigInteger('schedule_time_id');
             $table->unsignedBigInteger('round_schedule_time_id')->nullable();
             $table->boolean('round_trip')->default(0);
-            $table->enum('status', ['Confirmed', 'Pending', 'Cancelled']);
+            $table->enum('status', ['Confirmed', 'Pending', 'Cancelled', 'Ended']);
             $table->boolean('is_traveling')->default(0);
             $table->string('have_companions')->nullable();
             $table->string('infants')->nullable();
