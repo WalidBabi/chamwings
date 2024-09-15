@@ -29,8 +29,8 @@ class EmployeesPDFController extends Controller
 
         // Use environment variables for paths
         $pythonPath = escapeshellarg(env('PYTHON_PATH', 'python'));
-        $scriptPath = escapeshellarg(env('PDF_INGEST_SCRIPT_PATH', 'Employee_ingest_pdf_script.py'));
-
+        $scriptPath = escapeshellarg(env('PDF_INGEST_SCRIPT_PATH', 'C:/Users/waled/Desktop/chamwings/EmployeeChatBot/Employee_ingest_pdf_script.py'));
+        // dd($scriptPath);
         // Construct the command
         $command = "$pythonPath $scriptPath " . escapeshellarg($storagePath);
 
@@ -100,7 +100,7 @@ class EmployeesPDFController extends Controller
         $pdfName = pathinfo($pdfPath, PATHINFO_FILENAME);
 
         // Get the persist directory base path from the .env file
-        $persistDirectoryBase = env('PERSIST_DIRECTORY');
+        $persistDirectoryBase = "C:/Users/waled/Desktop/chamwings/EmployeeChatBot/vectorstore/";
 
         // Construct the full path to the persist directory
         $persistDirectory = rtrim($persistDirectoryBase, '/') . '/' . $pdfName;
@@ -127,6 +127,18 @@ class EmployeesPDFController extends Controller
             }
 
             rmdir($directory);
+        }
+    }
+
+    public function downloadPDF($id)
+    {
+        $pdf = Pdf::find($id);
+        $pdfPath = $pdf->path;
+        // dd($pdf,$pdfPath);
+        if (Storage::exists($pdfPath)) {
+            return Storage::download($pdfPath, $pdf->name);
+        } else {
+            return response()->json(['message' => 'PDF file not found'], 404);
         }
     }
 }

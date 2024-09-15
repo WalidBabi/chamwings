@@ -183,10 +183,12 @@ Route::middleware('check-auth')->prefix('/')->group(function () {
     Route::get('/run-segmentation', [CustomerSegmentationController::class, 'runSegmentation']);
     Route::get('/segmentation-results', [CustomerSegmentationController::class, 'getLatestResults']);
 
-
+ 
     Route::post('/ingest-pdf', [EmployeesPDFController::class, 'employeeIngestPDF']);
     Route::get('/pdfs', [EmployeesPDFController::class, 'getPDFs']);
     Route::delete('/pdfs/{id}', [EmployeesPDFController::class, 'deletePDF']);
+    Route::get('/pdfs/{id}/download', [EmployeesPDFController::class, 'downloadPDF']);
+
 
     Route::post('/send-message', [ChatController::class, 'sendMessage']);
     Route::get('chat-history/{thread_id}', [ChatController::class, 'getChatHistory']);
@@ -260,3 +262,4 @@ Route::middleware('check-auth')->prefix('/')->group(function () {
         Route::get('/{log}', [LogController::class, 'getLogInformation']);
     });
 });
+
