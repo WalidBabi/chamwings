@@ -186,9 +186,11 @@ def get_recommended_flights(user_id):
 
         # Get additional flight information from the database
         flight_info_query = """
-        SELECT departure_airport, arrival_airport, flight_number, departure_terminal, arrival_terminal
-        FROM flights
-        WHERE flight_id = %s
+        SELECT a1.airport_name AS departure_airport, a2.airport_name AS arrival_airport, f.flight_number, f.departure_terminal, f.arrival_terminal
+        FROM flights f
+        JOIN airports a1 ON f.departure_airport = a1.airport_id
+        JOIN airports a2 ON f.arrival_airport = a2.airport_id
+        WHERE f.flight_id = %s
         """
         cursor.execute(flight_info_query, (flight['flight_id'],))
         flight_info = cursor.fetchone()
