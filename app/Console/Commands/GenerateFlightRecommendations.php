@@ -42,7 +42,7 @@ class GenerateFlightRecommendations extends Command
 
         // Add image attribute to each flight
         foreach ($json as &$flight) {
-            $arrivalAirportId = $flight['arrival_airport'];
+            $arrivalAirportId = $flight['arrival_airport_id'];
             $flight['image'] = $airportImages[$arrivalAirportId] ?? null;
         }
 
