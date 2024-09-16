@@ -124,7 +124,7 @@ class OfferController extends Controller
     //Get Offers Function
     public function getOffers(Request $request)
     {
-        $query = Offer::withTrashed()->with('flight')->orderBy('offer_id', 'desc');
+        $query = Offer::with('flight')->orderBy('offer_id', 'desc');
 
         if ($request->has('title')) {
             $query->where('title', 'like', '%' . $request->input('title') . '%');
