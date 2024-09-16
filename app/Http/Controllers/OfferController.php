@@ -106,7 +106,7 @@ class OfferController extends Controller
             'type' => 'delete',
         ]);
 
-        $offer->forceDelete();
+        $offer->Delete();
 
         return success(null, 'this offer has been permanently deleted');
     }
