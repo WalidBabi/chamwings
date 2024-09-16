@@ -61,13 +61,13 @@ class OfferController extends Controller
             return error('some thing went wrong', 'this flight have not any schedule day', 422);
         }
 
-        if ($offerRequest->has('start_date') && $offerRequest->has('end_date')) {
-            foreach ($flight->offers as $off) {
-                if (($off->start_date <= $offerRequest->start_date && $off->end_date >= $offerRequest->start_date) || ($off->end_date >= $offerRequest->end_date && $off->end_date <= $offerRequest->start_date)) {
-                    return error('some thing went wrong', 'there is an offer in this date', 422);
-                }
-            }
-        }
+        // if ($offerRequest->has('start_date') && $offerRequest->has('end_date')) {
+        //     foreach ($flight->offers as $off) {
+        //         if (($off->start_date <= $offerRequest->start_date && $off->end_date >= $offerRequest->start_date) || ($off->end_date >= $offerRequest->end_date && $off->end_date <= $offerRequest->start_date)) {
+        //             return error('some thing went wrong', 'there is an offer in this date', 422);
+        //         }
+        //     }
+        // }
 
         if ($offerRequest->file('image')) {
             if (File::exists($offer->image)) {
@@ -87,13 +87,13 @@ class OfferController extends Controller
             'discount' => $offerRequest->discount,
         ];
 
-        if ($offerRequest->has('start_date')) {
-            $updateData['start_date'] = $offerRequest->start_date;
-        }
+        // if ($offerRequest->has('start_date')) {
+        //     $updateData['start_date'] = $offerRequest->start_date;
+        // }
 
-        if ($offerRequest->has('end_date')) {
-            $updateData['end_date'] = $offerRequest->end_date;
-        }
+        // if ($offerRequest->has('end_date')) {
+        //     $updateData['end_date'] = $offerRequest->end_date;
+        // }
 
         $offer->update($updateData);
 
@@ -160,15 +160,15 @@ class OfferController extends Controller
         return success($offer->with('flight')->find($offer->offer_id), null);
     }
 
-    public function activateOffer($offer)
-    {
-        $offer = Offer::withTrashed()->find($offer);
-        if (!$offer) {
-            return error(null, null, 404);
-        }
-        $offer->deleted_at = null;
-        $offer->update();
+    // public function activateOffer($offer)
+    // {
+    //     $offer = Offer::withTrashed()->find($offer);
+    //     if (!$offer) {
+    //         return error(null, null, 404);
+    //     }
+    //     $offer->deleted_at = null;
+    //     $offer->update();
 
-        return success(null, 'This offer activated successfully');
-    }
+    //     return success(null, 'This offer activated successfully');
+    // }
 }

@@ -168,7 +168,7 @@ Route::middleware('check-auth')->prefix('/')->group(function () {
             Route::post('/', [OfferController::class, 'createOffer']);
             Route::post('/{offer}', [OfferController::class, 'updateOffer']);
             Route::delete('/{offer}', [OfferController::class, 'deleteOffer']);
-            Route::post('/activate/{offer}', [OfferController::class, 'activateOffer']);
+            // Route::post('/activate/{offer}', [OfferController::class, 'activateOffer']);
         });
         Route::middleware('read-offer')->group(function () {
             Route::get('/', [OfferController::class, 'getOffers']);
