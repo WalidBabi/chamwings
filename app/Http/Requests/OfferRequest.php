@@ -25,8 +25,8 @@ class OfferRequest extends FormRequest
     {
         return [
             'description' => 'required',
-            'start_date' => 'required|date',
-            'end_date' => 'required',
+            // 'start_date' => 'required|date',
+            // 'end_date' => 'required',
             'image' => 'file',
             'title' => 'required',
             'discount' => 'required|integer',

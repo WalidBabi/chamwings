@@ -54,17 +54,21 @@ class OfferController extends Controller
     public function updateOffer(Offer $offer, OfferRequest $offerRequest)
     {
         $user = Auth::guard('user')->user();
-
+        // dd($offerRequest);
         $flight = Flight::find($offerRequest->flight_id);
 
         if ($flight->days == '[]') {
             return error('some thing went wrong', 'this flight have not any schedule day', 422);
         }
-        foreach ($flight->offers as $off) {
-            if (($off->start_date <= $offerRequest->start_date && $off->end_date >= $offerRequest->start_date) || ($off->end_date >= $offerRequest->end_date && $off->end_date <= $offerRequest->start_date)) {
-                return error('some thing went wrong', 'there is an offer in this date', 422);
+
+        if ($offerRequest->has('start_date') && $offerRequest->has('end_date')) {
+            foreach ($flight->offers as $off) {
+                if (($off->start_date <= $offerRequest->start_date && $off->end_date >= $offerRequest->start_date) || ($off->end_date >= $offerRequest->end_date && $off->end_date <= $offerRequest->start_date)) {
+                    return error('some thing went wrong', 'there is an offer in this date', 422);
+                }
             }
         }
+
         if ($offerRequest->file('image')) {
             if (File::exists($offer->image)) {
                 File::delete($offer->image);
@@ -76,24 +80,30 @@ class OfferController extends Controller
             ]);
         }
 
-        $offer->update([
+        $updateData = [
             'flight_id' => $offerRequest->flight_id,
             'description' => $offerRequest->description,
-            'start_date' => $offerRequest->start_date,
-            'end_date' => $offerRequest->end_date,
             'title' => $offerRequest->title,
             'discount' => $offerRequest->discount,
-        ]);
+        ];
+
+        if ($offerRequest->has('start_date')) {
+            $updateData['start_date'] = $offerRequest->start_date;
+        }
+
+        if ($offerRequest->has('end_date')) {
+            $updateData['end_date'] = $offerRequest->end_date;
+        }
+
+        $offer->update($updateData);
 
         Log::create([
             'message' => 'Employee ' . $user->employee->name . ' update offer its description ' . $offer->description,
             'type' => 'update',
         ]);
 
-
-        return success(null, 'thid offer updated successfully');
+        return success(null, 'this offer updated successfully');
     }
-
     //Delete Offer Function
     public function deleteOffer(Offer $offer)
     {
