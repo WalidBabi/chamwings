@@ -202,7 +202,7 @@ Route::middleware('check-auth')->prefix('/')->group(function () {
     // Route to create a new thread
     Route::post('/create-thread', [ChatController::class, 'createThread']);
 
-    Route::get('/recommendations/{userId}', [FlightRecommendationController::class, 'getRecommendations']);
+    Route::get('/recommendations/{userId}/{city}', [FlightRecommendationController::class, 'getRecommendations']);
 
     Route::get('/reservation/all', [ReservationController::class, 'getReservations']);
     Route::post('/activatereservation/{res}', [ReservationController::class, 'reactivateReservationByEmployee']);

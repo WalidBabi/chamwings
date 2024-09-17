@@ -93,7 +93,7 @@ def get_content_recommendations(user_id, cosine_sim=cosine_sim):
     recommended_indices = [i for i in top_indices if flight_df.iloc[i]['flight_id'] not in user_flights][:10]
     
     recommendations = flight_df.iloc[recommended_indices]
-    
+    # print(recommendations.head(5))
     return recommendations.head(5)
 
 # Collaborative Filtering (with enhanced user-flight matrix)
@@ -114,6 +114,7 @@ def get_collaborative_recommendations(user_id, user_similarity=user_similarity):
     user_indices = [i[0] for i in sim_scores[1:6]]
     
     similar_users_flights = user_flight_matrix.iloc[user_indices].sum().sort_values(ascending=False)
+    # print(similar_users_flights.index[:5].tolist())
     return similar_users_flights.index[:5].tolist()
 
 # Hybrid Recommendation System
@@ -136,7 +137,7 @@ def hybrid_recommendation_system(user_id):
                     (1 / (1 + (datetime.now() - row['departure_datetime']).days)),
         axis=1
     )
-    
+    # print("reccccc",final_recommendations.sort_values('rec_score', ascending=False))
     return final_recommendations.sort_values('rec_score', ascending=False)
 
 # Evaluation function
@@ -167,97 +168,110 @@ def get_actual_bookings(user_id):
     bookings = cursor.fetchall()
     cursor.close()
     return [booking[0] for booking in bookings]
+  # Main function to get recommended flights
+def get_recommended_flights(user_id, user_city):
+      # Modify the SQL query to filter flights from the user's city
+      flight_query = """
+      SELECT f.flight_id, f.price, c.class_name, a1.airport_name AS departure_airport, 
+           a1.airport_id AS departure_airport_id, a1.airport_code AS departure_airport_code,
+           a2.airport_name AS arrival_airport, a2.airport_id AS arrival_airport_id, 
+           a2.airport_code AS arrival_airport_code, f.flight_number, 
+           f.departure_terminal, f.arrival_terminal
+      FROM flights f
+      JOIN airports a1 ON f.departure_airport = a1.airport_id
+      JOIN airports a2 ON f.arrival_airport = a2.airport_id
+      JOIN classes c ON f.airplane_id = c.airplane_id
+      WHERE a1.city = %s
+      """
+      cursor.execute(flight_query, (user_city,))
+      flights = cursor.fetchall()
 
-# Main function to get recommended flights
-def get_recommended_flights(user_id):
-    recommended_flights = hybrid_recommendation_system(user_id)
-    
-    recommendation_data = {
-        "trip_type": "inbound",
-        "departure_flights": []
-    }
+      recommendation_data = {
+          "trip_type": "outbound",
+          "departure_flights": []
+      }
 
-    for _, flight in recommended_flights.iterrows():
-        flight_data = {
-            "flight_id": int(flight['flight_id']),
-            "price": float(flight['price']),
-            "class_name": str(flight['class_name']),
-        }
+      for flight in flights:
+          flight_data = {
+              "flight_id": int(flight[0]),
+              "price": float(flight[1]),
+              "class_name": str(flight[2]),
+              "departure_airport": str(flight[3]),
+              "departure_airport_id": str(flight[4]),
+              "departure_airport_code": str(flight[5]),
+              "arrival_airport": str(flight[6]),
+              "arrival_airport_id": str(flight[7]),
+              "arrival_airport_code": str(flight[8]),
+              "flight_number": str(flight[9]),
+              "departure_terminal": str(flight[10]),
+              "arrival_terminal": str(flight[11])
+          }
 
-        # Get additional flight information from the database
-        flight_info_query = """
-        SELECT a1.airport_name AS departure_airport, a1.airport_id AS departure_airport_id, a1.airport_code AS departure_airport_code,
-                a2.airport_name AS arrival_airport, a2.airport_id AS arrival_airport_id, a2.airport_code AS arrival_airport_code,
-                f.flight_number, f.departure_terminal, f.arrival_terminal
-        FROM flights f
-        JOIN airports a1 ON f.departure_airport = a1.airport_id
-        JOIN airports a2 ON f.arrival_airport = a2.airport_id
-        WHERE f.flight_id = %s
-        """
-        cursor.execute(flight_info_query, (flight['flight_id'],))
-        flight_info = cursor.fetchone()
-        if flight_info:
-            flight_data.update({
-                "departure_airport": str(flight_info[0]),
-                "departure_airport_id": str(flight_info[1]),
-                "departure_airport_code": str(flight_info[2]),
-                "arrival_airport": str(flight_info[3]),
-                "arrival_airport_id": str(flight_info[4]),
-                "arrival_airport_code": str(flight_info[5]),
-                "flight_number": str(flight_info[6]),
-                "departure_terminal": str(flight_info[7]),
-                "arrival_terminal": str(flight_info[8])
-            })
+          # Get schedule information
+          schedule_day_query = """
+          SELECT departure_date, arrival_date
+          FROM schedule_days
+          WHERE flight_id = %s
+          """
+          cursor.execute(schedule_day_query, (flight[0],))
+          schedule_day = cursor.fetchone()
+          if schedule_day:
+              flight_data.update({
+                  "departure_date": schedule_day[0] if schedule_day[0] else None,
+                  "arrival_date": schedule_day[1] if schedule_day[1] else None
+              })
 
-        # Get schedule information
-        schedule_day_query = """
-        SELECT departure_date, arrival_date
-        FROM schedule_days
-        WHERE flight_id = %s
-        """
-        cursor.execute(schedule_day_query, (flight['flight_id'],))
-        schedule_day = cursor.fetchone()
-        if schedule_day:
-            flight_data.update({
-                "departure_date": schedule_day[0] if schedule_day[0] else None,
-                "arrival_date": schedule_day[1] if schedule_day[1] else None
-            })
+          schedule_time_query = """
+          SELECT departure_time, arrival_time, duration
+          FROM schedule_times
+          JOIN schedule_days ON schedule_times.schedule_day_id = schedule_days.schedule_day_id
+          WHERE schedule_days.flight_id = %s
+          """
+          cursor.execute(schedule_time_query, (flight[0],))
+          schedule_time = cursor.fetchone()
+          if schedule_time:
+              flight_data.update({
+                  "departure_time": schedule_time[0] if schedule_time[0] else None,
+                  "arrival_time": schedule_time[1] if schedule_time[1] else None,
+                  "duration": str(schedule_time[2]) if schedule_time[2] else None
+              })
 
-        schedule_time_query = """
-        SELECT departure_time, arrival_time, duration
-        FROM schedule_times
-        JOIN schedule_days ON schedule_times.schedule_day_id = schedule_days.schedule_day_id
-        WHERE schedule_days.flight_id = %s
-        """
-        cursor.execute(schedule_time_query, (flight['flight_id'],))
-        schedule_time = cursor.fetchone()
-        if schedule_time:
-            flight_data.update({
-                "departure_time": schedule_time[0] if schedule_time[0] else None,
-                "arrival_time": schedule_time[1] if schedule_time[1] else None,
-                "duration": str(schedule_time[2]) if schedule_time[2] else None
-            })
+          recommendation_data["departure_flights"].append(flight_data)
 
-        recommendation_data["departure_flights"].append(flight_data)
-
-    actual_bookings = get_actual_bookings(user_id)
-    f1_score = evaluate_recommendations(user_id, recommended_flights, actual_bookings)
-
-    return recommendation_data['departure_flights']
-
+      # Sort recommendations based on price or other criteria
+      recommendation_data["departure_flights"].sort(key=lambda x: x["price"])
+    #   print("addedflightsssssssss",recommendation_data["departure_flights"][:5])
+      return recommendation_data["departure_flights"][:5]  # Return top 5 recommendations
 # Main execution
 if __name__ == "__main__":
     import json
-    if len(sys.argv) > 1:
+    if len(sys.argv) > 2:
         user_id = int(sys.argv[1])
-        response_data = get_recommended_flights(user_id)
+        user_city = sys.argv[2]
+        
+        # Get hybrid recommendations
+        hybrid_recs = hybrid_recommendation_system(user_id)
+        
+        # Filter recommendations based on user's city
+        city_filtered_recs = hybrid_recs[hybrid_recs['departure_city'] == user_city]
+        # print(city_filtered_recs)
+        # If we have less than 5 recommendations, supplement with flights from the user's city
+        # if len(city_filtered_recs) < 5:
+        #     additional_recs = get_recommended_flights(user_id, user_city)
+        #     from pandas import concat
+
+        #     city_filtered_recs = concat([city_filtered_recs, pd.DataFrame(additional_recs)], ignore_index=True).drop_duplicates().head(5)
+        # print("add reccccc",city_filtered_recs)
+        # Convert to list of dictionaries for JSON serialization
+        response_data = city_filtered_recs.to_dict('records')
+        
         json_output = json.dumps(response_data, default=str)
         sys.stdout.write(json_output)
         sys.exit(0)
     else:
         error_response = {
             "status": "error",
-            "message": "Please provide a user ID as an argument."
+            "message": "Please provide a user ID and city as arguments."
         }
         sys.stderr.write(json.dumps(error_response))
         sys.exit(1)
