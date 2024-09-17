@@ -253,7 +253,7 @@ if __name__ == "__main__":
         hybrid_recs = hybrid_recommendation_system(user_id)
         
         # Filter recommendations based on user's city
-        city_filtered_recs = hybrid_recs[hybrid_recs['departure_city'] == user_city]
+        city_filtered_recs = hybrid_recs[hybrid_recs['departure_city'].str.contains(user_city, case=False, na=False)]
         # print(city_filtered_recs)
         # If we have less than 5 recommendations, supplement with flights from the user's city
         # if len(city_filtered_recs) < 5:
