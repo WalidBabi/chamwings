@@ -133,10 +133,20 @@ class EmployeesPDFController extends Controller
     public function downloadPDF($id)
     {
         $pdf = Pdf::find($id);
-        $pdfPath = $pdf->path;
-        // dd($pdf,$pdfPath);
-        if (Storage::exists($pdfPath)) {
-            return Storage::download($pdfPath, $pdf->name);
+        if (!$pdf) {
+            return response()->json(['message' => 'PDF not found'], 404);
+        }
+
+        $pdfPath = storage_path('app/' . $pdf->path);
+        $desktopPath = 'C:/Users/waled/Desktop';
+        $destinationPath = $desktopPath . '/' . $pdf->filename;
+        
+        if (file_exists($pdfPath)) {
+            if (copy($pdfPath, $destinationPath)) {
+                return response()->json(['message' => 'PDF downloaded to desktop successfully'], 200);
+            } else {
+                return response()->json(['message' => 'Failed to download PDF to desktop'], 500);
+            }
         } else {
             return response()->json(['message' => 'PDF file not found'], 404);
         }
