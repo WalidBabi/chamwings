@@ -175,17 +175,16 @@ class ReservationController extends Controller
                 'departure_flights' => $departureFlights,
                 'return_flights' => $returnFlights,
             ]);
-        }
-        elseif ($request->trip_type == '0') {
+        } elseif ($request->trip_type == '0') {
             // Handle one-way flights
-        
+
             $departureDate = Carbon::parse($request->departure_date);
-        
+
             // Calculate date ranges for departure flights
             $earliestDepartureDate = $departureDate->copy()->subDays(5);
             $earliestDepartureDate = $earliestDepartureDate->isPast() ? Carbon::now()->startOfDay() : $earliestDepartureDate;
             $latestDepartureDate = $departureDate->copy()->addDays(5);
-        
+
             // Query for Departure Flights within the date range (including the exact date)
             $departureFlightsQuery = Flight::query()
                 ->where('flights.departure_airport', $request->departure_airport)
@@ -242,17 +241,17 @@ class ReservationController extends Controller
                     'business_class.weight_allowed as businessWeight',
                     'business_class.number_of_meals as businessMeals'
                 );
-        
+
             $departureFlights = $departureFlightsQuery->get();
-        
+
             // Apply booking preference logic
             $adults = $request->adults;
             if ($request->booking_preference == 'a') {
                 $adults = $request->adults - 1;
             }
-        
+
             $triptype = 'inbound'; // For one-way trips, you can categorize as inbound or any appropriate label
-        
+
             // Return the JSON response
             return response()->json([
                 'trip_type' => $triptype,
@@ -663,11 +662,11 @@ class ReservationController extends Controller
             $reservation->status = 'Confirmed';
             $reservation->deleted_at = null;
             $reservation->save();
-     
+
             // Reactivate associated flight seats and update seat status
             foreach ($reservation->flightSeats()->withTrashed()->get() as $flightSeat) {
                 $flightSeat->restore();
-                
+
                 // Update the associated seat's checked status
                 $seat = $flightSeat->seat;
                 $seat->checked = 1;
@@ -684,6 +683,16 @@ class ReservationController extends Controller
             return error('An error occurred while reactivating the reservation: ' . $e->getMessage(), 500);
         }
     }
-
-  
+    public function getAllSeats()
+    {
+        try {
+            $seats = Seat::all()->map(function ($seat) {
+                $seat->checked = 0;
+                return $seat;
+            });
+            return success(['seats' => $seats], 200);
+        } catch (\Exception $e) {
+            return error('An error occurred while fetching seats: ' . $e->getMessage(), 500);
+        }
+    }
 }

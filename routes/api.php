@@ -232,7 +232,7 @@ Route::middleware('check-auth')->prefix('/')->group(function () {
 
     Route::get('/check-expiry-reservation', [ReservationController::class, 'checkExpiry']);
     Route::get('/seats-status/{scheduleTime}', [ReservationController::class, 'SeatsStatus']);
-
+    Route::get('/allseats/{scheduleTime}', [ReservationController::class, 'getAllSeats']);
     Route::prefix('payment')->group(function () {
         Route::get('/index', [StripeController::class, 'index'])->name('index');
         Route::post('/checkout/{reservation}', [StripeController::class, 'checkout']);
