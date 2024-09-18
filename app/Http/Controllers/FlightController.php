@@ -18,7 +18,7 @@ class FlightController extends Controller
     public function createFlight(CreateFlightRequest $createFlightRequest)
     {
         $user = Auth::guard('user')->user();
-        Flight::create([
+        $flight = Flight::create([
             'airplane_id' => $createFlightRequest->airplane_id,
             'departure_airport' => $createFlightRequest->departure_airport,
             'arrival_airport' => $createFlightRequest->arrival_airport,
