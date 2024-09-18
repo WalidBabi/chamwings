@@ -8,7 +8,7 @@ use Illuminate\Support\Facades\DB;
 
 class GenerateFlightRecommendations extends Command
 {
-    protected $signature = 'recommendations:generate {userId} {city}';
+    protected $signature = 'recommendations:generate {userId} {country}';
     protected $description = 'Generate flight recommendations for a user';
 
     public function handle()
@@ -16,12 +16,12 @@ class GenerateFlightRecommendations extends Command
     
         $userId = $this->argument('userId');
         $user = User::findOrFail($userId);
-        $userCity = $this->argument('city');
-        // dd($userCity);
+        $usercountry = $this->argument('country');
+        // dd($usercountry);
         $pythonScript = 'C:/Users/waled/Desktop/chamwings/app/Python/FlightRecommendation.py';
         $pythonPath = 'C:/Users/waled/AppData/Local/Programs/Python/Python312/python.exe';
 
-        $command = escapeshellcmd("$pythonPath $pythonScript $userId $userCity");
+        $command = escapeshellcmd("$pythonPath $pythonScript $userId $usercountry");
         // dd($command);
         $output = shell_exec($command);
 

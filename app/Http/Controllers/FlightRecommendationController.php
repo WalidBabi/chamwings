@@ -12,11 +12,11 @@ use Symfony\Component\Process\Process;
 
 class FlightRecommendationController extends Controller
 {
-    public function getRecommendations($userId, $city)
+    public function getRecommendations($userId, $country)
     {
         // Verify the userId
         // dd((int)$userId);
-        // dd($city);
+        // dd($country);
         $userId = (int)$userId;
         // Check if the user exists
         $user = User::where('user_id', (int)$userId)->first();
@@ -26,7 +26,7 @@ class FlightRecommendationController extends Controller
         }
 
         // Generate new recommendations
-        Artisan::call('recommendations:generate', ['userId' => $userId, 'city' => $city]);
+        Artisan::call('recommendations:generate', ['userId' => $userId, 'country' => $country]);
 
         // Retrieve the latest flight recommendations for the user
         $latestRecommendations = $user->flightRecommendations()

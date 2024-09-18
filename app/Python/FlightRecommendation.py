@@ -169,7 +169,7 @@ def get_actual_bookings(user_id):
     cursor.close()
     return [booking[0] for booking in bookings]
   # Main function to get recommended flights
-def get_recommended_flights(user_id, user_city):
+def get_recommended_flights(user_id, user_country):
       # Modify the SQL query to filter flights from the user's city
       flight_query = """
       SELECT f.flight_id, f.price, c.class_name, a1.airport_name AS departure_airport, 
@@ -183,7 +183,7 @@ def get_recommended_flights(user_id, user_city):
       JOIN classes c ON f.airplane_id = c.airplane_id
       WHERE a1.city = %s
       """
-      cursor.execute(flight_query, (user_city,))
+      cursor.execute(flight_query, (user_country,))
       flights = cursor.fetchall()
 
       recommendation_data = {
@@ -247,17 +247,17 @@ if __name__ == "__main__":
     import json
     if len(sys.argv) > 2:
         user_id = int(sys.argv[1])
-        user_city = sys.argv[2]
+        user_country = sys.argv[2]
         
         # Get hybrid recommendations
         hybrid_recs = hybrid_recommendation_system(user_id)
-        
+        # print(hybrid_recs['departure_country'])
         # Filter recommendations based on user's city
-        city_filtered_recs = hybrid_recs[hybrid_recs['departure_city'].str.contains(user_city, case=False, na=False)]
+        city_filtered_recs = hybrid_recs[hybrid_recs['departure_country'].str.contains(user_country, case=False, na=False)]
         # print(city_filtered_recs)
         # If we have less than 5 recommendations, supplement with flights from the user's city
         # if len(city_filtered_recs) < 5:
-        #     additional_recs = get_recommended_flights(user_id, user_city)
+        #     additional_recs = get_recommended_flights(user_id, user_country)
         #     from pandas import concat
 
         #     city_filtered_recs = concat([city_filtered_recs, pd.DataFrame(additional_recs)], ignore_index=True).drop_duplicates().head(5)
