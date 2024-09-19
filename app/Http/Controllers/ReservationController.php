@@ -298,6 +298,7 @@ class ReservationController extends Controller
                 'round_schedule_time_id' => 'required|exists:schedule_times,schedule_time_id|integer',
             ]);
             $round_time = ScheduleTime::find($createReservationRequest->round_schedule_time_id);
+            // dd($round_time);
             if ($round_time->day->departure_date <= Carbon::now()) {
                 return error('some thing went wrong', 'you cannot reserve in this day', 422);
             }
@@ -326,6 +327,7 @@ class ReservationController extends Controller
     //Add Seats To Reservation Function
     public function addSeats(Reservation $reservation, Request $request)
     {
+        // dd($request->schedule_time_id);
         $user = Auth::guard('user')->user();
         if ($reservation->status === 'Confirmed') {
             return error('some thing went wrong', 'you cannot add seats to this reservation now', 422);
@@ -693,6 +695,46 @@ class ReservationController extends Controller
             return success(['seats' => $seats], 200);
         } catch (\Exception $e) {
             return error('An error occurred while fetching seats: ' . $e->getMessage(), 500);
+        }
+    }
+
+    public function getCheckedSeats($reservation_id)
+    {
+        try {
+            $reservation = Reservation::findOrFail($reservation_id);
+
+            $goingFlightSeats = $reservation->flightSeats()
+                ->with('seat')
+                ->whereHas('seat', function ($query) {
+                    $query->where('checked', 1)->where('is_round_flight', 0);
+                })
+                ->get()
+                ->pluck('seat')
+                ->map(function ($seat) {
+                    $seat->flight_type = 'outbound';
+                    return $seat;
+                });
+
+            $returnFlightSeats = $reservation->flightSeats()
+                ->with('seat')
+                ->whereHas('seat', function ($query) {
+                    $query->where('checked', 1)->where('is_round_flight', 1);
+                })
+                ->get()
+                ->pluck('seat')
+                ->map(function ($seat) {
+                    $seat->flight_type = 'inbound';
+                    return $seat;
+                });
+
+            return success([
+                'going_flight_seats' => $goingFlightSeats,
+                'return_flight_seats' => $returnFlightSeats
+            ], 200);
+        } catch (\Illuminate\Database\Eloquent\ModelNotFoundException $e) {
+            return error('Reservation not found', 404);
+        } catch (\Exception $e) {
+            return error('An error occurred while fetching checked seats: ' . $e->getMessage(), 500);
         }
     }
 }
