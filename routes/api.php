@@ -231,7 +231,9 @@ Route::middleware('check-auth')->prefix('/')->group(function () {
 
 
     Route::get('/check-expiry-reservation', [ReservationController::class, 'checkExpiry']);
-    Route::get('/seats-status/{scheduleTime}', [ReservationController::class, 'SeatsStatus']);
+    Route::get('/going-seats/{scheduleTime}', [ReservationController::class, 'GoingSeatsStatus']);
+    Route::get('/returning-seats/{scheduleTime}', [ReservationController::class, 'ReturningSeatsStatus']);
+    
     Route::get('/allseats/{scheduleTime}', [ReservationController::class, 'getAllSeats']);
     Route::get('/checkedseats/{reservationid}', [ReservationController::class, 'getCheckedSeats']);
     Route::prefix('payment')->group(function () {

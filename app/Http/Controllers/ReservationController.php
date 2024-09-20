@@ -263,7 +263,6 @@ class ReservationController extends Controller
         }
     }
 
-
     public function getPassengerCompanionsDetails(Request $request)
     {
         $user = Auth::guard('user')->user();
@@ -587,18 +586,39 @@ class ReservationController extends Controller
     }
 
     //Get Seats Status In Specific Time
-    public function SeatsStatus(ScheduleTime $scheduleTime)
+    public function GoingSeatsStatus(ScheduleTime $scheduleTime)
     {
+        // dd($scheduleTime);
+        
         $reserved_seats = [];
-        $reservations = $scheduleTime->reservations;
-
+        $reservations = $scheduleTime->reservations()->get();
         foreach ($reservations as $reservation) {
-            foreach ($reservation->flightSeats as $flightSeat) {
+            foreach ($reservation->flightSeats()->where('is_round_flight', 0)->get() as $flightSeat) {
                 array_push($reserved_seats, $flightSeat->seat);
             }
         }
+        return success([
+            'one_way_reserved_seats' => $reserved_seats
+        ], null);
+    }
 
-        return success($reserved_seats, null);
+    public function ReturningSeatsStatus(ScheduleTime $scheduleTime)
+    {
+        // dd($scheduleTime);
+        // $scheduleTime = ScheduleTime::findOrFail($scheduleTime);
+
+        $round_reserved_seats = [];
+        $round_reservations = Reservation::where('round_schedule_time_id', $scheduleTime->schedule_time_id)->get();
+        // dd($round_reservations);
+        foreach ($round_reservations as $round_reservation) {
+            foreach ($round_reservation->flightSeats()->where('is_round_flight', 1)->get() as $flightSeat) {
+                array_push($round_reserved_seats, $flightSeat->seat);
+            }
+        }
+
+        return success([
+            'round_trip_reserved_seats' => $round_reserved_seats
+        ], null);
     }
 
     // Cancel Reservation by Employee Function
@@ -685,6 +705,7 @@ class ReservationController extends Controller
             return error('An error occurred while reactivating the reservation: ' . $e->getMessage(), 500);
         }
     }
+
     public function getAllSeats()
     {
         try {
