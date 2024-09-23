@@ -263,6 +263,86 @@ class ReservationController extends Controller
         }
     }
 
+    public function searchWithDates(Request $request)
+    {
+
+        
+        $departureFlightsQuery = Flight::join('schedule_days', 'flights.flight_id', '=', 'schedule_days.flight_id')
+            ->join('schedule_times', 'schedule_days.schedule_day_id', '=', 'schedule_times.schedule_day_id')
+            ->join('airplanes', 'flights.airplane_id', '=', 'airplanes.airplane_id')
+            ->join('airports as departure_airport', 'flights.departure_airport', '=', 'departure_airport.airport_id')
+            ->join('airports as arrival_airport', 'flights.departure_airport', '=', 'arrival_airport.airport_id')
+            ->join('classes as economy_class', function ($join) {
+                $join->on('airplanes.airplane_id', '=', 'economy_class.airplane_id')
+                    ->where('economy_class.class_name', 'Economy');
+            })
+            ->join('classes as business_class', function ($join) {
+                $join->on('airplanes.airplane_id', '=', 'business_class.airplane_id')
+                    ->where('business_class.class_name', 'Business');
+            })
+            ->where('flights.departure_airport', $request->departure_airport)
+            ->where('flights.arrival_airport', $request->arrival_airport)
+            ->whereBetween('schedule_days.departure_date', [$request->start_date, $request->end_date])
+            ->select(
+                'flights.flight_id',
+                'flights.flight_number',
+                'flights.departure_airport',
+                'flights.arrival_airport',
+                'flights.airplane_id',
+                'flights.created_at',
+                'flights.updated_at',
+                'schedule_days.schedule_day_id',
+                'schedule_days.departure_date',
+                'schedule_days.arrival_date',
+                'schedule_times.schedule_time_id',
+                'schedule_times.departure_time',
+                'schedule_times.arrival_time',
+                'schedule_times.duration',
+                'airplanes.model',
+                'airplanes.manufacturer',
+                'airplanes.range',
+                'departure_airport.airport_id as departure_airport_id',
+                'departure_airport.airport_name as departure_airport_name',
+                'departure_airport.airport_code as departure_airport_code',
+                'departure_airport.city as departure_city',
+                'departure_airport.country as departure_country',
+                'arrival_airport.airport_id as arrival_airport_id',
+                'arrival_airport.airport_name as arrival_airport_name',
+                'arrival_airport.airport_code as arrival_airport_code',
+                'arrival_airport.city as arrival_city',
+                'arrival_airport.country as arrival_country',
+                'economy_class.price_rate as economyPrice',
+                'business_class.price_rate as businessPrice',
+                'economy_class.weight_allowed as economyWeight',
+                'economy_class.number_of_meals as economyMeals',
+                'business_class.weight_allowed as businessWeight',
+                'business_class.number_of_meals as businessMeals'
+            );
+
+        $departureFlights = $departureFlightsQuery->get();
+
+        // Apply booking preference logic
+        $adults = $request->adults;
+        if ($request->booking_preference == 'a') {
+            $adults = $request->adults - 1;
+        }
+
+        $triptype = 'inbound'; // For one-way trips, you can categorize as inbound or any appropriate label
+
+        // Return the JSON response
+        return response()->json([
+            'trip_type' => $triptype,
+            'adults' => $adults,
+            'infants' => $request->infants,
+            'booking_preference' => $request->booking_preference,
+            'departure_flights' => $departureFlights,
+            'start_date' => $request->start_date,
+            'end_date' => $request->end_date,
+        ]);
+    }
+
+
+
     public function getPassengerCompanionsDetails(Request $request)
     {
         $user = Auth::guard('user')->user();
