@@ -178,6 +178,7 @@ Route::middleware('check-auth')->prefix('/')->group(function () {
         Route::middleware('manage-offer')->prefix('details')->group(function () {});
     });
     Route::get('/getuseroffer', [OfferController::class, 'getuserOffers']);
+    Route::post('/search-reservation', [ReservationController::class, 'searchWithDates']);
 
 
 
@@ -268,10 +269,14 @@ Route::middleware('check-auth')->prefix('/')->group(function () {
         Route::get('/{log}', [LogController::class, 'getLogInformation']);
     });
 
-    Route::prefix('policies')->group(function () {
-        Route::put('/{policy}', [PolicyController::class, 'editPolicy'])->middleware('admin-auth');
-        Route::get('/', [PolicyController::class, 'getPolicies']);
-        Route::get('/{policy}', [PolicyController::class, 'getPolicyInformation']);
+    // Route::prefix('policies')->group(function () {
+    //     Route::put('/{policy}', [PolicyController::class, 'editPolicy'])->middleware('admin-auth');
+    //     Route::get('/', [PolicyController::class, 'getPolicies']);
+    //     Route::get('/{policy}', [PolicyController::class, 'getPolicyInformation']);
+    // });
+
+    Route::middleware(['manage-policies'])->group(function () {
+        Route::apiResource('policies', PolicyController::class);
     });
 });
 
