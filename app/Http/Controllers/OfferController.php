@@ -135,14 +135,21 @@ class OfferController extends Controller
         return success($offers, null);
     }
 
-
     public function getuserOffers(Request $request)
     {
-        $query = Offer::with(['flight.departureAirport','flight.arrivalAirport', 'flight.days'])->orderBy('offer_id', 'desc');
+        $query = Offer::with(['flight.departureAirport', 'flight.arrivalAirport', 'flight.days'])->orderBy('offer_id', 'desc');
 
-        if ($request->has('title')) {
-            $query->where('title', 'like', '%' . $request->input('title') . '%');
+        if ($request->has('airport_name')) {
+            $airportName = $request->input('airport_name');
+            $query->whereHas('flight', function ($q) use ($airportName) {
+                $q->whereHas('departureAirport', function ($q) use ($airportName) {
+                    $q->where('airport_name', 'like', '%' . $airportName . '%');
+                })->orWhereHas('arrivalAirport', function ($q) use ($airportName) {
+                    $q->where('airport_name', 'like', '%' . $airportName . '%');
+                });
+            });
         }
+
         $offers = $query->paginate(15);
 
         return success($offers, null);
