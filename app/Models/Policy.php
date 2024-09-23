@@ -14,5 +14,6 @@ class Policy extends Model
     protected $fillable = [
         'policy_name',
         'value',
+        'description'
     ];
 }
