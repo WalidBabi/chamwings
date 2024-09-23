@@ -322,60 +322,67 @@ class ReservationController extends Controller
         ]);
         return success($reservation->with('time')->find($reservation->reservation_id), 'this reservation created successfully', 201);
     }
-
     //Add Seats To Reservation Function
     public function addSeats(Reservation $reservation, Request $request)
     {
-        // dd($request->schedule_time_id);
         $user = Auth::guard('user')->user();
         if ($reservation->status === 'Confirmed') {
             return error('some thing went wrong', 'you cannot add seats to this reservation now', 422);
         }
+
         $seats = explode(',', $request->seats);
         $request->validate([
             'seats' => 'required',
         ]);
-        $checked = '';
 
-        foreach ($seats as $seat) {
-            $seat = Seat::find($seat);
-            $time_id = $request->schedule_time_id;
-            if ($request->round_trip) {
-                $check_seat = $seat->flightSeat()->whereHas('reservation', function ($query) use ($time_id) {
-                    $query->where('round_schedule_time_id', $time_id);
-                })->get();
-            } else {
-                $check_seat = $seat->flightSeat()->whereHas('reservation', function ($query) use ($time_id) {
-                    $query->where('schedule_time_id', $time_id);
-                })->get();
+        DB::beginTransaction();
+        try {
+            $unavailableSeats = [];
+            foreach ($seats as $seatId) {
+                $seat = Seat::lockForUpdate()->find($seatId);
+                $time_id = $request->schedule_time_id;
+
+                $isOccupied = $request->round_trip
+                    ? $seat->flightSeat()->whereHas('reservation', function ($query) use ($time_id) {
+                        $query->where('round_schedule_time_id', $time_id);
+                    })->exists()
+                    : $seat->flightSeat()->whereHas('reservation', function ($query) use ($time_id) {
+                        $query->where('schedule_time_id', $time_id);
+                    })->exists();
+
+                if ($isOccupied || $seat->checked) {
+                    $unavailableSeats[] = '(' . $seat->seat_number . $seat->row_number . ')';
+                }
             }
-            if ($check_seat != '[]') {
-                $checked .= '(' . $seat->seat_number . $seat->row_number . ') ';
+
+            if (!empty($unavailableSeats)) {
+                DB::rollBack();
+                return error('some thing went wrong', 'Seats ' . implode(', ', $unavailableSeats) . ' not available right now', 422);
             }
-        }
 
-        if ($checked) {
-            return error('some thing went wrong', 'Seats ' . $checked . 'not available right now', 422);
-        }
+            foreach ($seats as $seatId) {
+                FlightSeat::create([
+                    'seat_id' => $seatId,
+                    'reservation_id' => $reservation->reservation_id,
+                    'is_round_flight' => $request->round_trip,
+                ]);
 
-        foreach ($seats as $seat) {
-            FlightSeat::create([
-                'seat_id' => $seat,
-                'reservation_id' => $reservation->reservation_id,
-                'is_round_flight' => $request->round_trip,
+                $seat = Seat::find($seatId);
+                $seat->update(['checked' => 1]);
+            }
+
+            Log::create([
+                'message' => 'Passenger ' . $user->passenger->travelRequirement->first_name . ' ' . $user->passenger->travelRequirement->last_name . ' reserved seats',
+                'type' => 'insert',
             ]);
-            $seat = Seat::find($seat);
-            $seat->update([
-                'checked' => 1,
-            ]);
+
+            DB::commit();
+            return success($reservation->seats, 'these seats added to this reservation successfully', 201);
+        } catch (\Exception $e) {
+            DB::rollBack();
+            return error('some thing went wrong', 'An error occurred while reserving seats', 500);
         }
-        Log::create([
-            'message' => 'Passenger ' . $user->passenger->travelRequirement->first_name . ' ' . $user->passenger->travelRequirement->last_name . ' reserved seats',
-            'type' => 'insert',
-        ]);
-        return success($reservation->seats, 'this seats added to this reservation successfully', 201);
     }
-
     //Update Reservation Function
     public function updateReservation(Reservation $reservation, UpdateReservationRequest $updateReservationRequest)
     {
@@ -589,7 +596,7 @@ class ReservationController extends Controller
     public function GoingSeatsStatus(ScheduleTime $scheduleTime)
     {
         // dd($scheduleTime);
-        
+
         $reserved_seats = [];
         $reservations = $scheduleTime->reservations()->get();
         foreach ($reservations as $reservation) {
