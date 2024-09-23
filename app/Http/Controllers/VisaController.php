@@ -50,7 +50,7 @@ class VisaController extends Controller
     {
         $user = Auth::guard('user')->user();
         Log::create([
-            'message' => 'Employee ' . $user->employee->name . ' deleted a visa of airport ' . $visa->airport->airport_name,
+            'message' => 'Employee ' . $user->employee->name . ' deleted a visa of airport ' . $visa->departureVisa->airport_name,
             'type' => 'delete',
         ]);
         $visa->delete();
