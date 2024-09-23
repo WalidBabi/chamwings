@@ -138,12 +138,11 @@ class OfferController extends Controller
 
     public function getuserOffers(Request $request)
     {
-        $query = Offer::with(['flight.departureAirport', 'flight.days'])->orderBy('offer_id', 'desc');
+        $query = Offer::with(['flight.departureAirport','flight.arrivalAirport', 'flight.days'])->orderBy('offer_id', 'desc');
 
         if ($request->has('title')) {
             $query->where('title', 'like', '%' . $request->input('title') . '%');
         }
-
         $offers = $query->paginate(15);
 
         return success($offers, null);
