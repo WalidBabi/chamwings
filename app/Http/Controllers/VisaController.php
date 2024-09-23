@@ -15,11 +15,11 @@ class VisaController extends Controller
     public function addVisa(Airport $airport, VisaRequest $visaRequest)
     {
         $user = Auth::guard('user')->user();
+
         $visa = Visa::create([
-            'airport_id' => $airport->airport_id,
+            'departure_airport' => $visaRequest->departure_airport,
+            'arrival_airport' => $visaRequest->arrival_airport,
             'visa_and_residence' => $visaRequest->visa_and_residence,
-            'origin' => $visaRequest->origin,
-            'destination' => $visaRequest->destination,
         ]);
         Log::create([
             'message' => 'Employee ' . $user->employee->name . ' added  visa to airport ' . $airport->airport_name,
@@ -33,13 +33,13 @@ class VisaController extends Controller
     {
         $user = Auth::guard('user')->user();
         $visa->update([
+            'departure_airport' => $visaRequest->departure_airport,
+            'arrival_airport' => $visaRequest->arrival_airport,
             'visa_and_residence' => $visaRequest->visa_and_residence,
-            'origin' => $visaRequest->origin,
-            'destination' => $visaRequest->destination,
         ]);
 
         Log::create([
-            'message' => 'Employee ' . $user->employee->name . ' added  a visa of airport ' . $visa->airport->airport_name,
+            'message' => 'Employee ' . $user->employee->name . ' added  a visa of airport ' . $visa->departureVisa->airport_name,
             'type' => 'update',
         ]);
         return success($visa, 'this visa updated successfully');
@@ -58,9 +58,19 @@ class VisaController extends Controller
     }
 
     //Get Airport Visa Function
-    public function getVisa(Airport $airport)
+    public function getVisa(Airport $airport, Request $request)
     {
-        $visa = $airport->visa()->paginate(15);
+        $query = $airport->visa()->orderByDesc('visainfo_id');
+
+        if ($request->has('search')) {
+            $search = $request->input('search');
+            $query->where(function ($q) use ($search) {
+                $q->where('departure_airport', $search)
+                    ->orWhere('arrival_airport', $search);
+            });
+        }
+
+        $visa = $query->paginate(15);
 
         $data = [
             'data' => $visa->items(),
@@ -73,6 +83,63 @@ class VisaController extends Controller
     //Get Visa Information Function
     public function getVisaInformation(Visa $visa)
     {
-        return success($visa->with('airport')->find($visa->visainfo_id), null);
+        return success($visa->with('departureVisa')->find($visa->visainfo_id), null);
+    }
+
+
+
+    //Get All Visas Function
+    public function getAllVisas(Request $request)
+    {
+        $query = Visa::with(['departureVisa', 'arrivalVisa'])
+            ->orderByDesc('visainfo_id');
+
+        $visas = $query->paginate(15);
+
+        if ($request->has('search')) {
+            $search = $request->input('search');
+            $query->where(function ($q) use ($search) {
+                $q->whereHas('departureVisa', function ($query) use ($search) {
+                    $query->where('airport_name', 'like', '%' . $search . '%')
+                        ->orWhere('airport_code', 'like', '%' . $search . '%');
+                })
+                    ->orWhereHas('arrivalVisa', function ($query) use ($search) {
+                        $query->where('airport_name', 'like', '%' . $search . '%')
+                            ->orWhere('airport_code', 'like', '%' . $search . '%');
+                    });
+            });
+        }
+
+        $visas = $query->paginate(15);
+
+        $data = [
+            'data' => collect($visas->items())->map(function ($visa) {
+                return [
+                    'visainfo_id' => $visa->visainfo_id,
+                    'departure_airport' => [
+                        'id' => $visa->departureVisa->id,
+                        'airport_name' => $visa->departureVisa->airport_name,
+                        'airport_code' => $visa->departureVisa->airport_code,
+                        'city' => $visa->departureVisa->city,
+                        'country' => $visa->departureVisa->country,
+                        'image' => $visa->departureVisa->image,
+
+                    ],
+                    'arrival_airport' => [
+                        'id' => $visa->arrivalVisa->id,
+                        'airport_name' => $visa->arrivalVisa->airport_name,
+                        'airport_code' => $visa->arrivalVisa->airport_code,
+                        'city' => $visa->arrivalVisa->city,
+                        'country' => $visa->arrivalVisa->country,
+                        'image' => $visa->arrivalVisa->image,
+                    ],
+                    'created_at' => $visa->created_at,
+                    'updated_at' => $visa->updated_at,
+                ];
+            }),
+            'total' => $visas->total(),
+        ];
+
+        return success($data, null);
     }
 }

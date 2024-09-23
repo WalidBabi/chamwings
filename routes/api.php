@@ -254,7 +254,7 @@ Route::middleware('check-auth')->prefix('/')->group(function () {
 
     Route::prefix('visa')->group(function () {
         Route::middleware('manage-airport')->group(function () {
-            Route::post('/airport/{airport}', [VisaController::class, 'addVisa']);
+            Route::post('/airport', [VisaController::class, 'addVisa']);
             Route::put('/{visa}', [VisaController::class, 'updateVisa']);
             Route::delete('/{visa}', [VisaController::class, 'deleteVisa']);
         });
@@ -263,6 +263,7 @@ Route::middleware('check-auth')->prefix('/')->group(function () {
             Route::get('/{visa}', [VisaController::class, 'getVisaInformation']);
         });
     });
+    Route::get('/getallvisa',[VisaController::class,'getAllVisas']);
 
     Route::middleware('admin-auth')->prefix('logs')->group(function () {
         Route::get('/', [LogController::class, 'getLogs']);

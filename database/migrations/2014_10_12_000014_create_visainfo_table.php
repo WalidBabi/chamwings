@@ -15,12 +15,12 @@ return new class extends Migration
     {
         Schema::create('visainfo', function (Blueprint $table) {
             $table->id('visainfo_id');
-            $table->unsignedBigInteger('airport_id');
+            $table->unsignedBigInteger('departure_airport');
+            $table->unsignedBigInteger('arrival_airport');
             $table->string('visa_and_residence');
-            $table->string('origin');
-            $table->string('destination');
 
-            $table->foreign('airport_id')->references('airport_id')->on('airports')->onDelete('cascade');
+            $table->foreign('departure_airport')->references('airport_id')->on('airports')->onDelete('cascade');
+            $table->foreign('arrival_airport')->references('airport_id')->on('airports')->onDelete('cascade');
             $table->timestamps();
             $table->softDeletes();
         });

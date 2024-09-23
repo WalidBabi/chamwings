@@ -13,14 +13,18 @@ class Visa extends Model
     protected $primaryKey = 'visainfo_id';
     protected $table = 'visainfo';
     protected $fillable = [
-        'airport_id',
         'visa_and_residence',
-        'origin',
-        'destination',
+        'departure_airport',
+        'arrival_airport',
     ];
 
-    public function airport()
+    public function departureVisa()
     {
-        return $this->belongsTo(Airport::class, 'airport_id', 'airport_id');
+        return $this->belongsTo(Airport::class, 'departure_airport', 'airport_id');
+    }
+
+    public function arrivalVisa()
+    {
+        return $this->belongsTo(Airport::class, 'arrival_airport', 'airport_id');
     }
 }

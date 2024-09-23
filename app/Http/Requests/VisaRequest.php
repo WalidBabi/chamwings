@@ -25,8 +25,8 @@ class VisaRequest extends FormRequest
     {
         return [
             'visa_and_residence' => 'required',
-            'origin' => 'required',
-            'destination' => 'required',
+            'departure_airport' => 'required',
+            'arrival_airport' => 'required',
         ];
     }
 }
