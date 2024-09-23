@@ -37,4 +37,8 @@ class Passenger extends Model
     {
         return $this->hasMany(Reservation::class, 'passenger_id', 'passenger_id');
     }
+
+    public function flightRecommendations(){
+        return $this->hasMany(FlightRecommendation::class, 'passenger_id', 'passenger_id');
+    }
 }

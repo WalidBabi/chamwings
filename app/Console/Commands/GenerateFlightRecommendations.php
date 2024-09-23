@@ -2,26 +2,26 @@
 
 namespace App\Console\Commands;
 
-use App\Models\User;
+use App\Models\Passenger;
 use Illuminate\Console\Command;
 use Illuminate\Support\Facades\DB;
 
 class GenerateFlightRecommendations extends Command
 {
-    protected $signature = 'recommendations:generate {userId} {country}';
+    protected $signature = 'recommendations:generate {passengerID} {country}';
     protected $description = 'Generate flight recommendations for a user';
 
     public function handle()
     {
     
-        $userId = $this->argument('userId');
-        $user = User::findOrFail($userId);
+        $passengerID = $this->argument('passengerID');
+        $passenger = Passenger::findOrFail($passengerID);
         $usercountry = $this->argument('country');
         // dd($usercountry);
         $pythonScript = 'C:/Users/waled/Desktop/chamwings/app/Python/FlightRecommendation.py';
         $pythonPath = 'C:/Users/waled/AppData/Local/Programs/Python/Python312/python.exe';
 
-        $command = escapeshellcmd("$pythonPath $pythonScript $userId $usercountry");
+        $command = escapeshellcmd("$pythonPath $pythonScript $passengerID $usercountry");
         // dd($command);
         $output = shell_exec($command);
 
@@ -46,7 +46,7 @@ class GenerateFlightRecommendations extends Command
         }
 
         $flight_recommendations = [
-            'user_id' => $userId,
+            'passenger_id' => $passengerID,
             'recommended_flights' => json_encode($json),
             'created_at' => now()
         ];

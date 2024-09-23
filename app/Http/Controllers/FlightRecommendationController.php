@@ -4,7 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Airport;
 use App\Models\FlightRecommendation;
-use App\Models\User;
+use App\Models\Passenger;
 use Illuminate\Support\Facades\Artisan;
 use Illuminate\Support\Facades\Auth;
 use Symfony\Component\Process\Exception\ProcessFailedException;
@@ -12,24 +12,24 @@ use Symfony\Component\Process\Process;
 
 class FlightRecommendationController extends Controller
 {
-    public function getRecommendations($userId, $country)
+    public function getRecommendations($passengerID, $country)
     {
-        // Verify the userId
-        // dd((int)$userId);
+        // Verify the passengerID
+        // dd((int)$passengerID);
         // dd($country);
-        $userId = (int)$userId;
-        // Check if the user exists
-        $user = User::where('user_id', (int)$userId)->first();
-        // dd($user);
-        if (!$user) {
+        $passengerID = (int)$passengerID;
+        // Check if the passenger exists
+        $passenger = Passenger::where('passenger_id', (int)$passengerID)->first();
+        // dd($passenger);
+        if (!$passenger) {
             return response()->json(['error' => 'User not found'], 404);
         }
 
         // Generate new recommendations
-        Artisan::call('recommendations:generate', ['userId' => $userId, 'country' => $country]);
+        Artisan::call('recommendations:generate', ['passengerID' => $passengerID, 'country' => $country]);
 
-        // Retrieve the latest flight recommendations for the user
-        $latestRecommendations = $user->flightRecommendations()
+        // Retrieve the latest flight recommendations for the passenger
+        $latestRecommendations = $passenger->flightRecommendations()
             ->latest('created_at')
             ->first();
 

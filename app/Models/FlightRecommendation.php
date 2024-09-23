@@ -10,11 +10,11 @@ class FlightRecommendation extends Model
     use HasFactory;
 
     protected $fillable = [
-        'user_id',
+        'passenger_id',
         'recommended_flights',
     ];
 
-    public function user(){
-        return $this->belongsTo(User::class, 'user_id', 'user_id');
+    public function passenger(){
+        return $this->belongsTo(User::class, 'passenger_id', 'passenger_id');
     }
 }
