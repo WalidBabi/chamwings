@@ -15,11 +15,11 @@ return new class extends Migration
     {
         Schema::create('flight_recommendations', function (Blueprint $table) {
             $table->id();
-            $table->unsignedBigInteger('user_id');
+            $table->unsignedBigInteger('passenger_id');
             $table->json('recommended_flights');
             $table->timestamps();
     
-            $table->foreign('user_id')->references('user_id')->on('users')->onDelete('cascade');
+            $table->foreign('passenger_id')->references('passenger_id')->on('passengers')->onDelete('cascade');
         });
     }
 

@@ -11,7 +11,7 @@ from langchain_core.messages import AIMessage, HumanMessage, SystemMessage
 import logging
 from deep_translator import GoogleTranslator
 from langdetect import detect 
-# Load environment variables
+from langchain.sql_database import SQLDatabase
 load_dotenv()
 
 app = FastAPI()
@@ -60,6 +60,7 @@ def translate_text(text: str, src_lang: str, dest_lang: str) -> str:
 def detect_language(text: str) -> str:
     detected_lang = detect(text)
     return detected_lang
+
 def chat(input_text: str, user_id: str, thread_id: str) -> str:
     try:
         llm = ChatOpenAI(base_url="http://localhost:1234/v1", api_key="not-needed")
@@ -122,11 +123,82 @@ def chat(input_text: str, user_id: str, thread_id: str) -> str:
         logger.error(f"Error processing chat: {e}")
         raise HTTPException(status_code=500, detail=str(e))
 
+def userchat(input_text: str, user_id: str) -> str:
+    try:
+        # logger.info(f"ishere {input_text}")
+        llm = ChatOpenAI(base_url="http://localhost:1234/v1", api_key="not-needed")
+    
+        # detected_lang = detect_language(input_text)
+        # logger.info(f"Detected input language: {detected_lang}")
+
+        # if detected_lang == "ar":
+        #     input_text_english = translate_text(input_text, src_lang="ar", dest_lang="en")
+        # else:
+        #     input_text_english = input_text
+
+        # logger.info(f"Translated input: {input_text_english}")
+
+        # Connect to your MySQL database
         
+        db = SQLDatabase.from_uri("mysql://root:@localhost:3306/chamwings")
+
+        from langchain_community.agent_toolkits import SQLDatabaseToolkit
+
+        toolkit = SQLDatabaseToolkit(db=db, llm=llm)
+
+        tools = toolkit.get_tools()
+
+        from langchain_core.messages import SystemMessage
+
+        SQL_PREFIX = """You are an agent designed to interact with a SQL database.
+        Given an input question, create a syntactically correct SQLite query to run, then look at the results of the query and return the answer.
+        Unless the user specifies a specific number of examples they wish to obtain, always limit your query to at most 5 results.
+        You can order the results by a relevant column to return the most interesting examples in the database.
+        Never query for all the columns from a specific table, only ask for the relevant columns given the question.
+        You have access to tools for interacting with the database.
+        Only use the below tools. Only use the information returned by the below tools to construct your final answer.
+        You MUST double check your query before executing it. If you get an error while executing a query, rewrite the query and try again.
+
+        DO NOT make any DML statements (INSERT, UPDATE, DELETE, DROP etc.) to the database.
+
+        To start you should ALWAYS look at the tables in the database to see what you can query.
+        Do NOT skip this step.
+        Then you should query the schema of the most relevant tables."""
+
+        system_message = SystemMessage(content=SQL_PREFIX)
+
+        from langchain_core.messages import HumanMessage
+        from langgraph.prebuilt import create_react_agent
+
+        agent_executor = create_react_agent(llm, tools, messages_modifier=system_message)
+
+        for s in agent_executor.stream(
+            {"messages": [HumanMessage(content="How many reservations do I have?")]}
+        ):
+            print(s)
+            print("----")
+        # Translate the response back to Arabic if the input was in Arabic
+        # if detected_lang == "ar":
+        #     response_translated = translate_text(response.content, src_lang="en", dest_lang="ar")
+        # else:
+        #     response_translated = response.content
+
+        # return response_translated  # Return translated response
+      
+
+    except Exception as e:
+        logger.error(f"Error processing chat: {e}")
+        raise HTTPException(status_code=500, detail=str(e))
+
+
 class ChatRequest(BaseModel):
     input_text: str
     user_id: str
     thread_id: str  # Add thread_id to track different threads
+
+class UserChatRequest(BaseModel):
+    input_text: str
+    user_id: str
 
 @app.post("/chat")
 async def chat_endpoint(request: ChatRequest):
@@ -138,9 +210,15 @@ async def get_chat_history_endpoint(user_id: str, thread_id: str):
     history = get_chat_history(user_id, thread_id)
     return {"user_id": user_id, "thread_id": thread_id, "chat_history": [msg.content for msg in history]}
 
+@app.post("/userchat")
+async def user_chat_endpoint(request: UserChatRequest):
+    response = userchat(request.input_text, request.user_id)
+    return {"answer": response}
+
 if __name__ == "__main__":
     import uvicorn
     uvicorn.run("Employee_chat_script:app", host="0.0.0.0", port=8001, reload=True)
 
 
 #uvicorn Employee_chat_script:app --host 0.0.0.0 --port 8001 --reload
+

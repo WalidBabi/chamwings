@@ -16,8 +16,10 @@ class ChatController extends Controller
 {
     public function sendMessage(Request $request)
     {
-        // dd(Employee::where('employee_id', Auth::guard('user')->id())->exists());
-        if (!Employee::where('employee_id', Auth::guard('user')->id())->exists()) {
+        // dd(Auth::guard('user')->id());
+        // dd(Employee::where('user_id', Auth::guard('user')->id())->exists());
+        if (Employee::where('user_id', Auth::guard('user')->id())->exists()) {
+            dd("Employee");
             $userId = (string) Auth::guard('user')->id();
 
             $inputText = str_replace(BannedWordsHelper::getBannedWords(), '***', $request->input('input_text'));
@@ -103,6 +105,7 @@ class ChatController extends Controller
 
             return response()->json($responsePayload);
         } else {
+            // dd((string) Auth::guard('user')->id());
             $userId = (string) Auth::guard('user')->id();
             $inputText = $request->input('input_text');
 
@@ -111,6 +114,7 @@ class ChatController extends Controller
                 'input_text' => $inputText,
                 'user_id' => $userId,
             ]);
+            // dd('response');
 
             $responseData = $response->json();
             ChatHistory::create([
