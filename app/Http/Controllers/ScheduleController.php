@@ -9,6 +9,7 @@ use App\Models\ScheduleDay;
 use App\Models\ScheduleTime;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Carbon\Carbon;
 
 class ScheduleController extends Controller
 {
@@ -23,11 +24,15 @@ class ScheduleController extends Controller
         ]);
 
         for ($i = 0; $i < count($scheduleRequest->schedule['departure_times']); $i++) {
+            $departureTime = Carbon::parse($scheduleRequest->schedule['departure_times'][$i]);
+            $arrivalTime = Carbon::parse($scheduleRequest->schedule['arrival_times'][$i]);
+            $duration = $departureTime->diffInHours($arrivalTime);
+
             ScheduleTime::create([
                 'schedule_day_id' => $scheduleDay->schedule_day_id,
                 'departure_time' => $scheduleRequest->schedule['departure_times'][$i],
                 'arrival_time' => $scheduleRequest->schedule['arrival_times'][$i],
-                'duration' => $scheduleRequest->schedule['duration'],
+                'duration' => $duration,
             ]);
         }
         Log::create([
@@ -69,13 +74,17 @@ class ScheduleController extends Controller
         $request->validate([
             'departure_time' => 'required',
             'arrival_time' => 'required',
-            'duration' => 'required',
         ]);
+
+        $departureTime = Carbon::parse($request->departure_time);
+        $arrivalTime = Carbon::parse($request->arrival_time);
+        $duration = $departureTime->diffInMinutes($arrivalTime);
+
         $time = ScheduleTime::create([
             'schedule_day_id' => $scheduleDay->schedule_day_id,
             'departure_time' => $request->departure_time,
             'arrival_time' => $request->arrival_time,
-            'duration' => $request->duration,
+            'duration' => $duration,
         ]);
 
         return success($time, 'this time updated successfully');
