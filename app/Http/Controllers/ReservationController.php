@@ -271,7 +271,7 @@ class ReservationController extends Controller
             ->join('schedule_times', 'schedule_days.schedule_day_id', '=', 'schedule_times.schedule_day_id')
             ->join('airplanes', 'flights.airplane_id', '=', 'airplanes.airplane_id')
             ->join('airports as departure_airport', 'flights.departure_airport', '=', 'departure_airport.airport_id')
-            ->join('airports as arrival_airport', 'flights.departure_airport', '=', 'arrival_airport.airport_id')
+            ->join('airports as arrival_airport', 'flights.arrival_airport', '=', 'arrival_airport.airport_id')
             ->join('classes as economy_class', function ($join) {
                 $join->on('airplanes.airplane_id', '=', 'economy_class.airplane_id')
                     ->where('economy_class.class_name', 'Economy');
