@@ -19,7 +19,7 @@ class ChatController extends Controller
         // dd(Auth::guard('user')->id());
         // dd(Employee::where('user_id', Auth::guard('user')->id())->exists());
         if (Employee::where('user_id', Auth::guard('user')->id())->exists()) {
-            dd("Employee");
+            // dd("Employee");
             $userId = (string) Auth::guard('user')->id();
 
             $inputText = str_replace(BannedWordsHelper::getBannedWords(), '***', $request->input('input_text'));
