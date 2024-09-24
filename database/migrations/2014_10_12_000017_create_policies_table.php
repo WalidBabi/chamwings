@@ -14,13 +14,14 @@ return new class extends Migration
     public function up()
     {
         Schema::create('policies', function (Blueprint $table) {
-            $table->id('policy_id');
+            $table->id();
             $table->string('policy_name');
-            $table->string('value');
+            $table->decimal('value', 5, 2);
+            $table->text('description');
             $table->timestamps();
-            $table->softDeletes();
         });
     }
+
 
     /**
      * Reverse the migrations.

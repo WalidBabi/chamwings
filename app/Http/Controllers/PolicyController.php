@@ -16,11 +16,12 @@ class PolicyController extends Controller
     //     return success($policies, null);
     // }
 
-    // //Get Policy Information Function
-    // public function getPolicyInformation(Policy $policy)
-    // {
-    //     return success($policy, null);
-    // }
+    //Get Policy Information Function
+    public function getPolicyInformation(Policy $policy)
+    {
+        $policyInfo = $policy->only(['policy_id', 'policy_name', 'description', 'value']);
+        return success($policyInfo, null);
+    }
 
     // //Edit Policy Value Fucntion
     // public function editPolicy(Policy $policy, Request $request)

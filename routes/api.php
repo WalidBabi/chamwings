@@ -278,6 +278,7 @@ Route::middleware('check-auth')->prefix('/')->group(function () {
 
     Route::middleware(['manage-policies'])->group(function () {
         Route::apiResource('policies', PolicyController::class);
+        Route::get('/get/{policy}', [PolicyController::class, 'getPolicyInformation']);
     });
 });
 
