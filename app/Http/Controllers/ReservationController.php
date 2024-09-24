@@ -408,82 +408,100 @@ class ReservationController extends Controller
     //Add Seats To Reservation Function
     public function addSeats(Reservation $reservation, Request $request)
     {
+        // dd($request);
         $user = Auth::guard('user')->user();
-        // dd($user);
         if ($reservation->status === 'Confirmed') {
             return error('some thing went wrong', 'you cannot add seats to this reservation now', 422);
         }
-
-        $seats = explode(',', $request->seats);
+    
+        foreach($request->outbound_seats as $outbout){
+            
+        }
         $request->validate([
-            'seats' => 'required',
+            'round_trip' => 'required|boolean',
+            'outbound_seats' => 'required|array',
+            'return_seats' => 'required_if:round_trip,1|array',
         ]);
-        // dd($seats);
+       
+        $isRoundTrip = $request->round_trip;
+        // dd($isRoundTrip);
         DB::beginTransaction();
         try {
-            $unavailableSeats = [];
-            $isRoundTrip = $request->round_trip == 1;
-            foreach ($seats as $seatId) {
-                $seat = Seat::lockForUpdate()->find($seatId);
-                $time_id = $isRoundTrip ? $reservation->round_schedule_time_id : $reservation->schedule_time_id;
-
-                $isOccupied = $seat->flightSeat()
-                    ->whereHas('reservation', function ($query) use ($time_id, $isRoundTrip) {
-                        $query->where($isRoundTrip ? 'round_schedule_time_id' : 'schedule_time_id', $time_id);
-                    })
-                    ->where('is_round_flight', $isRoundTrip)
-                    ->exists();
-
-                if ($isOccupied || $seat->checked) {
-                    $unavailableSeats[] = '(' . $seat->seat_number . $seat->row_number . ')';
-                }
-            }
-
-            if (!empty($unavailableSeats)) {
-                DB::rollBack();
-                return error('some thing went wrong', 'Seats ' . implode(', ', $unavailableSeats) . ' not available right now', 422);
-            }
-
-            foreach ($seats as $seatId) {
-                $seat = Seat::lockForUpdate()->find($seatId);
-                if (!$seat) {
-                    throw new \Exception("Seat not found: " . $seatId);
-                }
-
-                // Double-check if the seat is still available
-                $isStillAvailable = !$seat->flightSeat()
-                    ->whereHas('reservation', function ($query) use ($time_id, $isRoundTrip) {
-                        $query->where($isRoundTrip ? 'round_schedule_time_id' : 'schedule_time_id', $time_id);
-                    })
-                    ->where('is_round_flight', $isRoundTrip)
-                    ->exists() && !$seat->checked;
-
-                if (!$isStillAvailable) {
-                    DB::rollBack();
-                    return error('some thing went wrong', 'Seat ' . $seat->seat_number . $seat->row_number . ' was just taken', 422);
-                }
-
-                FlightSeat::create([
-                    'seat_id' => $seatId,
-                    'reservation_id' => $reservation->reservation_id,
-                    'is_round_flight' => $isRoundTrip,
-                ]);
-
-                $seat->update(['checked' => 0]);
+            $this->processSeats($reservation, $request->outbound_seats, false); // Outbound flight
+            if ($isRoundTrip) {
+                $this->processSeats($reservation, $request->return_seats, true); // Return flight
             }
 
             Log::create([
-                'message' => 'Passenger ' . $user->passenger->travelRequirement->first_name . ' ' . $user->passenger->travelRequirement->last_name . ' reserved seats for ' . ($isRoundTrip ? 'return' : 'outbound') . ' flight',
+                'message' => 'Passenger ' . $user->passenger->travelRequirement->first_name . ' ' . $user->passenger->travelRequirement->last_name . ' reserved seats for ' . ($isRoundTrip ? 'outbound and return' : 'outbound') . ' flight',
                 'type' => 'insert',
             ]);
 
             DB::commit();
-            return success($reservation->seats()->where('is_round_flight', $isRoundTrip)->get(), 'these seats added to this reservation successfully', 201);
+            return success($reservation->seats()->get(), 'Seats added to this reservation successfully', 201);
         } catch (\Exception $e) {
             DB::rollBack();
             return error('some thing went wrong', $e->getMessage(), 500);
         }
     }
+
+    private function processSeats(Reservation $reservation, array $seats, bool $isRoundFlight)
+    {
+        $unavailableSeats = [];
+        $time_id = $isRoundFlight ? $reservation->round_schedule_time_id : $reservation->schedule_time_id;
+
+        foreach ($seats as $seatId) {
+            $seat = Seat::lockForUpdate()->find($seatId);
+            if (!$seat) {
+                throw new \Exception("Seat not found: " . $seatId);
+            }
+
+            // Check if the seat is already occupied for the specific flight leg (outbound or return)
+            $isOccupiedForThisLeg = $seat->flightSeat()
+                ->whereHas('reservation', function ($query) use ($time_id, $isRoundFlight) {
+                    $query->where($isRoundFlight ? 'round_schedule_time_id' : 'schedule_time_id', $time_id);
+                })
+                ->where('is_round_flight', $isRoundFlight) // Check if it's booked for this leg
+                ->exists();
+
+            // If the seat is already booked for this flight leg, mark it as unavailable
+            if ($isOccupiedForThisLeg) {
+                $unavailableSeats[] = '(' . $seat->seat_number . $seat->row_number . ')';
+            }
+        }
+
+        // If any seats are unavailable, throw an exception with a list of the unavailable seats
+        if (!empty($unavailableSeats)) {
+            throw new \Exception('Seats ' . implode(', ', $unavailableSeats) . ' not available right now');
+        }
+
+        // Reserve the seats if they are available for the current flight leg
+        foreach ($seats as $seatId) {
+            $seat = Seat::lockForUpdate()->find($seatId);
+
+            // Double-check if the seat is still available for the specific flight leg
+            $isStillAvailableForThisLeg = !$seat->flightSeat()
+                ->whereHas('reservation', function ($query) use ($time_id, $isRoundFlight) {
+                    $query->where($isRoundFlight ? 'round_schedule_time_id' : 'schedule_time_id', $time_id);
+                })
+                ->where('is_round_flight', $isRoundFlight) // Ensure we are checking the right leg
+                ->exists();
+
+            if (!$isStillAvailableForThisLeg) {
+                throw new \Exception('Seat ' . $seat->seat_number . $seat->row_number . ' was just taken for this flight leg.');
+            }
+
+            // Assign seat to the correct flight leg (outbound or return)
+            FlightSeat::create([
+                'seat_id' => $seatId,
+                'reservation_id' => $reservation->reservation_id,
+                'is_round_flight' => $isRoundFlight, // Indicate if it's for the return flight or outbound
+            ]);
+
+            // The 'checked' status in the Seat table could be flight-leg specific, so we do not rely on this here.
+        }
+    }
+
     //Update Reservation Function
     public function updateReservation(Reservation $reservation, UpdateReservationRequest $updateReservationRequest)
     {
