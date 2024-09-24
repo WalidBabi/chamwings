@@ -884,4 +884,44 @@ class ReservationController extends Controller
             return error('An error occurred while fetching checked seats: ' . $e->getMessage(), 500);
         }
     }
+
+    public function getReservedSeats($reservation_id)
+        {
+            try {
+                $reservation = Reservation::findOrFail($reservation_id);
+    
+                $goingFlightSeats = $reservation->flightSeats()
+                    ->with('seat')
+                    ->whereHas('seat', function ($query) {
+                        $query->where('is_round_flight', 0);
+                    })
+                    ->get()
+                    ->pluck('seat');
+    
+                $returnFlightSeats = $reservation->flightSeats()
+                    ->with('seat')
+                    ->whereHas('seat', function ($query) {
+                        $query->where('is_round_flight', 1);
+                    })
+                    ->get()
+                    ->pluck('seat');
+    
+                if ($returnFlightSeats->isEmpty()) {
+                    // One-way trip
+                    return success(['reserved_seats' => $goingFlightSeats], 200);
+                } else {
+                    // Round trip
+                    return success([
+                        'going_seats' => $goingFlightSeats,
+                        'return_seats' => $returnFlightSeats
+                    ], 200);
+                }
+            } catch (\Illuminate\Database\Eloquent\ModelNotFoundException $e) {
+                return error('Reservation not found', 404);
+            } catch (\Exception $e) {
+                return error('An error occurred while fetching reserved seats: ' . $e->getMessage(), 500);
+            }
+        }
+    
+
 }

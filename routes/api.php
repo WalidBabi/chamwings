@@ -237,6 +237,7 @@ Route::middleware('check-auth')->prefix('/')->group(function () {
     
     Route::get('/allseats/{scheduleTime}', [ReservationController::class, 'getAllSeats']);
     Route::get('/checkedseats/{reservationid}', [ReservationController::class, 'getCheckedSeats']);
+    Route::get('/reservedseats/{reservationid}', [ReservationController::class, 'getReservedSeats']);
     Route::prefix('payment')->group(function () {
         Route::get('/index', [StripeController::class, 'index'])->name('index');
         Route::post('/checkout/{reservation}', [StripeController::class, 'checkout']);
