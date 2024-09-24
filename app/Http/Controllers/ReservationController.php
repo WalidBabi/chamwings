@@ -266,7 +266,7 @@ class ReservationController extends Controller
     public function searchWithDates(Request $request)
     {
 
-        
+
         $departureFlightsQuery = Flight::join('schedule_days', 'flights.flight_id', '=', 'schedule_days.flight_id')
             ->join('schedule_times', 'schedule_days.schedule_day_id', '=', 'schedule_times.schedule_day_id')
             ->join('airplanes', 'flights.airplane_id', '=', 'airplanes.airplane_id')
@@ -285,41 +285,41 @@ class ReservationController extends Controller
             ->whereBetween('schedule_days.departure_date', [$request->start_date, $request->end_date])
             ->select(
                 'flights.flight_id',
-                    'flights.airplane_id',
-                    'flights.departure_airport',
-                    'flights.arrival_airport',
-                    'flights.flight_number',
-                    'flights.price',
-                    'flights.departure_terminal',
-                    'flights.arrival_terminal',
-                    'flights.created_at',
-                    'flights.updated_at',
-                    'schedule_days.schedule_day_id',
-                    'schedule_days.departure_date',
-                    'schedule_days.arrival_date',
-                    'schedule_times.schedule_time_id',
-                    'schedule_times.departure_time',
-                    'schedule_times.arrival_time',
-                    'schedule_times.duration',
-                    'airplanes.model',
-                    'airplanes.manufacturer',
-                    'airplanes.range',
-                    'departure_airport.airport_id as departure_airport_id',
-                    'departure_airport.airport_name as departure_airport_name',
-                    'departure_airport.airport_code as departure_airport_code',
-                    'departure_airport.city as departure_city',
-                    'departure_airport.country as departure_country',
-                    'arrival_airport.airport_id as arrival_airport_id',
-                    'arrival_airport.airport_name as arrival_airport_name',
-                    'arrival_airport.airport_code as arrival_airport_code',
-                    'arrival_airport.city as arrival_city',
-                    'arrival_airport.country as arrival_country',
-                    'economy_class.price_rate as economyPrice',
-                    'business_class.price_rate as businessPrice',
-                    'economy_class.weight_allowed as economyWeight',
-                    'economy_class.number_of_meals as economyMeals',
-                    'business_class.weight_allowed as businessWeight',
-                    'business_class.number_of_meals as businessMeals'
+                'flights.airplane_id',
+                'flights.departure_airport',
+                'flights.arrival_airport',
+                'flights.flight_number',
+                'flights.price',
+                'flights.departure_terminal',
+                'flights.arrival_terminal',
+                'flights.created_at',
+                'flights.updated_at',
+                'schedule_days.schedule_day_id',
+                'schedule_days.departure_date',
+                'schedule_days.arrival_date',
+                'schedule_times.schedule_time_id',
+                'schedule_times.departure_time',
+                'schedule_times.arrival_time',
+                'schedule_times.duration',
+                'airplanes.model',
+                'airplanes.manufacturer',
+                'airplanes.range',
+                'departure_airport.airport_id as departure_airport_id',
+                'departure_airport.airport_name as departure_airport_name',
+                'departure_airport.airport_code as departure_airport_code',
+                'departure_airport.city as departure_city',
+                'departure_airport.country as departure_country',
+                'arrival_airport.airport_id as arrival_airport_id',
+                'arrival_airport.airport_name as arrival_airport_name',
+                'arrival_airport.airport_code as arrival_airport_code',
+                'arrival_airport.city as arrival_city',
+                'arrival_airport.country as arrival_country',
+                'economy_class.price_rate as economyPrice',
+                'business_class.price_rate as businessPrice',
+                'economy_class.weight_allowed as economyWeight',
+                'economy_class.number_of_meals as economyMeals',
+                'business_class.weight_allowed as businessWeight',
+                'business_class.number_of_meals as businessMeals'
             );
 
         $departureFlights = $departureFlightsQuery->get();
@@ -409,6 +409,7 @@ class ReservationController extends Controller
     public function addSeats(Reservation $reservation, Request $request)
     {
         $user = Auth::guard('user')->user();
+        // dd($user);
         if ($reservation->status === 'Confirmed') {
             return error('some thing went wrong', 'you cannot add seats to this reservation now', 422);
         }
@@ -417,21 +418,21 @@ class ReservationController extends Controller
         $request->validate([
             'seats' => 'required',
         ]);
-
+        // dd($seats);
         DB::beginTransaction();
         try {
             $unavailableSeats = [];
+            $isRoundTrip = $request->round_trip == 1;
             foreach ($seats as $seatId) {
                 $seat = Seat::lockForUpdate()->find($seatId);
-                $time_id = $request->schedule_time_id;
+                $time_id = $isRoundTrip ? $reservation->round_schedule_time_id : $reservation->schedule_time_id;
 
-                $isOccupied = $request->round_trip
-                    ? $seat->flightSeat()->whereHas('reservation', function ($query) use ($time_id) {
-                        $query->where('round_schedule_time_id', $time_id);
-                    })->exists()
-                    : $seat->flightSeat()->whereHas('reservation', function ($query) use ($time_id) {
-                        $query->where('schedule_time_id', $time_id);
-                    })->exists();
+                $isOccupied = $seat->flightSeat()
+                    ->whereHas('reservation', function ($query) use ($time_id, $isRoundTrip) {
+                        $query->where($isRoundTrip ? 'round_schedule_time_id' : 'schedule_time_id', $time_id);
+                    })
+                    ->where('is_round_flight', $isRoundTrip)
+                    ->exists();
 
                 if ($isOccupied || $seat->checked) {
                     $unavailableSeats[] = '(' . $seat->seat_number . $seat->row_number . ')';
@@ -444,26 +445,43 @@ class ReservationController extends Controller
             }
 
             foreach ($seats as $seatId) {
+                $seat = Seat::lockForUpdate()->find($seatId);
+                if (!$seat) {
+                    throw new \Exception("Seat not found: " . $seatId);
+                }
+
+                // Double-check if the seat is still available
+                $isStillAvailable = !$seat->flightSeat()
+                    ->whereHas('reservation', function ($query) use ($time_id, $isRoundTrip) {
+                        $query->where($isRoundTrip ? 'round_schedule_time_id' : 'schedule_time_id', $time_id);
+                    })
+                    ->where('is_round_flight', $isRoundTrip)
+                    ->exists() && !$seat->checked;
+
+                if (!$isStillAvailable) {
+                    DB::rollBack();
+                    return error('some thing went wrong', 'Seat ' . $seat->seat_number . $seat->row_number . ' was just taken', 422);
+                }
+
                 FlightSeat::create([
                     'seat_id' => $seatId,
                     'reservation_id' => $reservation->reservation_id,
-                    'is_round_flight' => $request->round_trip,
+                    'is_round_flight' => $isRoundTrip,
                 ]);
 
-                $seat = Seat::find($seatId);
-                $seat->update(['checked' => 1]);
+                $seat->update(['checked' => 0]);
             }
 
             Log::create([
-                'message' => 'Passenger ' . $user->passenger->travelRequirement->first_name . ' ' . $user->passenger->travelRequirement->last_name . ' reserved seats',
+                'message' => 'Passenger ' . $user->passenger->travelRequirement->first_name . ' ' . $user->passenger->travelRequirement->last_name . ' reserved seats for ' . ($isRoundTrip ? 'return' : 'outbound') . ' flight',
                 'type' => 'insert',
             ]);
 
             DB::commit();
-            return success($reservation->seats, 'these seats added to this reservation successfully', 201);
+            return success($reservation->seats()->where('is_round_flight', $isRoundTrip)->get(), 'these seats added to this reservation successfully', 201);
         } catch (\Exception $e) {
             DB::rollBack();
-            return error('some thing went wrong', 'An error occurred while reserving seats', 500);
+            return error('some thing went wrong', $e->getMessage(), 500);
         }
     }
     //Update Reservation Function
