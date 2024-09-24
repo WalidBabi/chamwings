@@ -63,7 +63,7 @@ class StripeController extends Controller
         $price = $price - $price * $discount / 100;
 
         // Apply seat scarcity surcharge
-        $price = PolicyHelper::applySeatScarcitySurcharge($reservation, $price);
+        // $price = PolicyHelper::applySeatScarcitySurcharge($reservation, $price);
 
         \Stripe\Stripe::setApiKey(env('STRIPE_SECRET'));
         $session = \Stripe\Checkout\Session::create([
@@ -84,7 +84,7 @@ class StripeController extends Controller
             'cancel_url' => route('index'),
         ]);
 
-        return redirect()->away($session->url);
+        return response()->json(['url' => $session->url]);
     }
 
     public function success(Reservation $reservation)
