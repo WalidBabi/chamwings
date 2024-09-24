@@ -405,6 +405,7 @@ class ReservationController extends Controller
         ]);
         return success($reservation->with('time')->find($reservation->reservation_id), 'this reservation created successfully', 201);
     }
+
     //Add Seats To Reservation Function
     public function addSeats(Reservation $reservation, Request $request)
     {
@@ -413,16 +414,15 @@ class ReservationController extends Controller
         if ($reservation->status === 'Confirmed') {
             return error('some thing went wrong', 'you cannot add seats to this reservation now', 422);
         }
-    
-        foreach($request->outbound_seats as $outbout){
-            
+
+        foreach ($request->outbound_seats as $outbout) {
         }
         $request->validate([
             'round_trip' => 'required|boolean',
             'outbound_seats' => 'required|array',
             'return_seats' => 'required_if:round_trip,1|array',
         ]);
-       
+
         $isRoundTrip = $request->round_trip;
         // dd($isRoundTrip);
         DB::beginTransaction();
@@ -444,6 +444,47 @@ class ReservationController extends Controller
             return error('some thing went wrong', $e->getMessage(), 500);
         }
     }
+
+    public function updateSeats(Reservation $reservation, Request $request)
+    {
+        $user = Auth::guard('user')->user();
+        if ($reservation->status === 'Confirmed') {
+            return error('some thing went wrong', 'you cannot update seats for this reservation now', 422);
+        }
+
+        $request->validate([
+            'round_trip' => 'required|boolean',
+            'outbound_seats' => 'required|array',
+            'return_seats' => 'required_if:round_trip,1|array',
+        ]);
+
+        $isRoundTrip = $request->round_trip;
+
+        DB::beginTransaction();
+        try {
+            // Delete existing FlightSeat records for this reservation
+            $reservation->flightSeats()->delete();
+
+            // Process new seats
+            $this->processSeats($reservation, $request->outbound_seats, false); // Outbound flight
+            if ($isRoundTrip) {
+                $this->processSeats($reservation, $request->return_seats, true); // Return flight
+            }
+
+            Log::create([
+                'message' => 'Passenger ' . $user->passenger->travelRequirement->first_name . ' ' . $user->passenger->travelRequirement->last_name . ' updated seats for ' . ($isRoundTrip ? 'outbound and return' : 'outbound') . ' flight',
+                'type' => 'update',
+            ]);
+
+            DB::commit();
+            return success($reservation->seats()->get(), 'Seats updated for this reservation successfully', 200);
+        } catch (\Exception $e) {
+            DB::rollBack();
+            return error('some thing went wrong', $e->getMessage(), 500);
+        }
+    }
+
+
 
     private function processSeats(Reservation $reservation, array $seats, bool $isRoundFlight)
     {
@@ -531,64 +572,6 @@ class ReservationController extends Controller
             'type' => 'update',
         ]);
         return success(null, 'this reservation updated successfully');
-    }
-
-    //Update Seat Reservation Function
-    public function updateSeats(Reservation $reservation, Request $request)
-    {
-        $user = Auth::guard('user')->user();
-        if ($reservation->status === 'Confirmed') {
-            return error('some thing went wrong', 'you cannot update seats of this reservation now', 422);
-        }
-        $seats = explode(',', $request->seats);
-        $request->validate([
-            'seats' => 'required',
-        ]);
-
-
-        $checked = '';
-        foreach ($seats as $seat) {
-            $seat = Seat::find($seat);
-            $reserved_seats = $reservation->flightSeats->where('seat_id', $seats)->first();
-            $time_id = $request->schedule_time_id;
-            if ($request->round_trip) {
-                $check_seat = $seat->flightSeat()->whereHas('reservation', function ($query) use ($time_id) {
-                    $query->where('round_schedule_time_id', $time_id);
-                })->get();
-            } else {
-                $check_seat = $seat->flightSeat()->whereHas('reservation', function ($query) use ($time_id) {
-                    $query->where('schedule_time_id', $time_id);
-                })->get();
-            }
-            if ($check_seat != '[]' && !$reserved_seats) {
-                $checked .= '(' . $seat->seat_number . $seat->row_number . ') ';
-            }
-        }
-
-        if ($checked) {
-            return error('some thing went wrong', 'Seats ' . $checked . 'not available right now', 422);
-        }
-        foreach ($seats as $seat) {
-            if ($reservation->flightSeats->where('seat_id', $seat)->first()) {
-                continue;
-            }
-            FlightSeat::create([
-                'seat_id' => $seat,
-                'reservation_id' => $reservation->reservation_id,
-                'is_round_flight' => $request->round_trip,
-            ]);
-            return 1;
-            $seat = Seat::find($seat);
-            $seat->update([
-                'checked' => 1,
-            ]);
-            $reservation->flightSeats->where('seat_id', $seat)->first()->delete();
-        }
-        Log::create([
-            'message' => 'Passenger ' . $user->passenger->travelRequirement->first_name . ' ' . $user->passenger->travelRequirement->last_name . ' updated its reserved seats',
-            'type' => 'update',
-        ]);
-        return success(null, 'this reservation seats updated successfully');
     }
 
     //Update Companions Reservation Function
@@ -886,42 +869,40 @@ class ReservationController extends Controller
     }
 
     public function getReservedSeats($reservation_id)
-        {
-            try {
-                $reservation = Reservation::findOrFail($reservation_id);
-    
-                $goingFlightSeats = $reservation->flightSeats()
-                    ->with('seat')
-                    ->whereHas('seat', function ($query) {
-                        $query->where('is_round_flight', 0);
-                    })
-                    ->get()
-                    ->pluck('seat');
-    
-                $returnFlightSeats = $reservation->flightSeats()
-                    ->with('seat')
-                    ->whereHas('seat', function ($query) {
-                        $query->where('is_round_flight', 1);
-                    })
-                    ->get()
-                    ->pluck('seat');
-    
-                if ($returnFlightSeats->isEmpty()) {
-                    // One-way trip
-                    return success(['reserved_seats' => $goingFlightSeats], 200);
-                } else {
-                    // Round trip
-                    return success([
-                        'going_seats' => $goingFlightSeats,
-                        'return_seats' => $returnFlightSeats
-                    ], 200);
-                }
-            } catch (\Illuminate\Database\Eloquent\ModelNotFoundException $e) {
-                return error('Reservation not found', 404);
-            } catch (\Exception $e) {
-                return error('An error occurred while fetching reserved seats: ' . $e->getMessage(), 500);
-            }
-        }
-    
+    {
+        try {
+            $reservation = Reservation::findOrFail($reservation_id);
 
+            $goingFlightSeats = $reservation->flightSeats()
+                ->with('seat')
+                ->whereHas('seat', function ($query) {
+                    $query->where('is_round_flight', 0);
+                })
+                ->get()
+                ->pluck('seat');
+
+            $returnFlightSeats = $reservation->flightSeats()
+                ->with('seat')
+                ->whereHas('seat', function ($query) {
+                    $query->where('is_round_flight', 1);
+                })
+                ->get()
+                ->pluck('seat');
+
+            if ($returnFlightSeats->isEmpty()) {
+                // One-way trip
+                return success(['reserved_seats' => $goingFlightSeats], 200);
+            } else {
+                // Round trip
+                return success([
+                    'going_seats' => $goingFlightSeats,
+                    'return_seats' => $returnFlightSeats
+                ], 200);
+            }
+        } catch (\Illuminate\Database\Eloquent\ModelNotFoundException $e) {
+            return error('Reservation not found', 404);
+        } catch (\Exception $e) {
+            return error('An error occurred while fetching reserved seats: ' . $e->getMessage(), 500);
+        }
+    }
 }
