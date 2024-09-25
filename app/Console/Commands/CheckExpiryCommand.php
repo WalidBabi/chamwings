@@ -28,6 +28,7 @@ class CheckExpiryCommand extends Command
      */
     public function handle()
     {
-        ReservationController::checkExpiry();
+        $reservationController = new ReservationController();
+        $reservationController->checkExpiry();
     }
 }
