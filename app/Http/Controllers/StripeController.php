@@ -22,6 +22,8 @@ class StripeController extends Controller
 
     public function checkout(Reservation $reservation)
     {
+        $user = Auth::guard('user')->user();
+        
         if ($reservation->status === 'Cancelled') {
             return error('some thing went wrong', 'this reservation cancelled before', 422);
         } else if ($reservation->status === 'Ended') {
@@ -80,16 +82,16 @@ class StripeController extends Controller
                 ],
             ],
             'mode' => 'payment',
-            'success_url' => route('success', $reservation->reservation_id),
+            'success_url' => route('success', [$reservation->reservation_id,$user]),
             'cancel_url' => route('index'),
         ]);
 
         return response()->json(['url' => $session->url]);
     }
 
-    public function success(Reservation $reservation)
+    public function success(Reservation $reservation , $user)
     {
-        $user = Auth::guard('user')->user();
+        // $user = Auth::guard('user')->user();
         $reservation->update([
             'status' => 'Confirmed'
         ]);
