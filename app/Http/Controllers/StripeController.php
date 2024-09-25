@@ -119,8 +119,12 @@ class StripeController extends Controller
             'message' => 'Passenger ' . $user->passenger->travelRequirement->first_name . ' ' . $user->passenger->travelRequirement->last_name . ' confirmed his reservation',
             'type' => 'insert',
         ]);
-    
-        return redirect('http://localhost:3000/my_reservations')->with('preventHistory', true);
+
+            return redirect('http://localhost:3000/my_reservations')->with([
+                'Cache-Control' => 'no-cache, no-store, must-revalidate',
+                'Pragma' => 'no-cache',
+                'Expires' => '0'
+            ]);
     }
     
 
