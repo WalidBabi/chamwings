@@ -683,7 +683,7 @@ class ReservationController extends Controller
 
         foreach ($reservations as $reservation) {
             $date = $reservation->created_at;
-            $expiry_date = $date->addMinute();
+            $expiry_date = $date->addMinutes(5);
 
             if (Carbon::now() > $expiry_date && $reservation->status != 'Confirmed' && Carbon::now() < $reservation->time->day->departure_date) {
                 foreach ($reservation->flightSeats as $seat) {
