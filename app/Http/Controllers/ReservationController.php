@@ -609,7 +609,7 @@ class ReservationController extends Controller
     //Get User Reservations Function
     public function getUserReservations()
     {
-        $reservations = Auth::guard('user')->user()->passenger->reservations()->with('flight', 'seats')->paginate(15);
+        $reservations = Auth::guard('user')->user()->passenger->reservations()->with('flight', 'seats')->orderBy('reservation_id', 'desc')->paginate(15);
         $data = [
             'data' => $reservations->items(),
             'total' => $reservations->total(),
