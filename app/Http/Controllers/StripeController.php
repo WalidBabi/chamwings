@@ -168,7 +168,7 @@ class StripeController extends Controller
         }
 
         $cost = PolicyHelper::applyPolicies($reservation, $cost);
-        Stripe::setApiKey(config('stripe.sk'));
+        Stripe::setApiKey(env('STRIPE_SECRET'));
         $charge = Charge::create([
             'amount' => $cost,
             'currency' => 'usd',
