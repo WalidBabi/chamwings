@@ -22,8 +22,6 @@ class StripeController extends Controller
 
     public function checkout(Reservation $reservation)
     {
-        $user = Auth::guard('user')->user();
-        
         if ($reservation->status === 'Cancelled') {
             return error('some thing went wrong', 'this reservation cancelled before', 422);
         } else if ($reservation->status === 'Ended') {
@@ -67,6 +65,11 @@ class StripeController extends Controller
         // Apply seat scarcity surcharge
         // $price = PolicyHelper::applySeatScarcitySurcharge($reservation, $price);
 
+        $user = Auth::guard('user')->user();
+        $token = $user->createToken('auth-token')->plainTextToken;
+    
+        // dd($token);
+        // dd($token);
         \Stripe\Stripe::setApiKey(env('STRIPE_SECRET'));
         $session = \Stripe\Checkout\Session::create([
             'line_items' => [
@@ -82,25 +85,44 @@ class StripeController extends Controller
                 ],
             ],
             'mode' => 'payment',
-            'success_url' => route('success', [$reservation->reservation_id,$user]),
+            'success_url' => route('success', [
+                'reservation' => $reservation->reservation_id,
+                'token' => $token
+            ]),
+
             'cancel_url' => route('index'),
         ]);
 
         return response()->json(['url' => $session->url]);
     }
 
-    public function success(Reservation $reservation , $user)
+    public function success(Request $request, Reservation $reservation)
     {
-        // $user = Auth::guard('user')->user();
+        $token = $request->query('token');
+        if (!$token) {
+            return error('Authentication failed', 'Token not provided', 401);
+        }
+    
+        $tokenModel = \Laravel\Sanctum\PersonalAccessToken::findToken($token);
+        if (!$tokenModel) {
+            return error('Authentication failed', 'Invalid token', 401);
+        }
+    
+        $user = $tokenModel->tokenable;
+        Auth::login($user);
+    
         $reservation->update([
             'status' => 'Confirmed'
         ]);
+    
         Log::create([
             'message' => 'Passenger ' . $user->passenger->travelRequirement->first_name . ' ' . $user->passenger->travelRequirement->last_name . ' confirmed his reservation',
             'type' => 'insert',
         ]);
-        return success($reservation, 'Payment Completed Successfully');
+    
+        return redirect('http://localhost:3000/my_reservations');
     }
+    
 
     //Cancel Reservation Function
     public function cancelReservation(Reservation $reservation)

@@ -54,7 +54,7 @@ Route::get('/airports', [AirportController::class, 'getAirports']);
 Route::get('/airportsforreservation', [AirportController::class, 'getAirportsForReservation']);
 
 Route::get('/passenger_companions_details', [ReservationController::class, 'getPassengerCompanionsDetails']);
-
+Route::get('/payment/success/{reservation}', [StripeController::class, 'success'])->name('success');
 Route::middleware('check-auth')->prefix('/')->group(function () {
     Route::get('/', [AuthenticationController::class, 'profile']);
     Route::post('/', [AuthenticationController::class, 'updateProfile']);
@@ -241,7 +241,7 @@ Route::middleware('check-auth')->prefix('/')->group(function () {
     Route::prefix('payment')->group(function () {
         Route::get('/index', [StripeController::class, 'index'])->name('index');
         Route::post('/checkout/{reservation}', [StripeController::class, 'checkout']);
-        Route::get('/success/{reservation}', [StripeController::class, 'success'])->name('success');
+     
     });
 
     Route::prefix('questions')->group(function () {
