@@ -120,7 +120,7 @@ class StripeController extends Controller
             'type' => 'insert',
         ]);
     
-        return redirect('http://localhost:3000/my_reservations');
+        return redirect('http://localhost:3000/my_reservations')->with('preventHistory', true);
     }
     
 
