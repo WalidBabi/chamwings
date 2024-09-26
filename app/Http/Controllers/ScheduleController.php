@@ -24,9 +24,9 @@ class ScheduleController extends Controller
         ]);
 
         for ($i = 0; $i < count($scheduleRequest->schedule['departure_times']); $i++) {
-            $departureTime = Carbon::parse($scheduleRequest->schedule['departure_times'][$i]);
-            $arrivalTime = Carbon::parse($scheduleRequest->schedule['arrival_times'][$i]);
-            $duration = $departureTime->diffInHours($arrivalTime);
+            $departureDateTime = Carbon::parse($scheduleRequest->schedule['departure_date'] . ' ' . $scheduleRequest->schedule['departure_times'][$i]);
+            $arrivalDateTime = Carbon::parse($scheduleRequest->schedule['arrival_date'] . ' ' . $scheduleRequest->schedule['arrival_times'][$i]);
+            $duration = $departureDateTime->diffInHours($arrivalDateTime);
 
             ScheduleTime::create([
                 'schedule_day_id' => $scheduleDay->schedule_day_id,
