@@ -25,7 +25,7 @@ class Kernel extends ConsoleKernel
     {
         $schedule->command('check:expiry')->everyMinute();
         $schedule->command('add:days')->cron('0 0 */14 * *');
-        $schedule->job(new CheckOverdueFlightsJob)->everySecond();
+        $schedule->job(new CheckOverdueFlightsJob)->everyMinute();
         $schedule->command('delete:code')->everyFifteenMinutes();
         $schedule->command('segmentation:run')
         ->daily()
