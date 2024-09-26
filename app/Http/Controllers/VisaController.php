@@ -116,6 +116,7 @@ class VisaController extends Controller
             'data' => collect($visas->items())->map(function ($visa) {
                 return [
                     'visainfo_id' => $visa->visainfo_id,
+                    'visa_and_residence' => $visa->visa_and_residence,
                     'departure_airport' => [
                         'id' => $visa->departureVisa->id,
                         'airport_name' => $visa->departureVisa->airport_name,
