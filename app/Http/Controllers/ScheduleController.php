@@ -75,10 +75,22 @@ class ScheduleController extends Controller
             'departure_time' => 'required',
             'arrival_time' => 'required',
         ]);
+        
+        $scheduleDayId = ScheduleDay::find($scheduleDay->schedule_day_id);
+      
+        $departureDate = $scheduleDayId->departure_date;
+        $arrivalDate = $scheduleDayId->arrival_date;        
 
-        $departureTime = Carbon::parse($request->departure_time);
-        $arrivalTime = Carbon::parse($request->arrival_time);
-        $duration = $departureTime->diffInMinutes($arrivalTime);
+        $departureDateTime = Carbon::parse($departureDate . ' ' . $request->departure_time);
+        $arrivalDateTime = Carbon::parse($arrivalDate . ' ' .  $request->arrival_time);
+        
+        $duration = $departureDateTime->diffInHours($arrivalDateTime);
+        // dd($duration);
+
+
+        // $departureTime = Carbon::parse($request->departure_time);
+        // $arrivalTime = Carbon::parse($request->arrival_time);
+        // $duration = $departureTime->diffInHours($arrivalTime);
 
         $time = ScheduleTime::create([
             'schedule_day_id' => $scheduleDay->schedule_day_id,
