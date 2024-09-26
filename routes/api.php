@@ -56,6 +56,7 @@ Route::get('/airportsforreservation', [AirportController::class, 'getAirportsFor
 Route::get('/passenger_companions_details', [ReservationController::class, 'getPassengerCompanionsDetails']);
 Route::get('/payment/success/{reservation}', [StripeController::class, 'success'])->name('success');
 Route::get('/getuseroffer', [OfferController::class, 'getuserOffers']);
+Route::get('/getallvisa',[VisaController::class,'getAllVisas']);
 Route::middleware('check-auth')->prefix('/')->group(function () {
     Route::get('/', [AuthenticationController::class, 'profile']);
     Route::post('/', [AuthenticationController::class, 'updateProfile']);
@@ -265,7 +266,7 @@ Route::middleware('check-auth')->prefix('/')->group(function () {
             Route::get('/{visa}', [VisaController::class, 'getVisaInformation']);
         });
     });
-    Route::get('/getallvisa',[VisaController::class,'getAllVisas']);
+   
 
     Route::middleware('admin-auth')->prefix('logs')->group(function () {
         Route::get('/', [LogController::class, 'getLogs']);
