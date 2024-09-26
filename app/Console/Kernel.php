@@ -4,6 +4,7 @@ namespace App\Console;
 
 use App\Http\Controllers\FlightController;
 use App\Http\Controllers\ReservationController;
+use App\Jobs\CheckOverdueFlightsJob;
 use Illuminate\Console\Scheduling\Schedule;
 use Illuminate\Foundation\Console\Kernel as ConsoleKernel;
 use Illuminate\Support\Facades\Cache;
@@ -24,7 +25,7 @@ class Kernel extends ConsoleKernel
     {
         $schedule->command('check:expiry')->everyMinute();
         $schedule->command('add:days')->cron('0 0 */14 * *');
-
+        $schedule->job(new CheckOverdueFlightsJob)->everySecond();
         $schedule->command('delete:code')->everyFifteenMinutes();
         $schedule->command('segmentation:run')
         ->daily()
