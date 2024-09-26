@@ -52,4 +52,5 @@ class GenerateFlightRecommendations extends Command
         ];
         DB::table('flight_recommendations')->insert($flight_recommendations);
     }
+    
 }

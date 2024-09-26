@@ -17,6 +17,7 @@ class FlightRecommendationController extends Controller
         // Verify the passengerID
         // dd((int)$passengerID);
         // dd($country);
+        
         $passengerID = (int)$passengerID;
         // Check if the passenger exists
         $passenger = Passenger::where('passenger_id', (int)$passengerID)->first();

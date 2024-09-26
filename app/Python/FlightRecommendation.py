@@ -275,3 +275,4 @@ if __name__ == "__main__":
         }
         sys.stderr.write(json.dumps(error_response))
         sys.exit(1)
+        
