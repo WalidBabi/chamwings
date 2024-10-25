@@ -2,4 +2,4 @@ This project is a renewal of the current Cham Wings Airlines website. It provide
 
 For employees, there are interfaces for managing bookings, airports, and aircraft, along with a voice search service. Lastly, the system administrator has an interface for managing employees and their permissions.
 
-This system differs from the previous version by offering additional values such as personal accounts, trip suggestions for users, an automated responder, and statistics for employees.
+This system differs from the previous version by offering additional values such as personal accounts, trip suggestions for users, a RAG (Retrieval Augmented Generation) Chatbot, and statistics for employees.
